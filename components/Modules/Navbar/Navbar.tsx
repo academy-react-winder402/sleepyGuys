@@ -2,10 +2,11 @@ import Image from "next/image";
 import React from "react";
 import navbarLogo from "@/public/icons/logo/navbarLogo.svg";
 import Link from "next/link";
+import { Avatar, AvatarIcon } from "@nextui-org/avatar";
 
 function Navbar() {
   return (
-    <nav>
+    <nav className="flex items-center justify-between">
       <div className="flex items-center gap-x-6">
         <Image src={navbarLogo} alt="" width={45} height={22} />
         <ul className="flex items-center gap-x-8">
@@ -26,6 +27,7 @@ function Navbar() {
           </li>
         </ul>
       </div>
+      <Avatar />
     </nav>
   );
 }
