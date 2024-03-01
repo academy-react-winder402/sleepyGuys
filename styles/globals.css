@@ -14,3 +14,10 @@
   font-family: vazir;
   src: url(../public/fonts/vazir.ttf);
 }
+
+p {
+  font-family: vazir;
+}
+a {
+  font-family: vazir;
+}
