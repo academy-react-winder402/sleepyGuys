@@ -15,10 +15,6 @@
   src: url(../public/fonts/vazir.ttf);
 }
 
-body {
-  background-color: #f3f4f6;
-  height: 100dvh;
-}
 p {
   font-family: vazir;
 }
