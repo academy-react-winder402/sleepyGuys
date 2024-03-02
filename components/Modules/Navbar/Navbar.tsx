@@ -17,11 +17,20 @@ import moonIcon from "@/public/icons/theme/moon.svg";
 import sunIcon from "@/public/icons/theme/sun.svg";
 import accountPopoverItems from "@/constants/accountPopoverItems";
 import { useRouter } from "next/router";
+import { useTheme } from "next-themes";
 
 function Navbar() {
-  const [isSelected, setIsSelected] = useState(true);
+  const { theme, setTheme } = useTheme();
 
   const router = useRouter();
+
+  const changeThemeHandler = () => {
+    if (Object.is(theme, "light")) {
+      setTheme("dark");
+    } else {
+      setTheme("light");
+    }
+  };
 
   return (
     <nav className="flex items-center justify-between">
@@ -47,8 +56,8 @@ function Navbar() {
       </div>
       <div className="flex flex-row-reverse items-center gap-x-2" dir="ltr">
         <Switch
-          isSelected={isSelected}
-          onValueChange={setIsSelected}
+          defaultSelected
+          onValueChange={changeThemeHandler}
           size="lg"
           color="default"
           thumbIcon={({ isSelected }) =>
