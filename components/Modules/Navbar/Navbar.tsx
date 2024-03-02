@@ -3,12 +3,25 @@ import React, { useState } from "react";
 import navbarLogo from "@/public/icons/logo/navbarLogo.svg";
 import Link from "next/link";
 import { Avatar, AvatarIcon } from "@nextui-org/avatar";
-import { Switch } from "@nextui-org/react";
+import {
+  Button,
+  Divider,
+  Listbox,
+  ListboxItem,
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+  Switch,
+} from "@nextui-org/react";
 import moonIcon from "@/public/icons/theme/moon.svg";
 import sunIcon from "@/public/icons/theme/sun.svg";
+import accountPopoverItems from "@/constants/accountPopoverItems";
+import { useRouter } from "next/router";
 
 function Navbar() {
   const [isSelected, setIsSelected] = useState(true);
+
+  const router = useRouter();
 
   return (
     <nav className="flex items-center justify-between">
@@ -46,13 +59,47 @@ function Navbar() {
             )
           }
         />
-        <Avatar
-          icon={<AvatarIcon />}
-          classNames={{
-            base: "bg-[#436E8E]",
-            icon: "text-white",
-          }}
-        />
+        <Popover offset={15} placement="bottom-start" backdrop={"blur"}>
+          <PopoverTrigger>
+            <Avatar
+              icon={<AvatarIcon />}
+              classNames={{
+                base: "bg-[#436E8E]",
+                icon: "text-white",
+              }}
+            />
+          </PopoverTrigger>
+          <PopoverContent className="w-[340px] items-start rounded-tl-none p-6">
+            <div className="flex items-center gap-x-4">
+              <Avatar
+                icon={<AvatarIcon />}
+                size="lg"
+                classNames={{
+                  base: "bg-[#436E8E]",
+                  icon: "text-white",
+                }}
+              />
+              <div>
+                <p className="text-lg mb-1">آرمان غنی زاده</p>
+                <p className="text-xs">موجودی : ۰ تومان</p>
+              </div>
+            </div>
+            <Divider className="my-3" />
+            <div className="w-full flex flex-col">
+              <Listbox onAction={(key) => router.push(`/${key}`)}>
+                {accountPopoverItems.map((item) => (
+                  <ListboxItem key={item.route} className="py-4">
+                    <p>{item.label}</p>
+                  </ListboxItem>
+                ))}
+              </Listbox>
+              <Divider className="my-4" />
+              <Button color="danger" variant="flat">
+                <p>خروج از حساب کاربری</p>
+              </Button>
+            </div>
+          </PopoverContent>
+        </Popover>
       </div>
     </nav>
   );
