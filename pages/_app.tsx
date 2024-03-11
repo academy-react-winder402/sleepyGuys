@@ -8,7 +8,7 @@ export default function App({ Component, pageProps }: AppProps) {
   return (
     <NextUIProvider>
       <NextThemesProvider attribute="class" defaultTheme="light">
-        <div className="container pt-8">
+        <div className="pt-8 sm:mx-8 lg:mx-20 relative">
           <Navbar />
           <Component {...pageProps} />
         </div>

@@ -9,6 +9,23 @@ const config: Config = {
     "./node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
+    screens: {
+      'xs': '500px',
+      'sm': '640px',
+      // => @media (min-width: 640px) { ... }
+
+      'md': '768px',
+      // => @media (min-width: 768px) { ... }
+
+      'lg': '1024px',
+      // => @media (min-width: 1024px) { ... }
+
+      'xl': '1280px',
+      // => @media (min-width: 1280px) { ... }
+
+      '2xl': '1536px',
+      // => @media (min-width: 1536px) { ... }
+    },
     container: {
       center: true,
       padding: "50px",
@@ -19,6 +36,36 @@ const config: Config = {
         kalamehBlack: ["kalamehBlack"],
         vazir: ["vazir"],
       },
+      colors: {
+        primary: {
+          DEFAULT: "#436E8E", // Base color
+          lighter: "#6088A8", // Lighter shade
+          darker: "#2D526E", // Darker shade
+        },
+        white: {
+          100: "#FFFFFF",
+          200: "#F7F7F7",
+          300: "#F0F0F0",
+          400: "#E0E0E0",
+          500: "#BDBDBD",
+          600: "#9E9E9E",
+          700: "#757575",
+          800: "#616161",
+          900: "#424242",
+        },
+        // Multiple shades of black
+        black: {
+          100: "#000000",
+          200: "#1A1A1A",
+          300: "#333333",
+          400: "#4D4D4D",
+          500: "#666666",
+          600: "#808080",
+          700: "#999999",
+          800: "#B3B3B3",
+          900: "#CCCCCC",
+        },
+      },
     },
   },
   darkMode: "class",
@@ -28,10 +75,12 @@ const config: Config = {
         dark: {
           colors: {
             background: "#1c1c27",
+            primary: "#436E8E",
           },
         },
       },
     }),
   ],
 };
+
 export default config;
