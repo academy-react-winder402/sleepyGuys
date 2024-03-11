@@ -20,4 +20,14 @@ p {
 }
 a {
   font-family: vazir;
+  background: rgba(0, 0, 0, 0);
 }
+
+/* .phoneNav {
+  height: 100px;
+  width: 100%;
+  background: url("../public/icons/theme/Rectangle 1phoneNavbar.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+} */
