@@ -1,29 +1,17 @@
 import React from "react";
 import Image from "next/image";
-import {
-  Switch,
-  useSwitch,
-  VisuallyHidden,
-  SwitchProps,
-} from "@nextui-org/react";
+import { useSwitch, VisuallyHidden, SwitchProps } from "@nextui-org/react";
 import { useTheme } from "next-themes";
 import moonIcon from "@/public/icons/theme/moon.svg";
 import sunIcon from "@/public/icons/theme/sun.svg";
 
 const ThemeSwitch = (props: SwitchProps) => {
-  const {
-    Component,
-    slots,
-    isSelected,
-    getBaseProps,
-    getInputProps,
-    getWrapperProps,
-  } = useSwitch(props);
+  const { Component, isSelected, getBaseProps, getInputProps } =
+    useSwitch(props);
 
   const { theme, setTheme } = useTheme();
 
   const changeThemeHandler = (): void => {
-    console.log(Object.is(theme, "light"));
     if (Object.is(theme, "light")) {
       setTheme("dark");
     } else {
@@ -64,6 +52,4 @@ const ThemeSwitch = (props: SwitchProps) => {
   );
 };
 
-export default function App() {
-  return <ThemeSwitch />;
-}
+export default ThemeSwitch;

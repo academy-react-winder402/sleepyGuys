@@ -1,39 +1,31 @@
 import Image from "next/image";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import navbarLogo from "@/public/icons/logo/navbarLogo.svg";
 import Link from "next/link";
-import { Avatar, AvatarIcon } from "@nextui-org/avatar";
 import {
-  Button,
   Divider,
   Listbox,
   ListboxItem,
   Popover,
   PopoverContent,
   PopoverTrigger,
-  Switch,
 } from "@nextui-org/react";
 import logout from "@/public/icons/theme/logout.svg";
 import userIcon from "@/public/icons/theme/user.svg";
-import accountPopoverItems from "@/api/accountPopoverItems";
+import accountPopoverItems from "@/constants/accountPopoverItems";
 import { useRouter } from "next/router";
 import ThemeSwitch from "@/components/Modules/Navbar/theme";
 import { usePathname } from "next/navigation";
-import mainRoutes1 from "@/api/fakeApi";
 import NavbarInPhone from "./NavbarInPhone";
-
-interface Route {
-  name: string;
-  href: string;
-}
+import navbarRoutesItems from "@/constants/navbarRoutesItems";
 
 function Navbar() {
-  const [windowWidth, setWindowWidth] = useState<number>(1000);
-  const [mainRoutse, setMainRoutse] = useState<Route[]>(mainRoutes1);
+  // " Ino chhera gozashti? "
+  // const [windowWidth, setWindowWidth] = useState<number>(1000);
 
-  useEffect(() => {
-    setWindowWidth(typeof window !== "undefined" ? window.innerWidth : 0);
-  }, [typeof window !== "undefined" ? window.innerWidth : 0]);
+  // useEffect(() => {
+  //   setWindowWidth(typeof window !== "undefined" ? window.innerWidth : 0);
+  // }, [typeof window !== "undefined" ? window.innerWidth : 0]);
 
   const router = useRouter();
 
@@ -45,7 +37,7 @@ function Navbar() {
         <div className="flex items-center gap-x-10">
           <Image src={navbarLogo} alt="" width={55} height={25} />
           <ul className="flex items-center sm:gap-x-5 lg:gap-x-6 text-1xl">
-            {mainRoutse.map((route, index) => {
+            {navbarRoutesItems.map((route, index) => {
               const isActive = pathname.includes(route.href);
               return (
                 <li
@@ -125,8 +117,8 @@ function Navbar() {
           </Popover>
         </div>
       </nav>
-      <nav className="flex justify-center sm:hidden fixed bottom-3 px-3 w-full"> 
-        <NavbarInPhone mainRoutse={mainRoutse} />
+      <nav className="flex justify-center sm:hidden fixed bottom-3 px-3 w-full">
+        <NavbarInPhone mainRoutes={navbarRoutesItems} />
       </nav>
     </>
   );

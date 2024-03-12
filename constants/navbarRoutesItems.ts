@@ -3,7 +3,9 @@ import courses from "@/public/icons/theme/phoneMode/courses.svg";
 import teachers from "@/public/icons/theme/phoneMode/teachers.svg";
 import contact from "@/public/icons/theme/phoneMode/contact.svg";
 import news from "@/public/icons/theme/phoneMode/news.svg";
-const mainRoutes: { name: string; href: string }[] = [
+import { NavbarRouteItem } from "@/types/navbarRouteItems";
+
+const navbarRoutesItems: NavbarRouteItem[] = [
   { name: "خانه", href: "/", icon: dashboard },
   { name: "دوره ها", href: "/courses", icon: courses },
   { name: "اساتید", href: "/teachers", icon: teachers },
@@ -11,4 +13,4 @@ const mainRoutes: { name: string; href: string }[] = [
   { name: "اخبار", href: "/blogs", icon: contact },
 ];
 
-export default mainRoutes;
+export default navbarRoutesItems;

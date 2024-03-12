@@ -3,24 +3,16 @@ import Image from "next/image";
 import { usePathname } from "next/navigation";
 import bgNav from "@/public/icons/theme/Rectangle 1phoneNavbar.svg";
 import Link from "next/link";
+import { NavbarInPhoneProps } from "@/interfaces/navbarInPhone.interface";
 
-interface Route {
-  name: string;
-  href: string;
-  icon: string;
-}
-
-interface NavbarInPhoneProps {
-  mainRoutes: Route[];
-}
-
-const NavbarInPhone: React.FC<NavbarInPhoneProps> = ({ mainRoutse }) => {
+const NavbarInPhone = ({ mainRoutes }: NavbarInPhoneProps) => {
   const pathname = usePathname();
 
   return (
     <div className="phoneNav relative -mb-2 xs:mb-0">
       <Image
         className="z-0 -mb-[70px]"
+        alt=""
         src={bgNav}
         style={{
           width: "auto",
@@ -30,7 +22,7 @@ const NavbarInPhone: React.FC<NavbarInPhoneProps> = ({ mainRoutse }) => {
         }}
       />
       <ul className="flex justify-around mb-4 text-small z-50">
-        {mainRoutse.map((route, index) => {
+        {mainRoutes.map((route, index) => {
           const isActive = pathname.includes(route.href);
           return (
             <li
