@@ -1,12 +1,14 @@
 import React from "react";
 import Image from "next/image";
-import { usePathname } from "next/navigation";
 import bgNav from "@/public/icons/theme/Rectangle 1phoneNavbar.svg";
 import Link from "next/link";
 import { NavbarInPhoneProps } from "@/interfaces/navbarInPhone.interface";
+import { useRouter } from "next/router";
 
 const NavbarInPhone = ({ mainRoutes }: NavbarInPhoneProps) => {
-  const pathname = usePathname();
+  const router = useRouter();
+
+  const { pathname } = router;
 
   return (
     <div className="phoneNav relative -mb-2 xs:mb-0">

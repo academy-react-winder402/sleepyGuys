@@ -1,8 +1,8 @@
 import Image from "next/image";
 import React from "react";
 import heroImage from "@/public/icons/hero/headr-img.svg";
-import HeroInput from "./heroInput/heroInput";
 import search from "@/public/icons/hero/search.svg";
+import HeroInput from "@/components/Templates/Landing/Hero/Input/HeroInput";
 
 function Hero() {
   return (
@@ -38,6 +38,7 @@ function Hero() {
       </div>
       <div className="w-3/5 md:block hidden ">
         <Image
+          alt=""
           className="-translate-x-6"
           src={heroImage}
           style={{

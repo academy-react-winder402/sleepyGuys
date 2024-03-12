@@ -1,8 +1,7 @@
 import React from "react";
 import { Input } from "@nextui-org/react";
-import userIcon from "@/public/icons/theme/user.svg";
 
-function heroInput() {
+function HeroInput() {
   return (
     <>
       <Input
@@ -15,8 +14,7 @@ function heroInput() {
             "text-black/90 dark:text-white/90",
             "placeholder:text-default-700/50 dark:placeholder:text-white/60",
           ],
-          mainWrapper: "rounded-[20px]  overflow-hidden"
-          ,
+          mainWrapper: "rounded-[20px]  overflow-hidden",
           innerWrapper: "bg-transparent",
           inputWrapper: [
             "shadow-xl",
@@ -38,4 +36,4 @@ function heroInput() {
   );
 }
 
-export default heroInput;
+export default HeroInput;

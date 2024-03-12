@@ -3,20 +3,15 @@ import React from "react";
 import navbarLogo from "@/public/icons/logo/navbarLogo.svg";
 import Link from "next/link";
 import ThemeSwitch from "@/components/Modules/Navbar/ThemeSwitch";
-import { usePathname } from "next/navigation";
 import NavbarInPhone from "./NavbarInPhone";
 import navbarRoutesItems from "@/constants/navbarRoutesItems";
 import AccountPopover from "../AccountPopover/AccountPopover";
+import { useRouter } from "next/router";
 
 function Navbar() {
-  // " Ino chhera gozashti? "
-  // const [windowWidth, setWindowWidth] = useState<number>(1000);
+  const router = useRouter();
 
-  // useEffect(() => {
-  //   setWindowWidth(typeof window !== "undefined" ? window.innerWidth : 0);
-  // }, [typeof window !== "undefined" ? window.innerWidth : 0]);
-
-  const pathname = usePathname();
+  const { pathname } = router;
 
   return (
     <>
