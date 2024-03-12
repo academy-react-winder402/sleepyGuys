@@ -10,7 +10,9 @@ export default function App({ Component, pageProps }: AppProps) {
       <NextThemesProvider attribute="class" defaultTheme="light">
         <div className="pt-8 sm:mx-8 lg:mx-20 relative">
           <Navbar />
-          <Component {...pageProps} />
+          <div className="mx-3 sm:mx-0">
+            <Component {...pageProps} />
+          </div>
         </div>
       </NextThemesProvider>
     </NextUIProvider>

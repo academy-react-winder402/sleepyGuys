@@ -43,7 +43,7 @@ const ThemeSwitch = (props: SwitchProps) => {
         >
           {!isSelected ? (
             <Image
-              className="scale-125 mt-[3px] ml-[1px] "
+              className="scale-110 mt-[3px] ml-[1px] "
               src={sunIcon}
               alt=""
               width={45}
