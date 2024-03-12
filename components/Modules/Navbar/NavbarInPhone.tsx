@@ -3,10 +3,6 @@ import Image from "next/image";
 import { usePathname } from "next/navigation";
 import bgNav from "@/public/icons/theme/Rectangle 1phoneNavbar.svg";
 import Link from "next/link";
-import dashboard from "@/public/icons/theme/dashboard.svg";
-import courses from "@/public/icons/theme/courses.svg";
-import tickets from "@/public/icons/theme/tickets.svg";
-import profile from "@/public/icons/theme/profile.svg";
 
 interface Route {
   name: string;

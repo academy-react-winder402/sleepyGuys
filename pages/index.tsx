@@ -1,22 +1,10 @@
 import React from "react";
+import Hero from "@/components/Templates/Landing/hero/hero";
 
 export default function Home() {
   return (
     <>
-  <div className="mt-24">hello word</div>
-  <div className="mt-24">hello word</div>
-  <div className="mt-24">hello word</div>
-  <div className="mt-24">hello word</div>
-  <div className="mt-24">hello word</div>
-  <div className="mt-24">hello word</div>
-  <div className="mt-24">hello word</div>
-  <div className="mt-24">hello word</div>
-  <div className="mt-24">hello word</div>
-  <div className="mt-24">hello word</div>
-  <div className="mt-24">hello word</div>
-  <div className="mt-24">hello word</div>
-  <div className="mt-24">hello word</div>
-  <div className="mt-24">hello word</div>
+      <Hero/>
     </>
   );
 }
