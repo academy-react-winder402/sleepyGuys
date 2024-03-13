@@ -10,21 +10,12 @@ const config: Config = {
   ],
   theme: {
     screens: {
-      'xs': '500px',
-      'sm': '640px',
-      // => @media (min-width: 640px) { ... }
-
-      'md': '768px',
-      // => @media (min-width: 768px) { ... }
-
-      'lg': '1024px',
-      // => @media (min-width: 1024px) { ... }
-
-      'xl': '1280px',
-      // => @media (min-width: 1280px) { ... }
-
-      '2xl': '1536px',
-      // => @media (min-width: 1536px) { ... }
+      xs: "500px",
+      sm: "640px",
+      md: "768px",
+      lg: "1024px",
+      xl: "1280px",
+      "2xl": "1536px",
     },
     container: {
       center: true,
@@ -35,12 +26,13 @@ const config: Config = {
         kalamehBold: ["kamalehBold"],
         kalamehBlack: ["kalamehBlack"],
         vazir: ["vazir"],
+        peyda: ["peyda"],
       },
       colors: {
         primary: {
-          DEFAULT: "#436E8E", // Base color
-          lighter: "#6088A8", // Lighter shade
-          darker: "#2D526E", // Darker shade
+          DEFAULT: "#436E8E",
+          lighter: "#6088A8",
+          darker: "#2D526E",
         },
         white: {
           100: "#FFFFFF",
@@ -53,7 +45,6 @@ const config: Config = {
           800: "#616161",
           900: "#424242",
         },
-        // Multiple shades of black
         black: {
           100: "#000000",
           200: "#1A1A1A",
@@ -66,12 +57,12 @@ const config: Config = {
           900: "#CCCCCC",
         },
         orange: {
-          100:"#E38569",
-          200:"#E37E60",
-          300:"#E37757",
-          400:"#E3704E",
-          500:"#E36945",
-          600:"#E3623C",
+          100: "#E38569",
+          200: "#E37E60",
+          300: "#E37757",
+          400: "#E3704E",
+          500: "#E36945",
+          600: "#E3623C",
         },
       },
     },

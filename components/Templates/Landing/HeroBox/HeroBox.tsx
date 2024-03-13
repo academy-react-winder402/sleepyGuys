@@ -9,7 +9,7 @@ function Hero() {
     <div className="flex items-center">
       <div className="w-full md:w-2/5 flex flex-col gap-8">
         <div className="flex flex-col gap-2 justify-center text-center md:text-right">
-          <h1 className="text-primary dark:text-primary-lighter text-3xl lg:text-4xl font-bold peyda">
+          <h1 className="text-primary dark:text-primary-lighter text-3xl lg:text-4xl font-bold font-peyda">
             دنبال چی می گردی؟
           </h1>
           <p className="text-black-600 dark:text-black-800 text-lg">
@@ -27,7 +27,7 @@ function Hero() {
           </div>
         </div>
         <div className="hidden md:flex flex-col gap-2 justify-center text-center md:text-right">
-          <h1 className="text-orange-100 dark:text-orange-100 text-1x2 lg:text-[30px] font-bold peyda">
+          <h1 className="text-orange-100 dark:text-orange-100 text-1x2 lg:text-[30px] font-bold font-peyda">
             آکادمی سپهر
           </h1>
           <p className="text-black-600 dark:text-black-800 text-[16px]">
