@@ -8,6 +8,7 @@ import navbarRoutesItems from "@/constants/navbarRoutesItems";
 import AccountPopover from "../AccountPopover/AccountPopover";
 import { useRouter } from "next/router";
 
+
 function Navbar() {
   const router = useRouter();
 
