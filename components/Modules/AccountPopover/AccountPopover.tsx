@@ -29,7 +29,7 @@ export default function AccountPopover() {
           />
         </div>
       </PopoverTrigger>
-      <PopoverContent className="w-[340px] items-start rounded-tl-none p-6">
+      <PopoverContent className="w-[250px] sm:w-[340px] items-start rounded-tl-none p-6">
         <div className="flex gap-x-4">
           <div className="flex items-center justify-center w-12 h-12 md:w-14 md:h-14 bg-primary rounded-full">
             <Image
