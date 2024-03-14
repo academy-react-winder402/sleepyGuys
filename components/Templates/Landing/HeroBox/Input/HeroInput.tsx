@@ -5,7 +5,6 @@ function HeroInput() {
   return (
     <>
       <Input
-        isClearable
         radius="lg"
         classNames={{
           input: [
@@ -13,13 +12,13 @@ function HeroInput() {
             "bg-transparent",
             "text-black/90 dark:text-white/90",
             "placeholder:text-default-700/50 dark:placeholder:text-white/60",
+            "font-vazir",
           ],
-          mainWrapper: "rounded-[20px]  overflow-hidden",
-          innerWrapper: "bg-transparent",
+          mainWrapper: ["rounded-[20px]", "overflow-hidden"],
+          innerWrapper: ["bg-transparent"],
           inputWrapper: [
             "shadow-xl",
             "bg-white",
-            // "bg-default-200/50",
             "dark:bg-default/60",
             "backdrop-blur-xl",
             "backdrop-saturate-200",
