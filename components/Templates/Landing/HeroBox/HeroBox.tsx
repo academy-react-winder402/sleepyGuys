@@ -11,7 +11,8 @@ function Hero() {
         className="
       hidden 
       md:block
-      bg-[#f9f9fa]
+      dark:bg-[#252a37]
+      light:bg-[#f9f9fa]
       md:w-[570px]
       md:h-[570px]
       lg:w-[600px]
