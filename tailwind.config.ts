@@ -77,6 +77,11 @@ const config: Config = {
             primary: "#436E8E",
           },
         },
+        light: {
+          colors: {
+            background: "#F3F4F6",
+          },
+        },
       },
     }),
   ],
