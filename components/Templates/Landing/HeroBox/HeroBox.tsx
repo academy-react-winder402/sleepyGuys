@@ -12,7 +12,7 @@ function Hero() {
       hidden 
       md:block
       dark:bg-[#252a37]
-      light:bg-[#f9f9fa]
+      bg-[#f9f9fa]
       md:w-[570px]
       md:h-[570px]
       lg:w-[600px]
