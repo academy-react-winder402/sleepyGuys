@@ -11,7 +11,7 @@ const BottomNavigation = ({ mainRoutes }: NavbarInPhoneProps) => {
   const { pathname } = router;
 
   return (
-    <nav className="flex justify-center sm:hidden fixed bottom-3 px-3 w-full">
+    <nav className="flex justify-center sm:hidden fixed bottom-3 px-3 w-full z-10">
       <div className="phoneNav relative -mb-2 xs:mb-0">
         <Image
           className="z-0 -mb-[70px]"
