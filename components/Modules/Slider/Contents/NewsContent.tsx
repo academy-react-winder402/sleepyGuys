@@ -1,4 +1,4 @@
-import { NewsContentProps } from "@/interfaces/news";
+import { NewsContentProps } from "@/interfaces/news.interface";
 import Image from "next/image";
 import React from "react";
 

@@ -6,7 +6,7 @@ import { EffectCards } from "swiper/modules";
 import news1 from "@/public/icons/news/news1.png";
 import { getNews } from "@/mock/getNews";
 import NewsContent from "./Contents/NewsContent";
-import { News } from "@/interfaces/news";
+import { News } from "@/interfaces/news.interface";
 
 export default function Slider() {
   return (
