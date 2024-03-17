@@ -3,11 +3,9 @@ import { StaticImageData } from "next/image";
 interface News {
   id: number;
   title: string;
-}
-
-interface NewsContentProps {
   img: StaticImageData;
-  title: string;
+  des: string;
 }
 
-export type { News, NewsContentProps };
+
+export type { News};
