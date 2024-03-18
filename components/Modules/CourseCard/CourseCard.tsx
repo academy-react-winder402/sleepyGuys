@@ -47,5 +47,4 @@ function CourseCard({ title, id, image, des, time, teachers, price }: Course) {
     </div>
   );
 }
-
 export default CourseCard;

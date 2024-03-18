@@ -3,8 +3,8 @@ import React from "react";
 
 export default function NewsBox() {
   return (
-    <div className="mt-36 text-center">
-      <h1 className="font-peyda text-[35px] text-primary dark:text-primary-lighter mb-10">
+    <div className="lg:mt-36 mt-24 text-center">
+      <h1 className="font-peyda text-[30px] md:text-[35px] text-primary dark:text-primary-lighter lg:mb-10 mb-8">
         آخرین اخبار
       </h1>
       <Slider />
