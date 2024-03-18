@@ -1,4 +1,6 @@
 import CourseCardSlider from "@/components/Modules/Slider/CourseCardSlider";
+import Link from "next/link";
+import { Divider } from "@nextui-org/react";
 
 function NewCoursesBox() {
   return (
