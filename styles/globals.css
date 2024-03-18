@@ -40,3 +40,7 @@ a {
   height: 12px;
   border-radius: 5px;
 }
+
+.backdrop-blur-xl {
+   --tw-backdrop-blur: blur(0px);
+}
