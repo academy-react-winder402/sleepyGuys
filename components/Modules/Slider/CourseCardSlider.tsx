@@ -2,15 +2,15 @@ import React from "react";
 import CourseCard from "@/components/Modules/CourseCard/CourseCard";
 import { getCourses } from "@/mock/getCourses";
 import { Swiper, SwiperSlide } from "swiper/react";
-// Import Swiper styles
 import "swiper/css";
 import "swiper/css/pagination";
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
+
 function CourseCardSlider() {
   return (
     <Swiper
       slidesPerView={3}
-      // spaceBetween={20}
+      spaceBetween={20}
       navigation={true}
       breakpoints={{
         0: {
@@ -43,7 +43,6 @@ function CourseCardSlider() {
         clickable: true,
       }}
       modules={[Autoplay, Pagination, Navigation]}
-      className="mySwiper"
     >
       {getCourses().map((course, index) => (
         <SwiperSlide key={index}>
