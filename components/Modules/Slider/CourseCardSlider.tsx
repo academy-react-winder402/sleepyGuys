@@ -9,30 +9,24 @@ import { Autoplay, Pagination, Navigation } from "swiper/modules";
 function CourseCardSlider() {
   return (
     <Swiper
-      slidesPerView={3}
+      slidesPerView={1}
       spaceBetween={20}
       navigation={true}
       breakpoints={{
-        0: {
-          slidesPerView: 1,
-        },
         400: {
           slidesPerView: 1,
         },
-        768: {
-          slidesPerView: 2,
-        },
-        865: {
+        750: {
           slidesPerView: 2,
         },
         1024: {
           slidesPerView: 3,
         },
-        1500: {
-          slidesPerView: 3,
-        },
         1700: {
-          slidesPerView: 7,
+          slidesPerView: 4,
+        },
+        3100: {
+          slidesPerView: 5,
         },
       }}
       autoplay={{
