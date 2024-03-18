@@ -27,3 +27,12 @@ a {
   font-family: vazir;
   background: rgba(0, 0, 0, 0);
 }
+.swiper-wrapper{
+  margin-bottom: 60px;
+}
+.swiper-pagination > .swiper-pagination-bullet{
+  background: #436E8E;
+  width: 40px;
+  height: 12px;
+  border-radius: 5px;
+}

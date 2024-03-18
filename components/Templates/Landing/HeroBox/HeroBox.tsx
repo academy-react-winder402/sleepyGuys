@@ -1,6 +1,6 @@
 import Image from "next/image";
 import React from "react";
-import heroImage from "@/public/icons/hero/header.svg";
+import heroImage from "@/public/icons/hero/headr-img.svg";
 import search from "@/public/icons/hero/search.svg";
 import HeroInput from "@/components/Templates/Landing/HeroBox/Input/HeroInput";
 
@@ -37,7 +37,7 @@ function Hero() {
       lg:rounded-br-[200px] 
       xl:rounded-br-[200px]"
       ></div>
-      <div className="flex items-center">
+      <div className="flex items-center justify-between">
         <div className="w-full md:w-2/5 flex flex-col gap-8">
           <div className="flex flex-col gap-2 justify-center text-center md:text-right">
             <h1 className="text-primary dark:text-primary-lighter text-3xl lg:text-4xl font-bold font-peyda">

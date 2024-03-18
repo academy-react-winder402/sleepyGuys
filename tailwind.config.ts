@@ -13,8 +13,13 @@ const config: Config = {
       xs: "500px",
       sm: "640px",
       md: "768px",
+      mdb: "867px",
+      lgl: "920px",
       lg: "1024px",
+      lgb: "1150px",
       xl: "1280px",
+      xlb:"1390px",
+      xll:"1450px",
       "2xl": "1536px",
     },
     container: {
@@ -35,7 +40,7 @@ const config: Config = {
           darker: "#2D526E",
         },
         white: {
-          100: "#FFFFFF",
+          100: "#fff",
           200: "#F7F7F7",
           300: "#F0F0F0",
           400: "#E0E0E0",
