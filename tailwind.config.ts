@@ -70,6 +70,11 @@ const config: Config = {
           600: "#E3623C",
         },
         gray: "#555555",
+        dark: {
+          DEFAULT: "#1c1c27",
+          lighter: "#282830",
+          darker: "#050506",
+        }
       },
     },
   },
