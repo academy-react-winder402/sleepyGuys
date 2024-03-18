@@ -19,6 +19,10 @@
   src: url(../public/fonts/PeydaWeb.ttf);
 }
 
+body{
+  text-align: right;
+}
+
 p {
   font-family: vazir;
 }
