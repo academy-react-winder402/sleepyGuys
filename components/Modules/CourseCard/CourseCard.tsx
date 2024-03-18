@@ -12,12 +12,12 @@ function CourseCard({ title, id, image, des, time, teachers, price }: Course) {
           <div className="overflow-hidden rounded-3xl w-[85%] -mt-20">
             <Image src={image} alt="" />
           </div>
-          <div className="w-[85%] md:w-[300px] mdb:w-[350px] lg:w-[260px] lgb:w-[290px] xl:w-[340px] xll:w-[380px] flex flex-col gap-4">
+          <div className="w-[85%] flex flex-col gap-4">
             <h2 className="text-[20px] font-peyda font-bold text-black-400 dark:text-white-100">
               {title}
             </h2>
             <p className="text-[15px] font-vazir font-bold text-black-600 dark:text-black-800">
-              {des.substr(0, 85)} ....
+              {des.substr(0, 85)} ...
             </p>
             <Chip
               classNames={{
@@ -31,8 +31,8 @@ function CourseCard({ title, id, image, des, time, teachers, price }: Course) {
               {teachers}
             </Chip>
           </div>
-          <Divider className="w-[90%] mx-auto bg-black-800" />
-          <div className="flex justify-between w-[85%] md:w-[300px] mdb:w-[350px] lg:w-[260px] lgb:w-[290px] xl:w-[340px] xll:w-[380px]">
+          <Divider className="w-[85%] mx-auto bg-black-800" />
+          <div className="flex justify-between w-[85%]">
             <Chip
               startContent={<Image src={clock} alt="" />}
               variant="solid"
