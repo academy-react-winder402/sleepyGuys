@@ -1,3 +1,4 @@
+import Footer from "@/components/Modules/Footer/Footer";
 import Navbar from "@/components/Modules/Navbar/Navbar";
 import "@/styles/globals.css";
 import { NextUIProvider } from "@nextui-org/react";
@@ -13,6 +14,7 @@ export default function App({ Component, pageProps }: AppProps) {
           <div className="mx-3 sm:mx-0">
             <Component {...pageProps} />
           </div>
+          <Footer/>
         </div>
       </NextThemesProvider>
     </NextUIProvider>
