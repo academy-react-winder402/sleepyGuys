@@ -1,4 +1,5 @@
-import newsPic from '@/public/icons/hero/headr-img.svg'
+import newsPic from '@/public/icons/hero/header-img.svg'
+
 export const getNews = () => {
   return [
     {

@@ -1,6 +1,6 @@
 import Image from "next/image";
 import React from "react";
-import heroImage from "@/public/icons/hero/headr-img.svg";
+import heroImage from "@/public/icons/hero/header-img.svg";
 import search from "@/public/icons/hero/search.svg";
 import HeroInput from "@/components/Templates/Landing/HeroBox/Input/HeroInput";
 

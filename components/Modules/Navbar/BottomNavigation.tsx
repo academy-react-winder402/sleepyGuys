@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import bgNav from "@/public/icons/theme/Rectangle 1phoneNavbar.svg";
+import bgNav from "@/public/icons/theme/phoneNavbarBackground.svg";
 import Link from "next/link";
 import { NavbarInPhoneProps } from "@/interfaces/navbarInPhone.interface";
 import { useRouter } from "next/router";

@@ -1,4 +1,4 @@
-import Categoris from "@/components/Templates/Landing/Categoris/Categoris";
+import Categoris from "@/components/Templates/Landing/Categories/Categories";
 import HeroBox from "@/components/Templates/Landing/HeroBox/HeroBox";
 import NewCoursesBox from "@/components/Templates/Landing/NewCoursesBox/NewCoursesBox";
 import NewsBox from "@/components/Templates/Landing/NewsBox/NewsBox";

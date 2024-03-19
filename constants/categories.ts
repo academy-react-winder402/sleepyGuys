@@ -1,4 +1,4 @@
-import pic from "@/public/icons/hero/headr-img.svg";
+import pic from "@/public/icons/hero/header-img.svg";
 import { Category } from "@/interfaces/category.interface";
 
 const categoriItems: Category[] = [
