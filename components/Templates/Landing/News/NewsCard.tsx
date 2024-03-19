@@ -12,8 +12,8 @@ export default function NewsCard({ des , img , id , title}: News) {
       />
       <div className="pb-5 sm:pb-0 flex flex-col md:gap-4 lg:gap-5 gap-3">
         <h2 className="font-kalamehBlack text-[35px] md:text-[38px] text-gray dark:text-white-100">{title}</h2>
-        <p className="text-[18px] dark:text-white-300 text-[#8D8D8D] lg:block hidden">{des} ....</p>
-        <p className="text-[18px] dark:text-white-300 text-[#8D8D8D] lg:hidden block">{des.substr(0, 120)} ....</p>
+        <p className="text-[18px] dark:text-white-300 text-[#8D8D8D] lg:block hidden" dir="rtl">{des} ....</p>
+        <p className="text-[18px] dark:text-white-300 text-[#8D8D8D] lg:hidden block" dir="rtl">{des.substr(0, 120)} ....</p>
       </div>
     </div>
   );

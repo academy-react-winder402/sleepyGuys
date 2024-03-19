@@ -67,16 +67,8 @@ function Hero() {
             </p>
           </div>
         </div>
-        <div className="w-3/5 md:block hidden ">
-          <Image
-            alt=""
-            className="-translate-x-6"
-            src={heroImage}
-            style={{
-              width: "auto",
-              height: "100%",
-            }}
-          />
+        <div className="w-3/5 hidden md:block">
+          <Image alt="" className="" src={heroImage} />
         </div>
       </div>
     </>

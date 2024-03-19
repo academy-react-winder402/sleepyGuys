@@ -21,8 +21,9 @@ export default function EffectCardSlider({
       dir="ltr"
       effect={"cards"}
       grabCursor={true}
+      direction="vertical"
       modules={[EffectCards]}
-      className="w-[90%] sm:w-[92%] md:w-[85%] xl:w-[75%] sm:h-[230px] md:h-[280px] lg:h-[320px] dark:bg-opacity-10"
+      className="w-[90%] sm:w-[92%] md:w-[85%] xl:w-[75%] h-[500px] sm:h-[230px] md:h-[280px] lg:h-[320px] dark:bg-opacity-10"
     >
       {data.map((item, index) => (
         <SwiperSlide key={index} className="bg-white-100 dark:bg-dark">
