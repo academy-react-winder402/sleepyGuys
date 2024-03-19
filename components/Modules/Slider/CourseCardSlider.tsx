@@ -40,7 +40,7 @@ function CourseCardSlider() {
     >
       {getCourses().map((course, index) => (
         <SwiperSlide key={index}>
-          <CourseCard {...course} />
+          <CourseCard {...course} key={index} />
         </SwiperSlide>
       ))}
     </Swiper>
