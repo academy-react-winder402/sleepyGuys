@@ -1,3 +1,4 @@
+import BestSellingCoursesBox from "@/components/Templates/Landing/BestSellingCourses/BestSellingCoursesBox";
 import Categoris from "@/components/Templates/Landing/Categories/Categories";
 import HeroBox from "@/components/Templates/Landing/Hero/HeroBox";
 import NewCoursesBox from "@/components/Templates/Landing/NewCourses/NewCoursesBox";
@@ -12,6 +13,7 @@ export default function Home() {
       <Categoris />
       <NewCoursesBox />
       <NewsBox />
+      <BestSellingCoursesBox />
       <ServiceBox />
     </>
   );

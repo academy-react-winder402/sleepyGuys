@@ -1,12 +1,16 @@
 import React from "react";
-import CourseCard from "@/components/Modules/CourseCard/CourseCard";
-import { getCourses } from "@/mock/getCourses";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
 
-function CourseCardSlider() {
+function NavigationSlider({
+  data,
+  Content,
+}: {
+  data: any[];
+  Content: React.ElementType;
+}) {
   return (
     <Swiper
       slidesPerView={1}
@@ -38,13 +42,13 @@ function CourseCardSlider() {
       }}
       modules={[Autoplay, Pagination, Navigation]}
     >
-      {getCourses().map((course, index) => (
+      {data.map((item, index) => (
         <SwiperSlide key={index}>
-          <CourseCard {...course} key={index} />
+          <Content {...item} />
         </SwiperSlide>
       ))}
     </Swiper>
   );
 }
 
-export default CourseCardSlider;
+export default NavigationSlider;

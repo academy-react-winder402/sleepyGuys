@@ -1,13 +1,14 @@
-import Slider from "@/components/Modules/Slider/Slider";
 import React from "react";
+import BoxHeader from "@/components/Modules/BoxHeader/BoxHeader";
+import { getNews } from "@/mock/getNews";
+import NewsCard from "../News/NewsCard";
+import EffectCardSlider from "@/components/Modules/Slider/EffectCardSlider";
 
 export default function ServicesBox() {
   return (
     <div className="lg:mt-36 mt-24">
-      <h1 className="font-peyda text-[30px] md:text-[35px] text-primary dark:text-primary-lighter lg:mb-10 mb-8 text-center">
-        خدمات ما
-      </h1>
-      <Slider href=""  title=""/>
+      <BoxHeader title="خدمات ما" />
+      <EffectCardSlider href="" title="" data={getNews()} Content={NewsCard} />
     </div>
   );
 }
