@@ -9,13 +9,13 @@ import CourseCard from "@/components/Modules/CourseCard/CourseCard";
 function NewCoursesBox() {
   return (
     <div className="lg:mt-36 mt-24 flex flex-wrap">
-      <div className="flex-grow items-center grid grid-cols-3 justify-between">
-        <div className="col-start-2 col-span-1 mx-auto">
+      <div className="flex-grow items-center grid grid-cols-1 md:grid-cols-3 justify-between">
+        <div className="md:col-start-2 col-span-1 mx-auto">
           <BoxHeader title="جدیدترین دوره ها" />
         </div>
         <Link
           href={"#"}
-          className="col-start-3 col-span-1 ms-auto flex items-center gap-x-2 lg:mb-10 mb-8"
+          className="md:col-start-3 col-span-1 mx-auto md:ms-auto md:mx-0 flex items-center gap-x-2 lg:mb-10 mb-8"
         >
           <span>مشاهده همه</span>
           <Divider className="w-[30px] bg-black-600" />
