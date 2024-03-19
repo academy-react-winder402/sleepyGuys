@@ -7,7 +7,7 @@ import HeroInput from "@/components/Templates/Landing/Hero/Input/HeroInput";
 function Hero() {
   return (
     <>
-      <div
+      {/* <div
         className="
       hidden 
       md:block
@@ -36,11 +36,11 @@ function Hero() {
       md:rounded-br-[260px]
       lg:rounded-br-[200px] 
       xl:rounded-br-[200px]"
-      ></div>
+      ></div> */}
       <div className="flex items-center justify-between">
         <div className="w-full md:w-2/5 flex flex-col gap-8">
           <div className="flex flex-col gap-2 justify-center text-center md:text-right">
-            <h1 className="text-primary dark:text-primary-lighter text-3xl lg:text-4xl font-bold font-peyda">
+            <h1 className="text-primary dark:text-primary-lighter text-3xl lgl:text-4xl lg:text-[41px] xl:text-[43px] mb-1 font-bold font-peyda">
               دنبال چی می گردی؟
             </h1>
             <p className="text-black-600 dark:text-black-800 text-lg">
@@ -68,7 +68,7 @@ function Hero() {
           </div>
         </div>
         <div className="w-3/5 hidden md:block">
-          <Image alt="" className="" src={heroImage} />
+          <Image alt="" className='xl:-translate-x-10 lg:-translate-x-5 -translate-x-3' src={heroImage} />
         </div>
       </div>
     </>
