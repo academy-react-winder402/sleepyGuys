@@ -5,9 +5,9 @@ import React from "react";
 
 function Categories() {
   return (
-    <div className="lg:mt-36 mt-24 px-0 md:px-20 xl:px-32">
+    <div className="lg:mt-36 mt-24 px-0 xl:px-32">
       <BoxHeader title="دسته بندی ها" />
-      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 gap-4">
+      <div className="grid grid-cols-2 md:grid-cols-4 xl:grid-cols-4 gap-4">
         {categoriItems.map((categoriItem, index) => (
           <CategoriCard {...categoriItem} key={index} />
         ))}
