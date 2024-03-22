@@ -7,36 +7,6 @@ import HeroInput from "@/components/Templates/Landing/Hero/Input/HeroInput";
 function Hero() {
   return (
     <>
-      {/* <div
-        className="
-      hidden 
-      md:block
-      dark:bg-[#252a37]
-      bg-[#f9f9fa]
-      md:w-[570px]
-      md:h-[570px]
-      lg:w-[600px]
-      lg:h-[600px]
-      xl:w-[650px]
-      xl:h-[680px]
-      absolute 
-      top-0 
-      -right-10 
-      -z-10 
-      rotate-45 
-      md:rounded-tl-[260px]
-      lg:rounded-tl-[260px] 
-      xl:rounded-tl-[320px] 
-      md:rounded-tr-[200px]
-      lg:rounded-tr-[120px] 
-      xl:rounded-tr-[180px] 
-      md:rounded-bl-[200px]
-      lg:rounded-bl-[150px] 
-      xl:rounded-bl-[180px] 
-      md:rounded-br-[260px]
-      lg:rounded-br-[200px] 
-      xl:rounded-br-[200px]"
-      ></div> */}
       <div className="flex items-center justify-between">
         <div className="w-full md:w-2/5 flex flex-col gap-8">
           <div className="flex flex-col gap-2 justify-center text-center md:text-right">
@@ -68,7 +38,11 @@ function Hero() {
           </div>
         </div>
         <div className="w-3/5 hidden md:block">
-          <Image alt="" className='xl:-translate-x-10 lg:-translate-x-5 -translate-x-3' src={heroImage} />
+          <Image
+            alt=""
+            className="xl:-translate-x-10 lg:-translate-x-5 -translate-x-3"
+            src={heroImage}
+          />
         </div>
       </div>
     </>

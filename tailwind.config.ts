@@ -18,8 +18,8 @@ const config: Config = {
       lg: "1024px",
       lgb: "1150px",
       xl: "1280px",
-      xlb:"1390px",
-      xll:"1450px",
+      xlb: "1390px",
+      xll: "1450px",
       "2xl": "1536px",
     },
     container: {
@@ -74,7 +74,7 @@ const config: Config = {
           DEFAULT: "#1c1c27",
           lighter: "#282830",
           darker: "#050506",
-        }
+        },
       },
     },
   },

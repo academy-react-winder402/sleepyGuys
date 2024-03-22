@@ -5,35 +5,31 @@ function FooterInput() {
   return (
     <>
       <Input
-        radius="lg"
+        className=""
         classNames={{
           input: [
-            "col-span-2",
-            "pr-0",
-            "bg-transparent",
-            "text-black/90 dark:text-white/90",
-            "placeholder:text-default-700/50 dark:placeholder:text-white/60",
+            "text-black/90",
+            "dark:text-white/90",
+            "placeholder:text-default-700/50",
+            "dark:placeholder:text-white/60",
             "font-vazir",
           ],
-          base: ["col-span-2"],
-          mainWrapper: ["rounded-[0px]", "bg-white-100" , "overflow-hidden" , "dark:bg-dark"],
-          innerWrapper: ["bg-transparent"],
+          mainWrapper: ["overflow-hidden"],
           inputWrapper: [
             "py-8",
-            "rounded-[0px]",
-            "shadow-xl",
-            "bg-white",
+            "rounded-t-2xl",
+            "rounded-b-none",
+            "bg-white-100",
             "dark:bg-default/60",
             "backdrop-blur-xl",
             "backdrop-saturate-200",
             "hover:bg-default-200/70",
             "dark:hover:bg-default/70",
-            "group-data-[focused=true]:bg-default-200/50",
-            "dark:group-data-[focused=true]:bg-default/60",
-            "!cursor-text",
+            "group-data-[focus=true]:bg-white-100",
+            "dark:group-data-[focus=true]:bg-default/60",
           ],
         }}
-        placeholder="yourGmail@gmail.com"
+        placeholder="ایمیلت رو همینجا برامون بنویس..."
       />
     </>
   );
