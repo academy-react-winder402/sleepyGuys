@@ -20,13 +20,13 @@ function FooterInput() {
             "rounded-t-2xl",
             "rounded-b-none",
             "bg-white-100",
-            "dark:bg-default/60",
+            "dark:bg-dark-lighter",
             "backdrop-blur-xl",
             "backdrop-saturate-200",
             "hover:bg-default-200/70",
             "dark:hover:bg-default/70",
             "group-data-[focus=true]:bg-white-100",
-            "dark:group-data-[focus=true]:bg-default/60",
+            "dark:group-data-[focus=true]:bg-dark-lighter",
           ],
         }}
         placeholder="ایمیلت رو همینجا برامون بنویس..."

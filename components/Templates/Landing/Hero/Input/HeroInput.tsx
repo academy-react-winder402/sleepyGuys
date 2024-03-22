@@ -19,13 +19,13 @@ function HeroInput() {
           inputWrapper: [
             "shadow-xl",
             "bg-white",
-            "dark:bg-default/60",
+            "dark:bg-dark-lighter",
             "backdrop-blur-xl",
             "backdrop-saturate-200",
             "hover:bg-default-200/70",
             "dark:hover:bg-default/70",
             "group-data-[focused=true]:bg-default-200/50",
-            "dark:group-data-[focused=true]:bg-default/60",
+            "dark:group-data-[focused=true]:bg-dark-lighter",
             "!cursor-text",
           ],
         }}

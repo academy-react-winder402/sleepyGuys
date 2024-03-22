@@ -4,6 +4,7 @@ import "swiper/css/effect-cards";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { EffectCards } from "swiper/modules";
 import Link from "next/link";
+import { Divider } from "@nextui-org/react";
 
 export default function EffectCardSlider({
   href,
@@ -39,7 +40,7 @@ export default function EffectCardSlider({
       grabCursor={true}
       direction={windowWidth > 1400 ? "horizontal" : "vertical"}
       modules={[EffectCards]}
-      className="w-[80%] sm:w-[92%] md:w-[85%] xl:w-[75%] h-[500px] sm:h-[235px] md:h-[280px] lg:h-[320px] dark:bg-opacity-10"
+      className="w-[80%] sm:w-[92%] md:w-[85%] xl:w-[75%] h-[450px] sm:h-[235px] md:h-[280px] lg:h-[320px] dark:bg-opacity-10"
     >
       {data.map((item, index) => (
         <SwiperSlide key={index} className="bg-white-100 dark:bg-dark">
@@ -48,10 +49,11 @@ export default function EffectCardSlider({
       ))}
       {title && (
         <Link
-          href={href}
-          className="w-full block text-left -mt-8 text-black-400 dark:text-white-300"
+          href={`${href}`}
+          className="md:col-start-3 col-span-1 mx-auto md:ms-auto md:mx-0 flex items-center gap-x-2 lg:mb-10 mb-8 text-black-400 dark:text-white-100"
         >
-          <span className="text-black-700">------</span> {title}
+          <Divider className="w-[30px] bg-black-400 dark:bg-white-100" />
+          {title}
         </Link>
       )}
     </Swiper>
