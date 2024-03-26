@@ -29,7 +29,7 @@ export default function AccountPopover() {
           />
         </div>
       </PopoverTrigger>
-      <PopoverContent className="w-[250px] sm:w-[340px] items-start rounded-tl-none p-6">
+      <PopoverContent className="w-[250px] bg-white-100 dark:bg-dark-lighter sm:w-[340px] items-start rounded-tl-none p-6">
         <div className="flex gap-x-4">
           <div className="flex items-center justify-center w-12 h-12 md:w-14 md:h-14 bg-primary rounded-full">
             <Image
@@ -41,10 +41,12 @@ export default function AccountPopover() {
             />
           </div>
           <div>
-            <p className="text-lg font-bold text-primary mb-1">
+            <p className="text-lg font-bold text-primary dark:text-primary-lighter mb-1">
               آرمان غنی زاده
             </p>
-            <p className="text-xs text-black-500">موجودی : ۰ تومان</p>
+            <p className="text-xs text-black-600 dark:text-black-800">
+              موجودی : ۰ تومان
+            </p>
           </div>
         </div>
         <Divider className="my-3" />
@@ -54,21 +56,17 @@ export default function AccountPopover() {
               <ListboxItem key={item.route} className="py-4">
                 <div className="flex items-center gap-x-3">
                   <Image src={item.icon} alt="" width={24} height={24} />
-                  <p className="text-sm text-black-500">{item.label}</p>
+                  <p className="text-sm text-black-600 dark:text-black-800">
+                    {item.label}
+                  </p>
                 </div>
               </ListboxItem>
             ))}
           </Listbox>
           <Divider className="my-4" />
-          <div className="flex items-center justify-center gap-x-1 text-md font-bold">
-            <Image
-              className="scale-85"
-              src={logout}
-              alt=""
-              width={30}
-              height={30}
-            />
-            <p>خروج از حساب </p>
+          <div className="flex items-center justify-center gap-x-1">
+            <Image src={logout} alt="" />
+            <p className="text-black-600 dark:text-black-800">خروج از حساب </p>
           </div>
         </div>
       </PopoverContent>

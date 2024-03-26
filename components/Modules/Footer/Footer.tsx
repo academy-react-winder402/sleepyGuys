@@ -124,13 +124,13 @@ function Footer() {
         <div className="w-2/3 sm:w-full mx-auto order-1 sm:order-4 col-span-2 sm:col-span-1">
           <FooterInput />
           <Button className="w-full bg-primary text-sm text-white-100 flex items-center justify-center text-center py-3 rounded-t-none">
-            عضویت در خبرنامه
+            <p>عضویت در خبرنامه</p>
           </Button>
         </div>
       </footer>
       <Divider className="w-[85%] mx-auto bg-black-800 mt-10" />
       <p className="text-center py-5 text-black-800">
-        ظراحی شده توسط تیم Sleepy Guys
+        طراحی شده توسط تیم Sleepy Guys
       </p>
     </div>
   );
