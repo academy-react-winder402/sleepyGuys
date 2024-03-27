@@ -17,14 +17,14 @@ export default function DesktopTopNavigation() {
         <Image src={navbarLogo} alt="" width={55} height={25} />
         <ul className="flex items-center sm:gap-x-5 lg:gap-x-6 text-1xl">
           {navbarRoutesItems.map((route, index) => {
-            const isActive = pathname.includes(route.href);
+            const isActive = pathname === route.href;
             return (
               <li
                 key={index}
                 className={
                   isActive
                     ? "text-black dark:text-white"
-                    : "text-black-600 dark:text-white-600"
+                    : "text-LightBody dark:text-white-600"
                 }
               >
                 <Link href={route.href}>{route.name}</Link>
