@@ -13,17 +13,17 @@ function CourseCard({ title, id, image, des, time, teachers, price }: Course) {
             <Image src={image} alt="" />
           </div>
           <div className="w-[85%] flex flex-col gap-4">
-            <h2 className="text-[20px] font-peyda font-bold text-black-400 dark:text-white-100">
+            <h2 className="text-[20px] font-peyda font-bold text-LightTitle dark:text-DarkTitle">
               {title}
             </h2>
-            <p className="text-[15px] font-vazir font-bold text-black-600 dark:text-black-800">
+            <p className="text-[15px] font-vazir font-bold text-LightBody dark:text-black-800">
               {des.slice(0, 85)} ...
             </p>
             <Chip
               classNames={{
-                dot: ["bg-primary dark:bg-primary-lighter px-1.5"],
+                dot: ["bg-MainPrimary dark:bg-MainPrimary-lighter px-1.5"],
                 base: [
-                  "border-none font-vazir text-primary dark:text-primary-lighter",
+                  "border-none font-vazir text-MainPrimary dark:text-MainPrimary-lighter",
                 ],
               }}
               variant="dot"
@@ -40,7 +40,7 @@ function CourseCard({ title, id, image, des, time, teachers, price }: Course) {
             >
               {time}
             </Chip>
-            <p className="text-xl text-primary dark:text-primary-lighter">
+            <p className="text-xl text-MainPrimary dark:text-MainPrimary-lighter">
               {price === 0 ? "رایگان!" : `${price} تومان`}
             </p>
           </div>

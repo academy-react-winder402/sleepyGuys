@@ -34,10 +34,36 @@ const config: Config = {
         peyda: ["peyda"],
       },
       colors: {
-        primary: {
+        MainBodyBg: "F3F4F6",
+        dark: {
+          DEFAULT: "#1c1c27",
+          lighter: "#282830",
+          darker: "#050506",
+        },
+        MainPrimary: {
           DEFAULT: "#436E8E",
           lighter: "#6088A8",
           darker: "#2D526E",
+        },
+        MainOrange: {
+          DEFAULT: "#E38569",
+        },
+        LightTitle: {
+          DEFAULT: "#4D4D4D",
+          lighter: "#333333",
+          darker: "#666666",
+        },
+        DarkTitle: {
+          DEFAULT: "#fff",
+        },
+        LightBody: {
+          DEFAULT: "#8D8D8D",
+        },
+        DarkBody: {
+          DEFAULT: "#B3B3B3",
+        },
+        BtnText:{
+          DEFAULT: "#fff",
         },
         white: {
           100: "#fff",
@@ -61,20 +87,7 @@ const config: Config = {
           800: "#B3B3B3",
           900: "#CCCCCC",
         },
-        orange: {
-          100: "#E38569",
-          200: "#E37E60",
-          300: "#E37757",
-          400: "#E3704E",
-          500: "#E36945",
-          600: "#E3623C",
-        },
         gray: "#555555",
-        dark: {
-          DEFAULT: "#1c1c27",
-          lighter: "#282830",
-          darker: "#050506",
-        },
       },
     },
   },
@@ -85,7 +98,7 @@ const config: Config = {
         dark: {
           colors: {
             background: "#1c1c27",
-            primary: "#436E8E",
+            MainPrimary: "#436E8E",
           },
         },
         light: {

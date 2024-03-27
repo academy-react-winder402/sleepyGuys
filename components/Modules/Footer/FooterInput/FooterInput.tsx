@@ -17,8 +17,6 @@ function FooterInput() {
           mainWrapper: ["overflow-hidden"],
           inputWrapper: [
             "py-8",
-            "rounded-t-2xl",
-            "rounded-b-none",
             "bg-white-100",
             "dark:bg-dark-lighter",
             "backdrop-blur-xl",
@@ -29,7 +27,7 @@ function FooterInput() {
             "dark:group-data-[focus=true]:bg-dark-lighter",
           ],
         }}
-        placeholder="ایمیلت رو همینجا برامون بنویس..."
+        placeholder="ایمیلت رو برامون بنویس..."
       />
     </>
   );

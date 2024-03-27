@@ -10,13 +10,13 @@ function Hero() {
       <div className="flex items-center justify-between">
         <div className="w-full md:w-2/5 flex flex-col gap-8">
           <div className="flex flex-col gap-2 justify-center text-center md:text-right">
-            <h1 className="text-primary dark:text-primary-lighter text-3xl lgl:text-4xl lg:text-[41px] xl:text-[43px] mb-1 font-bold font-peyda">
+            <h1 className="text-MainPrimary dark:text-MainPrimary-lighter text-3xl lgl:text-4xl lg:text-[41px] xl:text-[43px] mb-1 font-bold font-peyda">
               دنبال چی می گردی؟
             </h1>
-            <p className="text-black-600 dark:text-black-800 text-lg">
+            <p className="text-LightBody dark:text-DarkBodytext-lg">
               دیگه وقتشه یه تکونی به خودت بدی…
             </p>
-            <div className="lg:ml-16 rounded-[20px] border-[1px] border-solid border-primary dark:border-[1px] dark:border-primary-lighter relative">
+            <div className="lg:ml-16 rounded-[20px] border-[1px] border-solid border-MainPrimary dark:border-[1px] dark:border-MainPrimary-lighter relative">
               <HeroInput />
               <Image
                 className="absolute left-1 top-1 rounded-[18px]"
@@ -28,10 +28,10 @@ function Hero() {
             </div>
           </div>
           <div className="hidden md:flex flex-col gap-2 justify-center text-center md:text-right">
-            <h1 className="text-orange-100 dark:text-orange-100 text-1x2 lg:text-[30px] font-bold font-peyda">
+            <h1 className="text-MainOrange dark:text-MainOrange text-1x2 lg:text-[30px] font-bold font-peyda">
               آکادمی سپهر
             </h1>
-            <p className="text-black-600 dark:text-black-800 text-[16px]">
+            <p className="text-LightBody dark:text-DarkBodytext-[16px]">
               آکادمی آموزشی سپهر مکانی برای پیشرفت تو تا بتونی مهارت های مورد
               نیزار برای طراحی وب با بهترین روش یاد بگیری{" "}
             </p>

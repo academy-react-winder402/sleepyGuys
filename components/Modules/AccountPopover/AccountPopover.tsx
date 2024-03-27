@@ -19,7 +19,7 @@ export default function AccountPopover() {
   return (
     <Popover offset={15} placement="bottom-start" backdrop={"blur"}>
       <PopoverTrigger>
-        <div className="flex items-center justify-center w-10 h-10 md:w-11 md:h-11 bg-primary rounded-full">
+        <div className="flex items-center justify-center w-10 h-10 md:w-11 md:h-11 bg-MainPrimary rounded-full">
           <Image
             className="scale-85 md:scale-100"
             src={userIcon}
@@ -31,7 +31,7 @@ export default function AccountPopover() {
       </PopoverTrigger>
       <PopoverContent className="w-[250px] bg-white-100 dark:bg-dark-lighter sm:w-[340px] items-start rounded-tl-none p-6">
         <div className="flex gap-x-4">
-          <div className="flex items-center justify-center w-12 h-12 md:w-14 md:h-14 bg-primary rounded-full">
+          <div className="flex items-center justify-center w-12 h-12 md:w-14 md:h-14 bg-MainPrimary rounded-full">
             <Image
               className="scale-85 md:scale-100"
               src={userIcon}
@@ -41,10 +41,10 @@ export default function AccountPopover() {
             />
           </div>
           <div>
-            <p className="text-lg font-bold text-primary dark:text-primary-lighter mb-1">
+            <p className="text-lg font-bold text-MainPrimary dark:text-MainPrimary-lighter mb-1">
               آرمان غنی زاده
             </p>
-            <p className="text-xs text-black-600 dark:text-black-800">
+            <p className="text-xs text-LightBodydark:text-black-800">
               موجودی : ۰ تومان
             </p>
           </div>
@@ -56,7 +56,7 @@ export default function AccountPopover() {
               <ListboxItem key={item.route} className="py-4">
                 <div className="flex items-center gap-x-3">
                   <Image src={item.icon} alt="" width={24} height={24} />
-                  <p className="text-sm text-black-600 dark:text-black-800">
+                  <p className="text-sm text-LightBodydark:text-black-800">
                     {item.label}
                   </p>
                 </div>
@@ -66,7 +66,7 @@ export default function AccountPopover() {
           <Divider className="my-4" />
           <div className="flex items-center justify-center gap-x-1">
             <Image src={logout} alt="" />
-            <p className="text-black-600 dark:text-black-800">خروج از حساب </p>
+            <p className="text-LightBodydark:text-black-800">خروج از حساب </p>
           </div>
         </div>
       </PopoverContent>
