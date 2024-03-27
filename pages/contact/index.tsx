@@ -1,8 +1,11 @@
+import Map from '@/components/Templates/Contact/Map/Map'
 import React from 'react'
 
 function Contact() {
   return (
-    <div>contact</div>
+    <>
+    <Map/>
+    </>
   )
 }
 
