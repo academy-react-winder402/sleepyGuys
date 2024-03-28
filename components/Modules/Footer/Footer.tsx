@@ -3,8 +3,7 @@ import React from "react";
 import instagramIcon from "@/public/icons/theme/icons8-instagram-100.png";
 import telegramIcon from "@/public/icons/theme/icons8-telegram-100.png";
 import Image from "next/image";
-import { Button, Divider } from "@nextui-org/react";
-import PrimaryInput from "../Input/PrimaryInput";
+import { Divider } from "@nextui-org/react";
 import NewsLetterForm from "./NewsLetterForm/NewsLetterForm";
 
 function Footer() {
