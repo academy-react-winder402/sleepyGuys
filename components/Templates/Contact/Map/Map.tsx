@@ -6,8 +6,10 @@ import 'leaflet/dist/leaflet.css'
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
 import { useState } from 'react'
 
+
 const Map = () => {
-    const [coord, setCoord] = useState([36.58404, 53.06255])
+    const [coord, setCoord] = useState<[number , number]>([36.58404, 53.06255])
+    
     return (
         <div className='bg-MainPrimary overflow-hidden rounded-3xl'>
        
