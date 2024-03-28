@@ -8,13 +8,13 @@ import { useState } from 'react'
 
 
 const Map = () => {
-    const [coord, setCoord] = useState<[number , number]>([36.58404, 53.06255])
+    const [coord, setCoord] = useState<[number , number]>([36.59700, 53.06255])
     
     return (
         <div className='bg-MainPrimary overflow-hidden rounded-3xl'>
        
             <MapContainer style={{
-                height: '40vh',
+                height: '50vh',
                 width: '100%',
                 backgroundColor: '#436E8E',
                 opacity: 0.9,
@@ -34,7 +34,7 @@ const Map = () => {
                         shadowUrl: MarkerShadow.src,
                         shadowSize: [41, 41],
                     })
-                } position={[36.58404, 53.06255]}>
+                } position={[36.59704, 53.06460]}>
                      <Popup>
                         <p className='text-MainPrimary'>آکادمی سپهر</p>
                     </Popup>
