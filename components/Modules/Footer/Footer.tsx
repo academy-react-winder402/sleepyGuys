@@ -5,6 +5,7 @@ import telegramIcon from "@/public/icons/theme/icons8-telegram-100.png";
 import Image from "next/image";
 import { Button, Divider } from "@nextui-org/react";
 import PrimaryInput from "../Input/PrimaryInput";
+import NewsLetterForm from "./NewsLetterForm/NewsLetterForm";
 
 function Footer() {
   return (
@@ -121,7 +122,7 @@ function Footer() {
             </li>
           </ul>
         </ul>
-
+        <NewsLetterForm />
       </footer>
       <Divider className="w-[85%] mx-auto bg-black-800 mt-10" />
       <p className="text-center py-5 text-black-800">
