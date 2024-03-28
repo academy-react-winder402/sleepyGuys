@@ -9,7 +9,7 @@ import { Button, Divider } from "@nextui-org/react";
 function Footer() {
   return (
     <div className="sm:pb-0 pb-20">
-      <footer className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-0 md:gap-5 gap-y-16 mt-96 md:pb-10 px-3">
+      <footer className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-0 md:gap-5 gap-y-16 mt-60 md:pb-10 px-3">
         <ul className="lg:flex flex-col gap-2 order-2 md:order-1 hidden">
           <li>
             <h2 className="text-[20px] md:text-[25px] text-LightTitle dark:text-DarkTitle font-vazir font-bold pb-2">

@@ -44,3 +44,9 @@ a {
 .backdrop-blur-xl {
    --tw-backdrop-blur: blur(0px);
 }
+
+#my-leaflet-map  {
+  background: #436E8E;
+  outline: 0;
+}
+
