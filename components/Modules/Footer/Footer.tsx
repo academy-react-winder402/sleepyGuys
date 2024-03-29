@@ -97,7 +97,7 @@ function Footer() {
                 راه های ارتباطی
               </h2>
             </li>
-            <li>
+            <li className="w-max">
               <Link
                 className="text-[13px] md:text-[15px] font-bold text-LightBody dark:text-DarkBody flex gap-2 items-center"
                 href={"#"}
@@ -108,7 +108,7 @@ function Footer() {
                 <p>تلگرام</p>
               </Link>
             </li>
-            <li>
+            <li className="w-max">
               <Link
                 className="text-[13px] md:text-[15px] font-bold text-LightBody dark:text-DarkBody flex gap-2 items-center"
                 href={"#"}
