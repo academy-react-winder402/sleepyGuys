@@ -6,22 +6,16 @@ import React from "react";
 
 function CorseInfo() {
   return (
-    <div className="grid grid-cols-7">
-      <div className="col-span-7">
-        <CourseDetailsBox />
-      </div>
-      <div className="col-span-7 grid grid-cols-7 gap-y-6">
-        <div className="col-span-5 row-span-2">
-          <CourseDescriptionBox />
-        </div>
-        <div className="col-span-2 row-span-1">
+    <>
+      <CourseDetailsBox />
+      <div className="flex items-start">
+        <CourseDescriptionBox />
+        <div className="flex flex-col gap-y-4 w-1/3">
           <TeacherDetailsBox />
-        </div>
-        <div className="col-span-2 row-span-1">
           <RelatedCoursesBox />
         </div>
       </div>
-    </div>
+    </>
   );
 }
 
