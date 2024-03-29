@@ -11,6 +11,7 @@ import React from "react";
 import userIcon from "@/public/icons/theme/user.svg";
 import logout from "@/public/icons/theme/logout.svg";
 import Image from "next/image";
+import MainButton from "@/components/Modules/Button/MainButton";
 
 export default function TeacherDetailsBox() {
   return (
@@ -33,9 +34,11 @@ export default function TeacherDetailsBox() {
       </CardBody>
       <Divider />
       <CardFooter className="justify-center">
-        <Button variant="light" startContent={<Image src={logout} alt="" />}>
-          <p>مشاهده همه دوره های استاد</p>
-        </Button>
+        <MainButton
+          content="مشاهده همه دوره های استاد"
+          variant="light"
+          startIcon={<Image src={logout} alt="" />}
+        />
       </CardFooter>
     </Card>
   );
