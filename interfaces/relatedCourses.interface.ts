@@ -1,10 +1,9 @@
 import { StaticImageData } from "next/image";
 
-interface News {
+interface RelatedCourse {
   id: number;
   title: string;
   img: StaticImageData;
-  des: string;
 }
 
-export type { News };
+export type { RelatedCourse };
