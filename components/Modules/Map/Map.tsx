@@ -13,7 +13,7 @@ export default function Map() {
     <div className="bg-MainPrimary overflow-hidden rounded-3xl">
       <MapContainer
         style={{
-          height: "60dvh",
+          height: "52dvh",
           width: "100%",
           backgroundColor: "#436E8E",
           opacity: 0.9,
