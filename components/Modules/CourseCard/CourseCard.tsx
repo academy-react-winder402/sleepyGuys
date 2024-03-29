@@ -4,7 +4,7 @@ import { Course } from "@/interfaces/course.interface";
 import clock from "@/public/icons/courses/clock.svg";
 import { Chip, Divider } from "@nextui-org/react";
 
-function CourseCard({ title, id, image, des, time, teachers, price }: Course) {
+function CourseCard({ title, image, des, time, teachers, price }: Course) {
   return (
     <div className="pt-[55px]">
       <div className="flex py-6 bg-white-100 dark:bg-dark-lighter flex-col gap-4 rounded-3xl ">

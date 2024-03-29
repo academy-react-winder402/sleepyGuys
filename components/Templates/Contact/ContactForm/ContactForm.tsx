@@ -19,12 +19,7 @@ function ContactForm() {
 
   return (
     <div className="mt-20">
-      <BoxHeader
-        title="انتقادها و پیشنهادات"
-        hasLink={false}
-        linkTitle=""
-        route=""
-      />
+      <BoxHeader title="انتقادها و پیشنهادات" hasLink={false} />
       <div className="bg-white-100 dark:bg-dark-lighter w-[80%] sm:w-[65%] md:w-[50%] lg:w-[45%] rounded-3xl mx-auto pt-8 mb-36">
         <form
           className="flex flex-col items-center"

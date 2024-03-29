@@ -8,12 +8,7 @@ const DynamicMap = dynamic(() => import("@/components/Modules/Map/Map"), {
 const MapBox = () => {
   return (
     <>
-      <BoxHeader
-        title="یه سر بیا پیشمون"
-        hasLink={false}
-        linkTitle=""
-        route=""
-      />
+      <BoxHeader title="یه سر بیا پیشمون" hasLink={false} />
       <DynamicMap />
       <p className="text-LightBody dark:text-DarkBody flex pt-3 text-[11px]">
         آدرس ما ساری بلوار خزر آموزشگاه دکتر بحرالعلوم هست.منتظر حضور گرمتان

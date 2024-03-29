@@ -7,7 +7,7 @@ import BoxHeader from "@/components/Modules/BoxHeader/BoxHeader";
 export default function ServicesBox() {
   return (
     <div className="lg:mt-36 mt-24">
-      <BoxHeader title="خدمات ما" hasLink={false} linkTitle="" route="" />
+      <BoxHeader title="خدمات ما" hasLink={false} />
       <EffectCardSlider
         href=""
         title=""
