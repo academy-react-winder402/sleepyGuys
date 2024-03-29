@@ -1,7 +1,5 @@
-import React from 'react'
+import React from "react";
 
 export default function CourseDescriptionBox() {
-  return (
-    <div>CourseDescriptionBox</div>
-  )
+  return <div className="w-2/3">CourseDescriptionBox</div>;
 }

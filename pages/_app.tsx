@@ -5,18 +5,19 @@ import "leaflet/dist/leaflet.css";
 import { NextUIProvider } from "@nextui-org/react";
 import { ThemeProvider as NextThemesProvider } from "next-themes";
 import type { AppProps } from "next/app";
-
+import { useRouter } from "next/router";
 
 export default function App({ Component, pageProps }: AppProps) {
+  const router = useRouter();
   return (
-    <NextUIProvider>
+    <NextUIProvider navigate={router.push}>
       <NextThemesProvider attribute="class" defaultTheme="light">
         <div className="pt-5 md:pt-8 sm:mx-8 lg:mx-20 relative">
           <Navbar />
           <div className="mx-3 sm:mx-0">
             <Component {...pageProps} />
           </div>
-          <Footer/>
+          <Footer />
         </div>
       </NextThemesProvider>
     </NextUIProvider>

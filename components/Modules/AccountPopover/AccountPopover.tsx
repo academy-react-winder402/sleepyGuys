@@ -12,6 +12,7 @@ import React from "react";
 import logout from "@/public/icons/theme/logout.svg";
 import userIcon from "@/public/icons/theme/user.svg";
 import { useRouter } from "next/router";
+import UserCard from "../UserCard/UserCard";
 
 export default function AccountPopover() {
   const router = useRouter();
@@ -30,25 +31,11 @@ export default function AccountPopover() {
         </div>
       </PopoverTrigger>
       <PopoverContent className="w-[250px] bg-white-100 dark:bg-dark-lighter sm:w-[340px] items-start rounded-tl-none p-6">
-        <div className="flex gap-x-4">
-          <div className="flex items-center justify-center w-12 h-12 md:w-14 md:h-14 bg-MainPrimary rounded-full">
-            <Image
-              className="scale-85 md:scale-100"
-              src={userIcon}
-              alt=""
-              width={38}
-              height={18}
-            />
-          </div>
-          <div>
-            <p className="text-lg font-bold text-MainPrimary dark:text-MainPrimary-lighter mb-1">
-              آرمان غنی زاده
-            </p>
-            <p className="text-xs text-LightBodydark:text-black-800">
-              موجودی : ۰ تومان
-            </p>
-          </div>
-        </div>
+        <UserCard
+          title="آرمان غنی زاده"
+          description="موجودی: ۰تومان"
+          image={userIcon}
+        />
         <Divider className="my-3" />
         <div className="w-full flex flex-col">
           <Listbox onAction={(key) => router.push(`/${key}`)}>
@@ -56,7 +43,7 @@ export default function AccountPopover() {
               <ListboxItem key={item.route} className="py-4">
                 <div className="flex items-center gap-x-3">
                   <Image src={item.icon} alt="" width={24} height={24} />
-                  <p className="text-sm text-LightBodydark:text-black-800">
+                  <p className="text-sm text-LightBody dark:text-black-800">
                     {item.label}
                   </p>
                 </div>
@@ -66,7 +53,7 @@ export default function AccountPopover() {
           <Divider className="my-4" />
           <div className="flex items-center justify-center gap-x-1">
             <Image src={logout} alt="" />
-            <p className="text-LightBodydark:text-black-800">خروج از حساب </p>
+            <p className="text-LightBody dark:text-black-800">خروج از حساب </p>
           </div>
         </div>
       </PopoverContent>

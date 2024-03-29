@@ -62,7 +62,7 @@ const config: Config = {
         DarkBody: {
           DEFAULT: "#B3B3B3",
         },
-        BtnText:{
+        BtnText: {
           DEFAULT: "#fff",
         },
         white: {
