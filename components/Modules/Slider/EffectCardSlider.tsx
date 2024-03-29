@@ -43,16 +43,16 @@ export default function EffectCardSlider({
       className="w-[80%] sm:w-[92%] md:w-[85%] xl:w-[75%] h-[450px] sm:h-[235px] md:h-[280px] lg:h-[320px] dark:bg-opacity-10"
     >
       {data.map((item, index) => (
-        <SwiperSlide key={index} className="bg-white-100 dark:bg-dark">
+        <SwiperSlide key={index} className="bg-white dark:bg-dark">
           <Content {...item} />
         </SwiperSlide>
       ))}
       {title && (
         <Link
           href={`${href}`}
-          className="md:col-start-3 col-span-1 mx-auto md:ms-auto md:mx-0 flex items-center gap-x-2 lg:mb-10 mb-8 text-LightTitle dark:text-DarkTitle"
+          className="md:col-start-3 col-span-1 mx-auto md:ms-auto md:mx-0 flex items-center gap-x-2 lg:mb-10 mb-8 text-lightTitle dark:text-darkTitle"
         >
-          <Divider className="w-[30px] bg-black-400 dark:bg-white-100" />
+          <Divider className="w-[30px] h-1 bg-primary dark:bg-primary-lighter" />
           {title}
         </Link>
       )}

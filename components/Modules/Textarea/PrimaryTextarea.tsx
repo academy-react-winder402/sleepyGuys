@@ -32,13 +32,13 @@ export default function PrimaryTextarea({
         mainWrapper: ["overflow-hidden"],
         inputWrapper: [
           "rounded-[20px]",
-          "bg-white-100",
+          "bg-white",
           "dark:bg-dark-lighter",
           "backdrop-blur-xl",
           "backdrop-saturate-200",
           "hover:bg-default-200/70",
           "dark:hover:bg-default/70",
-          "group-data-[focus=true]:bg-white-100",
+          "group-data-[focus=true]:bg-white",
           "dark:group-data-[focus=true]:bg-dark-lighter",
         ],
       }}

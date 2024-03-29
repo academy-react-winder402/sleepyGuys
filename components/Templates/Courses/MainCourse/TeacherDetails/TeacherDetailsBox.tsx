@@ -25,7 +25,7 @@ export default function TeacherDetailsBox() {
       </CardHeader>
       <Divider />
       <CardBody dir="rtl" className="text-right px-0 mb-8">
-        <p className="text-LightBody dark:text-black-800 text-sm">
+        <p className="text-lightBody dark:text-darkBody text-sm">
           از سال 92 که وارد حوزه نرم افزار و برنامه نویسی شدم... طی 10 سال گذشته
           تجربه کار با زبانها و پلتفرمهای مختلفی رو دارم ولی 4 سال اخیر به شکل
           متمرکز به عنوان فول استک وب دولوپر مشغول به کار بودم و در حال حاضر

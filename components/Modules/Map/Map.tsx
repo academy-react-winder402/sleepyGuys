@@ -10,7 +10,7 @@ export default function Map() {
   const [coord, setCoord] = useState<[number, number]>([36.597, 53.06255]);
 
   return (
-    <div className="bg-MainPrimary overflow-hidden rounded-3xl">
+    <div className="bg-primary overflow-hidden rounded-3xl">
       <MapContainer
         style={{
           height: "52dvh",
@@ -41,7 +41,7 @@ export default function Map() {
           position={[36.59704, 53.0646]}
         >
           <Popup>
-            <p className="text-MainPrimary">آکادمی سپهر</p>
+            <p className="text-primary">آکادمی سپهر</p>
           </Popup>
         </Marker>
       </MapContainer>

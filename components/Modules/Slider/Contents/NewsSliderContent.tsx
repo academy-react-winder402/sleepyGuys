@@ -5,7 +5,7 @@ import { SwiperSlide } from "swiper/react";
 
 export default function NewsSliderContent({ data }: { data: News[] }) {
   return data.map((news, index) => (
-    <SwiperSlide key={index} className="bg-white-100 dark:bg-dark">
+    <SwiperSlide key={index} className="bg-white dark:bg-dark">
       <NewsCard {...news} />
     </SwiperSlide>
   ));

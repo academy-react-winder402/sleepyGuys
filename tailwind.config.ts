@@ -40,54 +40,38 @@ const config: Config = {
           lighter: "#282830",
           darker: "#050506",
         },
-        MainPrimary: {
+        primary: {
           DEFAULT: "#436E8E",
           lighter: "#6088A8",
           darker: "#2D526E",
         },
-        MainOrange: {
+        secondary: {
           DEFAULT: "#E38569",
         },
-        LightTitle: {
+        lightTitle: {
           DEFAULT: "#4D4D4D",
           lighter: "#333333",
           darker: "#666666",
         },
-        DarkTitle: {
+        darkTitle: {
           DEFAULT: "#fff",
         },
-        LightBody: {
+        lightBody: {
           DEFAULT: "#8D8D8D",
         },
-        DarkBody: {
+        darkBody: {
           DEFAULT: "#B3B3B3",
         },
-        BtnText: {
+        btnText: {
           DEFAULT: "#fff",
         },
+        gray: {
+          darker: "#4D4D4D",
+          lighter: "#B3B3B3",
+        },
         white: {
-          100: "#fff",
-          200: "#F7F7F7",
-          300: "#F0F0F0",
-          400: "#E0E0E0",
-          500: "#BDBDBD",
-          600: "#9E9E9E",
-          700: "#757575",
-          800: "#616161",
-          900: "#424242",
+          DEFAULT: "#FFF",
         },
-        black: {
-          100: "#000000",
-          200: "#1A1A1A",
-          300: "#333333",
-          400: "#4D4D4D",
-          500: "#666666",
-          600: "#808080",
-          700: "#999999",
-          800: "#B3B3B3",
-          900: "#CCCCCC",
-        },
-        gray: "#555555",
       },
     },
   },
@@ -98,7 +82,7 @@ const config: Config = {
         dark: {
           colors: {
             background: "#1c1c27",
-            MainPrimary: "#436E8E",
+            primary: "#436E8E",
           },
         },
         light: {

@@ -10,7 +10,7 @@ const MapBox = () => {
     <>
       <BoxHeader title="یه سر بیا پیشمون" hasLink={false} />
       <DynamicMap />
-      <p className="text-LightBody dark:text-DarkBody flex pt-3 text-[11px]">
+      <p className="text-lightBody dark:text-darkBody flex pt-3 text-[11px]">
         آدرس ما ساری بلوار خزر آموزشگاه دکتر بحرالعلوم هست.منتظر حضور گرمتان
         هستیم .
       </p>

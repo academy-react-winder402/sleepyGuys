@@ -17,23 +17,15 @@ export default function PrimaryInput({
       className={className}
       variant={variant}
       classNames={{
-        input: [
-          "text-black/90",
-          "dark:text-white/90",
-          "placeholder:text-default-700/50",
-          "dark:placeholder:text-white/60",
-        ],
+        input: ["placeholder:text-lightBody", "dark:placeholder:text-darkBody"],
         mainWrapper: ["overflow-hidden"],
         inputWrapper: [
           "rounded-[20px]",
           "py-8",
-          "bg-white-100",
+          "bg-white",
           "dark:bg-dark-lighter",
-          "backdrop-blur-xl",
-          "backdrop-saturate-200",
-          "hover:bg-default-200/70",
-          "dark:hover:bg-default/70",
-          "group-data-[focus=true]:bg-white-100",
+          "dark:hover:bg-gray-darker",
+          "group-data-[focus=true]:bg-white",
           "dark:group-data-[focus=true]:bg-dark-lighter",
         ],
       }}

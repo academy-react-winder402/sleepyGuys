@@ -2,7 +2,7 @@ import { ReactNode } from "react";
 
 interface button {
   className?: string;
-  content: string;
+  content: string | ReactNode;
   type?: "button" | "submit";
   variant?:
     | "solid"
