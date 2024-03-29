@@ -15,7 +15,7 @@ const MapBox = () => {
         route=""
       />
       <DynamicMap />
-      <p className="text-LightBody dark:text-DarkBody flex justify-center py-2 text-sm">
+      <p className="text-LightBody dark:text-DarkBody flex pt-3 text-[11px]">
         آدرس ما ساری بلوار خزر آموزشگاه دکتر بحرالعلوم هست.منتظر حضور گرمتان
         هستیم .
       </p>

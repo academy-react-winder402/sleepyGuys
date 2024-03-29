@@ -25,6 +25,7 @@ export default function PrimaryInput({
         ],
         mainWrapper: ["overflow-hidden"],
         inputWrapper: [
+          "rounded-[20px]",
           "py-8",
           "bg-white-100",
           "dark:bg-dark-lighter",

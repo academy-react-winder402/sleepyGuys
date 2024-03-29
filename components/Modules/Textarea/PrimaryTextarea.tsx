@@ -31,6 +31,7 @@ export default function PrimaryTextarea({
         ],
         mainWrapper: ["overflow-hidden"],
         inputWrapper: [
+          "rounded-[20px]",
           "bg-white-100",
           "dark:bg-dark-lighter",
           "backdrop-blur-xl",
