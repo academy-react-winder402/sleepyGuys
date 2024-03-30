@@ -28,8 +28,8 @@ export default function CourseDetailsBox() {
             <div className="flex flex-col-reverse sm:flex-row gap-5 justify-between items-center w-full">
               <div>
                 <MainButton
-                  Class="w-full bg-MainPrimary text-sm text-BtnText flex items-center justify-center text-center px-8  py-4 lgb:px-10 lgb:py-8 rounded-2xl"
-                  Content="خرید آنلاین دوره"
+                  className="w-full bg-MainPrimary text-sm text-BtnText flex items-center justify-center text-center px-8  py-4 lgb:px-10 lgb:py-8 rounded-2xl"
+                  content="خرید آنلاین دوره"
                 />
               </div>
               <div className="flex flex-col gap-1 md:gap-2 lg:gap-3">
@@ -44,7 +44,7 @@ export default function CourseDetailsBox() {
             </div>
           </div>
           <div className="-translate-x-10 w-3/7 hidden lg:block">
-            <Image src={bgImg} className="rounded-3xl" alt=""/>
+            <Image src={bgImg} className="rounded-3xl" alt="" />
           </div>
         </div>
       </div>
