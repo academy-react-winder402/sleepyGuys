@@ -1,4 +1,4 @@
-import MainButton from "@/components/Modules/Button/Button";
+import MainButton from "@/components/Modules/Button/MainButton";
 import Image from "next/image";
 import React from "react";
 import bgImg from "@/public/picturse/courses/courseDitale.jpg";
@@ -32,8 +32,13 @@ export default function CourseDetailsBox() {
                 />
               </div>
               <div className="flex flex-col gap-1 md:gap-2 lg:gap-3">
-                <span className="flex items-center gap-2  flex-row-reverse">{"تومان"} <p className="lgb:text-xl text-lg line-through">2,300,000</p></span>
-              <span className="flex items-center gap-2 text-DarkTitle lgb:text-4xl text-2xl  flex-row-reverse">{"تومان"} <p>920,000</p></span>
+                <span className="flex items-center gap-2  flex-row-reverse">
+                  {"تومان"}{" "}
+                  <p className="lgb:text-xl text-lg line-through">2,300,000</p>
+                </span>
+                <span className="flex items-center gap-2 text-DarkTitle lgb:text-4xl text-2xl  flex-row-reverse">
+                  {"تومان"} <p>920,000</p>
+                </span>
               </div>
             </div>
           </div>
