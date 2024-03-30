@@ -5,13 +5,13 @@ import { getRelatedCourses } from "@/mock/getRelatedCourses";
 
 export default function RelatedCoursesBox() {
   return (
-    <Card dir="rtl" className="dark:bg-dark-lighter rounded-3xl px-6 py-4">
+    <Card dir="rtl" className="dark:bg-dark-lighter rounded-3xl px-6 py-4 shadow-lg">
       <CardHeader>
         <p className="text-2xl font-kalamehBlack text-primary dark:text-primary-lighter">
           دوره های مشابه
         </p>
       </CardHeader>
-      <CardBody className="gap-y-4">
+      <CardBody className="gap-y-4 overflow-visible pr-8">
         {getRelatedCourses().map((course, index: number) => (
           <RelatedCourseItem {...course} key={index} />
         ))}

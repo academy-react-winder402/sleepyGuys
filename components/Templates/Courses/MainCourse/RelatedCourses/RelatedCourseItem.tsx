@@ -4,9 +4,9 @@ import React from "react";
 
 export default function RelatedCourseItem({ id, title, img }: RelatedCourse) {
   return (
-    <div className="border-[.5px] border-lightBody dark:border-darkBody py-2 px-3 flex items-center gap-x-2 rounded-xl text-right cursor-pointer">
-      <Image alt="" src={img} width={70} className="rounded-lg" />
-      <p className="text-xs text-lightTitle dark:text-darkTitle">{title}</p>
+    <div className="py-4 pl-3 bg-LightCardBg dark:bg-DarkCardBg flex items-center rounded-xl text-right cursor-pointer">
+      <Image alt="" src={img}  className="rounded-lg translate-x-5 w-20 lgb:w-28" />
+      <p className="text-xs text-LightTitle dark:text-black-800 leading-5">{title}</p>
     </div>
   );
 }
