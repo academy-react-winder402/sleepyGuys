@@ -9,6 +9,7 @@ export default function CourseDetailsBox() {
       <Image
         src={bgImg}
         className="absolute top-0 left-0 w-full h-full z-0 rounded-3xl"
+        alt=""
       />
       <div className="flex w-full bg-gradient-to-r from-[rgba(0,0,0,0.2)] via-[#000] to-[#000] z-10 absolute top-0 left-0 h-full rounded-3xl">
         <div className="flex items-center h-full p-5 pr-8 w-full">
@@ -43,7 +44,7 @@ export default function CourseDetailsBox() {
             </div>
           </div>
           <div className="-translate-x-10 w-3/7 hidden lg:block">
-            <Image src={bgImg} className="rounded-3xl" />
+            <Image src={bgImg} className="rounded-3xl" alt=""/>
           </div>
         </div>
       </div>
