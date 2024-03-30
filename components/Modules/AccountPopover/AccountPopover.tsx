@@ -20,7 +20,7 @@ export default function AccountPopover() {
   return (
     <Popover offset={15} placement="bottom-start" backdrop={"blur"}>
       <PopoverTrigger>
-        <div className="flex items-center justify-center w-10 h-10 md:w-11 md:h-11 bg-MainPrimary rounded-full">
+        <div className="flex items-center justify-center w-10 h-10 md:w-11 md:h-11 bg-primary dark:bg-primary-lighter rounded-full">
           <Image
             className="scale-85 md:scale-100"
             src={userIcon}
@@ -30,7 +30,7 @@ export default function AccountPopover() {
           />
         </div>
       </PopoverTrigger>
-      <PopoverContent className="w-[250px] bg-white-100 dark:bg-dark-lighter sm:w-[340px] items-start rounded-tl-none p-6">
+      <PopoverContent className="w-[250px] bg-white dark:bg-dark-lighter sm:w-[340px] items-start rounded-tl-none p-6">
         <UserCard
           title="آرمان غنی زاده"
           description="موجودی: ۰تومان"
@@ -43,7 +43,7 @@ export default function AccountPopover() {
               <ListboxItem key={item.route} className="py-4">
                 <div className="flex items-center gap-x-3">
                   <Image src={item.icon} alt="" width={24} height={24} />
-                  <p className="text-sm text-LightBody dark:text-black-800">
+                  <p className="text-sm text-lightBody dark:text-darkBody">
                     {item.label}
                   </p>
                 </div>
@@ -53,7 +53,7 @@ export default function AccountPopover() {
           <Divider className="my-4" />
           <div className="flex items-center justify-center gap-x-1">
             <Image src={logout} alt="" />
-            <p className="text-LightBody dark:text-black-800">خروج از حساب </p>
+            <p className="text-lightBody dark:text-darkBody">خروج از حساب </p>
           </div>
         </div>
       </PopoverContent>

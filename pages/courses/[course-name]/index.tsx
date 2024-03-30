@@ -10,7 +10,7 @@ function CorseInfo() {
       <CourseDetailsBox />
       <div className="flex items-start">
         <CourseDescriptionBox />
-        <div className="flex flex-col gap-y-4 w-1/3">
+        <div className="flex flex-col gap-y-4 w-[30%]">
           <TeacherDetailsBox />
           <RelatedCoursesBox />
         </div>

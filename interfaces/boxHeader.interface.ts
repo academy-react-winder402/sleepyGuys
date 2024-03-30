@@ -1,8 +1,8 @@
 interface BoxHeader {
   title: string;
   hasLink: Boolean;
-  linkTitle: string;
-  route: string;
+  linkTitle?: string;
+  route?: string;
 }
 
 export type { BoxHeader };

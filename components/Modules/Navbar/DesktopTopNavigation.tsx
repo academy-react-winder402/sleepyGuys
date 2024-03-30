@@ -24,7 +24,7 @@ export default function DesktopTopNavigation() {
                 className={
                   isActive
                     ? "text-black dark:text-white"
-                    : "text-LightBody dark:text-white-600"
+                    : "text-lightBody dark:text-darkBody"
                 }
               >
                 <Link href={route.href}>{route.name}</Link>

@@ -4,7 +4,7 @@ import PrimaryInput from "@/components/Modules/Input/PrimaryInput";
 import PrimaryTextarea from "@/components/Modules/Textarea/PrimaryTextarea";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { ContactForm } from "@/types/contactForm";
-import MainButton from "@/components/Modules/Button/Button";
+import MainButton from "@/components/Modules/Button/MainButton";
 
 function ContactForm() {
   const {
@@ -19,13 +19,8 @@ function ContactForm() {
 
   return (
     <div className="mt-20">
-      <BoxHeader
-        title="انتقادها و پیشنهادات"
-        hasLink={false}
-        linkTitle=""
-        route=""
-      />
-      <div className="bg-white-100 dark:bg-dark-lighter w-[80%] sm:w-[65%] md:w-[50%] lg:w-[45%] rounded-3xl mx-auto pt-8 mb-36">
+      <BoxHeader title="انتقادها و پیشنهادات" hasLink={false} />
+      <div className="bg-white dark:bg-dark-lighter w-[80%] sm:w-[65%] md:w-[50%] lg:w-[45%] rounded-3xl mx-auto pt-8 mb-36">
         <form
           className="flex flex-col items-center"
           onSubmit={handleSubmit(submitFormHandler)}
@@ -50,7 +45,11 @@ function ContactForm() {
               }),
             }}
           />
-          <MainButton Class="bg-MainPrimary text-BtnText w-max mt-6 translate-y-5" Content="ارسال پیام"/>
+          <MainButton
+            className="bg-primary text-btnText w-max mt-6 translate-y-5"
+            content="ارسال پیام"
+            type="submit"
+          />
         </form>
       </div>
     </div>

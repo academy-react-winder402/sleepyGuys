@@ -10,16 +10,16 @@ function Hero() {
       <div className="flex items-center justify-between">
         <div className="w-full md:w-2/5 flex flex-col gap-8">
           <div className="flex flex-col gap-2 justify-center text-center md:text-right">
-            <h1 className="text-MainPrimary dark:text-MainPrimary-lighter text-3xl lgl:text-4xl lg:text-[41px] xl:text-[43px] mb-1 font-bold font-peyda">
+            <h1 className="text-primary dark:text-primary-lighter text-3xl lgl:text-4xl lg:text-[41px] xl:text-[43px] mb-1 font-bold font-peyda">
               دنبال چی می گردی؟
             </h1>
-            <p className="text-LightBody dark:text-DarkBodytext-lg">
+            <p className="text-lightBody dark:text-darkBodytext-lg">
               دیگه وقتشه یه تکونی به خودت بدی…
             </p>
-            <div className="lg:ml-16 rounded-[20px] border-[1px] border-solid border-MainPrimary dark:border-[1px] dark:border-MainPrimary-lighter relative">
+            <div className="lg:ml-16 relative">
               <HeroInput />
               <Image
-                className="absolute left-1 top-1 rounded-[18px]"
+                className="absolute left-1 top-1 rounded-[18px] cursor-pointer"
                 src={search}
                 width={48}
                 height={48}
@@ -28,10 +28,10 @@ function Hero() {
             </div>
           </div>
           <div className="hidden md:flex flex-col gap-2 justify-center text-center md:text-right">
-            <h1 className="text-MainOrange dark:text-MainOrange text-1x2 lg:text-[30px] font-bold font-peyda">
+            <h1 className="text-secondary dark:text-secondary text-1x2 lg:text-[30px] font-bold font-peyda">
               آکادمی سپهر
             </h1>
-            <p className="text-LightBody dark:text-DarkBodytext-[16px]">
+            <p className="text-lightBody dark:text-darkBodytext-[16px]">
               آکادمی آموزشی سپهر مکانی برای پیشرفت تو تا بتونی مهارت های مورد
               نیزار برای طراحی وب با بهترین روش یاد بگیری{" "}
             </p>

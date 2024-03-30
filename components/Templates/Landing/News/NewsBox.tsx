@@ -7,7 +7,7 @@ import BoxHeader from "@/components/Modules/BoxHeader/BoxHeader";
 export default function NewsBox() {
   return (
     <div className="lg:mt-36 mt-24">
-      <BoxHeader title="آخرین اخبار" hasLink={false} linkTitle="" route="" />
+      <BoxHeader title="آخرین اخبار" hasLink={false}/>
       <EffectCardSlider
         href="/blogs"
         title="مشاهده همه اخبار"

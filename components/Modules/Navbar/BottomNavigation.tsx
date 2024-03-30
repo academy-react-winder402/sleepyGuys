@@ -26,15 +26,13 @@ const BottomNavigation = ({ mainRoutes }: NavbarInPhoneProps) => {
         />
         <ul className="flex justify-around mb-4 text-small z-50">
           {mainRoutes.map((route, index) => {
-            const isActive = pathname.includes(route.href);
+            const isActive = pathname === route.href;
             return (
               <li
                 key={index}
-                className={
-                  isActive
-                    ? " text-white-100 flex items-center justify-center flex-col xs:gap-1"
-                    : "text-white-400 flex items-center justify-center flex-col xs:gap-1"
-                }
+                className={`flex items-center justify-center flex-col xs:gap-1 ${
+                  isActive ? " text-white" : "text-gray-lighter"
+                }`}
               >
                 <Link className="xs:text-sm text-[9px]" href={route.href}>
                   <Image src={route.icon} alt="" width={24} height={24} />
