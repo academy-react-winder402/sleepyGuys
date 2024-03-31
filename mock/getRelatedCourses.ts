@@ -1,4 +1,4 @@
-import courseImg from "@/public/picturse/courses/next.webp";
+import courseImg from "@/public/pictures/courses/next.webp";
 
 export const getRelatedCourses = () => {
   return [

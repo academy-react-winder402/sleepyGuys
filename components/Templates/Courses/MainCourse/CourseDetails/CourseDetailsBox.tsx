@@ -1,7 +1,7 @@
 import MainButton from "@/components/Modules/Button/MainButton";
 import Image from "next/image";
 import React from "react";
-import bgImg from "@/public/picturse/courses/redux.webp";
+import bgImg from "@/public/pictures/courses/redux.webp";
 
 export default function CourseDetailsBox() {
   return (
