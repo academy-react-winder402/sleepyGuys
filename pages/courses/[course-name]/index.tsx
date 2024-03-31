@@ -13,7 +13,7 @@ function CorseInfo() {
       <div className="flex items-start gap-x-8">
         <div className="flex flex-col w-full lg:w-[70%] gap-y-8 shadow-2xl shadow-shadowColor dark:shadow-none rounded-3xl">
           <CourseDescriptionBox />
-          <CourseHeadlinesBox data={getCourseTitles()}/>
+          <CourseHeadlinesBox data={getCourseTitles()} />
         </div>
         <div className="hidden lg:flex flex-col gap-y-8 w-1/3">
           <TeacherDetailsBox />

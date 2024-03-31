@@ -1,5 +1,5 @@
-import { Card, CardBody, CardHeader, ScrollShadow } from "@nextui-org/react";
-import React, { useState } from "react";
+import { Card, CardBody, CardHeader } from "@nextui-org/react";
+import React from "react";
 import { Accordion, AccordionItem } from "@nextui-org/react";
 import { CourseTitle } from "@/interfaces/courseTitleItem.interface";
 
@@ -15,7 +15,7 @@ export default function CourseHeadlinesBox({ data }: { data: CourseTitle[] }) {
         </p>
       </CardHeader>
       <CardBody className="text-right">
-        <Accordion variant="splitted">
+        <Accordion variant="splitted" className="font-vazir">
           {data.map((titleItem: CourseTitle) => (
             <AccordionItem
               className="!shadow-none !bg-mainBodyBg dark:!bg-dark"
