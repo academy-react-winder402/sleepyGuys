@@ -10,7 +10,7 @@ export default function CourseDescriptionBox() {
 
   return (
     <Card
-      className="w-full lg:w-[70%] shadow-2xl shadow-shadowColor dark:shadow-none dark:bg-dark-lighter rounded-3xl px-6 py-4"
+      className="shadow-2xl shadow-shadowColor dark:shadow-none p-6 dark:bg-dark-lighter"
       dir="rtl"
     >
       <CardHeader>
@@ -22,8 +22,8 @@ export default function CourseDescriptionBox() {
         <ScrollShadow
           size={200}
           className={`${
-            !isExpanded ? "h-[60dvh]" : "h-full"
-          }  leading-7 flex flex-col gap-y-6 overflow-hidden mb-10 text-lightBody dark:text-darkBody`}
+            !isExpanded ? "h-[60dvh]" : "h-auto"
+          }  leading-7 flex flex-col gap-y-6 overflow-hidden mb-10 text-lightBody dark:text-darkBody transition-height !duration-500 !ease-in-out`}
           visibility="auto"
         >
           <p>
