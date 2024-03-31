@@ -13,7 +13,7 @@ function Hero() {
             <h1 className="text-primary dark:text-primary-lighter text-3xl lgl:text-4xl lg:text-[41px] xl:text-[43px] mb-1 font-bold font-peyda">
               دنبال چی می گردی؟
             </h1>
-            <p className="text-LightBody dark:text-Dark Bodytext-lg">
+            <p className="text-lightBody dark:text-darkBody text-lg">
               دیگه وقتشه یه تکونی به خودت بدی…
             </p>
             <div className="lg:ml-16 relative">

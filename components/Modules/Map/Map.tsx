@@ -41,7 +41,7 @@ export default function Map() {
           position={[36.59704, 53.0646]}
         >
           <Popup>
-            <p className="text-primary">آکادمی سپهر</p>
+            <p className="text-darkTitle">آکادمی سپهر</p>
           </Popup>
         </Marker>
       </MapContainer>

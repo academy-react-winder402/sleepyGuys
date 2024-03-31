@@ -7,7 +7,7 @@ export default function RelatedCoursesBox() {
   return (
     <Card
       dir="rtl"
-      className="dark:bg-dark-lighter rounded-3xl px-6 py-4 shadow-lg"
+      className="dark:bg-dark-lighter rounded-3xl px-6 py-4 shadow-2xl shadow-shadowColor dark:shadow-none"
     >
       <CardHeader>
         <p className="text-2xl font-kalamehBlack text-primary dark:text-primary-lighter">

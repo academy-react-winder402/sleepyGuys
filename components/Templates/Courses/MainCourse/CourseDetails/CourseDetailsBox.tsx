@@ -11,14 +11,14 @@ export default function CourseDetailsBox() {
         className="absolute top-0 left-0 w-full h-full z-0 rounded-3xl"
         alt=""
       />
-      <div className="flex w-full bg-gradient-to-r from-[rgba(0,0,0,0.2)] via-[#000] to-[#000] z-10 absolute top-0 left-0 h-full rounded-3xl">
+      <div className="flex w-full bg-gradient-to-r from-[rgba(0,0,0,0.6)] via-[rgba(0,0,0,0.9)] to-[#000] lg:from-[rgba(0,0,0,0.2)] lg:via-[#000] lg:to-[#000] z-10 absolute top-0 left-0 h-full rounded-3xl">
         <div className="flex items-center h-full p-5 pr-8 w-full">
           <div className="flex flex-col gap-8 lgb:gap-16 w-full sm:w-4/7">
             <div className="flex flex-col gap-3">
               <h1 className="text-primary-lighter text-center sm:text-right text-[20px] md:text-[25px] lgb:text-[30px] xl:text-[34px] mb-1 font-bold font-peyda">
                 آموزش تخصصی Redux مقدماتی تا پیشرفته
               </h1>
-              <p className="text-lightBody dark:text-darkBody w-1/2 lg:w-full text-sm lgb:text-lg hidden sm:block">
+              <p className="text-darkTitle w-full text-sm lgb:text-lg hidden sm:block">
                 حدود 40 ساعت آموزش جامع و تخصصی ری اکت! شما در دوره آموزش ری اکت
                 ReactJS ، این کتابخانه قدرتمند و پر استفاده جاوا اسکریپت را به
                 صورت کاملا پروژه محور و کاربردی یاد میگیرید! ری اکت گل سرسبد
