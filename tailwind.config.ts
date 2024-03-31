@@ -27,6 +27,9 @@ const config: Config = {
       padding: "50px",
     },
     extend: {
+      transitionProperty: {
+        'height': 'height'
+      },
       fontFamily: {
         kalamehBold: ["kamalehBold"],
         kalamehBlack: ["kalamehBlack"],
