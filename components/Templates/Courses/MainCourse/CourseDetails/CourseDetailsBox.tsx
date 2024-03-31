@@ -15,10 +15,10 @@ export default function CourseDetailsBox() {
         <div className="flex items-center h-full p-5 pr-8 w-full">
           <div className="flex flex-col gap-8 lgb:gap-16 w-full sm:w-4/7">
             <div className="flex flex-col gap-3">
-              <h1 className="text-MainPrimary-lighter text-center sm:text-right text-[20px] md:text-[25px] lgb:text-[30px] xl:text-[34px] mb-1 font-bold font-peyda">
+              <h1 className="text-primary-lighter text-center sm:text-right text-[20px] md:text-[25px] lgb:text-[30px] xl:text-[34px] mb-1 font-bold font-peyda">
                 آموزش تخصصی Redux مقدماتی تا پیشرفته
               </h1>
-              <p className="text-DarkTitle text-sm lgb:text-lg hidden sm:block">
+              <p className="text-lightBody dark:text-darkBody w-1/2 lg:w-full text-sm lgb:text-lg hidden sm:block">
                 حدود 40 ساعت آموزش جامع و تخصصی ری اکت! شما در دوره آموزش ری اکت
                 ReactJS ، این کتابخانه قدرتمند و پر استفاده جاوا اسکریپت را به
                 صورت کاملا پروژه محور و کاربردی یاد میگیرید! ری اکت گل سرسبد
@@ -28,18 +28,17 @@ export default function CourseDetailsBox() {
             <div className="flex flex-col-reverse sm:flex-row gap-5 justify-between items-center w-full">
               <div>
                 <MainButton
-                  className="w-full bg-MainPrimary text-sm text-BtnText flex items-center justify-center text-center px-8  py-4 lgb:px-10 lgb:py-8 rounded-2xl"
+                  className="bg-primary text-btnText px-8 py-4 lgb:px-10 lgb:py-6 rounded-3x text-md"
                   content="خرید آنلاین دوره"
                 />
               </div>
               <div className="flex flex-col gap-1 md:gap-2 lg:gap-3">
-                <span className="flex items-center gap-2  flex-row-reverse">
-                  {"تومان"}{" "}
-                  <p className="lgb:text-xl text-lg line-through">2,300,000</p>
-                </span>
-                <span className="flex items-center gap-2 text-DarkTitle lgb:text-4xl text-2xl  flex-row-reverse">
-                  {"تومان"} <p>920,000</p>
-                </span>
+                <p className="text-lightBody lgb:text-xl text-lg line-through text-left">
+                  2,300,000 تومان
+                </p>
+                <p className="text-darkTitle lgb:text-3xl text-2xl font-vazir">
+                  920,000 تومان
+                </p>
               </div>
             </div>
           </div>

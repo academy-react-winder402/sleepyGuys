@@ -5,7 +5,10 @@ import { getRelatedCourses } from "@/mock/getRelatedCourses";
 
 export default function RelatedCoursesBox() {
   return (
-    <Card dir="rtl" className="dark:bg-dark-lighter rounded-3xl px-6 py-4 shadow-lg">
+    <Card
+      dir="rtl"
+      className="dark:bg-dark-lighter rounded-3xl px-6 py-4 shadow-lg"
+    >
       <CardHeader>
         <p className="text-2xl font-kalamehBlack text-primary dark:text-primary-lighter">
           دوره های مشابه

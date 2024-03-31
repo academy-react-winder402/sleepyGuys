@@ -15,7 +15,10 @@ import MainButton from "@/components/Modules/Button/MainButton";
 
 export default function TeacherDetailsBox() {
   return (
-    <Card dir="rtl" className="dark:bg-dark-lighter rounded-3xl px-8 py-4 shadow-lg">
+    <Card
+      dir="rtl"
+      className="dark:bg-dark-lighter rounded-3xl px-8 py-4 shadow-lg"
+    >
       <CardHeader className="pb-6 px-0">
         <UserCard
           title="آرمان غنی زاده"

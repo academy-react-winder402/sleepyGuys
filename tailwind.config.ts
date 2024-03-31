@@ -34,9 +34,7 @@ const config: Config = {
         peyda: ["peyda"],
       },
       colors: {
-        MainBodyBg: "#F3F4F6",
-        LightCardBg: "#F3F4F6",
-        DarkCardBg: "#1c1c27",
+        mainBodyBg: "#F3F4F6",
         dark: {
           DEFAULT: "#1c1c27",
           lighter: "#282830",
