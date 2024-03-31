@@ -9,6 +9,7 @@ function MainButton({
   variant = "solid",
   startIcon,
   endIcon,
+  onClick,
 }: button) {
   return (
     <Button
@@ -17,6 +18,7 @@ function MainButton({
       variant={variant}
       startContent={startIcon}
       endContent={endIcon}
+      onClick={onClick}
     >
       <p>{content}</p>
     </Button>
