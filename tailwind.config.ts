@@ -34,6 +34,7 @@ const config: Config = {
         peyda: ["peyda"],
       },
       colors: {
+        shadowColor: "#ececec",
         mainBodyBg: "#F3F4F6",
         dark: {
           DEFAULT: "#1c1c27",

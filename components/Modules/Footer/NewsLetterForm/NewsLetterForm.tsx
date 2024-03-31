@@ -23,7 +23,7 @@ export default function NewsLetterForm() {
     >
       <PrimaryInput
         placeholder="ایمیلت رو برامون بنویس..."
-        variant="flat"
+        variant="faded"
         className="font-peyda"
         register={{
           ...register("email", {

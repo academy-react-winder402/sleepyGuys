@@ -18,13 +18,16 @@ export default function PrimaryInput({
       variant={variant}
       classNames={{
         input: ["placeholder:text-lightBody", "dark:placeholder:text-darkBody"],
-        mainWrapper: ["overflow-hidden"],
+        mainWrapper: ["overflow-hidden", "rounded-[20px]"],
         inputWrapper: [
+          "!duration-500",
+          "transition",
+          "ease-in-out",
+          "overflow-hidden",
           "rounded-[20px]",
           "py-8",
           "bg-white",
           "dark:bg-dark-lighter",
-          "dark:hover:bg-gray-darker",
           "group-data-[focus=true]:bg-white",
           "dark:group-data-[focus=true]:bg-dark-lighter",
         ],

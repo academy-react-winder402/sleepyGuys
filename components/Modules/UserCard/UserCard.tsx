@@ -12,7 +12,7 @@ export default function UserCard({ title, description, image }: UserCardType) {
         <p className="text-2xl text-primary dark:text-primary-lighter mb-0.1 font-kalamehBlack">
           {title}
         </p>
-        <p className="text-xs text-LightBody dark:text-black-800">
+        <p className="text-xs text-lightBody dark:text-darkBody">
           {description}
         </p>
       </div>

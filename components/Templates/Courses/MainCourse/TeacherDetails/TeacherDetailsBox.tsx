@@ -16,7 +16,7 @@ export default function TeacherDetailsBox() {
   return (
     <Card
       dir="rtl"
-      className="dark:bg-dark-lighter rounded-3xl px-8 py-4 shadow-lg"
+      className="dark:bg-dark-lighter rounded-3xl px-8 py-4 shadow-2xl shadow-shadowColor dark:shadow-none"
     >
       <CardHeader className="pb-6 px-0">
         <UserCard
@@ -27,7 +27,7 @@ export default function TeacherDetailsBox() {
       </CardHeader>
       <Divider />
       <CardBody dir="rtl" className="text-right px-0 mt-4 mb-8">
-        <p className="text-LightBody dark:text-black-800 leading-7 text-sm lgb:text-[16px]">
+        <p className="text-lightBody dark:text-darkBody text-sm lgb:text-[16px] leading-7">
           از سال 92 که وارد حوزه نرم افزار و برنامه نویسی شدم... طی 10 سال گذشته
           تجربه کار با زبانها و پلتفرمهای مختلفی رو دارم ولی 4 سال اخیر به شکل
           متمرکز به عنوان فول استک وب دولوپر مشغول به کار بودم و در حال حاضر
@@ -37,6 +37,7 @@ export default function TeacherDetailsBox() {
       <Divider />
       <CardFooter className="justify-center">
         <MainButton
+          className="text-lightTitle dark:text-darkTitle"
           content="مشاهده همه دوره های استاد"
           variant="light"
           startIcon={<Image src={logout} alt="" />}

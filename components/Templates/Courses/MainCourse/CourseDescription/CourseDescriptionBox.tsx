@@ -10,7 +10,7 @@ export default function CourseDescriptionBox() {
 
   return (
     <Card
-      className="w-full lg:w-[70%] shadow-lg dark:bg-dark-lighter rounded-3xl px-6 py-4"
+      className="w-full lg:w-[70%] shadow-2xl shadow-shadowColor dark:shadow-none dark:bg-dark-lighter rounded-3xl px-6 py-4"
       dir="rtl"
     >
       <CardHeader>
@@ -20,10 +20,10 @@ export default function CourseDescriptionBox() {
       </CardHeader>
       <CardBody className="text-right">
         <ScrollShadow
-          size={100}
+          size={200}
           className={`${
-            !isExpanded ? "h-[60dvh] lg:h-[105dvh]" : "h-full"
-          }  leading-7 flex flex-col gap-y-6 overflow-hidden mb-10`}
+            !isExpanded ? "h-[60dvh]" : "h-full"
+          }  leading-7 flex flex-col gap-y-6 overflow-hidden mb-10 text-lightBody dark:text-darkBody`}
           visibility="auto"
         >
           <p>
@@ -78,7 +78,7 @@ export default function CourseDescriptionBox() {
         </ScrollShadow>
         <MainButton
           content={`${!isExpanded ? "مشاهده بیشتر" : "مشاهده کمتر"}`}
-          className="w-max mx-auto bg-primary dark:bg-primary-lighter text-btnText"
+          className="w-max mx-auto bg-primary dark:bg-primary-darker text-btnText"
           endIcon={<Image src={!isExpanded ? chevronDown : chevronUp} alt="" />}
           onClick={() => setIsExpanded(!isExpanded)}
         />

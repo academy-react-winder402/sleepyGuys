@@ -50,3 +50,16 @@ a {
   outline: 0;
 }
 
+.leaflet-bottom.leaflet-right,
+.leaflet-popup-close-button {
+  display: none;
+}
+
+.leaflet-popup.leaflet-zoom-animated > .leaflet-popup-content-wrapper{
+  background: #436E8E;
+  box-shadow: none;
+}
+
+.leaflet-popup-tip-container > .leaflet-popup-tip{
+  background: #436E8E;
+}
