@@ -14,6 +14,7 @@ interface button {
     | "shadow";
   startIcon?: ReactNode;
   endIcon?: ReactNode;
+  onClick?: () => void;
 }
 
 export type { button };

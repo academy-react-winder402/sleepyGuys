@@ -8,9 +8,9 @@ function CorseInfo() {
   return (
     <>
       <CourseDetailsBox />
-      <div className="flex items-start">
+      <div className="flex items-start gap-x-8">
         <CourseDescriptionBox />
-        <div className="lg:flex hidden flex-col gap-y-10 w-1/3">
+        <div className="hidden lg:flex flex-col gap-y-8 w-1/3">
           <TeacherDetailsBox />
           <RelatedCoursesBox />
         </div>
