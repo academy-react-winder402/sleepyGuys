@@ -2,13 +2,10 @@ import React from "react";
 import UserCard from "@/components/Modules/UserCard/UserCard";
 import {
   Card,
-  CardBody,
-  CardFooter,
   CardHeader,
   Divider,
 } from "@nextui-org/react";
 import { CommentCard } from "@/interfaces/commentCard.interface";
-import MainButton from "../Button/MainButton";
 import Link from "next/link";
 
 function CommentCard({ name, role, description, image, size }: CommentCard) {
@@ -33,7 +30,7 @@ function CommentCard({ name, role, description, image, size }: CommentCard) {
       <p className="text-lightBody dark:text-darkBody text-sm lgb:text-[14px] leading-7">
         {description}
       </p>
-      <Card className="p-4.5 md:p-5 bg-lightBody dark:bg-dark-lighter rounded-3xl px-8 py-4 shadow-none mt-5">
+      <Card className="p-4.5 md:p-5 bg-white dark:bg-dark-lighter rounded-3xl px-8 py-4 shadow-none mt-5">
         <CardHeader className="pb-6 px-0">
           <UserCard title={name} description={role} image={image} size={size} />
         </CardHeader>
