@@ -1,10 +1,11 @@
 import { StaticImageData } from "next/image";
 
-type UserCardType = {
-  title: string;
+interface CommentCard{
+  name: string;
+  role: string;
   description: string;
   image: StaticImageData;
   size: number;
 };
 
-export type { UserCardType };
+export type { CommentCard };
