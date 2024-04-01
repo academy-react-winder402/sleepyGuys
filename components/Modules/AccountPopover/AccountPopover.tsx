@@ -13,6 +13,7 @@ import logout from "@/public/icons/theme/logout.svg";
 import userIcon from "@/public/icons/theme/user.svg";
 import { useRouter } from "next/router";
 import UserCard from "../UserCard/UserCard";
+import MainButton from "../Button/MainButton";
 
 export default function AccountPopover() {
   const router = useRouter();
@@ -51,10 +52,18 @@ export default function AccountPopover() {
             ))}
           </Listbox>
           <Divider className="my-4" />
-          <div className="flex items-center justify-center gap-x-1">
-            <Image src={logout} alt="" />
-            <p className="text-lightBody dark:text-darkBody">خروج از حساب </p>
-          </div>
+          <MainButton
+            content={
+              <div className="flex items-center justify-center gap-x-1">
+                <Image src={logout} alt="" />
+                <p className="text-lightBody dark:text-darkBody">
+                  خروج از حساب{" "}
+                </p>
+              </div>
+            }
+            variant="light"
+            color="danger"
+          />
         </div>
       </PopoverContent>
     </Popover>

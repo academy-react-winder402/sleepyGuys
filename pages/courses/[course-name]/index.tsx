@@ -5,6 +5,7 @@ import RelatedCoursesBox from "@/components/Templates/Courses/MainCourse/Related
 import TeacherDetailsBox from "@/components/Templates/Courses/MainCourse/TeacherDetails/TeacherDetailsBox";
 import React from "react";
 import { getCourseTitles } from "@/mock/getCourseTitles";
+import CourseCommentsBox from "@/components/Templates/Courses/MainCourse/CourseComments/CourseCommentsBox";
 
 function CorseInfo() {
   return (
@@ -14,6 +15,7 @@ function CorseInfo() {
         <div className="flex flex-col w-full lg:w-[70%] gap-y-8 shadow-2xl shadow-shadowColor dark:shadow-none rounded-3xl">
           <CourseDescriptionBox />
           <CourseHeadlinesBox data={getCourseTitles()} />
+          <CourseCommentsBox />
         </div>
         <div className="hidden lg:flex flex-col gap-y-8 w-1/3">
           <TeacherDetailsBox />
