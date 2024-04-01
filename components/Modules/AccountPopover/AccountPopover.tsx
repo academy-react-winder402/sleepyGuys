@@ -21,7 +21,7 @@ export default function AccountPopover() {
   return (
     <Popover offset={15} placement="bottom-start" backdrop={"blur"}>
       <PopoverTrigger>
-        <div className="flex items-center justify-center w-10 h-10 md:w-11 md:h-11 bg-primary dark:bg-primary-lighter rounded-full">
+        <div className="flex items-center justify-center w-10 h-10 md:w-11 md:h-11 bg-primary dark:bg-primary-darker rounded-full">
           <Image
             className="scale-85 md:scale-100"
             src={userIcon}

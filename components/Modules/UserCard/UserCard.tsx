@@ -1,4 +1,4 @@
-import { UserCardType } from "@/types/userCard";
+import { UserCardType } from "@/interfaces/userCard.interface";
 import Image from "next/image";
 import React from "react";
 
