@@ -3,6 +3,8 @@ import React from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { CommentForm } from "@/types/commentForm";
 import MainButton from "@/components/Modules/Button/MainButton";
+import CommentCard from "@/components/Modules/CommentCard/CommentCard";
+import userIcon from "@/public/icons/theme/user.svg";
 
 export default function SubmitCommentForm() {
   const {
@@ -15,7 +17,8 @@ export default function SubmitCommentForm() {
     console.log(data);
   };
   return (
-    <form className="text-right" onSubmit={handleSubmit(submitFormHandler)}>
+    <>
+    <form className="text-right" onSubmit={handleSubmit(submitFormHandler)} id="comment-form">
       <PrimaryTextarea
         placeholder="متن پیام"
         variant="faded"
@@ -32,5 +35,15 @@ export default function SubmitCommentForm() {
         type="submit"
       />
     </form>
+    <div className="flex flex-col gap-5 text-right mt-8">
+      <CommentCard
+      name="آرمان غنی زاده"
+      description="طبق روند تدریس شده در این دوره ابتدا Page Router و سپس App Router رو یاد بگیرین ❤️"
+      role="مدرس دوره"
+      image={userIcon}
+      size={35}
+      />
+    </div>
+    </>
   );
 }
