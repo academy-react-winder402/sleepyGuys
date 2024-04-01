@@ -1,6 +1,5 @@
 import React from "react";
 import PrimaryInput from "../../Input/PrimaryInput";
-import { Button } from "@nextui-org/react";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { NewsLetterFormType } from "@/types/newsLetterForm";
 import MainButton from "@/components/Modules/Button/MainButton";

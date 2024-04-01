@@ -3,8 +3,20 @@ import React from "react";
 import heroImage from "@/public/icons/hero/header-img.svg";
 import search from "@/public/icons/hero/search.svg";
 import HeroInput from "@/components/Templates/Landing/Hero/Input/HeroInput";
+import { useForm, SubmitHandler } from "react-hook-form";
+import { NewsLetterFormType } from "@/types/newsLetterForm";
+import PrimaryInput from '@/components/Modules/Input/PrimaryInput';
 
 function Hero() {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<NewsLetterFormType>();
+
+  const submitFormHandler: SubmitHandler<NewsLetterFormType> = (data) => {
+    console.log(data);
+  };
   return (
     <>
       <div className="flex items-center justify-between">
@@ -17,9 +29,22 @@ function Hero() {
               دیگه وقتشه یه تکونی به خودت بدی…
             </p>
             <div className="lg:ml-16 relative">
-              <HeroInput />
+              <form
+                onSubmit={handleSubmit(submitFormHandler)}
+              >
+                <PrimaryInput
+                  placeholder="ایمیلت رو برامون بنویس..."
+                  variant="faded"
+                  className="font-peyda w-full"
+                  register={{
+                    ...register("email", {
+                      required: true,
+                    }),
+                  }}
+                />
+              </form>
               <Image
-                className="absolute left-1 top-1 rounded-[18px] cursor-pointer"
+                className="absolute left-[10px] top-[10px] rounded-[18px] cursor-pointer"
                 src={search}
                 width={48}
                 height={48}
