@@ -11,7 +11,7 @@ export default function CourseDetailsBox() {
         className="absolute top-0 left-0 w-full h-full z-0 rounded-3xl"
         alt=""
       />
-      <div className="flex w-full bg-gradient-to-r from-[rgba(0,0,0,0.6)] via-[rgba(0,0,0,0.9)] to-[#000] lg:from-[rgba(0,0,0,0.2)] lg:via-[#000] lg:to-[#000] z-10 absolute top-0 left-0 h-full rounded-3xl">
+      <div className="flex w-full bg-gradient-to-r from-[rgba(0,0,0,0.6)] via-[rgba(0,0,0,0.9)] to-[#000] lg:from-[rgba(0,0,0,0.2)] lg:via-[rgba(0,0,0,0.92)] lg:to-[#000] z-10 absolute top-0 left-0 h-full rounded-3xl">
         <div className="flex items-center h-full p-5 pr-8 w-full">
           <div className="flex flex-col gap-8 lgb:gap-16 w-full sm:w-4/7">
             <div className="flex flex-col gap-3">

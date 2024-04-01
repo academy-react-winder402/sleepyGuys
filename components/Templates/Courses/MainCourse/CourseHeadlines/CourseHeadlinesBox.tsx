@@ -23,7 +23,15 @@ export default function CourseHeadlinesBox({ data }: { data: CourseTitle[] }) {
               aria-label={titleItem.title}
               title={titleItem.title}
             >
-              {titleItem.title}
+              <div className="flex flex-col gap-3">
+                {data.map((subTitleItem: CourseTitle) => (
+                  <Card className="shadow-none py-2 dark:bg-dark-lighter">
+                    <CardBody className="flex justify-between text-right">
+                      <div>{subTitleItem.title}</div>
+                    </CardBody>
+                  </Card>
+                ))}
+              </div>
             </AccordionItem>
           ))}
         </Accordion>

@@ -40,8 +40,8 @@ const config: Config = {
         shadowColor: "#ececec",
         mainBodyBg: "#F3F4F6",
         dark: {
-          DEFAULT: "#1c1c27",
-          lighter: "#282830",
+          DEFAULT: "#111827",
+          lighter: "rgb(36 42 56)",
           darker: "#050506",
         },
         primary: {
@@ -85,7 +85,7 @@ const config: Config = {
       themes: {
         dark: {
           colors: {
-            background: "#1c1c27",
+            background: "#111827",
             primary: "#436E8E",
           },
         },
