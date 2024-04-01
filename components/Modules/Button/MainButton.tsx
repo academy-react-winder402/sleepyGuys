@@ -9,6 +9,7 @@ function MainButton({
   variant = "solid",
   startIcon,
   endIcon,
+  color = "default",
   onClick,
 }: button) {
   return (
@@ -19,6 +20,7 @@ function MainButton({
       startContent={startIcon}
       endContent={endIcon}
       onClick={onClick}
+      color={color}
     >
       <p>{content}</p>
     </Button>

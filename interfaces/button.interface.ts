@@ -14,6 +14,7 @@ interface button {
     | "shadow";
   startIcon?: ReactNode;
   endIcon?: ReactNode;
+  color?: "default" | "danger" | "primary" | "secondary" | "success" | "warning";
   onClick?: () => void;
 }
 
