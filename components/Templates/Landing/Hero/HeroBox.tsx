@@ -3,8 +3,8 @@ import React from "react";
 import heroImage from "@/public/icons/hero/header-img.svg";
 import search from "@/public/icons/hero/search.svg";
 import { useForm, SubmitHandler } from "react-hook-form";
-import { NewsLetterFormType } from "@/types/newsLetterForm";
-import PrimaryInput from '@/components/Modules/Input/PrimaryInput';
+import { NewsLetterFormType } from "@/interfaces/newsLetterForm.interface";
+import PrimaryInput from "@/components/Modules/Input/PrimaryInput";
 
 function Hero() {
   const {
@@ -28,9 +28,7 @@ function Hero() {
               دیگه وقتشه یه تکونی به خودت بدی…
             </p>
             <div className="lg:ml-16 relative">
-              <form
-                onSubmit={handleSubmit(submitFormHandler)}
-              >
+              <form onSubmit={handleSubmit(submitFormHandler)}>
                 <PrimaryInput
                   placeholder="ایمیلت رو برامون بنویس..."
                   variant="faded"
