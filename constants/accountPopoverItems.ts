@@ -2,7 +2,7 @@ import dashboard from "@/public/icons/theme/dashboard.svg";
 import courses from "@/public/icons/theme/courses.svg";
 import tickets from "@/public/icons/theme/tickets.svg";
 import profile from "@/public/icons/theme/profile.svg";
-import { AccountPopoverItem } from "@/types/accountPopoverItems";
+import { AccountPopoverItem } from "@/interfaces/accountPopover.interface";
 
 const accountPopoverItems: AccountPopoverItem[] = [
   { label: "داشبورد", route: "my-account", icon: dashboard },

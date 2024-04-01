@@ -28,7 +28,7 @@ export default function CourseDetailsBox() {
             <div className="flex flex-col-reverse sm:flex-row gap-5 justify-between items-center sm:items-end w-full">
               <div>
                 <MainButton
-                  className="bg-primary text-btnText px-8 py-4 lgb:px-10 lgb:py-6 rounded-3x text-md"
+                  className="bg-primary dark:bg-primary-darker text-btnText px-8 py-4 lgb:px-10 lgb:py-6 rounded-3x text-md"
                   content="خرید آنلاین دوره"
                 />
               </div>

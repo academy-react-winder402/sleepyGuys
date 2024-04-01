@@ -3,7 +3,7 @@ import BoxHeader from "@/components/Modules/BoxHeader/BoxHeader";
 import PrimaryInput from "@/components/Modules/Input/PrimaryInput";
 import PrimaryTextarea from "@/components/Modules/Textarea/PrimaryTextarea";
 import { useForm, SubmitHandler } from "react-hook-form";
-import { ContactForm } from "@/types/contactForm";
+import { ContactForm } from "@/interfaces/contactForm.interface";
 import MainButton from "@/components/Modules/Button/MainButton";
 
 function ContactForm() {
@@ -46,7 +46,7 @@ function ContactForm() {
             }}
           />
           <MainButton
-            className="bg-primary text-btnText w-max mt-6 translate-y-5"
+            className="bg-primary dark:bg-primary-darker text-btnText w-max mt-6 translate-y-5"
             content="ارسال پیام"
             type="submit"
           />

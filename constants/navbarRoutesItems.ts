@@ -3,7 +3,7 @@ import courses from "@/public/icons/theme/phoneMode/courses.svg";
 import teachers from "@/public/icons/theme/phoneMode/teachers.svg";
 import contact from "@/public/icons/theme/phoneMode/contact.svg";
 import news from "@/public/icons/theme/phoneMode/news.svg";
-import { NavbarRouteItem } from "@/types/navbarRouteItems";
+import { NavbarRouteItem } from "@/interfaces/navbarRouteItem.interface";
 
 const navbarRoutesItems: NavbarRouteItem[] = [
   { name: "خانه", href: "/", icon: dashboard },

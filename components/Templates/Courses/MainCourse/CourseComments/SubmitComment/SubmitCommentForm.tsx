@@ -1,7 +1,7 @@
 import PrimaryTextarea from "@/components/Modules/Textarea/PrimaryTextarea";
 import React from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
-import { CommentForm } from "@/types/commentForm";
+import { CommentForm } from "@/interfaces/commentForm.interface";
 import MainButton from "@/components/Modules/Button/MainButton";
 
 export default function SubmitCommentForm() {
@@ -28,7 +28,7 @@ export default function SubmitCommentForm() {
       />
       <MainButton
         content="ارسال نظر"
-        className="bg-primary dark:bg-primary-lighter text-btnText px-7 rounded-lg mt-4"
+        className="bg-primary dark:bg-primary-darker text-btnText px-7 rounded-lg mt-4"
         type="submit"
       />
     </form>

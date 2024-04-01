@@ -1,8 +1,7 @@
 import React from "react";
 import PrimaryInput from "../../Input/PrimaryInput";
-import { Button } from "@nextui-org/react";
 import { useForm, SubmitHandler } from "react-hook-form";
-import { NewsLetterFormType } from "@/types/newsLetterForm";
+import { NewsLetterFormType } from "@/interfaces/newsLetterForm.interface";
 import MainButton from "@/components/Modules/Button/MainButton";
 
 export default function NewsLetterForm() {
@@ -32,7 +31,7 @@ export default function NewsLetterForm() {
         }}
       />
       <MainButton
-        className="w-full bg-primary text-sm text-btnText flex items-center justify-center text-center py-3"
+        className="w-full bg-primary dark:bg-primary-darker text-sm text-btnText flex items-center justify-center text-center py-3"
         content="عضویت در خبرنامه"
         type="submit"
       />

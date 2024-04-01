@@ -27,7 +27,7 @@ const ThemeSwitch = (props: SwitchProps) => {
         </VisuallyHidden>
         <div
           onClick={changeThemeHandler}
-          className="flex items-center justify-center w-10 h-10 md:w-11 md:h-11 bg-primary dark:bg-primary-lighter rounded-full"
+          className="flex items-center justify-center w-10 h-10 md:w-11 md:h-11 bg-primary dark:bg-primary-darker rounded-full"
         >
           {!isSelected ? (
             <Image
