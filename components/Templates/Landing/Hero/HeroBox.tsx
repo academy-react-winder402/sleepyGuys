@@ -2,7 +2,6 @@ import Image from "next/image";
 import React from "react";
 import heroImage from "@/public/icons/hero/header-img.svg";
 import search from "@/public/icons/hero/search.svg";
-import HeroInput from "@/components/Templates/Landing/Hero/Input/HeroInput";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { NewsLetterFormType } from "@/types/newsLetterForm";
 import PrimaryInput from '@/components/Modules/Input/PrimaryInput';
