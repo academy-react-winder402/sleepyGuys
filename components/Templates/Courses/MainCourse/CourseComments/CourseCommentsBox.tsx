@@ -1,6 +1,8 @@
 import { Card, CardBody, CardHeader } from "@nextui-org/react";
 import React from "react";
 import SubmitCommentForm from "./SubmitComment/SubmitCommentForm";
+import CommentCard from "@/components/Modules/CommentCard/CommentCard";
+import userIcon from "@/public/icons/theme/user.svg";
 
 export default function CourseCommentsBox() {
   return (
@@ -15,6 +17,15 @@ export default function CourseCommentsBox() {
       </CardHeader>
       <CardBody>
         <SubmitCommentForm />
+        <div className="flex flex-col gap-5 text-right mt-8">
+          <CommentCard
+            name="آرمان غنی زاده"
+            description="طبق روند تدریس شده در این دوره ابتدا Page Router و سپس App Router رو یاد بگیرین ❤️"
+            role="مدرس دوره"
+            image={userIcon}
+            size={35}
+          />
+        </div>
       </CardBody>
     </Card>
   );
