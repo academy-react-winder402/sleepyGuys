@@ -16,7 +16,7 @@ export default function CourseSummaryItem({
       <CardBody className="flex flex-col md:flex-row items-center gap-6">
         <Image src={icon} alt="" className="scale-[2]" />
         <div className="text-right">
-          <p className="font-peyda text-lightTitle dark:text-darkTitle text-lg mb-1">
+          <p className="font-peyda text-lightTitle dark:text-darkTitle text-md mb-1">
             {title}
           </p>
           <p className="text-sm text-lightBody dark:text-darkBody">{value}</p>

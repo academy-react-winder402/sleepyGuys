@@ -1,10 +1,6 @@
 import React from "react";
 import UserCard from "@/components/Modules/UserCard/UserCard";
-import {
-  Card,
-  CardHeader,
-  Divider,
-} from "@nextui-org/react";
+import { Card, CardHeader, Divider } from "@nextui-org/react";
 import { CommentCard } from "@/interfaces/commentCard.interface";
 import Link from "next/link";
 
