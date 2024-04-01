@@ -36,6 +36,7 @@ export default function AccountPopover() {
           title="آرمان غنی زاده"
           description="موجودی: ۰تومان"
           image={userIcon}
+          size={50}
         />
         <Divider className="my-3" />
         <div className="w-full flex flex-col">
