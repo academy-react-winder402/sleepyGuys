@@ -3,10 +3,13 @@ import Image from "next/image";
 import { Course } from "@/interfaces/course.interface";
 import clock from "@/public/icons/courses/clock.svg";
 import { Chip, Divider } from "@nextui-org/react";
+import { useRouter } from "next/router";
 
 function CourseCard({ title, image, des, time, teachers, price }: Course) {
+  const router = useRouter();
+
   return (
-    <div className="pt-[55px]">
+    <div className="pt-[55px]" onClick={() => router.push(`/courses/${title}`)}>
       <div className="flex py-6 bg-white dark:bg-dark-lighter flex-col gap-4 rounded-3xl ">
         <div className="w-full flex flex-col items-center gap-5">
           <div className="overflow-hidden rounded-3xl w-[85%] -mt-20">
