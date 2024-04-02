@@ -7,8 +7,10 @@ import MobileTopNavigation from "./MobileTopNavigation";
 function Navbar() {
   return (
     <>
-      <DesktopTopNavigation />
-      <MobileTopNavigation />
+      <div className="container">
+        <DesktopTopNavigation />
+        <MobileTopNavigation />
+      </div>
       <BottomNavigation mainRoutes={navbarRoutesItems} />
     </>
   );

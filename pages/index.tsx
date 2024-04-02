@@ -8,13 +8,13 @@ import React from "react";
 
 export default function Home() {
   return (
-    <>
+    <div className="container">
       <HeroBox />
       <Categories />
       <NewCoursesBox />
       <NewsBox />
       <BestSellingCoursesBox />
       <ServiceBox />
-    </>
+    </div>
   );
 }

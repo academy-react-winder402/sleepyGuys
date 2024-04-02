@@ -22,13 +22,9 @@ const config: Config = {
       xll: "1450px",
       "2xl": "1536px",
     },
-    container: {
-      center: true,
-      padding: "50px",
-    },
     extend: {
       transitionProperty: {
-        'height': 'height'
+        height: "height",
       },
       fontFamily: {
         kalamehBold: ["kamalehBold"],
@@ -75,6 +71,17 @@ const config: Config = {
         },
         white: {
           DEFAULT: "#FFF",
+        },
+      },
+      container: {
+        center: true,
+        padding: {
+          DEAFAULT: "2rem",
+          sm: "1rem",
+          md: "1.5rem",
+          lg: "2rem",
+          xl: "2.5rem",
+          "2xl": "1.5rem",
         },
       },
     },
