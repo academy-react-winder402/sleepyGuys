@@ -8,6 +8,7 @@ import { getCourseTitles } from "@/mock/getCourseTitles";
 import CourseCommentsBox from "@/components/Templates/Courses/MainCourse/CourseComments/CourseCommentsBox";
 import { getCourseSummary } from "@/mock/getCourseSummary";
 import CourseSummaryBox from "@/components/Templates/Courses/MainCourse/CourseSummary/CourseSummaryBox";
+import { getComments } from "@/mock/getComments";
 
 function CorseInfo() {
   return (
@@ -18,7 +19,7 @@ function CorseInfo() {
           <CourseSummaryBox data={getCourseSummary()} />
           <CourseDescriptionBox />
           <CourseHeadlinesBox data={getCourseTitles()} />
-          <CourseCommentsBox />
+          <CourseCommentsBox data={getComments()} />
         </div>
         <div className="hidden lg:flex flex-col gap-y-8 w-1/3">
           <TeacherDetailsBox />

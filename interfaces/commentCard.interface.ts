@@ -1,11 +1,13 @@
 import { StaticImageData } from "next/image";
 
-interface CommentCard{
-  name: string;
-  role: string;
+interface CommentCard {
+  id: number;
+  fullName: string;
   description: string;
-  image: StaticImageData;
-  size: number;
-};
+  isTeacher: boolean;
+  img: StaticImageData;
+  isReplied: boolean;
+  replies: CommentCard[];
+}
 
 export type { CommentCard };
