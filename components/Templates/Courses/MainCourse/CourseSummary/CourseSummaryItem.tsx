@@ -10,7 +10,7 @@ export default function CourseSummaryItem({
 }: courseSummary) {
   return (
     <Card
-      className="shadow-2xl shadow-shadowColor dark:shadow-none p-6 dark:bg-dark-lighter"
+      className="shadow-2xl shadow-shadowColor dark:shadow-none px-4 py-2 dark:bg-dark-lighter"
       dir="rtl"
     >
       <CardBody className="flex flex-col md:flex-row items-center gap-6">
