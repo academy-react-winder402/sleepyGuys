@@ -52,8 +52,8 @@ export default function EffectCardSlider({
           href={`${href}`}
           className="md:col-start-3 col-span-1 mx-auto md:ms-auto md:mx-0 flex items-center gap-x-2 lg:mb-10 mb-8 text-lightTitle dark:text-darkTitle"
         >
-          <Divider className="w-[30px] h-1 bg-primary dark:bg-primary-lighter" />
           {title}
+          <Divider className="w-[30px] h-1 bg-primary dark:bg-primary-lighter" />
         </Link>
       )}
     </Swiper>

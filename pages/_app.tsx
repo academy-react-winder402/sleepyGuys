@@ -12,7 +12,7 @@ export default function App({ Component, pageProps }: AppProps) {
   return (
     <NextUIProvider navigate={router.push}>
       <NextThemesProvider attribute="class" defaultTheme="light">
-        <div className="pt-5 md:pt-8 sm:mx-8 lg:mx-20 relative">
+        <div className="pt-5 md:pt-8 relative">
           <Navbar />
           <div className="mx-3 sm:mx-0">
             <Component {...pageProps} />

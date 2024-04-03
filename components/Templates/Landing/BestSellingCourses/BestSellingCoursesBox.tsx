@@ -6,7 +6,7 @@ import CourseCard from "@/components/Modules/CourseCard/CourseCard";
 
 export default function BestSellingCoursesBox() {
   return (
-    <div className="lg:mt-36 mt-24 flex flex-wrap">
+    <div className="mt-36 flex flex-wrap">
       <BoxHeader
         title="پرفروش ترین دوره ها"
         hasLink={true}
