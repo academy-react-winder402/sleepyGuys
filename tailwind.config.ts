@@ -10,6 +10,7 @@ const config: Config = {
   ],
   theme: {
     screens: {
+      "2xs": "380px",
       xs: "500px",
       sm: "640px",
       md: "768px",
@@ -77,6 +78,8 @@ const config: Config = {
         center: true,
         padding: {
           DEAFAULT: "2rem",
+          "2xs": "0rem",
+          xs: "0rem",
           sm: "1rem",
           md: "1.5rem",
           lg: "2rem",

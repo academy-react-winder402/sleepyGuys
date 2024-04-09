@@ -1,4 +1,4 @@
-import { BoxHeader } from "@/interfaces/boxHeader.interface";
+import { BoxHeader as BoxHeaderType } from "@/interfaces/boxHeader.interface";
 import { Divider } from "@nextui-org/react";
 import Link from "next/link";
 import React from "react";
@@ -8,7 +8,7 @@ export default function BoxHeader({
   hasLink,
   linkTitle,
   route,
-}: BoxHeader) {
+}: BoxHeaderType) {
   return (
     <div className="flex-grow items-center grid grid-cols-1 md:grid-cols-3 justify-between">
       <h1 className="font-peyda text-[30px] md:text-[35px] text-primary dark:text-primary-lighter mb-2 md:mb-4 lg:mb-10  text-center md:col-start-2 col-span-1 mx-auto">
