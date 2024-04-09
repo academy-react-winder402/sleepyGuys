@@ -24,7 +24,7 @@ function NavigationSlider({
           slidesPerView: 2,
         },
         1024: {
-          slidesPerView: 3,
+          slidesPerView: 4,
         },
         1700: {
           slidesPerView: 4,
