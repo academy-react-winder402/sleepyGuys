@@ -29,7 +29,7 @@ export default function CourseDetailsBox() {
               <div>
                 <MainButton
                   className="bg-primary dark:bg-primary-darker text-btnText px-8 py-4 lgb:px-10 lgb:py-6 rounded-3x text-md"
-                  content="خرید آنلاین دوره"
+                  content={<p>خرید آنلاین دوره</p>}
                 />
               </div>
               <div className="flex flex-col gap-1 md:gap-2 lg:gap-3">

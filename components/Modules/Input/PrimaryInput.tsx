@@ -7,6 +7,9 @@ export default function PrimaryInput({
   variant,
   className,
   register,
+  hasBorder = true,
+  startContent,
+  endContent,
 }: primaryInput) {
   return (
     <Input
@@ -26,10 +29,13 @@ export default function PrimaryInput({
           "dark:bg-dark-lighter",
           "group-data-[focus=true]:bg-white",
           "dark:group-data-[focus=true]:bg-dark-lighter",
+          `${!hasBorder && "border-none"}`,
         ],
       }}
       placeholder={placeholder}
       {...register}
+      startContent={startContent}
+      endContent={endContent}
     />
   );
 }

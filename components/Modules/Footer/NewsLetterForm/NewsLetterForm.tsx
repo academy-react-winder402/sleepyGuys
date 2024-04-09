@@ -32,7 +32,7 @@ export default function NewsLetterForm() {
       />
       <MainButton
         className="w-full bg-primary dark:bg-primary-darker text-sm text-btnText flex items-center justify-center text-center py-3"
-        content="عضویت در خبرنامه"
+        content={<p>عضویت در خبرنامه</p>}
         type="submit"
       />
     </form>

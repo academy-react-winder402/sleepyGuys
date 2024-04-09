@@ -47,7 +47,7 @@ function ContactForm() {
           />
           <MainButton
             className="bg-primary dark:bg-primary-darker text-btnText w-max mt-6 translate-y-5"
-            content="ارسال پیام"
+            content={<p>ارسال پیام</p>}
             type="submit"
           />
         </form>
