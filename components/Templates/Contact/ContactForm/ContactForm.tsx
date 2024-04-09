@@ -3,7 +3,7 @@ import BoxHeader from "@/components/Modules/BoxHeader/BoxHeader";
 import PrimaryInput from "@/components/Modules/Input/PrimaryInput";
 import PrimaryTextarea from "@/components/Modules/Textarea/PrimaryTextarea";
 import { useForm, SubmitHandler } from "react-hook-form";
-import { ContactForm } from "@/interfaces/contactForm.interface";
+import { ContactForm as ContactFormType } from "@/interfaces/contactForm.interface";
 import MainButton from "@/components/Modules/Button/MainButton";
 
 function ContactForm() {
@@ -11,9 +11,9 @@ function ContactForm() {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<ContactForm>();
+  } = useForm<ContactFormType>();
 
-  const submitFormHandler: SubmitHandler<ContactForm> = (data) => {
+  const submitFormHandler: SubmitHandler<ContactFormType> = (data) => {
     console.log(data);
   };
 

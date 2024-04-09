@@ -1,3 +1,4 @@
+import { primaryInput } from "@/interfaces/primaryInput.interface";
 import { Input } from "@nextui-org/react";
 import React from "react";
 
@@ -6,12 +7,7 @@ export default function PrimaryInput({
   variant,
   className,
   register,
-}: {
-  placeholder: string;
-  variant: "bordered" | "faded" | "flat" | "underlined";
-  className: string;
-  register: any;
-}) {
+}: primaryInput) {
   return (
     <Input
       className={className}

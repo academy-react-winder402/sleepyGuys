@@ -13,8 +13,10 @@ export default function App({ Component, pageProps }: AppProps) {
       <NextThemesProvider attribute="class" defaultTheme="light">
         <div className="pt-5 md:pt-8 relative">
           <Navbar />
-          <Component {...pageProps} />
-          <Footer />
+          <div className="container">
+            <Component {...pageProps} />
+            <Footer />
+          </div>
         </div>
       </NextThemesProvider>
     </NextUIProvider>
