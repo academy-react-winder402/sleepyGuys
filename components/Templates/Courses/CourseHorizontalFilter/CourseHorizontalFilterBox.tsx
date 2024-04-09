@@ -24,7 +24,7 @@ export default function CourseHorizontalFilterBox() {
         <PrimaryInput
           placeholder="جستجو دوره"
           variant="faded"
-          className="text-2xl font-peyda w-full md:w-3/4"
+          className="text-2xl font-peyda w-full"
           hasBorder={false}
           register={{
             ...register("title", {
