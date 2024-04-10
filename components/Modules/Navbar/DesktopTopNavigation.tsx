@@ -15,7 +15,7 @@ export default function DesktopTopNavigation() {
     <nav className="hidden mb-10 sm:flex items-center justify-between">
       <div className="flex items-center gap-x-10">
         <Image src={navbarLogo} alt="" width={55} height={25} />
-        <ul className="flex items-center sm:gap-x-5 lg:gap-x-6 text-1xl">
+        <ul className="flex items-center sm:gap-x-5 lg:gap-x-6 font-vazir">
           {navbarRoutesItems.map((route, index) => {
             const isActive = pathname === route.href;
             return (

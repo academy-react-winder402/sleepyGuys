@@ -22,7 +22,7 @@ function MainButton({
       onClick={onClick}
       color={color}
     >
-      <p>{content}</p>
+      {content}
     </Button>
   );
 }

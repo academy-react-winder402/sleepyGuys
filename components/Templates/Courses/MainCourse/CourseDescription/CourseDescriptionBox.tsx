@@ -77,7 +77,7 @@ export default function CourseDescriptionBox() {
           </p>
         </ScrollShadow>
         <MainButton
-          content={`${!isExpanded ? "مشاهده بیشتر" : "مشاهده کمتر"}`}
+          content={<p>{!isExpanded ? "مشاهده بیشتر" : "مشاهده کمتر"}</p>}
           className="w-max mx-auto bg-primary dark:bg-primary-darker text-btnText"
           endIcon={<Image src={!isExpanded ? chevronDown : chevronUp} alt="" />}
           onClick={() => setIsExpanded(!isExpanded)}

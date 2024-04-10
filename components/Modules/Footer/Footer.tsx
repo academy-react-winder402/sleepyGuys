@@ -18,7 +18,7 @@ function Footer() {
           </li>
           <li>
             <Link
-              className="text-[13px] md:text-[15px] font-bold text-lightBody dark:text-darkBody"
+              className="text-[13px] md:text-[15px] font-vazir text-lightBody dark:text-darkBody"
               href={"#"}
             >
               قوانین و مقررات
@@ -26,7 +26,7 @@ function Footer() {
           </li>
           <li>
             <Link
-              className="text-[13px] md:text-[15px] font-bold text-lightBody dark:text-darkBody"
+              className="text-[13px] md:text-[15px] font-vazir text-lightBody dark:text-darkBody"
               href={"#"}
             >
               ارسال تیکت
@@ -34,7 +34,7 @@ function Footer() {
           </li>
           <li>
             <Link
-              className="text-[13px] md:text-[15px] font-bold text-lightBody dark:text-darkBody"
+              className="text-[13px] md:text-[15px] font-vazir text-lightBody dark:text-darkBody"
               href={"#"}
             >
               همه دوره ها
@@ -42,7 +42,7 @@ function Footer() {
           </li>
           <li>
             <Link
-              className="text-[13px] md:text-[15px] font-bold text-lightBody dark:text-darkBody"
+              className="text-[13px] md:text-[15px] font-vazir text-lightBody dark:text-darkBody"
               href={"#"}
             >
               همه مقاله ها
@@ -58,7 +58,7 @@ function Footer() {
             </li>
             <li>
               <Link
-                className="text-[13px] md:text-[15px] font-bold text-lightBody dark:text-darkBody"
+                className="text-[13px] md:text-[15px] font-vazir text-lightBody dark:text-darkBody"
                 href={"#"}
               >
                 آموزش جاوا اسکریپت
@@ -66,7 +66,7 @@ function Footer() {
             </li>
             <li>
               <Link
-                className="text-[13px] md:text-[15px] font-bold text-lightBody dark:text-darkBody"
+                className="text-[13px] md:text-[15px] font-vazir text-lightBody dark:text-darkBody"
                 href={"#"}
               >
                 آموزش پایتون
@@ -74,7 +74,7 @@ function Footer() {
             </li>
             <li>
               <Link
-                className="text-[13px] md:text-[15px] font-bold text-lightBody dark:text-darkBody"
+                className="text-[13px] md:text-[15px] font-vazir text-lightBody dark:text-darkBody"
                 href={"#"}
               >
                 آموزش HTML
@@ -82,7 +82,7 @@ function Footer() {
             </li>
             <li>
               <Link
-                className="text-[13px] md:text-[15px] font-bold text-lightBody dark:text-darkBody"
+                className="text-[13px] md:text-[15px] font-vazir text-lightBody dark:text-darkBody"
                 href={"#"}
               >
                 آموزش CSS
@@ -99,7 +99,7 @@ function Footer() {
             </li>
             <li className="w-max">
               <Link
-                className="text-[13px] md:text-[15px] font-bold text-lightBody dark:text-darkBody flex gap-2 items-center"
+                className="text-[13px] md:text-[15px] font-vazir text-lightBody dark:text-darkBody flex gap-2 items-center"
                 href={"#"}
               >
                 <div className="flex items-center justify-center rounded-full w-8 h-8 bg-blue-500 text-white bg-gradient-to-b from-blue-400 to-blue-600">
@@ -110,7 +110,7 @@ function Footer() {
             </li>
             <li className="w-max">
               <Link
-                className="text-[13px] md:text-[15px] font-bold text-lightBody dark:text-darkBody flex gap-2 items-center"
+                className="text-[13px] md:text-[15px] font-vazir text-lightBody dark:text-darkBody flex gap-2 items-center"
                 href={"#"}
               >
                 <div className="flex items-center justify-center rounded-full w-8 h-8 bg-orange-600 text-white bg-gradient-to-tr from-[#FEDC15] via-[#F71F87] to-[#9000DC]">

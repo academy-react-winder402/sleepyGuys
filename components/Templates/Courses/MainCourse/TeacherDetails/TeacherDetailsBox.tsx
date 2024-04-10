@@ -39,7 +39,7 @@ export default function TeacherDetailsBox() {
       <CardFooter className="justify-center">
         <MainButton
           className="text-lightTitle dark:text-darkTitle"
-          content="مشاهده همه دوره های استاد"
+          content={<p>مشاهده همه دوره های استاد</p>}
           variant="light"
           startIcon={<Image src={logout} alt="" />}
         />
