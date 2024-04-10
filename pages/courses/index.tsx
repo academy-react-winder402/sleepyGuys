@@ -2,7 +2,7 @@ import React from "react";
 import BoxHeader from "@/components/Modules/BoxHeader/BoxHeader";
 import CourseHorizontalFilterBox from "@/components/Templates/Courses/CourseHorizontalFilter/CourseHorizontalFilterBox";
 import CourseVerticalFilterBox from "@/components/Templates/Courses/CourseVerticalFilter/CourseVerticalFilterBox";
-import CoursesBox from "@/components/Templates/Courses/CoursesBox";
+import CoursesBox from "@/components/Templates/Courses/CoursesBox/CoursesBox";
 
 export default function Courses() {
   return (

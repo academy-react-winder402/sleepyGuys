@@ -23,7 +23,7 @@ export default function TeacherDetailsBox() {
           title="آرمان غنی زاده"
           description="مدرس دوره"
           image={userIcon}
-          size={60}
+          size={50}
         />
       </CardHeader>
       <Divider />
