@@ -63,7 +63,7 @@ export default function CourseHorizontalFilterBox() {
               <li
                 key={item.id}
                 className={`flex items-center justify-center flex-col xs:gap-1 ${
-                  isActive ? " text-white" : "text-gray-lighter"
+                  isActive ? "text-primary dark:text-primary-lighter" : "text-gray-lighter"
                 }`}
               >
                 <Link href={item.href}>{item.name}</Link>
