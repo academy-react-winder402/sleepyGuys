@@ -20,7 +20,7 @@ function CourseCard({ title, image, des, time, teachers, price }: Course) {
               {title}
             </h2>
             <p className="text-[15px] font-vazir font-bold text-lightBody dark:text-darkBody">
-              {des.slice(0, 85)} ...
+              {des.slice(0, 70)} ...
             </p>
             <Chip
               classNames={{
@@ -39,7 +39,7 @@ function CourseCard({ title, image, des, time, teachers, price }: Course) {
             <Chip
               startContent={<Image src={clock} alt="" />}
               variant="solid"
-              className="font-vazir text-white bg-gray-lighter dark:bg-gray-darker"
+              className="font-vazir text-lightTitle dark:text-darkTitle bg-mainBodyBg dark:bg-dark"
             >
               {time}
             </Chip>

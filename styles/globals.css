@@ -62,3 +62,7 @@ a {
 .leaflet-popup-tip-container > .leaflet-popup-tip{
   background: #436E8E;
 }
+.checkBoxContainer span{
+  margin-right: 0;
+  margin-left: 12px;
+}
