@@ -4,7 +4,7 @@ interface Category {
   id: number;
   name: string;
   icon: StaticImageData;
-  href: string;
+  query: string;
 }
 
 export type { Category };

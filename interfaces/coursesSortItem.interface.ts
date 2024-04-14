@@ -1,7 +1,6 @@
 interface CoursesSortItem {
   id: number;
-  key: string;
-  value: string;
+  name: string;
 }
 
 export type { CoursesSortItem };

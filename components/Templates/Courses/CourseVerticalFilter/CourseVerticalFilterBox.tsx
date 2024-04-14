@@ -1,39 +1,33 @@
 import {
   Card,
-  CardBody,
-  CardHeader,
   Checkbox,
+  Switch,
+  AccordionItem,
+  Accordion,
   CheckboxGroup,
 } from "@nextui-org/react";
-import React, { useState } from "react";
-import { Accordion, AccordionItem } from "@nextui-org/react";
+import React, { useEffect, useState } from "react";
 import categoryItems from "@/constants/categories";
-import { Switch } from "@nextui-org/react";
-import Categories from "../../Landing/Categories/Categories";
+import { useRouter } from "next/router";
 
 export default function CourseVerticalFilterBox() {
-  const [complete, setComplete] = useState<boolean>(false);
-  const [free, setFree] = useState<boolean>(false);
-  const [categories, setCategories] = useState<string[]>([])
+  const router = useRouter();
 
-  console.log(complete);
+  const [isCompleted, setisCompleted] = useState<boolean>(false);
 
-  const compeleteHandler = () => {
-    setComplete(!complete);
-  };
+  const [isFree, setIsFree] = useState<boolean>(false);
 
-  const freeHandler = () => {
-    setFree(!free);
-  };
+  const [categories, setCategories] = useState<string[]>([]);
 
-  const selectCategoris = (name: any , event : any) => {
-    console.log(name , event);
-    if(event){
-      setCategories([...categories, name]);
-    }else{
-      setCategories(categories.filter(item => item !== name))
+  useEffect(() => {
+    if (categories.length > 0) {
+      let categoriesFilterString = "";
+      categories.forEach((category) => {
+        categoriesFilterString += `${category}=true&`;
+      });
+      router.push(`/courses?${categoriesFilterString}`);
     }
-  };
+  }, [categories]);
 
   return (
     <div className="w-[100%] md:w-[30%] lg:w-[22%] mb-6">
@@ -48,8 +42,8 @@ export default function CourseVerticalFilterBox() {
           <p>تکمیل شده</p>
           <Switch
             defaultSelected
-            aria-label="Automatic updates"
-            onValueChange={compeleteHandler}
+            isSelected={isCompleted}
+            onValueChange={setisCompleted}
           />
         </Card>
         <Card
@@ -59,8 +53,8 @@ export default function CourseVerticalFilterBox() {
           <p>رایگان</p>
           <Switch
             defaultSelected
-            aria-label="Automatic updates"
-            onValueChange={freeHandler}
+            isSelected={isFree}
+            onValueChange={setIsFree}
           />
         </Card>
         <Accordion variant="splitted" className="font-vazir w-full px-0">
@@ -69,18 +63,24 @@ export default function CourseVerticalFilterBox() {
             aria-label="دسته بندی دوره ها"
             title={<p className="text-sm lgb:text-lg">دسته بندی دوره ها</p>}
           >
-            <div className="flex flex-col gap-4">
+            <CheckboxGroup
+              value={categories}
+              classNames={{
+                wrapper: ["gap-y-4 pb-2"],
+              }}
+              onValueChange={setCategories}
+              color="success"
+            >
               {categoryItems.map((item, index) => (
                 <Checkbox
-                  key={item.id}
-                  color="success"
+                  key={index}
                   className="checkBoxContainer"
-                  onValueChange={(e) => selectCategoris(item.name , e)}
+                  value={item.query}
                 >
                   <p className="flex justify-between text-sm">{item.name}</p>
                 </Checkbox>
               ))}
-            </div>
+            </CheckboxGroup>
           </AccordionItem>
         </Accordion>
       </div>

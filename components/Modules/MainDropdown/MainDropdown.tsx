@@ -8,11 +8,7 @@ import {
 } from "@nextui-org/react";
 import { CoursesSortItem } from "@/interfaces/coursesSortItem.interface";
 
-interface MainDropdownProps {
-  data: CoursesSortItem[];
-}
-
-export default function MainDropdown({ data }: MainDropdownProps) {
+export default function MainDropdown({ data }: { data: CoursesSortItem[] }) {
   const [selectedKeys, setSelectedKeys] = React.useState(new Set(["جدیدترین"]));
 
   const selectedValue = React.useMemo(
@@ -24,12 +20,13 @@ export default function MainDropdown({ data }: MainDropdownProps) {
     setSelectedKeys(keys);
   };
 
-  console.log(data);
-
   return (
     <Dropdown>
       <DropdownTrigger>
-        <Button variant="flat" className="capitalize w-full text-lightTitle dark:text-darkTitle">
+        <Button
+          variant="flat"
+          className="capitalize w-full text-lightTitle dark:text-darkTitle"
+        >
           {selectedValue}
         </Button>
       </DropdownTrigger>
@@ -42,8 +39,13 @@ export default function MainDropdown({ data }: MainDropdownProps) {
         onSelectionChange={handleSelectionChange}
       >
         {[
-          ...data.map((item) => (
-            <DropdownItem className="text-lightTitle dark:text-darkTitle" key={item.key}>{item.value}</DropdownItem>
+          ...data.map((item, index) => (
+            <DropdownItem
+              className="text-lightTitle dark:text-darkTitle"
+              key={index}
+            >
+              {item.name}
+            </DropdownItem>
           )),
         ]}
       </DropdownMenu>

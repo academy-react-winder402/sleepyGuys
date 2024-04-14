@@ -1,7 +1,7 @@
 interface CourseSortItem {
   id: number;
   name: string;
-  href: string;
+  query: string;
 }
 
 export type { CourseSortItem };

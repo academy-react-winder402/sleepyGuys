@@ -19,8 +19,8 @@ function CourseCard({ title, image, des, time, teachers, price }: Course) {
             <h2 className="text-[20px] font-peyda font-bold text-lightTitle dark:text-darkTitle">
               {title}
             </h2>
-            <p className="text-[15px] font-vazir font-bold text-lightBody dark:text-darkBody">
-              {des.slice(0, 70)} ...
+            <p className="text-[15px] font-vazir font-bold text-lightBody dark:text-darkBody line-clamp-2">
+              {des}
             </p>
             <Chip
               classNames={{
