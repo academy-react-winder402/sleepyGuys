@@ -2,23 +2,31 @@ import PrimaryInput from "@/components/Modules/Input/PrimaryInput";
 import Image from "next/image";
 import React from "react";
 import searchIcon from "@/public/icons/filter/search.svg";
-import { Divider } from "@nextui-org/react";
+import { Button, Divider, Dropdown } from "@nextui-org/react";
 import Link from "next/link";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { searchCourse } from "@/interfaces/searchCourse.interface";
 import MainButton from "@/components/Modules/Button/MainButton";
+import MaineDropDown from "@/components/Modules/MainDropdown/MainDropdown";
+import { getCoursesSortItem } from "@/mock/getCoursesSortItem";
+import courseSortItem from "@/constants/courseSortItem";
+import { useRouter } from "next/router";
 
 export default function CourseHorizontalFilterBox() {
   const { register, handleSubmit } = useForm<searchCourse>();
+  const router = useRouter();
+
+  const { asPath } = router;
+  console.log(router)
 
   const submitFormHandler: SubmitHandler<searchCourse> = (data) => {
     console.log(data);
   };
 
   return (
-    <div className="bg-white dark:bg-dark-lighter flex items-center gap-x-16 md:gap-x-2 gap-y-2 pb-4 md:pb-0 flex-col md:flex-row rounded-xl">
+    <div className="bg-white dark:bg-dark-lighter flex items-center gap-2 flex-row rounded-xl p-2">
       <form
-        className="w-full md:w-[30%] lg:w-[25%] xl:w-[20%] relative"
+        className="relative w-[50%] sm:w-[35%] lg:w-[25%]"
         onSubmit={handleSubmit(submitFormHandler)}
       >
         <PrimaryInput
@@ -33,28 +41,40 @@ export default function CourseHorizontalFilterBox() {
           }}
         />
         <MainButton
-          className="absolute left-0 top-3 bg-transparent"
-          content={<Image alt="" src={searchIcon} className="cursor-pointer" />}
+          className="absolute left-0 top-3 bg-transparent min-w-unit-0"
+          content={
+            <Image alt="" src={searchIcon} className="cursor-pointer m-0" />
+          }
           type="submit"
         />
       </form>
-      <div className="flex items-center w-full justify-center md:justify-normal px-3 md:px-0">
-        <p className="font-peyda">مرتب سازی</p>
-        <Divider className="w-8 md:w-12 rotate-90" />
-        <ul className="flex items-center gap-x-6 font-peyda">
-          <li className="text-lightBody">
-            <Link href={"#"}>جدیدترین</Link>
+      <div className="hidden sm:flex items-center w-full">
+        <ul className="items-center gap-x-6 font-peyda text-[13px] md:text-[15px] flex">
+          <li className="w-3 h-5 flex justify-center items-center relative">
+            <Divider className="w-8 md:w-12 absolute top-[50%] md:-left-[200%] lg:-left-[150%] rotate-90" />
           </li>
-          <li className="text-lightBody">
-            <Link href={"#"}>پرفروش ترین</Link>
+          <li>
+            <p className="font-peyda">مرتب سازی :</p>
           </li>
-          <li className="text-lightBody">
-            <Link href={"#"}>گران ترین</Link>
-          </li>
-          <li className="text-lightBody">
-            <Link href={"#"}>ارزان ترین</Link>
-          </li>
+          {courseSortItem.map((item) => {
+            const isActive = asPath === item.href;
+            console.log(asPath , item.href)
+            return (
+              <li
+                key={item.id}
+                className={`flex items-center justify-center flex-col xs:gap-1 ${
+                  isActive ? " text-white" : "text-gray-lighter"
+                }`}
+              >
+                <Link href={item.href}>{item.name}</Link>
+              </li>
+            );
+          })}
         </ul>
+      </div>
+      <div className="sm:hidden w-[50%] flex gap-2 items-center">
+        <Divider className="w-8 md:w-12 rotate-90 -mr-4" />
+        <MaineDropDown data={getCoursesSortItem()} />
       </div>
     </div>
   );
