@@ -2,22 +2,19 @@ import PrimaryInput from "@/components/Modules/Input/PrimaryInput";
 import Image from "next/image";
 import React from "react";
 import searchIcon from "@/public/icons/filter/search.svg";
-import { Button, Divider, Dropdown } from "@nextui-org/react";
+import { Divider } from "@nextui-org/react";
 import Link from "next/link";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { searchCourse } from "@/interfaces/searchCourse.interface";
 import MainButton from "@/components/Modules/Button/MainButton";
-import MaineDropDown from "@/components/Modules/MainDropdown/MainDropdown";
-import { getCoursesSortItem } from "@/mock/getCoursesSortItem";
 import courseSortItem from "@/constants/courseSortItem";
 import { useRouter } from "next/router";
+import MainDropdown from "@/components/Modules/MainDropdown/MainDropdown";
 
 export default function CourseHorizontalFilterBox() {
   const { register, handleSubmit } = useForm<searchCourse>();
-  const router = useRouter();
 
-  const { asPath } = router;
-  console.log(router)
+  const router = useRouter();
 
   const submitFormHandler: SubmitHandler<searchCourse> = (data) => {
     console.log(data);
@@ -56,25 +53,30 @@ export default function CourseHorizontalFilterBox() {
           <li>
             <p className="font-peyda">مرتب سازی :</p>
           </li>
-          {courseSortItem.map((item) => {
-            const isActive = asPath === item.href;
-            console.log(asPath , item.href)
-            return (
-              <li
-                key={item.id}
-                className={`flex items-center justify-center flex-col xs:gap-1 ${
-                  isActive ? "text-primary dark:text-primary-lighter" : "text-gray-lighter"
-                }`}
+          {courseSortItem.map((item) => (
+            <li
+              key={item.id}
+              className={`flex items-center justify-center flex-col xs:gap-1 ${
+                Object.is(router.query[item.query], "true")
+                  ? "text-primary dark:text-primary-lighter"
+                  : "text-gray-lighter"
+              }`}
+            >
+              <Link
+                href={{
+                  pathname: "/courses",
+                  query: { [item.query]: true },
+                }}
               >
-                <Link href={item.href}>{item.name}</Link>
-              </li>
-            );
-          })}
+                {item.name}
+              </Link>
+            </li>
+          ))}
         </ul>
       </div>
       <div className="sm:hidden w-[50%] flex gap-2 items-center">
         <Divider className="w-8 md:w-12 rotate-90 -mr-4" />
-        <MaineDropDown data={getCoursesSortItem()} />
+        <MainDropdown data={courseSortItem} />
       </div>
     </div>
   );
