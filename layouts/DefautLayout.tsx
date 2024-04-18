@@ -4,7 +4,7 @@ import React from "react";
 
 export default function DefautLayout({ children }: any) {
   return (
-    <div>
+    <div className="relative" style={{ paddingTop: "2rem" }}>
       <Navbar />
       <div className="container">
         {children}

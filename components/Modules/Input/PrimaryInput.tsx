@@ -10,6 +10,7 @@ export default function PrimaryInput({
   hasBorder = true,
   startContent,
   endContent,
+  errorMessage,
 }: primaryInput) {
   return (
     <Input
@@ -36,6 +37,7 @@ export default function PrimaryInput({
       {...register}
       startContent={startContent}
       endContent={endContent}
+      errorMessage={errorMessage}
     />
   );
 }

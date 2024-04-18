@@ -8,6 +8,7 @@ interface primaryInput {
   hasBorder?: boolean;
   startContent?: ReactNode;
   endContent?: ReactNode;
+  errorMessage?: string;
 }
 
 export type { primaryInput };
