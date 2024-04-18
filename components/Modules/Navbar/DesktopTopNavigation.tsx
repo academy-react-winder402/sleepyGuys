@@ -23,7 +23,7 @@ export default function DesktopTopNavigation() {
                 key={index}
                 className={
                   isActive
-                    ? "text-black dark:text-white"
+                    ? "text-primary-darker dark:text-white"
                     : "text-lightBody dark:text-darkBody"
                 }
               >
