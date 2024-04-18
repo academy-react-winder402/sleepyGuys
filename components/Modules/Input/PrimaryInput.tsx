@@ -17,13 +17,13 @@ export default function PrimaryInput({
       variant={variant}
       classNames={{
         input: ["placeholder:text-lightBody", "dark:placeholder:text-darkBody"],
-        mainWrapper: ["overflow-hidden", "rounded-[20px]"],
+        mainWrapper: ["overflow-hidden", "rounded-[16px]"],
         inputWrapper: [
           "!duration-500",
           "transition",
           "ease-in-out",
           "overflow-hidden",
-          "rounded-[20px]",
+          "rounded-[16px]",
           "py-8",
           "bg-white",
           "dark:bg-dark-lighter",

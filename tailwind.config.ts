@@ -51,8 +51,8 @@ const config: Config = {
         },
         lightTitle: {
           DEFAULT: "#4D4D4D",
-          lighter: "#333333",
-          darker: "#666666",
+          lighter: "#666666",
+          darker: "#333333",
         },
         darkTitle: {
           DEFAULT: "#fff",
