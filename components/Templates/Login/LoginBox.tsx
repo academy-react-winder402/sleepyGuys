@@ -35,13 +35,8 @@ export default function LoginBox() {
             <p className="text-lightTitle-lighter dark:text-darkTitle text-[22px] md:text-[24px] font-peyda">
               ورود با موبایل
             </p>
-<<<<<<< HEAD
             <p className="text-lightBody dark:text-darkBody font-peyda flex gap-x-1 mt-1.5 text-lg">
               حساب کاربری ندارید؟{" "}
-=======
-            <p className="text-lightBody dark:text-darkBody font-peyda flex gap-x-1 text-lg">
-              <span>حساب کاربری ندارید؟</span>
->>>>>>> main
               <Link
                 href={"/register"}
                 className="text-primary dark:text-primary-lighter"
@@ -50,7 +45,6 @@ export default function LoginBox() {
               </Link>
             </p>
           </div>
-<<<<<<< HEAD
           <div>
             {!sendSms ? (
               <form
@@ -99,40 +93,6 @@ export default function LoginBox() {
             <p className="text-lightBody dark:text-darkBody opacity-50 font-peyda font-bold">
               با عضویت در سایت تمامی شرایت وقوانین آکادمی سپهر را پذیرفته اید.
             </p>
-=======
-          <form
-            onSubmit={handleSubmit(submitFormHandler)}
-            className="flex flex-col gap-5"
-          >
-            <PrimaryInput
-              placeholder="شماره موبایل"
-              variant="faded"
-              className="font-peyda"
-              type="number"
-              register={{
-                ...register("phone", {
-                  required: "شماره موبایلت رو نمیتونی خالی بذاری",
-                  pattern: {
-                    value:
-                      /(0|\+98)?([ ]|-|[()]){0,2}9[1|2|3|4]([ ]|-|[()]){0,2}(?:[0-9]([ ]|-|[()]){0,2}){8}/,
-                    message: "شماره موبایلت که نوشتی درست نیست",
-                  },
-                }),
-              }}
-              errorMessage={errors.phone && errors.phone.message}
-            />
-            <MainButton
-              className="bg-primary dark:bg-primary-darker text-btnText w-full py-[1.5rem] text-xl"
-              type="submit"
-              content={<p>ادامه</p>}
-            />
-          </form>
-          <div className="flex justify-between w-full text-[16px]">
-            <p className="text-lightBody dark:text-darkBody">ورود با ایمیل</p>
-            <p className="text-lightBody dark:text-darkBody underline">
-              حریم خصوصی
-            </p>
->>>>>>> main
           </div>
         </div>
       </AuthenticationCard>

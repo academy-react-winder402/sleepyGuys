@@ -21,7 +21,7 @@ interface button {
     | "secondary"
     | "success"
     | "warning";
-  onClick?: () => void;
+  onClick?: any;
   isDisabled?: boolean;
 }
 
