@@ -66,3 +66,7 @@ a {
   margin-right: 0;
   margin-left: 12px;
 }
+
+.otp{
+  width: 64px !important;
+}
