@@ -60,7 +60,7 @@ export default function LoginBox() {
                     }),
                   }}
                 />
-                <MainButton onClickHandler={handleSubmit(submitFormHandler)} content="ادامه" className="bg-primary font-peyda font-bold h-[64px] flex justify-center items-center rounded-lg text-white w-full"/>
+                <MainButton onClick={handleSubmit(submitFormHandler)} content="ادامه" className="bg-primary font-peyda font-bold h-[64px] flex justify-center items-center rounded-lg text-white w-full"/>
               </form>
             ) : (
               <form dir="ltr" onSubmit={HandleSubmit} className="flex flex-col gap-5">
@@ -76,7 +76,7 @@ export default function LoginBox() {
                 <p className="text-primary dark:text-primary-lighter font-peyda font-bold">
                   کد ارسال شده را وارد کنید.
                 </p>
-                <MainButton onClickHandler={HandleSubmit} content="ادامه" className="bg-primary font-peyda font-bold h-[64px] flex justify-center items-center rounded-lg text-white w-full"/>
+                <MainButton onClick={HandleSubmit} content="ادامه" className="bg-primary font-peyda font-bold h-[64px] flex justify-center items-center rounded-lg text-white w-full"/>
               </form>
             )}
           </div>
