@@ -15,7 +15,7 @@ interface button {
   startIcon?: ReactNode;
   endIcon?: ReactNode;
   color?: "default" | "danger" | "primary" | "secondary" | "success" | "warning";
-  onClick?: () => void;
+  onClickHandler?: any;
 }
 
 export type { button };

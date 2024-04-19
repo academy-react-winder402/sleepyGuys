@@ -10,7 +10,7 @@ function MainButton({
   startIcon,
   endIcon,
   color = "default",
-  onClick,
+  onClickHandler,
 }: button) {
   return (
     <Button
@@ -19,7 +19,7 @@ function MainButton({
       variant={variant}
       startContent={startIcon}
       endContent={endIcon}
-      onClick={onClick}
+      onClick={onClickHandler}
       color={color}
     >
       {content}
