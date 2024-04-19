@@ -11,6 +11,7 @@ function MainButton({
   endIcon,
   color = "default",
   onClick,
+  isDisabled,
 }: button) {
   return (
     <Button
@@ -21,6 +22,7 @@ function MainButton({
       endContent={endIcon}
       onClick={onClick}
       color={color}
+      isDisabled={isDisabled}
     >
       {content}
     </Button>

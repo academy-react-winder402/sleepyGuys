@@ -6,6 +6,7 @@ export default function PrimaryInput({
   placeholder,
   variant,
   className,
+  type = "text",
   register,
   hasBorder = true,
   startContent,
@@ -16,6 +17,7 @@ export default function PrimaryInput({
     <Input
       className={className}
       variant={variant}
+      type={type}
       classNames={{
         input: ["placeholder:text-lightBody", "dark:placeholder:text-darkBody"],
         mainWrapper: ["overflow-hidden", "rounded-[16px]"],
