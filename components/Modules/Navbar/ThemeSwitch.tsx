@@ -27,20 +27,20 @@ const ThemeSwitch = (props: SwitchProps) => {
         </VisuallyHidden>
         <div
           onClick={changeThemeHandler}
-          className="flex items-center justify-center w-10 h-10 md:w-11 md:h-11 bg-primary dark:bg-primary-darker rounded-full"
+          className="flex items-center justify-center w-10 h-10 md:w-11 md:h-11 rounded-full"
         >
           {!isSelected ? (
             <Image
-              className="scale-110 mt-[3px] ml-[1px] "
-              src={sunIcon}
+              className="scale-[60%]"
+              src={moonIcon}
               alt=""
               width={45}
               height={22}
             />
           ) : (
             <Image
-              className="scale-50"
-              src={moonIcon}
+              className="scale-125 mt-[3px] ml-[1px] "
+              src={sunIcon}
               alt=""
               width={45}
               height={22}
