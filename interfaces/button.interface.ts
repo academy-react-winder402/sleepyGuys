@@ -14,10 +14,6 @@ interface button {
     | "shadow";
   startIcon?: ReactNode;
   endIcon?: ReactNode;
-<<<<<<< HEAD
-  color?: "default" | "danger" | "primary" | "secondary" | "success" | "warning";
-  onClick?: any;
-=======
   color?:
     | "default"
     | "danger"
@@ -27,7 +23,6 @@ interface button {
     | "warning";
   onClick?: () => void;
   isDisabled?: boolean;
->>>>>>> main
 }
 
 export type { button };
