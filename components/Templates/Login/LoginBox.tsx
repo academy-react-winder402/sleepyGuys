@@ -13,7 +13,7 @@ export default function LoginBox() {
   const [otp, setOtp] = useState("");
   const HandleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    console.log(otp)
+    console.log(otp);
   };
 
   const {
@@ -24,7 +24,7 @@ export default function LoginBox() {
 
   const submitFormHandler: SubmitHandler<loginFormType> = (data) => {
     console.log(data);
-    setSendSms(prev => !prev)
+    setSendSms((prev) => !prev);
   };
 
   return (
@@ -61,23 +61,35 @@ export default function LoginBox() {
                     }),
                   }}
                 />
-                <MainButton onClick={handleSubmit(submitFormHandler)} content="ادامه" className="bg-primary font-peyda font-bold h-[64px] flex justify-center items-center rounded-lg text-white w-full"/>
+                <MainButton
+                  onClick={handleSubmit(submitFormHandler)}
+                  content="ادامه"
+                  className="bg-primary font-peyda font-bold h-[64px] flex justify-center items-center rounded-lg text-white w-full"
+                />
               </form>
             ) : (
-              <form dir="ltr" onSubmit={HandleSubmit} className="flex flex-col gap-5">
+              <form
+                dir="ltr"
+                onSubmit={HandleSubmit}
+                className="flex flex-col gap-5"
+              >
                 <OtpInput
                   value={otp}
                   onChange={setOtp}
                   numInputs={4}
                   renderSeparator={<span className="px-3 lg:px-5"></span>}
-                  renderInput={(props:any) => <input {...props} />}
+                  renderInput={(props) => <input {...props} />}
                   containerStyle="mt-5 flex justify-center"
                   inputStyle="border-2 border-primary dark:border-primary-lighter h-16 text-2xl text-bold rounded-md text-lightTitle-lighter font-peyda dark:text-primary-lighter bg-mainBodyBg dark:bg-dark otp"
                 />
                 <p className="text-primary dark:text-primary-lighter font-peyda font-bold">
                   کد ارسال شده را وارد کنید.
                 </p>
-                <MainButton onClick={HandleSubmit} content="ادامه" className="bg-primary font-peyda font-bold h-[64px] flex justify-center items-center rounded-lg text-white w-full"/>
+                <MainButton
+                  onClick={HandleSubmit}
+                  content="ادامه"
+                  className="bg-primary font-peyda font-bold h-[64px] flex justify-center items-center rounded-lg text-white w-full"
+                />
               </form>
             )}
           </div>
