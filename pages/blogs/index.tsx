@@ -1,9 +1,14 @@
-import React from 'react'
+import BlogsBox from "@/components/Templates/Blogs/BlogsBox";
+import CourseHorizontalFilterBox from "@/components/Templates/Courses/CourseHorizontalFilter/CourseHorizontalFilterBox";
+import React from "react";
 
 function Blogs() {
   return (
-    <div>Blogs</div>
-  )
+    <>
+      <CourseHorizontalFilterBox />
+      <BlogsBox />
+    </>
+  );
 }
 
-export default Blogs
+export default Blogs;
