@@ -31,16 +31,16 @@ const ThemeSwitch = (props: SwitchProps) => {
         >
           {!isSelected ? (
             <Image
-              className="scale-[60%]"
-              src={moonIcon}
+              className="scale-125 mt-[3px] ml-[1px] "
+              src={sunIcon}
               alt=""
               width={45}
               height={22}
             />
           ) : (
             <Image
-              className="scale-125 mt-[3px] ml-[1px] "
-              src={sunIcon}
+              className="scale-[60%]"
+              src={moonIcon}
               alt=""
               width={45}
               height={22}

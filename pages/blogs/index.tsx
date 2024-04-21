@@ -1,11 +1,11 @@
 import BlogsBox from "@/components/Templates/Blogs/BlogsBox";
-import CourseHorizontalFilterBox from "@/components/Templates/Courses/CourseHorizontalFilter/CourseHorizontalFilterBox";
+import BlogHorizontalFilterBox from "@/components/Templates/Blogs/BlogHorizontalFilter/BlogHorizontalFilterBox";
 import React from "react";
 
 function Blogs() {
   return (
     <>
-      <CourseHorizontalFilterBox />
+      <BlogHorizontalFilterBox />
       <BlogsBox />
     </>
   );

@@ -7,8 +7,9 @@ import {
   Button,
 } from "@nextui-org/react";
 import { CoursesSortItem } from "@/interfaces/coursesSortItem.interface";
+import { BlogSortItem } from "@/interfaces/blogSortItem.interface";
 
-export default function MainDropdown({ data }: { data: CoursesSortItem[] }) {
+export default function MainDropdown({ data }: { data: CoursesSortItem[] | BlogSortItem[] }) {
   const [selectedKeys, setSelectedKeys] = React.useState(new Set(["جدیدترین"]));
 
   const selectedValue = React.useMemo(
@@ -42,7 +43,7 @@ export default function MainDropdown({ data }: { data: CoursesSortItem[] }) {
           ...data.map((item, index) => (
             <DropdownItem
               className="text-lightTitle dark:text-darkTitle"
-              key={index}
+              key={item.name}
             >
               {item.name}
             </DropdownItem>
