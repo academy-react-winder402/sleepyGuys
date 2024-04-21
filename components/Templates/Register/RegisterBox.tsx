@@ -105,7 +105,9 @@ export default function RegisterBox() {
                 >
                   قوانین و شرایط
                 </Link>
-                <span className="text-lightBody dark:bg-darkBody">سپهر آکادمی را پذیرفته ام</span>
+                <span className="text-lightBody dark:text-darkBody">
+                  سپهر آکادمی را پذیرفته ام
+                </span>
               </p>
             </Checkbox>
           </form>
