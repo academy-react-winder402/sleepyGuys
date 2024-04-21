@@ -5,7 +5,6 @@ interface Blog {
   title: string;
   image: StaticImageData;
   des: string;
-  isReversed: boolean;
 }
 
 export type { Blog };

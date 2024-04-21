@@ -21,7 +21,7 @@ export default function BlogsBox() {
             <Divider className="w-[35%] md:w-[40%] h-[3px] bg-lightTitle dark:bg-darkTitle" />
           </div>
         </div>
-        <div className="grid grid-cols-4 bg-white dark:bg-dark-lighter gap-3 lg:gap-4 lgb:gap-8 p-10">
+        <div className="grid grid-cols-4 bg-white dark:bg-dark-lighter gap-3 lg:gap-4 lgb:gap-8 p-10 [&>*:nth-child(odd)]:flex-col-reverse">
           {getBlogs()
             .slice(0, 4)
             .map((blog, index) => (
