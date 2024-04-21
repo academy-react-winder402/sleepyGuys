@@ -1,31 +1,12 @@
 import React, { useState } from "react";
-import OtpInput from "react-otp-input";
 import loginImage from "@/public/pictures/login/loginImage.svg";
 import AuthenticationCard from "@/components/Modules/AuthenticationCard/AuthenticationCard";
-import { useForm, SubmitHandler } from "react-hook-form";
-import PrimaryInput from "@/components/Modules/Input/PrimaryInput";
-import { loginFormType } from "@/interfaces/loginForm.interface";
 import Link from "next/link";
-import MainButton from "@/components/Modules/Button/MainButton";
+import LoginForm from "./LoginForm/LoginForm";
+import LoginOtpForm from "./LoginForm/LoginOtpForm";
 
 export default function LoginBox() {
   const [sendSms, setSendSms] = useState(false);
-  const [otp, setOtp] = useState("");
-  const HandleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    console.log(otp);
-  };
-
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm<loginFormType>();
-
-  const submitFormHandler: SubmitHandler<loginFormType> = (data) => {
-    console.log(data);
-    setSendSms((prev) => !prev);
-  };
 
   return (
     <div className="flex h-[100dvh] items-center justify-center">
@@ -47,50 +28,9 @@ export default function LoginBox() {
           </div>
           <div>
             {!sendSms ? (
-              <form
-                onSubmit={handleSubmit(submitFormHandler)}
-                className="flex flex-col gap-5"
-              >
-                <PrimaryInput
-                  placeholder="موبایل رو برامون بنویس..."
-                  variant="faded"
-                  className="font-peyda"
-                  register={{
-                    ...register("phone", {
-                      required: true,
-                    }),
-                  }}
-                />
-                <MainButton
-                  onClick={handleSubmit(submitFormHandler)}
-                  content="ادامه"
-                  className="bg-primary font-peyda font-bold h-[64px] flex justify-center items-center rounded-lg text-white w-full"
-                />
-              </form>
+              <LoginForm setSendSms={setSendSms} />
             ) : (
-              <form
-                dir="ltr"
-                onSubmit={HandleSubmit}
-                className="flex flex-col gap-5"
-              >
-                <OtpInput
-                  value={otp}
-                  onChange={setOtp}
-                  numInputs={4}
-                  renderSeparator={<span className="px-3 lg:px-5"></span>}
-                  renderInput={(props) => <input {...props} />}
-                  containerStyle="mt-5 flex justify-center"
-                  inputStyle="border-2 border-primary dark:border-primary-lighter h-16 text-2xl text-bold rounded-md text-lightTitle-lighter font-peyda dark:text-primary-lighter bg-mainBodyBg dark:bg-dark otp"
-                />
-                <p className="text-primary dark:text-primary-lighter font-peyda font-bold">
-                  کد ارسال شده را وارد کنید.
-                </p>
-                <MainButton
-                  onClick={HandleSubmit}
-                  content="ادامه"
-                  className="bg-primary font-peyda font-bold h-[64px] flex justify-center items-center rounded-lg text-white w-full"
-                />
-              </form>
+              <LoginOtpForm />
             )}
           </div>
           <div className="flex justify-between w-full text-[16px]">
