@@ -1,7 +1,8 @@
 import React from "react";
-import CourseHorizontalFilterBox from "@/components/Templates/Courses/CourseHorizontalFilter/CourseHorizontalFilterBox";
 import CourseVerticalFilterBox from "@/components/Templates/Courses/CourseVerticalFilter/CourseVerticalFilterBox";
-import CoursesBox from "@/components/Templates/Courses/CoursesBox/CoursesBox";
+import CoursesBox from "@/components/Templates/Courses/CoursesBox";
+import HorizontalFilterBox from "@/components/Modules/HorizontalFilter/HorizontalFilterBox";
+import courseSortItem from "@/constants/courseSortItem";
 
 export default function Courses() {
   return (
@@ -10,7 +11,10 @@ export default function Courses() {
         دوره ها
       </h2>
       <div className="space-y-6">
-        <CourseHorizontalFilterBox />
+        <HorizontalFilterBox
+          placeholder="جستجو دوره"
+          sortItemsArray={courseSortItem}
+        />
         <div className="flex flex-col md:flex-row md:gap-x-6">
           <CourseVerticalFilterBox />
           <CoursesBox />

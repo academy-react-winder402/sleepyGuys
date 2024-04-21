@@ -22,9 +22,21 @@ export default function BlogsBox() {
           </div>
         </div>
         <div className="grid grid-cols-4 bg-white dark:bg-dark-lighter gap-3 lg:gap-4 lgb:gap-8 p-10">
-          {getBlogs().slice(0,4).map(blog => <BlogCard {...blog}/>)}
-          {getBlogs().slice(4,5).map(blog => <TopBlogCard {...blog}/>)}
-          {getBlogs().slice(5,9).map(blog => <BlogCard {...blog}/>)}
+          {getBlogs()
+            .slice(0, 4)
+            .map((blog, index) => (
+              <BlogCard {...blog} key={index} />
+            ))}
+          {getBlogs()
+            .slice(4, 5)
+            .map((blog, index) => (
+              <TopBlogCard {...blog} key={index} />
+            ))}
+          {getBlogs()
+            .slice(5, 9)
+            .map((blog, key) => (
+              <BlogCard {...blog} />
+            ))}
         </div>
       </div>
     </>
