@@ -19,7 +19,7 @@
   src: url(../public/fonts/PeydaWeb.ttf);
 }
 
-body{
+body {
   text-align: right;
 }
 
@@ -30,22 +30,22 @@ p {
 a {
   background: rgba(0, 0, 0, 0);
 }
-.swiper-wrapper{
+.swiper-wrapper {
   margin-bottom: 60px;
 }
-.swiper-pagination > .swiper-pagination-bullet{
-  background: #436E8E;
+.swiper-pagination > .swiper-pagination-bullet {
+  background: #436e8e;
   width: 26px;
   height: 8px;
   border-radius: 5px;
 }
 
 .backdrop-blur-xl {
-   --tw-backdrop-blur: blur(0px);
+  --tw-backdrop-blur: blur(0px);
 }
 
-#my-leaflet-map  {
-  background: #436E8E;
+#my-leaflet-map {
+  background: #436e8e;
   outline: 0;
 }
 
@@ -54,19 +54,31 @@ a {
   display: none;
 }
 
-.leaflet-popup.leaflet-zoom-animated > .leaflet-popup-content-wrapper{
-  background: #436E8E;
+.leaflet-popup.leaflet-zoom-animated > .leaflet-popup-content-wrapper {
+  background: #436e8e;
   box-shadow: none;
 }
 
-.leaflet-popup-tip-container > .leaflet-popup-tip{
-  background: #436E8E;
+.leaflet-popup-tip-container > .leaflet-popup-tip {
+  background: #436e8e;
 }
-.checkBoxContainer span{
+.checkBoxContainer span {
   margin-right: 0;
   margin-left: 12px;
 }
 
-.otp{
+.otp {
   width: 64px !important;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
 }

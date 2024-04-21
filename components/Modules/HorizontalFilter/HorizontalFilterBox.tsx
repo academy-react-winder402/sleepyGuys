@@ -7,17 +7,24 @@ import Link from "next/link";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { searchCourse } from "@/interfaces/searchCourse.interface";
 import MainButton from "@/components/Modules/Button/MainButton";
-import blogSortItem from "@/constants/blogSortItem";
 import { useRouter } from "next/router";
 import MainDropdown from "@/components/Modules/MainDropdown/MainDropdown";
+import { CourseSortItem } from "@/interfaces/courseSortItem.interface";
+import { BlogSortItem } from "@/interfaces/blogSortItem.interface";
 
-export default function CourseHorizontalFilterBox() {
+export default function HorizontalFilterBox({
+  placeholder,
+  sortItemsArray,
+}: {
+  placeholder: string;
+  sortItemsArray: CourseSortItem[] | BlogSortItem[];
+}) {
   const { register, handleSubmit } = useForm<searchCourse>();
 
   const router = useRouter();
 
   const submitFormHandler: SubmitHandler<searchCourse> = (data) => {
-    console.log(data);
+    router.push(`${router.pathname}?search=${data.title}`);
   };
 
   return (
@@ -27,7 +34,7 @@ export default function CourseHorizontalFilterBox() {
         onSubmit={handleSubmit(submitFormHandler)}
       >
         <PrimaryInput
-          placeholder="جستجو ..."
+          placeholder={placeholder}
           variant="faded"
           className="text-2xl font-peyda w-full"
           hasBorder={false}
@@ -53,9 +60,9 @@ export default function CourseHorizontalFilterBox() {
           <li>
             <p className="font-peyda">مرتب سازی :</p>
           </li>
-          {blogSortItem.map((item) => (
+          {sortItemsArray.map((item, index) => (
             <li
-              key={item.id}
+              key={index}
               className={`flex items-center justify-center flex-col xs:gap-1 ${
                 Object.is(router.query[item.query], "true")
                   ? "text-primary dark:text-primary-lighter"
@@ -64,7 +71,7 @@ export default function CourseHorizontalFilterBox() {
             >
               <Link
                 href={{
-                  pathname: "/courses",
+                  pathname: router.pathname,
                   query: { [item.query]: true },
                 }}
               >
@@ -76,7 +83,7 @@ export default function CourseHorizontalFilterBox() {
       </div>
       <div className="sm:hidden w-[50%] flex gap-2 items-center">
         <Divider className="w-8 md:w-12 rotate-90 -mr-4" />
-        <MainDropdown data={blogSortItem} />
+        <MainDropdown data={sortItemsArray} />
       </div>
     </div>
   );

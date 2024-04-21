@@ -21,6 +21,7 @@ export default function PrimaryInput({
       classNames={{
         input: ["placeholder:text-lightBody", "dark:placeholder:text-darkBody"],
         mainWrapper: ["overflow-hidden", "rounded-[16px]"],
+        errorMessage: ["text-secondary"],
         inputWrapper: [
           "!duration-500",
           "transition",
