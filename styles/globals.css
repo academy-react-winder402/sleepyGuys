@@ -70,3 +70,21 @@ a {
 .otp{
   width: 64px !important;
 }
+
+.pagination > ul{
+  gap: 15px;
+}
+
+.pagination > ul > li{
+  background-color: #B3B3B3!important;
+  color: #fff;
+  border-radius: 0px;
+}
+
+.pagination > ul > span{
+  background-color: #4D4D4D!important;
+  color: #fff;
+  border-radius: 0px;
+}
+
+

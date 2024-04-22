@@ -64,7 +64,7 @@ export default function CourseHorizontalFilterBox() {
             >
               <Link
                 href={{
-                  pathname: "/courses",
+                  pathname: "/blogs",
                   query: { [item.query]: true },
                 }}
               >

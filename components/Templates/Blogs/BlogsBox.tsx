@@ -3,6 +3,7 @@ import React from "react";
 import BlogCard from "./BlogCard";
 import TopBlogCard from "./TopBlogCard";
 import { getBlogs } from "@/mock/getBlogs";
+import StandardPagination from "@/components/Modules/Pagination/StandardPagination";
 
 export default function BlogsBox() {
   return (
@@ -25,6 +26,7 @@ export default function BlogsBox() {
           {getBlogs().slice(0,4).map(blog => <BlogCard {...blog}/>)}
           {getBlogs().slice(4,5).map(blog => <TopBlogCard {...blog}/>)}
           {getBlogs().slice(5,9).map(blog => <BlogCard {...blog}/>)}
+          <StandardPagination/>
         </div>
       </div>
     </>
