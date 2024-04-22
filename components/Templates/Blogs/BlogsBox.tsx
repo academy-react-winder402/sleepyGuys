@@ -3,6 +3,7 @@ import React from "react";
 import BlogCard from "./BlogCard";
 import TopBlogCard from "./TopBlogCard";
 import { getBlogs } from "@/mock/getBlogs";
+import StandardPagination from "@/components/Modules/Pagination/StandardPagination";
 
 export default function BlogsBox() {
   return (
@@ -21,7 +22,7 @@ export default function BlogsBox() {
             <Divider className="w-[35%] md:w-[40%] h-[3px] bg-lightTitle dark:bg-darkTitle" />
           </div>
         </div>
-        <div className="grid grid-cols-4 bg-white dark:bg-dark-lighter gap-3 lg:gap-4 lgb:gap-8 p-10 [&>*:nth-child(odd)]:flex-col-reverse">
+        <div className="grid grid-cols-4 bg-white dark:bg-dark-lighter gap-3 lg:gap-4 lgb:gap-8 p-10">
           {getBlogs()
             .slice(0, 4)
             .map((blog, index) => (
@@ -34,9 +35,10 @@ export default function BlogsBox() {
             ))}
           {getBlogs()
             .slice(5, 9)
-            .map((blog, key) => (
-              <BlogCard {...blog} />
+            .map((blog, index) => (
+              <BlogCard {...blog} key={index} />
             ))}
+          <StandardPagination />
         </div>
       </div>
     </>

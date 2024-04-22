@@ -82,3 +82,20 @@ input::-webkit-inner-spin-button {
 input[type="number"] {
   -moz-appearance: textfield;
 }
+.pagination > ul{
+  gap: 15px;
+}
+
+.pagination > ul > li{
+  background-color: #B3B3B3!important;
+  color: #fff;
+  border-radius: 0px;
+}
+
+.pagination > ul > span{
+  background-color: #4D4D4D!important;
+  color: #fff;
+  border-radius: 0px;
+}
+
+
