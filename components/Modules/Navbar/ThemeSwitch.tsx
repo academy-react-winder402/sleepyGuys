@@ -1,21 +1,23 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import { useSwitch, VisuallyHidden, SwitchProps } from "@nextui-org/react";
 import { useTheme } from "next-themes";
 import moonIcon from "@/public/icons/theme/moon.svg";
 import sunIcon from "@/public/icons/theme/sun.svg";
+import Cookies from "js-cookie";
 
 const ThemeSwitch = (props: SwitchProps) => {
-  const { Component, isSelected, getBaseProps, getInputProps } =
-    useSwitch(props);
+  const { Component, getBaseProps, getInputProps } = useSwitch(props);
 
   const { theme, setTheme } = useTheme();
 
   const changeThemeHandler = (): void => {
     if (Object.is(theme, "light")) {
       setTheme("dark");
+      Cookies.set("theme", "dark");
     } else {
       setTheme("light");
+      Cookies.set("theme", "light");
     }
   };
 
@@ -27,11 +29,11 @@ const ThemeSwitch = (props: SwitchProps) => {
         </VisuallyHidden>
         <div
           onClick={changeThemeHandler}
-          className="flex items-center justify-center w-10 h-10 md:w-11 md:h-11 rounded-full"
+          className="flex items-center justify-center w-10 h-10 md:w-11 md:h-11 rounded-full bg-primary dark:bg-primary-darker"
         >
-          {!isSelected ? (
+          {theme === "light" ? (
             <Image
-              className="scale-125 mt-[3px] ml-[1px] "
+              className="scale-110 mt-[3px] ml-[1px] "
               src={sunIcon}
               alt=""
               width={45}

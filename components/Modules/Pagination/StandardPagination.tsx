@@ -1,21 +1,39 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Pagination } from "@nextui-org/react";
+import { useRouter } from "next/router";
 
 export default function StandardPagination() {
-  const [currentPage, setCurrentPage] = React.useState(1);
+  const router = useRouter();
+
+  const [currentPage, setCurrentPage] = useState(1);
+
+  const changePageHandler = (newPage: number) => {
+    setCurrentPage(newPage);
+    router.push(router.pathname + `?page=${newPage}`, undefined, {
+      scroll: false,
+    });
+  };
+
+  useEffect(() => {
+    setCurrentPage(Number(router.query.page));
+  }, [router.query]);
+
   return (
-    <div dir="ltr"  className="flex justify-center items-center pt-10 col-span-4">
-       <div className="flex flex-col gap-5">
+    <div className="flex justify-center items-center mt-10 col-span-4">
       <Pagination
         className="pagination"
         total={10}
         color="secondary"
-        size="lg"
+        size="md"
+        dir="rtl"
         page={currentPage}
-        onChange={setCurrentPage}
+        onChange={(newPage) => changePageHandler(newPage)}
+        classNames={{
+          next: ["rotate-180"],
+          prev: ["rotate-180"],
+          wrapper: ["gap-x-2"],
+        }}
       />
-     
-    </div>
     </div>
   );
 }

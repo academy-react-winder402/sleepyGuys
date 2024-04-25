@@ -2,10 +2,15 @@ import { UserCardType } from "@/interfaces/userCard.interface";
 import Image from "next/image";
 import React from "react";
 
-export default function UserCard({ title, description, image , size }: UserCardType) {
+export default function UserCard({
+  title,
+  description,
+  image,
+  size,
+}: UserCardType) {
   return (
     <div className="flex items-center gap-x-4">
-      <div className="flex items-center justify-center p-2  bg-primary rounded-full">
+      <div className="flex items-center justify-center p-2  bg-primary dark:bg-primary-darker rounded-full">
         <Image src={image} alt="" width={size} height={size} />
       </div>
       <div>
