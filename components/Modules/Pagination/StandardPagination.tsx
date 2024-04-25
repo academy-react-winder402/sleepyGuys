@@ -29,8 +29,6 @@ export default function StandardPagination() {
         page={currentPage}
         onChange={(newPage) => changePageHandler(newPage)}
         classNames={{
-          next: ["rotate-180"],
-          prev: ["rotate-180"],
           wrapper: ["gap-x-2"],
         }}
       />
