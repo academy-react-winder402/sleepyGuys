@@ -49,7 +49,7 @@ const ThemeSwitch = (props: SwitchProps) => {
           onClick={changeThemeHandler}
           className="flex items-center justify-center w-10 h-10 md:w-11 md:h-11 rounded-full bg-primary dark:bg-primary-darker"
         >
-          {isLightMode ? (
+          {!isLightMode ? (
             <Image
               className="scale-110 mt-[3px] ml-[1px] "
               src={sunIcon}
@@ -59,7 +59,7 @@ const ThemeSwitch = (props: SwitchProps) => {
             />
           ) : (
             <Image
-              className="scale-[60%]"
+              className="scale-[55%]"
               src={moonIcon}
               alt=""
               width={45}

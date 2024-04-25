@@ -9,9 +9,7 @@ export default function StandardPagination() {
 
   const changePageHandler = (newPage: number) => {
     setCurrentPage(newPage);
-    router.push(router.pathname + `?page=${newPage}`, undefined, {
-      scroll: false,
-    });
+    router.push(router.pathname + `?page=${newPage}`);
   };
 
   useEffect(() => {
