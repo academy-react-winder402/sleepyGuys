@@ -23,11 +23,10 @@ export default function AccountPopover() {
       <PopoverTrigger>
         <div className="flex items-center justify-center w-10 h-10 md:w-11 md:h-11 bg-primary dark:bg-primary-darker rounded-full">
           <Image
-            className="scale-85 md:scale-100"
+            className="scale-85"
             src={userIcon}
             alt=""
-            width={28}
-            height={12}
+            style={{ width: "auto" }}
           />
         </div>
       </PopoverTrigger>
@@ -40,7 +39,10 @@ export default function AccountPopover() {
         />
         <Divider className="my-3" />
         <div className="w-full flex flex-col">
-          <Listbox onAction={(key) => router.push(`/${key}`)}>
+          <Listbox
+            onAction={(key) => router.push(`/${key}`)}
+            aria-label="Actions"
+          >
             {accountPopoverItems.map((item) => (
               <ListboxItem key={item.route} className="py-4">
                 <div className="flex items-center gap-x-3">
