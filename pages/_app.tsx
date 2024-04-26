@@ -1,5 +1,3 @@
-import Footer from "@/components/Modules/Footer/Footer";
-import Navbar from "@/components/Modules/Navbar/Navbar";
 import DefautLayout from "@/layouts/DefautLayout";
 import EmptyLayout from "@/layouts/EmptyLayout";
 import "@/styles/globals.css";

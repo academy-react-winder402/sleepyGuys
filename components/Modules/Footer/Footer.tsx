@@ -43,7 +43,7 @@ function Footer() {
           <li>
             <Link
               className="text-[13px] md:text-[15px] font-vazir text-lightBody dark:text-darkBody"
-              href={"#"}
+              href={"/blogs"}
             >
               همه مقاله ها
             </Link>

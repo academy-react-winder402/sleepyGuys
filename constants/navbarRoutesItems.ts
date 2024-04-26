@@ -9,8 +9,8 @@ const navbarRoutesItems: NavbarRouteItem[] = [
   { name: "خانه", href: "/", icon: dashboard },
   { name: "دوره ها", href: "/courses", icon: courses },
   { name: "اساتید", href: "/teachers", icon: teachers },
-  { name: "ارتباط با ما", href: "/contact", icon: news },
   { name: "اخبار", href: "/blogs", icon: contact },
+  { name: "ارتباط با ما", href: "/contact", icon: news },
 ];
 
 export default navbarRoutesItems;
