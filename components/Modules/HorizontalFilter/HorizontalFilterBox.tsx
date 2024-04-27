@@ -23,6 +23,9 @@ export default function HorizontalFilterBox({
 
   const router = useRouter();
 
+  const { query } = router;
+  console.log(router)
+
   const submitFormHandler: SubmitHandler<searchCourse> = (data) => {
     router.push(`${router.pathname}?search=${data.title}`);
   };
@@ -60,25 +63,28 @@ export default function HorizontalFilterBox({
           <li>
             <p className="font-peyda">مرتب سازی :</p>
           </li>
-          {sortItemsArray.map((item, index) => (
-            <li
-              key={index}
-              className={`flex items-center justify-center flex-col xs:gap-1 ${
-                Object.is(router.query[item.query], "true")
-                  ? "text-primary dark:text-primary-lighter"
-                  : "text-gray-lighter"
-              }`}
-            >
-              <Link
-                href={{
-                  pathname: router.pathname,
-                  query: { sort: item.query },
-                }}
+          {sortItemsArray.map((item, index) => {
+            const isActive = query.sort === item.query;
+            return (
+              <li
+                key={index}
+                className={`flex items-center justify-center flex-col xs:gap-1 ${
+                  isActive
+                    ? "text-primary dark:text-primary-lighter"
+                    : "text-gray-lighter"
+                }`}
               >
-                {item.name}
-              </Link>
-            </li>
-          ))}
+                <Link
+                  href={{
+                    pathname: router.pathname,
+                    query: { sort: item.query },
+                  }}
+                >
+                  {item.name}
+                </Link>
+              </li>
+            );
+          })}
         </ul>
       </div>
       <div className="sm:hidden w-[50%] flex gap-2 items-center">
