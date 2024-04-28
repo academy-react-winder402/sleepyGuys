@@ -9,22 +9,17 @@ import { searchCourse } from "@/interfaces/searchCourse.interface";
 import MainButton from "@/components/Modules/Button/MainButton";
 import { useRouter } from "next/router";
 import MainDropdown from "@/components/Modules/MainDropdown/MainDropdown";
-import { CourseSortItem } from "@/interfaces/courseSortItem.interface";
-import { BlogSortItem } from "@/interfaces/blogSortItem.interface";
+import { horizontalFilter } from "@/interfaces/horizontalFilter.interface";
 
 export default function HorizontalFilterBox({
   placeholder,
   sortItemsArray,
-}: {
-  placeholder: string;
-  sortItemsArray: CourseSortItem[] | BlogSortItem[];
-}) {
+}: horizontalFilter) {
   const { register, handleSubmit } = useForm<searchCourse>();
 
   const router = useRouter();
 
   const { query } = router;
-  console.log(router)
 
   const submitFormHandler: SubmitHandler<searchCourse> = (data) => {
     router.push(`${router.pathname}?search=${data.title}`);
@@ -63,28 +58,25 @@ export default function HorizontalFilterBox({
           <li>
             <p className="font-peyda">مرتب سازی :</p>
           </li>
-          {sortItemsArray.map((item, index) => {
-            const isActive = query.sort === item.query;
-            return (
-              <li
-                key={index}
-                className={`flex items-center justify-center flex-col xs:gap-1 ${
-                  isActive
-                    ? "text-primary dark:text-primary-lighter"
-                    : "text-gray-lighter"
-                }`}
+          {sortItemsArray.map((item, index) => (
+            <li
+              key={index}
+              className={`flex items-center justify-center flex-col xs:gap-1 ${
+                query.sort === item.query
+                  ? "text-primary dark:text-primary-lighter"
+                  : "text-gray-lighter"
+              }`}
+            >
+              <Link
+                href={{
+                  pathname: router.pathname,
+                  query: { sort: item.query },
+                }}
               >
-                <Link
-                  href={{
-                    pathname: router.pathname,
-                    query: { sort: item.query },
-                  }}
-                >
-                  {item.name}
-                </Link>
-              </li>
-            );
-          })}
+                {item.name}
+              </Link>
+            </li>
+          ))}
         </ul>
       </div>
       <div className="sm:hidden w-[50%] flex gap-2 items-center">
