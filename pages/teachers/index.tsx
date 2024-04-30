@@ -11,11 +11,7 @@ function Teachears() {
           { title: "صفحه اساتید", route: "teachers" },
         ]}
       />
-      {/* <HorizontalFilterBox
-        sortItemsArray={[]}
-        placeholder="جستجو بر اساس نام استاد"
-      /> */}
-      <TeachersBox/>
+      <TeachersBox />
     </>
   );
 }
