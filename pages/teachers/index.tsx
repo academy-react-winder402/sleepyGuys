@@ -7,11 +7,16 @@ import React from "react";
 function Teachears() {
   return (
     <>
-      <MainBreadcrumb />
-      <HorizontalFilterBox
+      <MainBreadcrumb
+        items={[
+          { title: "خانه", route: "/" },
+          { title: "صفحه اساتید", route: "teachers" },
+        ]}
+      />
+      {/* <HorizontalFilterBox
         sortItemsArray={[]}
         placeholder="جستجو بر اساس نام استاد"
-      />
+      /> */}
       <TeachersBox data={getTeachers()} />
     </>
   );
