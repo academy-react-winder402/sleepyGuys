@@ -7,7 +7,6 @@ import { useRouter } from "next/router";
 
 function CourseCard({ title, image, des, time, teachers, price }: Course) {
   const router = useRouter();
-
   return (
     <div className="pt-[55px]" onClick={() => router.push(`/courses/${title}`)}>
       <div className="flex py-6 bg-white dark:bg-dark-lighter flex-col gap-4 rounded-3xl ">
