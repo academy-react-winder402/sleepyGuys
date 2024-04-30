@@ -7,7 +7,6 @@ import React from "react";
 function Teachears() {
   return (
     <>
-      <MainBreadcrumb />
       <HorizontalFilterBox
         sortItemsArray={[]}
         placeholder="جستجو بر اساس نام استاد"
