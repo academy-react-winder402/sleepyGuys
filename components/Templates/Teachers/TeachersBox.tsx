@@ -5,7 +5,7 @@ import React from "react";
 
 export default function TeachersBox() {
   return (
-    <div className="flex justify-center items-center flex-col gap-10">
+    <div className="flex justify-center items-center flex-col gap-10 w-full">
       {getTeachers().map((teacher:teachers, index: number) => (
         <TeacherCard key={index} {...teacher} />
       ))}
