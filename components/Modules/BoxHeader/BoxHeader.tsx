@@ -19,7 +19,7 @@ export default function BoxHeader({
           href={`${route}`}
           className="md:col-start-3 col-span-1 mx-auto md:ms-auto md:mx-0 flex items-center gap-x-2 mb-8 md:mb-4 lg:mb-10 text-lightTitle dark:text-darkTitle"
         >
-          <Divider className="w-[30px] h-1 bg-primary dark:bg-primary-lighter" />
+          <Divider className="w-[40px] rounded-full h-1 bg-primary dark:bg-primary-lighter" />
           {linkTitle}
         </Link>
       )}
