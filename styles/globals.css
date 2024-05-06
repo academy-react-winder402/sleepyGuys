@@ -30,6 +30,8 @@ p {
 a {
   background: rgba(0, 0, 0, 0);
 }
+
+/* Swiper */
 .swiper-wrapper {
   margin-bottom: 60px;
 }
@@ -44,24 +46,23 @@ a {
   --tw-backdrop-blur: blur(0px);
 }
 
+/* Leaflet */
 #my-leaflet-map {
   background: #436e8e;
   outline: 0;
 }
-
 .leaflet-bottom.leaflet-right,
 .leaflet-popup-close-button {
   display: none;
 }
-
 .leaflet-popup.leaflet-zoom-animated > .leaflet-popup-content-wrapper {
   background: #436e8e;
   box-shadow: none;
 }
-
 .leaflet-popup-tip-container > .leaflet-popup-tip {
   background: #436e8e;
 }
+
 .checkBoxContainer span {
   margin-right: 0;
   margin-left: 12px;
@@ -71,26 +72,65 @@ a {
   width: 64px !important;
 }
 
+/* Disable Default Arrows of Input Type Number */
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
-
 input[type="number"] {
-  -moz-appearance: textfield;
+  appearance: textfield;
 }
 
-.pagination > ul > li{
-  background-color: #B3B3B3!important;
+/* Pagiantion */
+.pagination > ul > li {
+  background-color: #b3b3b3 !important;
+  color: #fff;
+  border-radius: 0px;
+}
+.pagination > ul > span {
+  background-color: #4d4d4d !important;
   color: #fff;
   border-radius: 0px;
 }
 
-.pagination > ul > span{
-  background-color: #4D4D4D!important;
-  color: #fff;
-  border-radius: 0px;
+/* Stepper */
+@keyframes stepCircleInLightMode {
+  0% {
+    background-color: transparent;
+  }
+  50% {
+    transform: scale(1.5);
+  }
+  80% {
+    transform: scale(0.8);
+  }
+  100% {
+    background-color: #436e8e;
+    transform: scale(1);
+  }
 }
-
-
+@keyframes stepCircleInDarkMode {
+  0% {
+    background-color: transparent;
+  }
+  50% {
+    transform: scale(1.5);
+  }
+  80% {
+    transform: scale(0.8);
+  }
+  100% {
+    background-color: #2d526e;
+    color: white;
+    transform: scale(1);
+  }
+}
+.step-animation {
+  animation: stepCircleInLightMode 500ms ease-in-out 2ms 1 normal forwards;
+}
+@media (prefers-color-scheme: dark) {
+  .step-animation {
+    animation: stepCircleInDarkMode 500ms ease-in-out 2ms 1 normal forwards;
+  }
+}

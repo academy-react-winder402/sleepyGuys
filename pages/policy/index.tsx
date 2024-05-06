@@ -1,9 +1,6 @@
-import React from 'react'
+import MainStepper from "@/components/Modules/Stepper/MainStepper";
+import React from "react";
 
-function Policy() {
-  return (
-    <div>Policy</div>
-  )
+export default function index() {
+  return <div>Policy</div>;
 }
-
-export default Policy
