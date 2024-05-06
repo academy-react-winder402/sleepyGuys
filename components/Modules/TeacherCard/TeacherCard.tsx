@@ -24,7 +24,9 @@ export default function TeacherCard({
       <CardBody>
         <div className="flex flex-col sm:flex-row gap-6">
           <div className="relative w-full sm:w-[40%] lgb:[30%] h-auto md:h-[280px] rounded-3xl overflow-hidden">
+            <Link href={`teachers/${title}`}>
             <Image src={image} alt="" className="w-full" />
+            </Link>
           </div>
 
           <div className="flex flex-col justify-start text-right w-full sm:w-[60%] lgb:[70%]">

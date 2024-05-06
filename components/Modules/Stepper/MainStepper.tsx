@@ -42,7 +42,7 @@ export default function MainStepper({ steps }: { steps: number }) {
   }, [steps]);
 
   return (
-    <div className="hidden lg:block pt-10 -translate-x-20">
+    <div className="hidden lg:block pt-20 -translate-x-20">
       {Array.from({ length: steps }, (_, index) => (
         <div className="relative h-[441px] flex" key={index}>
           {steps - 1 !== index && (
