@@ -42,21 +42,25 @@ export default function MainStepper({ steps }: { steps: number }) {
   }, [steps]);
 
   return (
-    <div className="hidden lg:block">
+    <div className="hidden lg:block pt-20 -translate-x-20">
       {Array.from({ length: steps }, (_, index) => (
-        <div className="relative h-[400px] flex items-center" key={index}>
+        <div className="relative h-[441px] flex" key={index}>
+          {steps - 1 !== index && (
+            <Divider className="border-dashed border-[1px] border-[#999] dark:border-white rotate-90 absolute -right-[160px] top-[250px] w-[449px]" />
+          )}
+          <Divider className="border-dashed border-[1px] border-[#999] dark:border-white absolute w-52 top-[28px] right-[60px]" />
           <span
             ref={(span) => (spanRefs.current[index] = span)}
             className={`${
-              scrollToStep === index + 1 ? "step-animation" : ``
-            } rounded-full border-dashed border-black dark:border-white border-[1px] font-peyda inline-flex justify-center items-center w-[30px] h-[30px]`}
+              scrollToStep === index + 1 ? "base-scale" : ``
+            } rounded-full relative border-[2px] border-[#ccc] mr-10 bg-mainBodyBg dark:bg-dark dark:text-DarkTitle z-10 font-peyda inline-flex justify-center items-center w-[50px] h-[50px]`}
           >
-            {convertToPersianDigit(index + 1)}
+            <div className={`absolute top-0 left-0 w-full h-full flex items-center justify-center`}>{convertToPersianDigit(index + 1)}</div>
+            <div className={`${
+              scrollToStep === index + 1 ? "step-animation" : ``
+            } border-[1px] border-[#ccc] w-full h-full rounded-full flex justify-center items-center`}>
+            </div>
           </span>
-          {steps - 1 !== index && (
-            <Divider className="border-dashed bg-black rotate-90 absolute -right-[170px] top-[399px] w-[369px]" />
-          )}
-          <Divider className="border-dashed bg-black absolute w-52 top-[200px] right-[30px]" />
         </div>
       ))}
     </div>

@@ -18,6 +18,9 @@ export default function MainBreadcrumb({ items }: breadcrumbType) {
         separator: "px-2.5",
       }}
     >
+      <BreadcrumbItem className="font-peyda">
+          <Link href='/'>خانه</Link>
+        </BreadcrumbItem>
       {items.map((item, index) => (
         <BreadcrumbItem key={index} className="font-peyda">
           <Link href={item.route}>{item.title}</Link>
