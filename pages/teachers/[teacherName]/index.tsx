@@ -12,8 +12,8 @@ function TeacherName() {
     <>
       <MainBreadcrumb
         items={[
-          { route: "/teachers", title: "استاد ها" },
-          { route: `/teachers/${name}`, title: name },
+          { id: 1, route: "/teachers", title: "استاد ها" },
+          { id: 2, route: `/teachers/${name}`, title: name },
         ]}
       />
       <TeacherDetailBox data={getSingleTeacheInfo()} />
