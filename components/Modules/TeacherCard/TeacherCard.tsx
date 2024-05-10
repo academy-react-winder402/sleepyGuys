@@ -24,9 +24,7 @@ export default function TeacherCard({
       <CardBody>
         <div className="flex flex-col sm:flex-row gap-6">
           <div className="relative w-full sm:w-[40%] lgb:[30%] h-auto md:h-[280px] rounded-3xl overflow-hidden">
-            <Link href={`teachers/${title}`}>
             <Image src={image} alt="" className="w-full" />
-            </Link>
           </div>
 
           <div className="flex flex-col justify-start text-right w-full sm:w-[60%] lgb:[70%]">
@@ -74,7 +72,7 @@ export default function TeacherCard({
         <Divider className="my-4" />
         <div className="flex justify-center items-center mt-2">
           <Link
-            href={`#`}
+            href={`teachers/${title}`}
             className="md:col-start-3 col-span-1 mx-auto md:ms-auto md:mx-0 flex justify-center w-full items-center gap-x-2 text-lightTitle dark:text-darkTitle font-peyda"
           >
             <Divider className="w-[60px] rounded-full h-1 bg-lightBody dark:bg-darkBody" />

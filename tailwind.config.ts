@@ -106,6 +106,10 @@ const config: Config = {
         },
       },
     }),
+    function ({ addVariant }: { addVariant: any }) {
+      addVariant("child", "& > *");
+      addVariant("child-hover", "& > *:hover");
+    },
   ],
 };
 

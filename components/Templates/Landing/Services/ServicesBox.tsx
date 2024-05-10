@@ -10,7 +10,7 @@ export default function ServicesBox() {
       <BoxHeader title="خدمات ما" hasLink={false} />
       <EffectCardSlider
         href=""
-        title=""
+        linkTitle=""
         data={getServices()}
         Content={NewsCard}
       />

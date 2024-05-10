@@ -8,10 +8,13 @@ export default function BoxHeader({
   hasLink,
   linkTitle,
   route,
+  titleColor = "text-primary dark:text-primary-lighter",
 }: BoxHeaderType) {
   return (
     <div className="flex-grow items-center grid grid-cols-1 md:grid-cols-3 justify-between">
-      <h1 className="font-peyda text-[30px] md:text-[35px] text-primary dark:text-primary-lighter mb-2 md:mb-4 lg:mb-10  text-center md:col-start-2 col-span-1 mx-auto">
+      <h1
+        className={`font-peyda text-[30px] md:text-[35px] ${titleColor} mb-2 md:mb-4 lg:mb-10  text-center md:col-start-2 col-span-1 mx-auto`}
+      >
         {title}
       </h1>
       {hasLink && (
