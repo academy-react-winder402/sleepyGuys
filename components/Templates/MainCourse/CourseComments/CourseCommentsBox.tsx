@@ -1,6 +1,6 @@
 import { Card, CardBody, CardHeader } from "@nextui-org/react";
 import React from "react";
-import SubmitCommentForm from "./SubmitComment/SubmitCommentForm";
+import SubmitCommentForm from "../../../Modules/SubmitComment/SubmitCommentForm";
 import CommentCard from "@/components/Modules/CommentCard/CommentCard";
 import { CommentCard as CommentCardType } from "@/interfaces/commentCard.interface";
 

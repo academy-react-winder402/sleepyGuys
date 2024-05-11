@@ -10,7 +10,7 @@ export default function MainBreadcrumb({ items }: breadcrumbType) {
     <Breadcrumbs
       variant="solid"
       classNames={{
-        base: ["bg-white", "p-2", "rounded-xl"],
+        base: ["bg-white dark:bg-dark-lighter", "p-2", "rounded-xl"],
         list: ["bg-transparent"],
       }}
       separator={<Image src={leftChevronIcon} alt="" width={20} className="rotate-180"/>}
@@ -19,11 +19,11 @@ export default function MainBreadcrumb({ items }: breadcrumbType) {
       }}
     >
       <BreadcrumbItem className="font-peyda">
-          <Link href='/'>خانه</Link>
+          <Link className="text-lightBody dark:text-darkBody" href='/'>خانه</Link>
         </BreadcrumbItem>
       {items.map((item, index) => (
         <BreadcrumbItem key={index} className="font-peyda">
-          <Link href={item.route}>{item.title}</Link>
+          <Link className="text-lightBody dark:text-darkBody" href={item.route}>{item.title}</Link>
         </BreadcrumbItem>
       ))}
     </Breadcrumbs>
