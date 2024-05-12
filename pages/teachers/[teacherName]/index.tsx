@@ -7,7 +7,7 @@ import SuggestedTeacherCard from "@/components/Templates/MainTeacher/SuggestedTe
 import { getSuggestedTeacher } from "@/mock/getSuggestedTeahcer";
 import TeacherDetailBox from "@/components/Templates/MainTeacher/TeacherDetailBox";
 
-function TeacherName() {
+export default function TeacherName() {
   const router = useRouter();
   const name: any = router.query.teacherName;
   return (
@@ -24,5 +24,3 @@ function TeacherName() {
     </>
   );
 }
-
-export default TeacherName;
