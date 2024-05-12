@@ -1,6 +1,6 @@
 import MainBreadcrumb from "@/components/Modules/Breadcrumb/MainBreadcrumb";
 import { useRouter } from "next/router";
-import TeacherDetailBox from "@/components/Templates/MainTeacher/TeacherDetileBox";
+import TeacherDetailBox from "@/components/Templates/MainTeacher/TeacherDetailBox";
 import React from "react";
 import { getSingleTeacheInfo } from "@/mock/getSingleTeacheInfo";
 import TeacherCourses from "@/components/Templates/MainTeacher/TeacherCourses";
