@@ -1,4 +1,4 @@
-import { Card, Divider } from "@nextui-org/react";
+import { Divider } from "@nextui-org/react";
 import React from "react";
 import BlogCard from "./BlogCard";
 import TopBlogCard from "./TopBlogCard";

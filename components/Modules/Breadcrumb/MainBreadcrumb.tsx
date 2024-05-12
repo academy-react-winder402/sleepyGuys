@@ -21,11 +21,15 @@ export default function MainBreadcrumb({ items }: breadcrumbType) {
       }}
     >
       <BreadcrumbItem className="font-peyda">
-        <Link href="/">خانه</Link>
+        <Link className="text-lightBody dark:text-darkBody" href="/">
+          خانه
+        </Link>
       </BreadcrumbItem>
       {items.map((item, index) => (
-        <BreadcrumbItem key={item.id} className="font-peyda">
-          <Link href={item.route}>{item.title}</Link>
+        <BreadcrumbItem key={index} className="font-peyda">
+          <Link className="text-lightBody dark:text-darkBody" href={item.route}>
+            {item.title}
+          </Link>
         </BreadcrumbItem>
       ))}
     </Breadcrumbs>

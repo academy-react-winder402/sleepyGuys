@@ -1,17 +1,17 @@
 import { Card, CardBody, CardHeader } from "@nextui-org/react";
 import React from "react";
-import SubmitCommentForm from "../../../Modules/SubmitComment/SubmitCommentForm";
+import SubmitCommentForm from "@/components/Modules/SubmitComment/SubmitCommentForm";
 import CommentCard from "@/components/Modules/CommentCard/CommentCard";
 import { CommentCard as CommentCardType } from "@/interfaces/commentCard.interface";
 
-export default function CourseCommentsBox({
+export default function BlogComments({
   data,
 }: {
   data: CommentCardType[];
 }) {
   return (
     <Card
-      className="shadow-2xl shadow-shadowColor dark:shadow-none p-6 dark:bg-dark-lighter"
+      className="shadow-2xl mt-20 shadow-shadowColor dark:shadow-none p-6 dark:bg-dark-lighter"
       dir="rtl"
     >
       <CardHeader>
@@ -37,3 +37,4 @@ export default function CourseCommentsBox({
     </Card>
   );
 }
+
