@@ -12,6 +12,7 @@ function MainButton({
   color = "default",
   onClick,
   isDisabled,
+  isLoading,
 }: button) {
   return (
     <Button
@@ -23,6 +24,7 @@ function MainButton({
       onClick={onClick}
       color={color}
       isDisabled={isDisabled}
+      isLoading={isLoading}
     >
       {content}
     </Button>

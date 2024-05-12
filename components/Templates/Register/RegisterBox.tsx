@@ -1,11 +1,16 @@
 import AuthenticationCard from "@/components/Modules/AuthenticationCard/AuthenticationCard";
-import React from "react";
+import React, { useState } from "react";
 import loginImage from "@/public/pictures/login/loginImage.svg";
-
 import Link from "next/link";
 import RegisterForm from "./RegisterForm/RegisterForm";
+import OtpForm from "../Login/LoginForm/OtpForm";
 
 export default function RegisterBox() {
+  const [sendSms, setSendSms] = useState<boolean>(false);
+
+  const goToOtpForm = () => {
+    setSendSms(true);
+  };
   return (
     <div className="flex h-[100dvh] items-center justify-center">
       <AuthenticationCard image={loginImage}>
@@ -24,7 +29,7 @@ export default function RegisterBox() {
               وارد شوید.
             </Link>
           </p>
-          <RegisterForm />
+          {!sendSms ? <RegisterForm goToOtpForm={goToOtpForm} /> : <OtpForm />}
           <Link
             href={"#"}
             className="font-vazir underline text-lightBody dark:text-darkBody text-sm flex justify-end mt-2"

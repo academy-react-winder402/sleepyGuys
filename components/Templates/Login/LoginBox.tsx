@@ -3,10 +3,14 @@ import loginImage from "@/public/pictures/login/loginImage.svg";
 import AuthenticationCard from "@/components/Modules/AuthenticationCard/AuthenticationCard";
 import Link from "next/link";
 import LoginForm from "./LoginForm/LoginForm";
-import LoginOtpForm from "./LoginForm/LoginOtpForm";
+import OtpForm from "./LoginForm/OtpForm";
 
 export default function LoginBox() {
-  const [sendSms, setSendSms] = useState(false);
+  const [sendSms, setSendSms] = useState<boolean>(false);
+
+  const goToOtpForm = () => {
+    setSendSms(true);
+  };
 
   return (
     <div className="flex h-[100dvh] items-center justify-center">
@@ -27,11 +31,7 @@ export default function LoginBox() {
             </p>
           </div>
           <div>
-            {!sendSms ? (
-              <LoginForm setSendSms={setSendSms} />
-            ) : (
-              <LoginOtpForm />
-            )}
+            {!sendSms ? <LoginForm goToOtpForm={goToOtpForm} /> : <OtpForm />}
           </div>
           <div className="flex justify-between w-full text-[16px]">
             <p className="text-lightBody dark:text-darkBody font-peyda font-bold">

@@ -1,13 +1,22 @@
 import MainButton from "@/components/Modules/Button/MainButton";
+import { useVerifyCodeApi } from "@/hooks/api/useAuthApi";
+import { useRouter } from "next/router";
 import React, { useState } from "react";
 import OtpInput from "react-otp-input";
 
-export default function LoginOtpForm() {
+export default function OtpForm() {
   const [otp, setOtp] = useState("");
+
+  const verifyCode = useVerifyCodeApi();
+
+  const router = useRouter();
 
   const HandleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    console.log(otp);
+    verifyCode.mutate({
+      phoneNumber: router.query?.phoneNumber,
+      verifyCode: otp,
+    });
   };
 
   return (
@@ -25,6 +34,8 @@ export default function LoginOtpForm() {
         content={<p>ادامه</p>}
         type="submit"
         className="bg-primary dark:bg-primary-darker text-btnText w-full py-[1.5rem] text-xl"
+        isLoading={verifyCode.isPending}
+        isDisabled={otp.length < 5}
       />
     </form>
   );

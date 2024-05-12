@@ -4,18 +4,18 @@ import { loginFormType } from "@/interfaces/loginForm.interface";
 import React from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 
-export default function LoginForm({ setSendSms }: any) {
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm<loginFormType>();
+export default function LoginForm({
+  goToOtpForm,
+}: {
+  goToOtpForm: () => void;
+}) {
+  const { register, handleSubmit } = useForm<loginFormType>();
 
   const submitFormHandler: SubmitHandler<loginFormType> = (data) => {
     console.log(data);
-    setSendSms((prev: boolean) => !prev);
+    goToOtpForm();
   };
-  
+
   return (
     <form
       onSubmit={handleSubmit(submitFormHandler)}

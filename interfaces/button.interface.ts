@@ -23,6 +23,7 @@ interface button {
     | "warning";
   onClick?: any;
   isDisabled?: boolean;
+  isLoading?: boolean;
 }
 
 export type { button };

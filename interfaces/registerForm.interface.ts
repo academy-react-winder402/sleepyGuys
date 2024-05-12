@@ -1,7 +1,5 @@
 interface registerForm {
-  fullName: string;
-  phone: number;
-  password: string;
+  phoneNumber: number;
 }
 
 export type { registerForm };
