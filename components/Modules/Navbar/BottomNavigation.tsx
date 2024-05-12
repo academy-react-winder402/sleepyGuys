@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import bgNav from "@/public/icons/theme/phoneNavbarBackground.svg";
 import Link from "next/link";
@@ -7,24 +7,34 @@ import { useRouter } from "next/router";
 
 const BottomNavigation = ({ mainRoutes }: NavbarInPhoneProps) => {
   const router = useRouter();
-
   const { pathname } = router;
 
+  const [Yposition, setYposition] = useState<number>(0);
+  const [showNav, setShowNav] = useState<boolean>(true);
+
+  useEffect(() => {
+    const scrollPosition = window.scrollY;
+    const handleScroll = () => {
+      setYposition(scrollPosition)
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    console.log(Yposition)
+    if(Yposition > scrollPosition){
+      setShowNav(true);
+    }else{
+      setShowNav(false)
+    }
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [Yposition]);
+
   return (
-    <nav className="flex justify-center sm:hidden fixed bottom-3 px-3 w-full z-20">
-      <div className="phoneNav relative -mb-2 xs:mb-0">
-        <Image
-          className="-mb-[70px]"
-          alt=""
-          src={bgNav}
-          style={{
-            width: "auto",
-            height: "100px",
-            display: "flex",
-            justifyItems: "center",
-          }}
-        />
-        <ul className="flex justify-around mb-4 text-small z-50">
+    <nav className={`${showNav ? "flex" : "nav-animation"} justify-center sm:hidden fixed bottom-3 px-3 w-full z-20`}>
+      <div className="bg-primary-darker w-full rounded-lg">
+        <ul className="flex h-full items-center justify-around mb-4 text-small z-50">
           {mainRoutes.map((route, index) => {
             const isActive = pathname === route.href;
             return (
