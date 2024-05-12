@@ -2,13 +2,13 @@ import CourseDescriptionBox from "@/components/Templates/MainCourse/CourseDescri
 import CourseDetailsBox from "@/components/Templates/MainCourse/CourseDetails/CourseDetailsBox";
 import CourseHeadlinesBox from "@/components/Templates/MainCourse/CourseHeadlines/CourseHeadlinesBox";
 import RelatedCoursesBox from "@/components/Templates/MainCourse/RelatedCourses/RelatedCoursesBox";
-import TeacherDetailsBox from "@/components/Templates/MainCourse/TeacherDetails/TeacherDetailsBox";
 import React from "react";
 import { getCourseTitles } from "@/mock/getCourseTitles";
 import CourseCommentsBox from "@/components/Templates/MainCourse/CourseComments/CourseCommentsBox";
 import { getCourseSummary } from "@/mock/getCourseSummary";
 import CourseSummaryBox from "@/components/Templates/MainCourse/CourseSummary/CourseSummaryBox";
 import { getComments } from "@/mock/getComments";
+import TeacherDetailBox from "@/components/Templates/MainCourse/TeacherDetails/TeacherDetailsBox";
 
 function CorseInfo() {
   return (
@@ -22,7 +22,7 @@ function CorseInfo() {
           <CourseCommentsBox data={getComments()} />
         </div>
         <div className="hidden lg:flex flex-col gap-y-8 w-1/3">
-          <TeacherDetailsBox />
+          <TeacherDetailBox />
           <RelatedCoursesBox />
         </div>
       </div>
