@@ -23,7 +23,7 @@ export default function PrimaryInput({
         mainWrapper: ["overflow-hidden", "rounded-[16px]"],
         errorMessage: ["text-secondary"],
         inputWrapper: [
-          "!duration-500",
+          "!duration-700",
           "transition",
           "ease-in-out",
           "overflow-hidden",
@@ -35,6 +35,7 @@ export default function PrimaryInput({
           "dark:group-data-[focus=true]:bg-dark-lighter",
           `${!hasBorder && "border-none"}`,
         ],
+        innerWrapper:["h-auto"]
       }}
       placeholder={placeholder}
       {...register}
