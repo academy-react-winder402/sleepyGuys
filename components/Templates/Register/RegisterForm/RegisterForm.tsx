@@ -1,12 +1,17 @@
 import MainButton from "@/components/Modules/Button/MainButton";
 import PrimaryInput from "@/components/Modules/Input/PrimaryInput";
+import { useSendCodeApi } from "@/hooks/api/useAuthApi";
 import { registerForm } from "@/interfaces/registerForm.interface";
 import { Checkbox } from "@nextui-org/react";
 import Link from "next/link";
 import React, { useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 
-export default function RegisterForm() {
+export default function RegisterForm({
+  goToOtpForm,
+}: {
+  goToOtpForm: () => void;
+}) {
   const {
     register,
     handleSubmit,
@@ -15,8 +20,10 @@ export default function RegisterForm() {
 
   const [isTermsAccepted, setIsTermsAccepted] = useState(false);
 
+  const sendCode = useSendCodeApi(goToOtpForm);
+
   const submitFormHandler: SubmitHandler<registerForm> = (data) => {
-    console.log(data);
+    sendCode.mutate(data);
   };
 
   return (
@@ -24,22 +31,11 @@ export default function RegisterForm() {
       <div className="flex flex-col gap-y-2 my-4">
         <PrimaryInput
           variant="faded"
-          placeholder="نام"
-          className="font-peyda"
-          register={{
-            ...register("fullName", {
-              required: "اسمت رو نمیتونی خالی بذاری",
-            }),
-          }}
-          errorMessage={errors.fullName && errors.fullName.message}
-        />
-        <PrimaryInput
-          variant="faded"
           placeholder="شماره موبایل"
           className="font-peyda"
           type="number"
           register={{
-            ...register("phone", {
+            ...register("phoneNumber", {
               required: "شماره موبایلت رو نمیتونی خالی بذاری",
               pattern: {
                 value:
@@ -48,23 +44,7 @@ export default function RegisterForm() {
               },
             }),
           }}
-          errorMessage={errors.phone && errors.phone.message}
-        />
-        <PrimaryInput
-          variant="faded"
-          placeholder="رمز عبور"
-          className="font-peyda"
-          type="password"
-          register={{
-            ...register("password", {
-              required: "رمز عبورت رو نمیتونی خالی بذاری",
-              minLength: {
-                value: 8,
-                message: "رمز عبورت حداقل باید ۸ کاراکتر داشته باشه.",
-              },
-            }),
-          }}
-          errorMessage={errors.password && errors.password.message}
+          errorMessage={errors.phoneNumber && errors.phoneNumber.message}
         />
       </div>
       <MainButton
@@ -72,6 +52,7 @@ export default function RegisterForm() {
         type="submit"
         className="bg-primary dark:bg-primary-darker text-btnText w-full py-[1.5rem] text-xl"
         isDisabled={!isTermsAccepted}
+        isLoading={sendCode.isPending}
       />
       <Checkbox
         isSelected={isTermsAccepted}
