@@ -71,7 +71,7 @@ export default function MainCountdown({
   return (
     <Countdown
       key={countdownKey}
-      date={Date.now() + 5000}
+      date={Date.now() + 90000}
       renderer={renderer}
       onComplete={() => setIsCountdownCompleted(true)}
     />
