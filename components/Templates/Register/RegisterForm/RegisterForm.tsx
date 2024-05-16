@@ -4,7 +4,8 @@ import { useSendCodeApi } from "@/hooks/api/useAuthApi";
 import { registerForm } from "@/interfaces/registerForm.interface";
 import { Checkbox } from "@nextui-org/react";
 import Link from "next/link";
-import React, { useState } from "react";
+import { useRouter } from "next/router";
+import React, { useEffect, useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 
 export default function RegisterForm({
@@ -14,13 +15,23 @@ export default function RegisterForm({
 }) {
   const {
     register,
+    getValues,
     handleSubmit,
     formState: { errors },
   } = useForm<registerForm>();
 
   const [isTermsAccepted, setIsTermsAccepted] = useState(false);
 
-  const sendCode = useSendCodeApi(goToOtpForm);
+  const router = useRouter()
+
+  const sendCode = useSendCodeApi();
+
+  useEffect(() => {
+    if (sendCode.isSuccess) {
+      goToOtpForm()
+      router.push(`/register?phoneNumber=${getValues(["phoneNumber"])[0]}`);
+    }
+  }, [sendCode.isSuccess])
 
   const submitFormHandler: SubmitHandler<registerForm> = (data) => {
     sendCode.mutate(data);
@@ -44,7 +55,8 @@ export default function RegisterForm({
               },
             }),
           }}
-          errorMessage={errors.phoneNumber && errors.phoneNumber.message}
+          isInvalid={Boolean(errors.phoneNumber)}
+          errorMessage={errors.phoneNumber?.message}
         />
       </div>
       <MainButton
