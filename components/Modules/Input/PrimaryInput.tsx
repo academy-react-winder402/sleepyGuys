@@ -20,7 +20,7 @@ export default function PrimaryInput({
       variant={variant}
       type={type}
       classNames={{
-        input: ["placeholder:text-lightBody", "dark:placeholder:text-darkBody"],
+        input: ["placeholder:text-lightBody", "dark:placeholder:text-darkBody", "!text-white"],
         mainWrapper: ["overflow-hidden", "rounded-[16px]"],
         errorMessage: ["text-secondary"],
         inputWrapper: [
