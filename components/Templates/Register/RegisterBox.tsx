@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import loginImage from "@/public/pictures/login/loginImage.svg";
 import Link from "next/link";
 import RegisterForm from "./RegisterForm/RegisterForm";
-import OtpForm from "../Login/LoginForm/OtpForm";
+import OtpForm from "./OtpForm/OtpForm";
 import FinalRegisterForm from "./FinalRegisterForm/FinalRegisterForm";
 
 export default function RegisterBox() {

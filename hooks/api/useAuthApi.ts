@@ -1,7 +1,9 @@
 import { finalRegisterFormProps } from "@/interfaces/finalRegsiter.interface";
+import { loginFormType } from "@/interfaces/loginForm.interface";
 import { otpFormProps } from "@/interfaces/otpForm.interface";
 import { registerForm } from "@/interfaces/registerForm.interface";
 import {
+  loginUserApi,
   registerNewUserApi,
   sendCodeApi,
   verifyCodeApi,
@@ -9,6 +11,7 @@ import {
 import { useMutation } from "@tanstack/react-query";
 import { useRouter } from "next/router";
 import toast from "react-hot-toast";
+import Cookies from "js-cookie";
 
 export const useSendCodeApi = () => {
   let phoneNumber: string | string[] | undefined;
@@ -48,6 +51,19 @@ export const useRegisterNewUserApi = () => {
     onSuccess: (res) => {
       toast.success("ثبت نام شما با موفقیت انجام شد");
       router.push("/login");
+    },
+  });
+};
+
+export const useLoginUserApi = () => {
+  const router = useRouter();
+
+  return useMutation({
+    mutationFn: (payload: loginFormType) => loginUserApi(payload),
+    onSuccess: (res) => {
+      Cookies.set("token", res.data.token);
+      toast.success("با موفقیت وارد حساب شدید");
+      router.push("/");
     },
   });
 };

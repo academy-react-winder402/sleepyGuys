@@ -19,10 +19,9 @@ const BottomNavigation = ({ mainRoutes }: NavbarInPhoneProps) => {
     };
 
     window.addEventListener("scroll", handleScroll);
-    console.log(Yposition)
-    if(Yposition > scrollPosition){
+    if (Yposition > scrollPosition) {
       setShowNav(true);
-    }else{
+    } else {
       setShowNav(false)
     }
 
@@ -40,9 +39,8 @@ const BottomNavigation = ({ mainRoutes }: NavbarInPhoneProps) => {
             return (
               <li
                 key={index}
-                className={`flex items-center justify-center flex-col xs:gap-1 ${
-                  isActive ? " text-white" : "text-gray-lighter"
-                }`}
+                className={`flex items-center justify-center flex-col xs:gap-1 ${isActive ? " text-white" : "text-gray-lighter"
+                  }`}
               >
                 <Link className="xs:text-sm text-[9px]" href={route.href}>
                   <Image src={route.icon} alt="" width={24} height={24} />
