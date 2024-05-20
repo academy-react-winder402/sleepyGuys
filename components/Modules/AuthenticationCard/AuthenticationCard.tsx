@@ -23,7 +23,7 @@ export default function AuthenticationCard({ image, children }: authCard) {
         {children}
       </div>
       <div className="w-1/2 hidden lg:block">
-        <Image src={image} alt="" className="h-full"/>
+        <Image src={image} alt="" className="h-full" />
       </div>
     </Card>
   );

@@ -3,14 +3,22 @@ import React, { useState } from "react";
 import loginImage from "@/public/pictures/login/loginImage.svg";
 import Link from "next/link";
 import RegisterForm from "./RegisterForm/RegisterForm";
-import OtpForm from "../Login/LoginForm/OtpForm";
+import OtpForm from "./OtpForm/OtpForm";
+import FinalRegisterForm from "./FinalRegisterForm/FinalRegisterForm";
 
 export default function RegisterBox() {
-  const [sendSms, setSendSms] = useState<boolean>(false);
+  const [isOtpFormOpen, setIsOtpFormOpen] = useState<boolean>(false);
+
+  const [isRegisterStep3Open, setRegisterStep3Open] = useState<boolean>(false)
 
   const goToOtpForm = () => {
-    setSendSms(true);
+    setIsOtpFormOpen(true);
   };
+
+  const goToRegisterStep3 = () => {
+    setRegisterStep3Open(true)
+  }
+
   return (
     <div className="flex h-[100dvh] items-center justify-center">
       <AuthenticationCard image={loginImage}>
@@ -29,7 +37,9 @@ export default function RegisterBox() {
               وارد شوید.
             </Link>
           </p>
-          {!sendSms ? <RegisterForm goToOtpForm={goToOtpForm} /> : <OtpForm />}
+          {!isOtpFormOpen && <RegisterForm goToOtpForm={goToOtpForm} />}
+          {(isOtpFormOpen && !isRegisterStep3Open) && <OtpForm goToRegisterStep3={goToRegisterStep3} />}
+          {isRegisterStep3Open && <FinalRegisterForm />}
           <Link
             href={"#"}
             className="font-vazir underline text-lightBody dark:text-darkBody text-sm flex justify-end mt-2"

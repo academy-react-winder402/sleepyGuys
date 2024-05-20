@@ -11,6 +11,7 @@ export default function PrimaryInput({
   hasBorder = true,
   startContent,
   endContent,
+  isInvalid,
   errorMessage,
 }: primaryInput) {
   return (
@@ -19,7 +20,7 @@ export default function PrimaryInput({
       variant={variant}
       type={type}
       classNames={{
-        input: ["placeholder:text-lightBody", "dark:placeholder:text-darkBody"],
+        input: ["placeholder:text-lightBody", "dark:placeholder:text-darkBody", "!text-black dark:!text-white"],
         mainWrapper: ["overflow-hidden", "rounded-[16px]"],
         errorMessage: ["text-secondary"],
         inputWrapper: [
@@ -35,12 +36,13 @@ export default function PrimaryInput({
           "dark:group-data-[focus=true]:bg-dark-lighter",
           `${!hasBorder && "border-none"}`,
         ],
-        innerWrapper:["h-auto"]
+        innerWrapper: ["h-auto"],
       }}
       placeholder={placeholder}
       {...register}
       startContent={startContent}
       endContent={endContent}
+      isInvalid={isInvalid}
       errorMessage={errorMessage}
     />
   );

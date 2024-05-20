@@ -9,6 +9,7 @@ interface primaryInput {
   hasBorder?: boolean;
   startContent?: ReactNode;
   endContent?: ReactNode;
+  isInvalid?: boolean;
   errorMessage?: string;
 }
 

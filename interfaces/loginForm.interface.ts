@@ -1,5 +1,7 @@
 interface loginFormType {
-    phone: string;
-  }
-  
-  export type { loginFormType };
+  phoneOrGmail: string;
+  password: string;
+  rememberMe: boolean;
+}
+
+export type { loginFormType };

@@ -1,5 +1,5 @@
 interface registerForm {
-  phoneNumber: number;
+  phoneNumber: string | string[] | undefined;
 }
 
 export type { registerForm };
