@@ -14,15 +14,14 @@ import { useMutation } from "@tanstack/react-query";
 import { useRouter } from "next/router";
 import toast from "react-hot-toast";
 import Cookies from "js-cookie";
-import { resetPasswordForm1Type, resetPasswordForm2Type } from "@/interfaces/resetPasswordForm.interface";
+import {
+  resetPasswordForm1Type,
+  resetPasswordForm2Type,
+} from "@/interfaces/resetPasswordForm.interface";
 
 export const useSendCodeApi = () => {
-  let phoneNumber: string | string[] | undefined;
   return useMutation({
-    mutationFn: (payload: registerForm) => {
-      phoneNumber = payload.phoneNumber;
-      return sendCodeApi(payload);
-    },
+    mutationFn: (payload: registerForm) => sendCodeApi(payload),
     onSuccess: () => {
       toast.success("کد تایید برای شما ارسال شد");
     },
@@ -71,34 +70,26 @@ export const useLoginUserApi = () => {
   });
 };
 
-
 export const useResetPasswordUserApi = () => {
   return useMutation({
-    mutationFn: (payload: resetPasswordForm1Type) => {
-      console.log(resetPasswordUserApi(payload));
-      return resetPasswordUserApi(payload)
-    },
+    mutationFn: (payload: resetPasswordForm1Type) =>
+      resetPasswordUserApi(payload),
     onSuccess: (res) => {
-      toast.success("ادامه فرآیند تغییر پسورد را با ایمیل ارسال شده دنبال کنید");
+      toast.success(
+        "ادامه فرآیند تغییر پسورد را با ایمیل ارسال شده دنبال کنید"
+      );
     },
   });
 };
 
 export const useFinalStepResetPasswordUserApi = () => {
   return useMutation({
-    mutationFn: (payload: resetPasswordForm2Type) => {
-      console.log(resetFinalStepPasswordUserApi(payload));
-      return resetFinalStepPasswordUserApi(payload)
-    },
+    mutationFn: (payload: resetPasswordForm2Type) =>
+      resetFinalStepPasswordUserApi(payload),
     onSuccess: (res) => {
-      toast.success("ادامه فرآیند تغییر پسورد را با ایمیل ارسال شده دنبال کنید");
+      toast.success(
+        "ادامه فرآیند تغییر پسورد را با ایمیل ارسال شده دنبال کنید"
+      );
     },
   });
 };
-
-
-
-
-
-
-

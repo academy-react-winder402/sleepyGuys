@@ -26,14 +26,12 @@ export default function LoginBox() {
           <div>
             <LoginForm />
           </div>
-          <p className="text-lightBody dark:text-darkBody underline font-peyda font-bold text-[16px]">
+          <Link href="policy" className="text-lightBody dark:text-darkBody underline font-peyda font-bold text-[16px]">
             حریم خصوصی
+          </Link>
+          <p className="text-lightBody dark:text-darkBody opacity-50 font-peyda font-bold text-[13px]">
+            با عضویت در سایت تمامی شرایت وقوانین آکادمی سپهر را پذیرفته اید.
           </p>
-          <div className="flex justify-between w-full text-[13px] mt-3">
-            <p className="text-lightBody dark:text-darkBody opacity-50 font-peyda font-bold">
-              با عضویت در سایت تمامی شرایت وقوانین آکادمی سپهر را پذیرفته اید.
-            </p>
-          </div>
         </div>
       </AuthenticationCard>
     </div>

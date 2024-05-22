@@ -4,6 +4,7 @@ import { useLoginUserApi } from "@/hooks/api/useAuthApi";
 import { loginFormType } from "@/interfaces/loginForm.interface";
 import { combinedEmailAndPhoneRegex } from "@/utils/combinedEmailAndPhoneRegex";
 import { Checkbox } from "@nextui-org/react";
+import Link from "next/link";
 import React, { useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 
@@ -56,15 +57,19 @@ export default function LoginForm() {
         isInvalid={Boolean(errors.password)}
         errorMessage={errors.password?.message}
       />
-      <Checkbox
-        isSelected={rememberMe}
-        className="mt-1"
-        onValueChange={setRememberMe}
-      >
-        <p className="ms-1 font-peyda text-lightBody dark:text-darkBody">
+      <div className="flex justify-between items-center mt-1">
+        <Checkbox
+          isSelected={rememberMe}
+          classNames={{
+            label: ["ms-1 font-peyda text-lightBody dark:text-darkBody"]
+          }}
+          onValueChange={setRememberMe}
+        >
+
           منو فراموش نکن
-        </p>
-      </Checkbox>
+        </Checkbox>
+        <Link href="resetPassword" className="font-peyda text-lightBody dark:text-darkBody">رمزت رو فراموش کردی؟</Link>
+      </div>
       <MainButton
         content={<p>ورود</p>}
         type="submit"
