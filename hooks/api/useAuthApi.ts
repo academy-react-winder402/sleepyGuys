@@ -5,6 +5,8 @@ import { registerForm } from "@/interfaces/registerForm.interface";
 import {
   loginUserApi,
   registerNewUserApi,
+  resetFinalStepPasswordUserApi,
+  resetPasswordUserApi,
   sendCodeApi,
   verifyCodeApi,
 } from "@/services/api/authApi";
@@ -12,6 +14,7 @@ import { useMutation } from "@tanstack/react-query";
 import { useRouter } from "next/router";
 import toast from "react-hot-toast";
 import Cookies from "js-cookie";
+import { resetPasswordForm1Type, resetPasswordForm2Type } from "@/interfaces/resetPasswordForm.interface";
 
 export const useSendCodeApi = () => {
   let phoneNumber: string | string[] | undefined;
@@ -67,3 +70,35 @@ export const useLoginUserApi = () => {
     },
   });
 };
+
+
+export const useResetPasswordUserApi = () => {
+  return useMutation({
+    mutationFn: (payload: resetPasswordForm1Type) => {
+      console.log(resetPasswordUserApi(payload));
+      return resetPasswordUserApi(payload)
+    },
+    onSuccess: (res) => {
+      toast.success("ادامه فرآیند تغییر پسورد را با ایمیل ارسال شده دنبال کنید");
+    },
+  });
+};
+
+export const useFinalStepResetPasswordUserApi = () => {
+  return useMutation({
+    mutationFn: (payload: resetPasswordForm2Type) => {
+      console.log(resetFinalStepPasswordUserApi(payload));
+      return resetFinalStepPasswordUserApi(payload)
+    },
+    onSuccess: (res) => {
+      toast.success("ادامه فرآیند تغییر پسورد را با ایمیل ارسال شده دنبال کنید");
+    },
+  });
+};
+
+
+
+
+
+
+
