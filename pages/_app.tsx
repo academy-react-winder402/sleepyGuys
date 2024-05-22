@@ -11,7 +11,7 @@ import { Toaster } from "react-hot-toast";
 export default function App({ Component, pageProps }: AppProps) {
   const router = useRouter();
 
-  const loginRoutes = ["/login", "/register"];
+  const loginRoutes = ["/login", "/register" , "/resetPassword"];
 
   const queryClient = new QueryClient();
 
