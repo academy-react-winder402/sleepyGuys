@@ -4,6 +4,13 @@ const nextConfig = {
   devIndicators: {
     buildActivity: false,
   },
+  images: {
+    remotePatterns: [
+      {
+        hostname: "classapi.sepehracademy.ir",
+      },
+    ],
+  },
 };
 
 export default nextConfig;

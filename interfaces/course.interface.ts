@@ -1,13 +1,28 @@
 import { StaticImageData } from "next/image";
 
 interface Course {
-  id: number;
+  courseId: string;
   title: string;
-  image: StaticImageData;
-  des: string;
-  price: number;
-  teachers: string;
-  time: string;
+  tumbImageAddress: string;
+  describe: string;
+  cost: string;
+  teacherName: string;
+  courseRate: number;
+  courseReserveId: string;
+  currentUserRateNumber: number;
+  currentUserSetRate: boolean;
+  dissLikeCount: number;
+  likeCount: number;
+  isCourseReseve: boolean;
+  isUserFavorite: boolean;
+  lastUpdate: string;
+  levelName: string;
+  statusName: string;
+  typeName: string;
+  userFavoriteId: string;
+  userIsDissLiked: boolean;
+  userIsLiked: boolean;
+  userLikeId: string;
 }
 
 export type { Course };

@@ -3,12 +3,13 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
+import { Course } from "@/interfaces/course.interface";
 
 function NavigationSlider({
   data,
   Content,
 }: {
-  data: any[];
+  data: Course[];
   Content: React.ElementType;
 }) {
   return (

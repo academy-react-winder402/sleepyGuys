@@ -4,7 +4,7 @@ import toast from "react-hot-toast";
 axios.interceptors.request.use(
   function (config) {
     // should set Authorization Header here
-    config.headers["Content-Type"] = "application/json-patch+json";
+    config.headers["Content-Type"] = "application/json";
     config.headers.Accept = "application/json";
     return config;
   },
