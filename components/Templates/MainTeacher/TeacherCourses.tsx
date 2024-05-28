@@ -18,7 +18,7 @@ export default function TeacherCourses() {
           .slice(0, 4)
           .map((item, index) => (
             <div key={index}>
-              <CourseCard {...item} />
+              <CourseCard courseId={""} tumbImageAddress={""} describe={""} cost={""} teacherName={""} courseRate={0} courseReserveId={""} currentUserRateNumber={0} currentUserSetRate={false} dissLikeCount={0} likeCount={0} isCourseReseve={false} isUserFavorite={false} lastUpdate={""} levelName={""} statusName={""} typeName={""} userFavoriteId={""} userIsDissLiked={false} userIsLiked={false} userLikeId={""} {...item} />
             </div>
           ))}
       </div>
