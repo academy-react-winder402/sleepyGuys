@@ -2,10 +2,13 @@ import { finalRegisterFormProps } from "@/interfaces/finalRegsiter.interface";
 import { loginFormType } from "@/interfaces/loginForm.interface";
 import { otpFormProps } from "@/interfaces/otpForm.interface";
 import { registerForm } from "@/interfaces/registerForm.interface";
-import { resetPasswordForm1Type, resetPasswordForm2Type } from "@/interfaces/resetPasswordForm.interface";
+import {
+  resetPasswordForm1Type,
+  resetPasswordForm2Type,
+} from "@/interfaces/resetPasswordForm.interface";
 import httpService from "@/services/httpService";
 
-const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
+const baseUrl = process.env.NEXT_PUBLIC_BASE_API_URL;
 
 export const sendCodeApi = (payload: registerForm) => {
   return httpService.post(baseUrl + `Sign/SendVerifyMessage`, payload);
@@ -27,6 +30,8 @@ export const resetPasswordUserApi = (payload: resetPasswordForm1Type) => {
   return httpService.post(baseUrl + "Sign/ForgetPassword", payload);
 };
 
-export const resetFinalStepPasswordUserApi = (payload: resetPasswordForm2Type) => {
+export const resetFinalStepPasswordUserApi = (
+  payload: resetPasswordForm2Type
+) => {
   return httpService.post(baseUrl + "Sign/Reset", payload);
 };
