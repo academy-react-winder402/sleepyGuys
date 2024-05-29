@@ -6,7 +6,7 @@ import { useGetCoursesTopApi } from "@/hooks/api/useCoursesApi";
 import SkeletonCourseCard from "@/components/Modules/CourseCard/SkeletonCourseCard";
 
 function NewCoursesBox() {
-  const getCoursesTop = useGetCoursesTopApi(12)
+  const getCoursesTop = useGetCoursesTopApi(7)
   const { data, isLoading } = getCoursesTop
 
   return (

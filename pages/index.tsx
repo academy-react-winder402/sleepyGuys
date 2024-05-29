@@ -25,7 +25,7 @@ export async function getStaticProps() {
   await queryClient.prefetchQuery({
     queryKey: ['coursesTop'],
     queryFn: async () => {
-      const response = await getCoursesTopApi(12)
+      const response = await getCoursesTopApi(7)
       return response.data
     },
   })
