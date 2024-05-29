@@ -22,8 +22,9 @@ export default function HorizontalFilterBox({
   const { query } = router;
 
   const submitFormHandler: SubmitHandler<searchCourse> = (data) => {
-    router.push(`${router.pathname}?search=${data.title}`);
+    router.push(`${router.asPath}?search=${data.title}`);
   };
+  console.log(router.asPath)
 
   return (
     <div className="bg-white dark:bg-dark-lighter flex items-center gap-2 flex-row rounded-xl p-2">
@@ -68,10 +69,7 @@ export default function HorizontalFilterBox({
               }`}
             >
               <Link
-                href={{
-                  pathname: router.pathname,
-                  query: { sort: item.query },
-                }}
+                href={`${router.asPath}?sort=${item.query}`}
               >
                 {item.name}
               </Link>
