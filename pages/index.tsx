@@ -1,6 +1,7 @@
 import Categories from "@/components/Templates/Landing/Categories/Categories";
 import HeroBox from "@/components/Templates/Landing/Hero/HeroBox";
 import NewCoursesBox from "@/components/Templates/Landing/NewCourses/NewCoursesBox";
+import LastCoursesBox from "@/components/Templates/Landing/LastCourses/LastCoursesBox";
 import NewsBox from "@/components/Templates/Landing/News/NewsBox";
 import ServiceBox from "@/components/Templates/Landing/Services/ServicesBox";
 import { getCoursesTopApi } from "@/services/api/coursesApi";
@@ -14,6 +15,7 @@ export default function Home() {
       <Categories />
       <NewCoursesBox />
       <NewsBox />
+      <LastCoursesBox />
       <ServiceBox />
     </>
   );

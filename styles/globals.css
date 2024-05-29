@@ -94,6 +94,18 @@ input[type="number"] {
   border-radius: 0px;
 }
 
+.pagination-curved > ul > span {
+  background-color: #4d4d4d !important;
+  color: #fff;
+  border-radius: 10px;
+}
+
+.pagination-curved > ul > li {
+  background-color: #b3b3b3 !important;
+  color: #fff;
+  border-radius: 10px;
+}
+
 /* Stepper */
 @keyframes stepCircleInLightMode {
   0% {

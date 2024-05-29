@@ -13,3 +13,10 @@ export const getCourseDetailsApi = (
     baseUrl + `Home/GetCourseDetails?CourseId=${CourseId}`
   );
 };
+
+export const getCoursesApi = (page: string) => {
+  return httpService.get(
+    baseUrl +
+      `Home/GetCoursesWithPagination?PageNumber=${page}&RowsOfPage=6&SortingCol=Active&SortType=DESC&TechCount=0`
+  );
+};

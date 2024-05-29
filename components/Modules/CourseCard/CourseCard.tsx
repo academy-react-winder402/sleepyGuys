@@ -48,7 +48,7 @@ function CourseCard({ title, tumbImageAddress, describe, teacherName, cost, last
               >
                 {calculateTimeAgo(lastUpdate)}
               </Chip>
-              <p className="text-xl text-primary dark:text-primary-lighter font-peyda">
+              <p className="text-md text-primary dark:text-primary-lighter font-peyda">
                 {addCommasToPersianNumber(convertToPersianDigit(cost))} تومان
               </p>
             </div>
