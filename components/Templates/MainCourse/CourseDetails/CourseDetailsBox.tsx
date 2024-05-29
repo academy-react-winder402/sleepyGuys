@@ -1,28 +1,32 @@
 import MainButton from "@/components/Modules/Button/MainButton";
 import Image from "next/image";
 import React from "react";
-import bgImg from "@/public/pictures/courses/redux.webp";
+import fallbackImage from "@/public/pictures/courses/redux.webp";
+import { courseDetailsBoxProps } from "@/interfaces/courseDetails.interface";
+import { validateImageAddress } from "@/utils/validateImageAdderss";
+import convertToPersianDigit from "@/utils/convertToPersianDigit";
+import addCommasToPersianNumber from "@/utils/addCommasToPersianDigit";
 
-export default function CourseDetailsBox() {
+export default function CourseDetailsBox({ title, miniDescribe, imageAddress, cost }: courseDetailsBoxProps) {
   return (
     <div className="relative h-[300px] lg:h-[350px] lgb:h-[450px] mb-20 text-DarkBody rounded-3xl">
       <Image
-        src={bgImg}
+        src={validateImageAddress(imageAddress, fallbackImage)}
         className="absolute top-0 left-0 w-full h-full z-0 rounded-3xl"
         alt=""
+        width={0}
+        height={0}
+        sizes="100vw"
       />
       <div className="flex w-full bg-gradient-to-r from-[rgba(0,0,0,0.6)] via-[rgba(0,0,0,0.9)] to-[#000] lg:from-[rgba(0,0,0,0.2)] lg:via-[rgba(0,0,0,0.92)] lg:to-[#000] z-10 absolute top-0 left-0 h-full rounded-3xl">
         <div className="flex items-center h-full p-5 pr-8 w-full">
           <div className="flex flex-col gap-8 lgb:gap-16 w-full sm:w-4/7">
             <div className="flex flex-col gap-3">
               <h1 className="text-primary-lighter text-center sm:text-right text-[20px] md:text-[25px] lgb:text-[30px] xl:text-[34px] mb-1 font-bold font-peyda">
-                آموزش تخصصی Redux مقدماتی تا پیشرفته
+                {title}
               </h1>
               <p className="text-darkTitle w-full text-sm lgb:text-lg hidden sm:block">
-                حدود 40 ساعت آموزش جامع و تخصصی ری اکت! شما در دوره آموزش ری اکت
-                ReactJS ، این کتابخانه قدرتمند و پر استفاده جاوا اسکریپت را به
-                صورت کاملا پروژه محور و کاربردی یاد میگیرید! ری اکت گل سرسبد
-                فرانت اند محسوب میشود،اگر دوره
+                {miniDescribe}
               </p>
             </div>
             <div className="flex flex-col-reverse sm:flex-row gap-5 justify-between items-center sm:items-end w-full">
@@ -32,18 +36,15 @@ export default function CourseDetailsBox() {
                   content={<p>خرید آنلاین دوره</p>}
                 />
               </div>
-              <div className="flex flex-col gap-1 md:gap-2 lg:gap-3">
-                <p className="text-lightBody lgb:text-xl text-lg line-through text-left">
-                  2,300,000 تومان
-                </p>
-                <p className="text-darkTitle lgb:text-3xl text-2xl font-vazir">
-                  920,000 تومان
-                </p>
+              <div className="flex flex-col gap-1 md:gap-2 lg:gap-3 font-peyda text-2xl text-white">
+                {addCommasToPersianNumber(convertToPersianDigit(cost))} تومان
               </div>
             </div>
           </div>
-          <div className="-translate-x-10 w-3/7 hidden lg:block">
-            <Image src={bgImg} className="rounded-3xl" alt="" />
+          <div className="-translate-x-10 w-3/7 hidden lg:block h-[300px]">
+            <Image src={validateImageAddress(imageAddress, fallbackImage)} className="rounded-3xl h-full" alt="" width={600}
+              height={100}
+            />
           </div>
         </div>
       </div>

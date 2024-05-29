@@ -11,5 +11,5 @@ export default function convertToPersianDigit(digit: number | string): string {
     "۸",
     "۹",
   ];
-  return digit.toString().replace(/\d/g, (x) => farsiDigits[parseInt(x)]);
+  return digit?.toString().replace(/\d/g, (x) => farsiDigits[parseInt(x)]);
 }
