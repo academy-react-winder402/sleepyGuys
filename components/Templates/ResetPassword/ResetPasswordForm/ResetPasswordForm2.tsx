@@ -1,8 +1,7 @@
 import MainButton from "@/components/Modules/Button/MainButton";
 import PrimaryInput from "@/components/Modules/Input/PrimaryInput";
-import { useFinalStepResetPasswordUserApi, useResetPasswordUserApi } from "@/hooks/api/useAuthApi";
+import { useFinalStepResetPasswordUserApi } from "@/hooks/api/useAuthApi";
 import { resetPasswordForm2Type } from "@/interfaces/resetPasswordForm.interface";
-import { passwordRegex } from "@/utils/passwordRegex";
 import React from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 
@@ -17,8 +16,8 @@ export default function ResetPasswordForm1() {
     console.log(data)
     resetPasswordUser.mutate({
       ...data,
-      userId:4,
-      resetValue:"hgvfdrdyfc",
+      userId: 4,
+      resetValue: "hgvfdrdyfc",
     });
   };
 
