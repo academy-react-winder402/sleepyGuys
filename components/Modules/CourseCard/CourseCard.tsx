@@ -7,6 +7,7 @@ import { useRouter } from "next/router";
 import convertToPersianDigit from "@/utils/convertToPersianDigit";
 import addCommasToPersianNumber from "@/utils/addCommasToPersianDigit";
 import calculateTimeAgo from "@/utils/calculateTimeAgo";
+import { validateImageAddress } from "@/utils/validateImageAdderss";
 
 function CourseCard({ title, tumbImageAddress, describe, teacherName, cost, lastUpdate }: Course) {
   const router = useRouter();
@@ -15,7 +16,7 @@ function CourseCard({ title, tumbImageAddress, describe, teacherName, cost, last
       <div className="flex py-6 bg-white dark:bg-dark-lighter rounded-3xl h-full">
         <div className="w-full flex flex-col gap-5">
           <div className="rounded-3xl w-[85%] mx-auto -mt-20 h-[160px]">
-            <Image src={tumbImageAddress} alt="" width={400} height={400} className="h-full rounded-3xl" />
+            <Image src={validateImageAddress(tumbImageAddress)} alt="" width={400} height={400} className="h-full w-full rounded-3xl" />
           </div>
           <div className="w-[85%] mx-auto flex flex-col gap-4">
             <h2 className="text-[20px] font-peyda font-bold text-lightTitle dark:text-darkTitle">
