@@ -1,10 +1,12 @@
-import { StaticImageData } from "next/image";
-
 interface courseSummary {
-  id: number;
-  title: string;
-  value: string | string[];
-  icon: StaticImageData;
+  courseStatusName: string;
+  startTime: string;
+  endTime: string;
+  lastUpdate: string;
+  courseLevelName: string;
+  currentRate: number;
+  typeName: string;
+  isLoading: boolean;
 }
 
 export type { courseSummary };

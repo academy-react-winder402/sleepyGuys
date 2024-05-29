@@ -11,8 +11,9 @@ import userIcon from "@/public/icons/theme/user.svg";
 import logout from "@/public/icons/theme/logout.svg";
 import Image from "next/image";
 import MainButton from "@/components/Modules/Button/MainButton";
+import { teacherDetailsProps } from "@/interfaces/teacherDetails.interface";
 
-export default function TeacherDetailsBox() {
+export default function TeacherDetailsBox({ teacherId, teacherName }: teacherDetailsProps) {
   return (
     <Card
       dir="rtl"
@@ -20,7 +21,7 @@ export default function TeacherDetailsBox() {
     >
       <CardHeader className="pb-6 px-0">
         <UserCard
-          title="آرمان غنی زاده"
+          title={teacherName}
           description="مدرس دوره"
           image={userIcon}
           size={50}
@@ -42,6 +43,8 @@ export default function TeacherDetailsBox() {
           content={<p>مشاهده همه دوره های استاد</p>}
           variant="light"
           startIcon={<Image src={logout} alt="" />}
+          onClick={() => console.log(teacherId)
+          }
         />
       </CardFooter>
     </Card>
