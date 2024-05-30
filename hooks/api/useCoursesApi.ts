@@ -10,7 +10,6 @@ import {
   sendCommentApi,
 } from "@/services/api/coursesApi";
 import { useMutation, useQuery } from "@tanstack/react-query";
-import { useRouter } from "next/router";
 import toast from "react-hot-toast";
 
 export const useGetCoursesTopApi = (Count: number) => {
@@ -61,18 +60,16 @@ export const useGetTechnologiesApi = () => {
 export const useGetCoursesCommentApi = (id: string | string[] | undefined) => {
   return useQuery({
     queryKey: ["coursesComments"],
-    queryFn: () =>
-      getCoursesCommentApi(id).then((data) => data.data),
+    queryFn: () => getCoursesCommentApi(id).then((data) => data.data),
   });
 };
 
-export const useAddCommentApi = () => {
-  const router = useRouter();
-
+export const useAddCommentApi = (reset: () => void) => {
   return useMutation({
     mutationFn: (payload: addCommentFormType) => sendCommentApi(payload),
-    onSuccess: (res) => {
+    onSuccess: () => {
       toast.success("کامنت با موفقیت ثبت شد");
+      reset();
     },
   });
 };

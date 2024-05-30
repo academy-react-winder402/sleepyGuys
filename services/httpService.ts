@@ -1,14 +1,21 @@
 import axios from "axios";
-import toast from "react-hot-toast";
-import Cookies from 'js-cookie';
-
+import Cookies from "js-cookie";
 
 axios.interceptors.request.use(
   function (config) {
-    // should set Authorization Header here
-    config.headers["Content-Type"] = "application/json";
+    const token = Cookies.get("token");
+
+    if (config.headers.useMultipartForm) {
+      config.headers["Content-Type"] = "multipart/form-data";
+    } else {
+      config.headers["Content-Type"] = "application/json";
+    }
+
     config.headers.Accept = "application/json";
-    config.headers.common['Authorization'] = 'Bearer ' + Cookies.get("token");;
+
+    if (token) {
+      config.headers["Authorization"] = "Bearer " + token;
+    }
     return config;
   },
 
