@@ -31,13 +31,14 @@ export const getTechnologiesApi = () => {
   return httpService.get(baseUrl + "Home/GetTechnologies");
 };
 
-export const getCoursesCommentApi = (id : number | any) => {
-  return httpService.get(
-    baseUrl +
-      `Course/GetCourseCommnets/${id}`
-  );
+export const getCoursesCommentApi = (id: number | any) => {
+  return httpService.get(baseUrl + `Course/GetCourseCommnets/${id}`);
 };
 
 export const sendCommentApi = (payload: addCommentFormType) => {
-  return httpService.post(baseUrl + `Course/AddCommentCourse`, payload);
+  return httpService.post(baseUrl + `Course/AddCommentCourse`, payload, {
+    headers: {
+      useMultipartForm: true,
+    },
+  });
 };

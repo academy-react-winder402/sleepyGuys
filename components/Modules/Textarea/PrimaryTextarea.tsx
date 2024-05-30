@@ -1,3 +1,4 @@
+import { primaryTextareaProps } from "@/interfaces/primaryTextarea.interface";
 import { Textarea } from "@nextui-org/react";
 import React from "react";
 
@@ -6,12 +7,9 @@ export default function PrimaryTextarea({
   variant,
   className,
   register,
-}: {
-  placeholder: string;
-  variant: "bordered" | "faded" | "flat" | "underlined";
-  className: string;
-  register: any;
-}) {
+  isInvalid,
+  errorMessage
+}: primaryTextareaProps) {
   return (
     <Textarea
       className={className}
@@ -19,17 +17,20 @@ export default function PrimaryTextarea({
       disableAutosize
       placeholder={placeholder}
       variant={variant}
+      isInvalid={isInvalid}
+      errorMessage={errorMessage}
       {...register}
       classNames={{
         base: "max-w-full",
         input: [
-          "text-black/90",
           "dark:text-white/90",
           "placeholder:text-default-700/50",
           "dark:placeholder:text-white/60",
           "resize-y min-h-[130px]",
+          "!text-black dark:!text-white"
         ],
         mainWrapper: ["overflow-hidden"],
+        errorMessage: ["text-secondary"],
         inputWrapper: [
           "!duration-500",
           "transition",
