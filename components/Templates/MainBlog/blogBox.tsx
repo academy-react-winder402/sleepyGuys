@@ -38,7 +38,7 @@ function blogBox() {
       <div className="gap-5 grid lgb:grid-cols-4 md:grid-cols-2 grid-cols-1">
         {getBlogs().slice(0,4).map(blog => <BlogOtherCard {...blog}/>)}
       </div>
-      <BlogComments data={getComments()} />
+      {/* <BlogComments data={getComments()} /> */}
     </>
   );
 }

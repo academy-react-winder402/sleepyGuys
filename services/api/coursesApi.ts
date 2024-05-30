@@ -1,3 +1,4 @@
+import { addCommentFormType } from "@/interfaces/addCommentFormType.interface";
 import httpService from "@/services/httpService";
 
 const baseUrl = process.env.NEXT_PUBLIC_BASE_API_URL;
@@ -28,4 +29,6 @@ export const getCoursesCommentApi = (id : number | any) => {
   );
 };
 
-
+export const sendCommentApi = (payload: addCommentFormType) => {
+  return httpService.post(baseUrl + `Course/AddCommentCourse`, payload);
+};
