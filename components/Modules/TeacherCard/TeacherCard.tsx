@@ -6,14 +6,16 @@ import { teachers } from "@/interfaces/teacher.interface";
 import { Card, CardBody, Chip, Divider } from "@nextui-org/react";
 import Image from "next/image";
 import Link from "next/link";
+import { validateImageAddress } from "@/utils/validateImageAdderss";
+import fallbackImage from "@/public/pictures/teachers/arian.webp"
 
 export default function TeacherCard({
-  title,
+  fullName,
   description,
   courseTime,
   courseCount,
   star,
-  image,
+  pictureAddress
 }: teachers) {
   return (
     <Card
@@ -24,12 +26,12 @@ export default function TeacherCard({
       <CardBody>
         <div className="flex flex-col sm:flex-row gap-6">
           <div className="relative w-full sm:w-[40%] lgb:[30%] h-auto md:h-[280px] rounded-3xl overflow-hidden">
-            <Image src={image} alt="" className="w-full" />
+            <Image src={validateImageAddress(pictureAddress, fallbackImage)} alt="" className="w-full" />
           </div>
 
           <div className="flex flex-col justify-start text-right w-full sm:w-[60%] lgb:[70%]">
             <h2 className="font-kalamehBlack mb-2 text-[24px] md:text-[29px] text-lightTitle dark:text-darkTitle">
-              {title}
+              {fullName}
             </h2>
             <p
               className="text-[14px] font-peyda line-clamp-2 md:text-[16px] text-lightBody dark:text-darkBody"
@@ -57,7 +59,7 @@ export default function TeacherCard({
                 variant="solid"
                 className="font-peyda rounded-xl text-white dark:text-darkTitle bg-lightBody dark:bg-dark px-4 h-12 max-w-full"
               >
-                {title}
+                {fullName}
               </Chip>
               <Chip
                 startContent={<Image src={starIcon} alt="" />}
@@ -72,7 +74,7 @@ export default function TeacherCard({
         <Divider className="my-4" />
         <div className="flex justify-center items-center mt-2">
           <Link
-            href={`teachers/${title}`}
+            href={`teachers/${fullName}`}
             className="md:col-start-3 col-span-1 mx-auto md:ms-auto md:mx-0 flex justify-center w-full items-center gap-x-2 text-lightTitle dark:text-darkTitle font-peyda"
           >
             <Divider className="w-[60px] rounded-full h-1 bg-lightBody dark:bg-darkBody" />
