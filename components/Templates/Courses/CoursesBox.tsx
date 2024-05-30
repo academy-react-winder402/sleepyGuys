@@ -10,14 +10,10 @@ export default function CoursesBox({
   Content: React.ElementType;
 }) {
   return (
-    <div className="w-full md:w-[70%] lg:w-[78%] md:flex rounded-xl">
-      <div className="grid grid-cols-1 sm:grid-cols-2 lgb:grid-cols-3 gap-4 lg:gap-6">
-        {data?.map((item, index) => (
-          <div key={index}>
-            <Content {...item} />
-          </div>
-        ))}
-      </div>
+    <div className="grid grid-cols-1 sm:grid-cols-2 lgb:grid-cols-3 gap-4 lg:gap-6 w-full">
+      {data.map((item, index) => (
+        <Content {...item} key={index} />
+      ))}
     </div>
   );
 }

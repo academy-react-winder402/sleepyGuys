@@ -14,9 +14,18 @@ export const getCourseDetailsApi = (
   );
 };
 
-export const getCoursesApi = (page: string) => {
-  return httpService.get(
-    baseUrl +
-      `Home/GetCoursesWithPagination?PageNumber=${page}&RowsOfPage=6&SortingCol=Active&SortType=DESC&TechCount=0`
-  );
+export const getCoursesWithPaginationApi = (params: any) => {
+  return httpService.get(baseUrl + `Home/GetCoursesWithPagination`, { params });
+};
+
+export const getAllCourseLevelApi = () => {
+  return httpService.get(baseUrl + "CourseLevel/GetAllCourseLevel");
+};
+
+export const getCourseTypesApi = () => {
+  return httpService.get(baseUrl + "CourseType/GetCourseTypes");
+};
+
+export const getTechnologiesApi = () => {
+  return httpService.get(baseUrl + "Home/GetTechnologies");
 };
