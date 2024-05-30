@@ -19,12 +19,19 @@ export default function HorizontalFilterBox({
 
   const router = useRouter();
 
-  const { query } = router;
+  const { pathname, query } = router;
 
   const submitFormHandler: SubmitHandler<searchCourse> = (data) => {
-    router.push(`${router.asPath}?search=${data.title}`);
+    const newQuery = {
+      ...query,
+      Query: data.title
+    }
+
+    router.push({
+      pathname,
+      query: newQuery
+    });
   };
-  console.log(router.asPath)
 
   return (
     <div className="bg-white dark:bg-dark-lighter flex items-center gap-2 flex-row rounded-xl p-2">
@@ -38,9 +45,7 @@ export default function HorizontalFilterBox({
           className="text-2xl font-peyda w-full"
           hasBorder={false}
           register={{
-            ...register("title", {
-              required: true,
-            }),
+            ...register("title"),
           }}
         />
         <MainButton
@@ -62,14 +67,16 @@ export default function HorizontalFilterBox({
           {sortItemsArray.map((item, index) => (
             <li
               key={index}
-              className={`flex items-center justify-center flex-col xs:gap-1 ${
-                query.sort === item.query
-                  ? "text-primary dark:text-primary-lighter"
-                  : "text-gray-lighter"
-              }`}
+              className={`flex items-center justify-center flex-col xs:gap-1 ${query.sort === item.query
+                ? "text-primary dark:text-primary-lighter"
+                : "text-gray-lighter"
+                }`}
             >
               <Link
-                href={`${router.asPath}?sort=${item.query}`}
+                href={{
+                  pathname,
+                  query: { ...query, SortType: item.query }
+                }}
               >
                 {item.name}
               </Link>

@@ -1,7 +1,10 @@
 import {
-  getCoursesApi,
   getCoursesTopApi,
   getCourseDetailsApi,
+  getCoursesWithPaginationApi,
+  getAllCourseLevelApi,
+  getCourseTypesApi,
+  getTechnologiesApi,
 } from "@/services/api/coursesApi";
 import { useQuery } from "@tanstack/react-query";
 
@@ -21,15 +24,31 @@ export const useGetCourseDetailsApi = (
   });
 };
 
-export const useGetCoursesApi = (page: string | any) => {
+export const useGetCoursesWithPaginationApi = (params: any) => {
   return useQuery({
-    queryKey: ["courses"],
+    queryKey: ["coursesWithPagination", params],
     queryFn: () =>
-      getCoursesApi(page).then((data) => {
-        return {
-          data: data.data.courseFilterDtos,
-          totalPages: Math.ceil(data.data.totalCount % 6),
-        };
-      }),
+      getCoursesWithPaginationApi(params).then((data) => data.data),
+  });
+};
+
+export const useGetAllCourseLevelApi = () => {
+  return useQuery({
+    queryKey: ["courseLevel"],
+    queryFn: () => getAllCourseLevelApi().then((data) => data.data),
+  });
+};
+
+export const useGetCourseTypesApi = () => {
+  return useQuery({
+    queryKey: ["courseType"],
+    queryFn: () => getCourseTypesApi().then((data) => data.data),
+  });
+};
+
+export const useGetTechnologiesApi = () => {
+  return useQuery({
+    queryKey: ["technologies"],
+    queryFn: () => getTechnologiesApi().then((data) => data.data),
   });
 };

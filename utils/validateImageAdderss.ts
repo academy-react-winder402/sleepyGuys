@@ -1,7 +1,7 @@
 import { StaticImageData } from "next/image";
 
 export const validateImageAddress = (
-  address: string,
+  address: string | null,
   fallbackImage: StaticImageData
 ): StaticImageData | string => {
   if (!address) return fallbackImage;
