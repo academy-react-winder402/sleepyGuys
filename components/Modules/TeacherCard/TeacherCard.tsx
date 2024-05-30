@@ -13,7 +13,7 @@ export default function TeacherCard({
   fullName,
   description,
   courseTime,
-  courseCount,
+  courseCounts,
   star,
   pictureAddress
 }: teachers) {
@@ -52,7 +52,7 @@ export default function TeacherCard({
                 variant="solid"
                 className="font-peyda rounded-xl text-white dark:text-darkTitle bg-lightBody dark:bg-dark px-4 h-12 max-w-full"
               >
-                {courseCount} دوره آموزشی
+                {courseCounts} دوره آموزشی
               </Chip>
               <Chip
                 startContent={<Image src={teacherIcon} alt="" />}

@@ -3,7 +3,6 @@ interface teachers {
   fullName: string;
   description: string;
   courseTime: string;
-  courseCount: number;
   star: number;
   pictureAddress: null | string;
   linkdinProfileLink: string;

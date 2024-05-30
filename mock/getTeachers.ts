@@ -1,4 +1,3 @@
-import teacherPic from "@/public/pictures/teachers/arian.webp";
 export const getTeachers = () => {
   return [
     {
@@ -7,9 +6,12 @@ export const getTeachers = () => {
       description:
         "اولین کدم رو 14 سالگی زدم، حدود 9 سال پیش که با زبان ویژوال بیسیک بود و بعد حدودا 2 سال تو فیلد برنامه نویسی موبایل با زبان جاوا کار کردم و در نهایت با عشقی به اسم جاوا اسکریپت آشنا شدم و حدودا یه 7 سالی هست جاوا اسکریپت کد می‌زنم و به صورت Mern Stack فعالیت می‌کنم.",
       courseTime: "10:34:67",
-      courseCount: 4,
+      courseCounts: 4,
+      newsCount: 3,
       star: 5,
-      pictureAddress: teacherPic,
+      pictureAddress: null,
+      teacherId: 3,
+      linkdinProfileLink: "jkfnkdfnksdnj",
     },
     {
       id: 2,
@@ -17,9 +19,12 @@ export const getTeachers = () => {
       description:
         "اولین کدم رو 14 سالگی زدم، حدود 9 سال پیش که با زبان ویژوال بیسیک بود و بعد حدودا 2 سال تو فیلد برنامه نویسی موبایل با زبان جاوا کار کردم و در نهایت با عشقی به اسم جاوا اسکریپت آشنا شدم و حدودا یه 7 سالی هست جاوا اسکریپت کد می‌زنم و به صورت Mern Stack فعالیت می‌کنم.",
       courseTime: "10:34:67",
-      courseCount: 4,
+      courseCounts: 4,
+      newsCount: 3,
       star: 5,
-      pictureAddress: teacherPic,
+      pictureAddress: null,
+      teacherId: 3,
+      linkdinProfileLink: "jkfnkdfnksdnj",
     },
     {
       id: 3,
@@ -27,9 +32,12 @@ export const getTeachers = () => {
       description:
         "اولین کدم رو 14 سالگی زدم، حدود 9 سال پیش که با زبان ویژوال بیسیک بود و بعد حدودا 2 سال تو فیلد برنامه نویسی موبایل با زبان جاوا کار کردم و در نهایت با عشقی به اسم جاوا اسکریپت آشنا شدم و حدودا یه 7 سالی هست جاوا اسکریپت کد می‌زنم و به صورت Mern Stack فعالیت می‌کنم.",
       courseTime: "10:34:67",
-      courseCount: 4,
+      courseCounts: 4,
+      newsCount: 3,
       star: 5,
-      pictureAddress: teacherPic,
+      pictureAddress: null,
+      teacherId: 3,
+      linkdinProfileLink: "jkfnkdfnksdnj",
     },
   ];
 };
