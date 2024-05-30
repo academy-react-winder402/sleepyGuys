@@ -1,3 +1,4 @@
+import { addCommentFormType } from "@/interfaces/addCommentFormType.interface";
 import {
   getCoursesTopApi,
   getCourseDetailsApi,
@@ -5,8 +6,12 @@ import {
   getAllCourseLevelApi,
   getCourseTypesApi,
   getTechnologiesApi,
+  getCoursesCommentApi,
+  sendCommentApi,
 } from "@/services/api/coursesApi";
-import { useQuery } from "@tanstack/react-query";
+import { useMutation, useQuery } from "@tanstack/react-query";
+import { useRouter } from "next/router";
+import toast from "react-hot-toast";
 
 export const useGetCoursesTopApi = (Count: number) => {
   return useQuery({
@@ -50,5 +55,24 @@ export const useGetTechnologiesApi = () => {
   return useQuery({
     queryKey: ["technologies"],
     queryFn: () => getTechnologiesApi().then((data) => data.data),
+  });
+};
+
+export const useGetCoursesCommentApi = (id: string | string[] | undefined) => {
+  return useQuery({
+    queryKey: ["coursesComments"],
+    queryFn: () =>
+      getCoursesCommentApi(id).then((data) => data.data),
+  });
+};
+
+export const useAddCommentApi = () => {
+  const router = useRouter();
+
+  return useMutation({
+    mutationFn: (payload: addCommentFormType) => sendCommentApi(payload),
+    onSuccess: (res) => {
+      toast.success("کامنت با موفقیت ثبت شد");
+    },
   });
 };

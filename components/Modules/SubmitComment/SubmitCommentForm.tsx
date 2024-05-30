@@ -3,17 +3,15 @@ import React from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { CommentForm } from "@/interfaces/commentForm.interface";
 import MainButton from "@/components/Modules/Button/MainButton";
+import { addCommentFormType } from "@/interfaces/addCommentFormType.interface";
+import PrimaryInput from "../Input/PrimaryInput";
 
-export default function SubmitCommentForm() {
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm<CommentForm>();
+export default function SubmitCommentForm({submitFormHandler} : any) {
+  const { register, handleSubmit, formState: { errors } } = useForm<addCommentFormType>();
 
-  const submitFormHandler: SubmitHandler<CommentForm> = (data) => {
-    console.log(data);
-  };
+  // const submitFormHandler: SubmitHandler<CommentForm> = (data) => {
+  //   console.log(data);
+  // };
   return (
     <>
       <form
@@ -21,12 +19,23 @@ export default function SubmitCommentForm() {
         onSubmit={handleSubmit(submitFormHandler)}
         id="comment-form"
       >
+        <PrimaryInput
+        placeholder="سرتیتر"
+        variant="faded"
+        className="font-peyda mb-8"
+        type="text"
+        register={{
+          ...register("Title", {
+            required: "سرتیتر/سرتیتر رو نمیتونی خالی بذاری",
+          }),
+        }}
+      />
         <PrimaryTextarea
           placeholder="متن پیام"
           variant="faded"
           className="font-peyda"
           register={{
-            ...register("description", {
+            ...register("Describe", {
               required: true,
             }),
           }}
