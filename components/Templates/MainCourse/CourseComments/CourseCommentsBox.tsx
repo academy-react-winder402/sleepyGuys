@@ -6,8 +6,10 @@ import { CommentCard as CommentCardType } from "@/interfaces/commentCard.interfa
 
 export default function CourseCommentsBox({
   data,
+  isCommentsLoading,
 }: {
   data: CommentCardType[];
+  isCommentsLoading:boolean
 }) {
   return (
     <Card
@@ -29,7 +31,7 @@ export default function CourseCommentsBox({
             image={userIcon}
             size={35}
           /> */}
-          {data.map((comment, index) => (
+          { !isCommentsLoading && data?.map((comment, index) => (
             <CommentCard {...comment} key={index} />
           ))}
         </div>

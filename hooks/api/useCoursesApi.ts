@@ -2,6 +2,7 @@ import {
   getCoursesApi,
   getCoursesTopApi,
   getCourseDetailsApi,
+  getCoursesCommentApi,
 } from "@/services/api/coursesApi";
 import { useQuery } from "@tanstack/react-query";
 
@@ -31,5 +32,13 @@ export const useGetCoursesApi = (page: string | any) => {
           totalPages: Math.ceil(data.data.totalCount % 6),
         };
       }),
+  });
+};
+
+export const useGetCoursesCommentApi = (id: string | string[] | undefined) => {
+  return useQuery({
+    queryKey: ["coursesComments"],
+    queryFn: () =>
+      getCoursesCommentApi(id).then((data) => data.data),
   });
 };

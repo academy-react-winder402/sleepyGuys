@@ -20,3 +20,12 @@ export const getCoursesApi = (page: string) => {
       `Home/GetCoursesWithPagination?PageNumber=${page}&RowsOfPage=6&SortingCol=Active&SortType=DESC&TechCount=0`
   );
 };
+
+export const getCoursesCommentApi = (id : number | any) => {
+  return httpService.get(
+    baseUrl +
+      `Course/GetCourseCommnets/${id}`
+  );
+};
+
+
