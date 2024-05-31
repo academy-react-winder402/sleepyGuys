@@ -5,9 +5,9 @@ import {
   CardFooter,
   CardHeader,
   Divider,
+  User,
 } from "@nextui-org/react";
 import React from "react";
-import userIcon from "@/public/icons/theme/user.svg";
 import logout from "@/public/icons/theme/logout.svg";
 import Image from "next/image";
 import MainButton from "@/components/Modules/Button/MainButton";
@@ -23,7 +23,7 @@ export default function TeacherDetailsBox({ teacherId, teacherName }: teacherDet
         <UserCard
           title={teacherName}
           description="مدرس دوره"
-          image={userIcon}
+          image={""}
           size={50}
         />
       </CardHeader>

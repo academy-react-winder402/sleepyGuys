@@ -17,7 +17,7 @@ export default function Courses() {
   const { query } = router;
 
   const getCoursesTop = useGetCoursesWithPaginationApi({ RowsOfPage: 9, ...query });
-  const { data, isLoading, refetch } = getCoursesTop;
+  const { data, isLoading } = getCoursesTop;
 
   return (
     <>

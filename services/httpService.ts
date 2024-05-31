@@ -1,5 +1,6 @@
 import axios from "axios";
 import Cookies from "js-cookie";
+import toast from "react-hot-toast";
 
 axios.interceptors.request.use(
   function (config) {
@@ -29,30 +30,16 @@ axios.interceptors.response.use(
     return response;
   },
   function (error) {
-    // switch (error?.response?.status) {
-    //   case 400: {
-    //     toast.error(error.response.data.Message);
-    //     break;
-    //   }
-    //   case 401: {
-    //     toast.error("شما برای این عمل، احراز هویت نشده اید");
-    //     localStorage.removeItem("token");
-    //     window.location.replace("/login ");
-    //     break;
-    //   }
-    //   case 404: {
-    //     toast.error("چنین سرویسی برای درخواست وجود ندارد");
-    //     break;
-    //   }
-    //   case 500: {
-    //     toast.error("خطای سرور");
-    //     break;
-    //   }
-    //   default: {
-    //     toast.error("خطای ناشناخته ای رخ داده است");
-    //     break;
-    //   }
-    // }
+    switch (error?.response?.status) {
+      case 401: {
+        toast.error("شما برای این عمل، احراز هویت نشده اید");
+        Cookies.remove("token");
+        break;
+      }
+      default: {
+        break;
+      }
+    }
     return Promise.reject(error);
   }
 );

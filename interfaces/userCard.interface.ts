@@ -1,9 +1,7 @@
-import { StaticImageData } from "next/image";
-
 interface UserCardType {
   title: string;
   description: string;
-  image: string;
+  image: string | null;
   size: number;
 }
 

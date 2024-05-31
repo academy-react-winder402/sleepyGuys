@@ -27,7 +27,7 @@ export default function CourseDescriptionBox({ description, isLoading }: { descr
         >
           {isLoading ?
             <div className="space-y-3">
-              {Array.from({ length: 6 }, (_, index) => (
+              {Array.from({ length: 3 }, (_, index) => (
                 <Skeleton className="rounded-md w-full h-[25px]" key={index} />
               ))}
             </div> : description}

@@ -1,5 +1,3 @@
-import { StaticImageData } from "next/image";
-
 interface CommentCard {
   id: number;
   accept:boolean;
