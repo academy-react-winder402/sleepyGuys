@@ -5,7 +5,7 @@ import { getBlogs } from "@/mock/getBlogs";
 import BlogOtherCard from "./BlogOtherCard/BlogOtherCard";
 import BlogDescription from "@/components/Templates/MainBlog/BlogDescription/BlogDescription";
 
-function BlogBox() {
+export default function BlogBox() {
   return (
     <>
       <div className="pt-10 lg:mr-20 relative">
@@ -40,5 +40,3 @@ function BlogBox() {
     </>
   );
 }
-
-export default BlogBox;
