@@ -7,7 +7,7 @@ import replyIcon from "@/public/icons/theme/reply.svg";
 import { useRouter } from "next/router";
 
 interface detectReplyToWhichUser {
-  detectReplyToWhichUser: (userName: string | null) => void
+  detectReplyToWhichUser?: (userName: string | null) => void
 }
 
 type CommentCard = CommentCardType & detectReplyToWhichUser

@@ -1,4 +1,4 @@
-import BlogBox from "@/components/Templates/MainBlog/blogBox";
+import BlogBox from "@/components/Templates/MainBlog/BlogBox";
 import React from "react";
 
 function BlogName() {
