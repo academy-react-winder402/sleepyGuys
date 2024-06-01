@@ -3,7 +3,7 @@ import React from "react";
 import img from "@/public/pictures/blog/blogImage.jpg";
 import { getBlogs } from "@/mock/getBlogs";
 import BlogOtherCard from "./BlogOtherCard/BlogOtherCard";
-import BlogDescription from "./BlogDescription/BlogDescription";
+import BlogDescription from "@/components/Templates/MainBlog/BlogDescription/BlogDescription";
 
 function BlogBox() {
   return (
