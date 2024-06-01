@@ -29,6 +29,7 @@ export const useGetCourseDetailsApi = (
   return useQuery({
     queryKey: ["courseDetails"],
     queryFn: () => getCourseDetailsApi(CourseId).then((data) => data.data),
+    enabled: Boolean(CourseId),
   });
 };
 
@@ -67,6 +68,7 @@ export const useGetCoursesCommentApi = (
   return useQuery({
     queryKey: ["coursesComments"],
     queryFn: () => getCoursesCommentApi(CourseId).then((data) => data.data),
+    enabled: Boolean(CourseId),
   });
 };
 

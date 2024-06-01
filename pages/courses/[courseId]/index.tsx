@@ -25,7 +25,7 @@ function CorseInfo({ }) {
   const { data: commentsData, isLoading: isCommentsLoading } = useGetCoursesCommentApi(query.courseId)
 
   // shoud be fixed
-  const { data: replyCommentsData, isLoading: replyCommentsIsLoading } = useGetCourseReplyCommentsApi({ CourseId: query.courseId, CommentId: "jndjfknds" })
+  // const { data: replyCommentsData, isLoading: replyCommentsIsLoading } = useGetCourseReplyCommentsApi({ CourseId: query.courseId, CommentId: "jndjfknds" })
   return (
     <>
       {courseDetailsIsLoading ? <SkeletonCourseDetailsBox /> : <CourseDetailsBox {...courseDetailsData} />}

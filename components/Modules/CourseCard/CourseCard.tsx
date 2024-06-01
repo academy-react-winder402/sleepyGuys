@@ -13,7 +13,7 @@ import fallbackImage from "@/public/pictures/courses/next.webp"
 function CourseCard({ title, tumbImageAddress, describe, teacherName, cost, lastUpdate, courseId }: Course) {
   const router = useRouter();
   return (
-    <div className="pt-[55px] h-[435px]" onClick={() => router.push(`/courses/${courseId}`)}>
+    <div className="pt-[55px] h-[435px] cursor-pointer" onClick={() => router.push(`/courses/${courseId}`)}>
       <div className="flex py-6 bg-white dark:bg-dark-lighter rounded-3xl h-full">
         <div className="w-full flex flex-col gap-5">
           <div className="rounded-3xl w-[85%] mx-auto -mt-20 h-[160px]">
