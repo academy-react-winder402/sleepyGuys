@@ -1,9 +1,9 @@
 import Image from "next/image";
 import React from "react";
 import img from "@/public/pictures/blog/blogImage.jpg";
-import BlogDescription from "./BlogDescription/BlogDescription";
 import { getBlogs } from "@/mock/getBlogs";
 import BlogOtherCard from "./BlogOtherCard/BlogOtherCard";
+import BlogDescription from "./BlogDescription/BlogDescription";
 
 function BlogBox() {
   return (
