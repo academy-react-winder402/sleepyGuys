@@ -20,16 +20,12 @@ function CorseInfo({ }) {
   const router = useRouter()
   const { query } = router
 
-  const getCourseDetails = useGetCourseDetailsApi(query.courseId)
-  const { data: courseDetailsData, isLoading: courseDetailsIsLoading } = getCourseDetails
+  const { data: courseDetailsData, isLoading: courseDetailsIsLoading } = useGetCourseDetailsApi(query.courseId)
 
-  const getCourseComments = useGetCoursesCommentApi(query.courseId)
-  const { data: commentsData, isLoading: isCommentsLoading } = getCourseComments
+  const { data: commentsData, isLoading: isCommentsLoading } = useGetCoursesCommentApi(query.courseId)
 
   // shoud be fixed
-  const getCourseReplyComments = useGetCourseReplyCommentsApi({ CourseId: query.courseId, CommentId: "jndjfknds" })
-  const { data: replyCommentsData, isLoading: replyCommentsIsLoading } = getCourseReplyComments
-
+  const { data: replyCommentsData, isLoading: replyCommentsIsLoading } = useGetCourseReplyCommentsApi({ CourseId: query.courseId, CommentId: "jndjfknds" })
   return (
     <>
       {courseDetailsIsLoading ? <SkeletonCourseDetailsBox /> : <CourseDetailsBox {...courseDetailsData} />}

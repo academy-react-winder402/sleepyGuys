@@ -13,10 +13,10 @@ export default function LoginForm() {
 
   const [rememberMe, setRememberMe] = useState<boolean>(false)
 
-  const loginUser = useLoginUserApi()
+  const { mutate, isPending } = useLoginUserApi()
 
   const submitFormHandler: SubmitHandler<loginFormType> = (data) => {
-    loginUser.mutate({
+    mutate({
       ...data,
       rememberMe,
     })
@@ -74,7 +74,7 @@ export default function LoginForm() {
         content={<p>ورود</p>}
         type="submit"
         className="bg-primary dark:bg-primary-darker text-btnText w-full py-[1.5rem] text-xl"
-        isLoading={loginUser.isPending}
+        isLoading={isPending}
       />
     </form>
   );

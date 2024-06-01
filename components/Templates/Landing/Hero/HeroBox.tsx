@@ -5,6 +5,7 @@ import search from "@/public/icons/hero/search.svg";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { NewsLetterFormType } from "@/interfaces/newsLetterForm.interface";
 import PrimaryInput from "@/components/Modules/Input/PrimaryInput";
+import Typewriter from 'typewriter-effect';
 
 function Hero() {
   const {
@@ -22,7 +23,13 @@ function Hero() {
         <div className="w-full md:w-2/5 flex flex-col gap-8">
           <div className="flex flex-col gap-2 justify-center text-center md:text-right">
             <h1 className="text-primary dark:text-primary-lighter text-3xl lgl:text-4xl lg:text-[41px] xl:text-[43px] mb-1 font-bold font-peyda">
-              دنبال چی می گردی؟
+              <Typewriter
+                options={{
+                  strings: ['دنبال چی می گردی؟'],
+                  autoStart: true,
+                  loop: true,
+                }}
+              />
             </h1>
             <p className="text-lightBody dark:text-darkBody text-lg">
               دیگه وقتشه یه تکونی به خودت بدی…

@@ -6,9 +6,7 @@ import { useGetCoursesTopApi } from "@/hooks/api/useCoursesApi";
 import SkeletonCourseCard from "@/components/Modules/CourseCard/SkeletonCourseCard";
 
 function NewCoursesBox() {
-  const getCoursesTop = useGetCoursesTopApi(7)
-  const { data, isLoading } = getCoursesTop
-
+  const { data, isLoading } = useGetCoursesTopApi(7)
   return (
     <div className="lg:mt-36 mt-24 flex flex-wrap">
       <BoxHeader

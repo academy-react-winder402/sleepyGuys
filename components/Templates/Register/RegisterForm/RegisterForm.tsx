@@ -24,17 +24,18 @@ export default function RegisterForm({
 
   const router = useRouter()
 
-  const sendCode = useSendCodeApi();
+  const { mutate, isPending, isSuccess } = useSendCodeApi();
 
   useEffect(() => {
-    if (sendCode.isSuccess) {
+    if (isSuccess) {
       goToOtpForm()
       router.push(`/register?phoneNumber=${getValues(["phoneNumber"])[0]}`);
     }
-  }, [sendCode.isSuccess])
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isSuccess])
 
   const submitFormHandler: SubmitHandler<registerForm> = (data) => {
-    sendCode.mutate(data);
+    mutate(data);
   };
 
   return (
@@ -64,7 +65,7 @@ export default function RegisterForm({
         type="submit"
         className="bg-primary dark:bg-primary-darker text-btnText w-full py-[1.5rem] text-xl"
         isDisabled={!isTermsAccepted}
-        isLoading={sendCode.isPending}
+        isLoading={isPending}
       />
       <Checkbox
         isSelected={isTermsAccepted}

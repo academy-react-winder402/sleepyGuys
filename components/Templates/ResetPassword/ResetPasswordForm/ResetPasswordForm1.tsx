@@ -12,13 +12,12 @@ export default function ResetPasswordForm1() {
     formState: { errors },
   } = useForm<resetPasswordForm1Type>();
 
-  const resetPasswordUser = useResetPasswordUserApi();
+  const { mutate, isPending } = useResetPasswordUserApi();
 
   const baseUrl: string | undefined = process.env.NEXT_PUBLIC_BASE_URL
 
   const submitFormHandler: SubmitHandler<resetPasswordForm1Type> = (data) => {
-    console.log(data)
-    resetPasswordUser.mutate({
+    mutate({
       ...data,
       baseUrl
     });
@@ -50,7 +49,7 @@ export default function ResetPasswordForm1() {
         content={<p>درخواست فراموشی رمز</p>}
         type="submit"
         className="bg-primary dark:bg-primary-darker text-btnText w-full py-[1.5rem] text-xl"
-        isLoading={resetPasswordUser.isPending}
+        isLoading={isPending}
       />
     </form>
   );
