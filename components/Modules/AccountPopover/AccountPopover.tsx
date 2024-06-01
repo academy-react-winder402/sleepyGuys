@@ -42,7 +42,7 @@ export default function AccountPopover() {
           <UserCard
             title="آرمان غنی زاده"
             description="موجودی: ۰تومان"
-            image={userIcon}
+            image={""}
             size={50}
           />
           <Divider className="my-3" />

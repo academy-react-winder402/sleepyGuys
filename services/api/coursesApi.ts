@@ -62,3 +62,15 @@ export const addReplyCourseCommentApi = (payload: commentProps) => {
     },
   });
 };
+
+export const addCourseCommentLikeApi = (CourseCommandId: string) => {
+  return httpService.post(
+    baseUrl + `Course/AddCourseCommentLike?CourseCommandId=${CourseCommandId}`
+  );
+};
+
+export const addCourseCommentDissLikeApi = (CourseCommandId: string) => {
+  return httpService.post(
+    baseUrl + `Course/AddCourseCommentDissLike?CourseCommandId=${CourseCommandId}`
+  );
+};

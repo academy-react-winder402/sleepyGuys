@@ -10,6 +10,8 @@ import {
   sendCommentApi,
   getCourseReplyCommentsApi,
   addReplyCourseCommentApi,
+  addCourseCommentLikeApi,
+  addCourseCommentDissLikeApi,
 } from "@/services/api/coursesApi";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import toast from "react-hot-toast";
@@ -102,6 +104,26 @@ export const useAddReplyCourseCommentApi = (reset: () => void) => {
       queryClient.invalidateQueries({
         queryKey: ["coursesComments"],
       });
+    },
+  });
+};
+
+export const useAddCourseCommentLikeApi = () => {
+  return useMutation({
+    mutationFn: (CourseCommandId: string) =>
+      addCourseCommentLikeApi(CourseCommandId),
+    onSuccess: () => {
+      toast.success("کامنتی که لایک کردی با موفقیت انجام شد");
+    },
+  });
+};
+
+export const useAddCourseCommentDissLikeApi = () => {
+  return useMutation({
+    mutationFn: (CourseCommandId: string) =>
+      addCourseCommentDissLikeApi(CourseCommandId),
+    onSuccess: () => {
+      toast.success("کامنتی که دیسلایک کردی با موفقیت انجام شد");
     },
   });
 };

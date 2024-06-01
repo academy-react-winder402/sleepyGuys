@@ -30,10 +30,15 @@ axios.interceptors.response.use(
     return response;
   },
   function (error) {
+    console.log(error);
+
     switch (error?.response?.status) {
+      // case 400: {
+      //   toast.error(error?.response?.data.ErrorMessage);
+      //   break;
+      // }
       case 401: {
         toast.error("شما برای این عمل، احراز هویت نشده اید");
-        Cookies.remove("token");
         break;
       }
       default: {
