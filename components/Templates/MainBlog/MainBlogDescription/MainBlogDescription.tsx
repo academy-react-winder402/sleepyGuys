@@ -5,7 +5,7 @@ import React, { useState } from "react";
 import chevronDown from "@/public/icons/solid/chevron-down.svg";
 import chevronUp from "@/public/icons/solid/chevron-up.svg";
 
-export default function BlogDescription() {
+export default function MainBlogDescription() {
   const [isExpanded, setIsExpanded] = useState(false);
 
   return (

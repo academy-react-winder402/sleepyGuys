@@ -1,10 +1,10 @@
-import BlogBox from "@/components/Templates/MainBlog/blogBox";
+import MainBlogBox from "@/components/Templates/MainBlog/MainBlogBox";
 import React from "react";
 
 function BlogName() {
   return (
     <>
-      <BlogBox />
+      <MainBlogBox />
     </>
   );
 }

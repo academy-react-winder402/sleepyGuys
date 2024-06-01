@@ -1,4 +1,4 @@
-import { addCommentFormType } from "@/interfaces/addCommentFormType.interface";
+import { commentProps } from "@/interfaces/comment.interface";
 import httpService from "@/services/httpService";
 
 const baseUrl = process.env.NEXT_PUBLIC_BASE_API_URL;
@@ -31,14 +31,46 @@ export const getTechnologiesApi = () => {
   return httpService.get(baseUrl + "Home/GetTechnologies");
 };
 
-export const getCoursesCommentApi = (id: number | any) => {
-  return httpService.get(baseUrl + `Course/GetCourseCommnets/${id}`);
+export const getCoursesCommentApi = (
+  CourseId: string | string[] | undefined
+) => {
+  return httpService.get(baseUrl + `Course/GetCourseCommnets/${CourseId}`);
 };
 
-export const sendCommentApi = (payload: addCommentFormType) => {
+export const sendCommentApi = (payload: commentProps) => {
   return httpService.post(baseUrl + `Course/AddCommentCourse`, payload, {
     headers: {
       useMultipartForm: true,
     },
   });
+};
+
+export const getCourseReplyCommentsApi = (params: {
+  CourseId: string | string[] | undefined;
+  CommentId: string;
+}) => {
+  const { CourseId, CommentId } = params;
+  return httpService.get(
+    baseUrl + `Course/GetCourseReplyCommnets/${CourseId}/${CommentId}}`
+  );
+};
+
+export const addReplyCourseCommentApi = (payload: commentProps) => {
+  return httpService.post(baseUrl + `Course/AddReplyCourseComment`, payload, {
+    headers: {
+      useMultipartForm: true,
+    },
+  });
+};
+
+export const addCourseCommentLikeApi = (CourseCommandId: string) => {
+  return httpService.post(
+    baseUrl + `Course/AddCourseCommentLike?CourseCommandId=${CourseCommandId}`
+  );
+};
+
+export const addCourseCommentDissLikeApi = (CourseCommandId: string) => {
+  return httpService.post(
+    baseUrl + `Course/AddCourseCommentDissLike?CourseCommandId=${CourseCommandId}`
+  );
 };

@@ -12,7 +12,7 @@ import { getCourseDetailsApi } from "@/services/api/coursesApi";
 import { getCoursesCommentApi } from "@/services/api/coursesApi";
 import { GetStaticPaths, GetStaticProps } from "next";
 import { useRouter } from "next/router";
-import { useGetCourseDetailsApi, useGetCoursesCommentApi } from "@/hooks/api/useCoursesApi";
+import { useGetCourseDetailsApi, useGetCourseReplyCommentsApi, useGetCoursesCommentApi } from "@/hooks/api/useCoursesApi";
 import SkeletonCourseDetailsBox from "@/components/Templates/MainCourse/CourseDetails/SkeletonCourseDetailsBox";
 import SkeletonTeacherDetailsBox from "@/components/Templates/MainCourse/TeacherDetails/SkeletonTeacherDetailsBox";
 
@@ -21,23 +21,27 @@ function CorseInfo({ }) {
   const { query } = router
 
   const getCourseDetails = useGetCourseDetailsApi(query.courseId)
-  const { data, isLoading } = getCourseDetails
+  const { data: courseDetailsData, isLoading: courseDetailsIsLoading } = getCourseDetails
 
   const getCourseComments = useGetCoursesCommentApi(query.courseId)
   const { data: commentsData, isLoading: isCommentsLoading } = getCourseComments
 
+  // shoud be fixed
+  const getCourseReplyComments = useGetCourseReplyCommentsApi({ CourseId: query.courseId, CommentId: "jndjfknds" })
+  const { data: replyCommentsData, isLoading: replyCommentsIsLoading } = getCourseReplyComments
+
   return (
     <>
-      {isLoading ? <SkeletonCourseDetailsBox /> : <CourseDetailsBox {...data} />}
+      {courseDetailsIsLoading ? <SkeletonCourseDetailsBox /> : <CourseDetailsBox {...courseDetailsData} />}
       <div className="flex items-start gap-x-8">
         <div className="flex flex-col w-full lg:w-[70%] gap-y-8 shadow-2xl shadow-shadowColor dark:shadow-none rounded-3xl">
-          <CourseSummaryBox {...data} isLoading={isLoading} />
-          <CourseDescriptionBox description={data?.describe ?? ""} isLoading={isLoading} />
+          <CourseSummaryBox {...courseDetailsData} isLoading={courseDetailsIsLoading} />
+          <CourseDescriptionBox description={courseDetailsData?.describe ?? ""} isLoading={courseDetailsIsLoading} />
           <CourseHeadlinesBox data={getCourseTitles()} />
           <CourseCommentsBox data={commentsData} isCommentsLoading={isCommentsLoading} />
         </div>
         <div className="hidden lg:flex flex-col gap-y-8 w-1/3">
-          {isLoading ? <SkeletonTeacherDetailsBox /> : <TeacherDetailBox teacherName={data?.teacherName} teacherId={data?.teacherId} />}
+          {courseDetailsIsLoading ? <SkeletonTeacherDetailsBox /> : <TeacherDetailBox teacherName={courseDetailsData?.teacherName} teacherId={courseDetailsData?.teacherId} />}
           <RelatedCoursesBox />
         </div>
       </div>
