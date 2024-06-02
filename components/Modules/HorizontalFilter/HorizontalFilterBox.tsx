@@ -22,9 +22,15 @@ export default function HorizontalFilterBox({
   const { pathname, query } = router;
 
   const submitFormHandler: SubmitHandler<searchCourse> = (data) => {
-    const newQuery = {
-      ...query,
-      Query: data.title
+    let newQuery = { ...query }
+
+    if (data.Query.trim()) {
+      newQuery = {
+        ...query,
+        Query: data.Query
+      }
+    } else {
+      delete newQuery.Query
     }
 
     router.push({
@@ -45,7 +51,7 @@ export default function HorizontalFilterBox({
           className="text-2xl font-peyda w-full"
           hasBorder={false}
           register={{
-            ...register("title"),
+            ...register("Query"),
           }}
         />
         <MainButton

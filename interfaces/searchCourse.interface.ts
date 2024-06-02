@@ -1,5 +1,5 @@
 interface searchCourse {
-  title: string;
+  Query: string;
 }
 
 export type { searchCourse };
