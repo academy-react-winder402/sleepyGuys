@@ -5,6 +5,8 @@ import CommentCard from "@/components/Modules/CommentCard/CommentCard";
 import { CommentCard as CommentCardType } from "@/interfaces/commentCard.interface";
 import SkeletonCommentCard from "@/components/Modules/CommentCard/SkeletonCommentCard";
 import { useRouter } from "next/router";
+import { isUserAuthenticated } from "@/utils/isUserAuthenticated";
+import MainButton from "@/components/Modules/Button/MainButton";
 
 export default function CourseCommentsBox({
   data,
@@ -15,7 +17,8 @@ export default function CourseCommentsBox({
 }) {
 
   const router = useRouter()
-  const { query } = router
+
+  const { asPath, query } = router
 
   const replyCommentName = useRef<string | null>()
 
@@ -36,7 +39,19 @@ export default function CourseCommentsBox({
         </p>}
       </CardHeader>
       <CardBody>
-        <SubmitCommentForm />
+        {isUserAuthenticated() ? <SubmitCommentForm /> :
+          <div className="text-right flex items-center gap-2">
+            <p className="font-peyda text-lg">برای ثبت نظر اول باید وارد حسابت بشی</p>
+            <MainButton
+              content="ورود به حساب"
+              className="bg-primary dark:bg-primary-darker text-btnText rounded-lg font-peyda"
+              onClick={() => router.push({
+                pathname: "/login",
+                query: {
+                  callbackUrl: asPath
+                }
+              })} />
+          </div>}
         <CardHeader>
           <p className="font-kalamehBlack text-3xl text-primary dark:text-primary-lighter">
             نظرات
@@ -48,6 +63,7 @@ export default function CourseCommentsBox({
           )) : data?.map((comment, index) => (
             <CommentCard {...comment} key={index} detectReplyToWhichUser={detectReplyToWhichUser} />
           ))}
+          {data?.length === 0 && <p className="font-kalamehBlack text-2xl text-secondary">تا الان هیچ نظری برای این دوره ثبت نشده است!</p>}
         </div>
       </CardBody>
     </Card>

@@ -125,7 +125,7 @@ function Footer() {
       </footer>
       <Divider className="w-[85%] mx-auto bg-darkBody mt-10" />
       <p className="text-center py-5 text-darkBody">
-        طراحی شده توسط تیم Sleepy Guys
+        طراحی شده با ♥️ توسط تیم Sleepy Guys
       </p>
     </div>
   );

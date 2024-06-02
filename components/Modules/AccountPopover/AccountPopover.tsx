@@ -15,6 +15,7 @@ import { useRouter } from "next/router";
 import UserCard from "../UserCard/UserCard";
 import MainButton from "../Button/MainButton";
 import { isUserAuthenticated } from "@/utils/isUserAuthenticated";
+import { revokeToken } from "@/utils/revokeToken";
 
 export default function AccountPopover() {
   const router = useRouter();
@@ -25,6 +26,10 @@ export default function AccountPopover() {
     router.push("/login")
   }
 
+  const logoutUserHandler = () => {
+    revokeToken()
+    router.reload()
+  }
   return (
     <Popover offset={15} placement="bottom-start" backdrop={"blur"}>
       <PopoverTrigger>
@@ -67,10 +72,11 @@ export default function AccountPopover() {
                 <div className="flex items-center justify-center gap-x-1">
                   <Image src={logout} alt="" />
                   <p className="text-lightBody dark:text-darkBody">
-                    خروج از حساب{" "}
+                    خروج از حساب
                   </p>
                 </div>
               }
+              onClick={logoutUserHandler}
               variant="light"
               color="danger"
             />

@@ -15,7 +15,7 @@ export default function SkeletonCommentCard() {
                     </div>
                 </div>
             </CardHeader>
-            <Divider className="mt-3 mb-6" />
+            <Divider className="mb-6" />
             <Skeleton className='rounded-md w-1/2 h-[30px]' />
         </Card>
     )
