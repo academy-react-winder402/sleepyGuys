@@ -61,13 +61,6 @@ export default function TeacherCard({
               >
                 {fullName}
               </Chip>
-              {/* <Chip
-                startContent={<Image src={starIcon} alt="" />}
-                variant="solid"
-                className="font-peyda rounded-xl text-white dark:text-darkTitle bg-lightBody dark:bg-dark px-4 h-12 max-w-full"
-              >
-                <div className="pt-[5px]">5 / {star}</div>
-              </Chip> */}
             </div>
           </div>
         </div>
