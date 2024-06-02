@@ -1,5 +1,4 @@
 import courseIcon from "@/public/pictures/teachers/course.svg";
-import starIcon from "@/public/pictures/teachers/star.svg";
 import clockIcon from "@/public/pictures/teachers/clock.svg";
 import teacherIcon from "@/public/pictures/teachers/teacher.svg";
 import { teachers } from "@/interfaces/teacher.interface";
@@ -10,9 +9,9 @@ import { validateImageAddress } from "@/utils/validateImageAdderss";
 import fallbackImage from "@/public/pictures/teachers/arian.webp"
 
 export default function TeacherCard({
-  teacherId,
+  // teacherId,
   fullName,
-  linkdinProfileLink,
+  // linkdinProfileLink,
   courseCounts,
   newsCount,
   pictureAddress
