@@ -32,7 +32,7 @@ export default function CourseHorizontalFilterBox() {
           className="text-2xl font-peyda w-full"
           hasBorder={false}
           register={{
-            ...register("title", {
+            ...register("Query", {
               required: true,
             }),
           }}
@@ -56,11 +56,10 @@ export default function CourseHorizontalFilterBox() {
           {courseSortItem.map((item) => (
             <li
               key={item.id}
-              className={`flex items-center justify-center flex-col xs:gap-1 ${
-                Object.is(router.query[item.query], "true")
+              className={`flex items-center justify-center flex-col xs:gap-1 ${Object.is(router.query[item.query], "true")
                   ? "text-primary dark:text-primary-lighter"
                   : "text-gray-lighter"
-              }`}
+                }`}
             >
               <Link
                 href={{
