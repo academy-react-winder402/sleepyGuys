@@ -28,16 +28,16 @@ function CorseInfo({ }) {
   // const { data: replyCommentsData, isLoading: replyCommentsIsLoading } = useGetCourseReplyCommentsApi({ CourseId: query.courseId, CommentId: "jndjfknds" })
   return (
     <>
-      {courseDetailsIsLoading ? <SkeletonCourseDetailsBox /> : <CourseDetailsBox {...courseDetailsData} />}
+      {courseDetailsIsLoading || !query.courseId ? <SkeletonCourseDetailsBox /> : <CourseDetailsBox {...courseDetailsData} />}
       <div className="flex items-start gap-x-8">
         <div className="flex flex-col w-full lg:w-[70%] gap-y-8 shadow-2xl shadow-shadowColor dark:shadow-none rounded-3xl">
-          <CourseSummaryBox {...courseDetailsData} isLoading={courseDetailsIsLoading} />
-          <CourseDescriptionBox description={courseDetailsData?.describe ?? ""} isLoading={courseDetailsIsLoading} />
+          <CourseSummaryBox {...courseDetailsData} isLoading={courseDetailsIsLoading || !query.courseId} />
+          <CourseDescriptionBox description={courseDetailsData?.describe ?? ""} isLoading={courseDetailsIsLoading || !query.courseId} />
           <CourseHeadlinesBox data={getCourseTitles()} />
-          <CourseCommentsBox data={commentsData} isCommentsLoading={isCommentsLoading} />
+          <CourseCommentsBox data={commentsData} isCommentsLoading={isCommentsLoading || !query.courseId} />
         </div>
         <div className="hidden lg:flex flex-col gap-y-8 w-1/3">
-          {courseDetailsIsLoading ? <SkeletonTeacherDetailsBox /> : <TeacherDetailBox teacherName={courseDetailsData?.teacherName} teacherId={courseDetailsData?.teacherId} />}
+          {courseDetailsIsLoading || !query.courseId ? <SkeletonTeacherDetailsBox /> : <TeacherDetailBox teacherName={courseDetailsData?.teacherName} teacherId={courseDetailsData?.teacherId} />}
           <RelatedCoursesBox />
         </div>
       </div>

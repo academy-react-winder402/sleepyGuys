@@ -67,7 +67,7 @@ export default function HorizontalFilterBox({
           {sortItemsArray.map((item, index) => (
             <li
               key={index}
-              className={`flex items-center justify-center flex-col xs:gap-1 ${query.sort === item.query
+              className={`flex items-center justify-center flex-col xs:gap-1 ${query.SortType === item.query
                 ? "text-primary dark:text-primary-lighter"
                 : "text-gray-lighter"
                 }`}

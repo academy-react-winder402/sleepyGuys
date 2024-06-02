@@ -59,13 +59,27 @@ export const useRegisterNewUserApi = () => {
 
 export const useLoginUserApi = () => {
   const router = useRouter();
+  const { query } = router;
+  const callbackUrl: string | null | undefined | any = query.callbackUrl;
 
   return useMutation({
     mutationFn: (payload: loginFormType) => loginUserApi(payload),
     onSuccess: (res) => {
       Cookies.set("token", res.data.token);
       toast.success("با موفقیت وارد حساب شدید");
-      router.push("/");
+      switch (Boolean(callbackUrl)) {
+        case true: {
+          return router.push({
+            pathname: callbackUrl,
+          });
+        }
+        case false: {
+          return router.push("/");
+        }
+        default: {
+          break;
+        }
+      }
     },
   });
 };
@@ -93,4 +107,3 @@ export const useFinalStepResetPasswordUserApi = () => {
     },
   });
 };
-

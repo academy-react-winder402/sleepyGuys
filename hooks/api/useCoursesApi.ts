@@ -29,7 +29,7 @@ export const useGetCourseDetailsApi = (
   return useQuery({
     queryKey: ["courseDetails"],
     queryFn: () => getCourseDetailsApi(CourseId).then((data) => data.data),
-    enabled: Boolean(CourseId),
+    enabled: !!CourseId,
   });
 };
 
@@ -66,9 +66,9 @@ export const useGetCoursesCommentApi = (
   CourseId: string | string[] | undefined
 ) => {
   return useQuery({
-    queryKey: ["coursesComments"],
+    queryKey: ["coursesComments", CourseId],
     queryFn: () => getCoursesCommentApi(CourseId).then((data) => data.data),
-    enabled: Boolean(CourseId),
+    enabled: !!CourseId,
   });
 };
 
@@ -110,12 +110,17 @@ export const useAddReplyCourseCommentApi = (reset: () => void) => {
   });
 };
 
-export const useAddCourseCommentLikeApi = () => {
+export const useAddCourseCommentLikeApi = (courseId: string) => {
+  const queryClient = useQueryClient();
+
   return useMutation({
     mutationFn: (CourseCommandId: string) =>
       addCourseCommentLikeApi(CourseCommandId),
     onSuccess: () => {
       toast.success("کامنتی که لایک کردی با موفقیت انجام شد");
+      queryClient.invalidateQueries({
+        queryKey: ["coursesComments", courseId],
+      });
     },
   });
 };

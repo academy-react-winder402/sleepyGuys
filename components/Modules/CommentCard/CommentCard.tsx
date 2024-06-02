@@ -29,12 +29,13 @@ function CommentCard({
   detectReplyToWhichUser,
   likeCount,
   disslikeCount,
-  currentUserEmotion
+  currentUserEmotion,
+  courseId,
 }: CommentCard) {
   const router = useRouter()
   const { pathname, query } = router
 
-  const { mutate: addCourseCommentLikeMutate } = useAddCourseCommentLikeApi()
+  const { mutate: addCourseCommentLikeMutate } = useAddCourseCommentLikeApi(courseId)
 
   const { mutate: addCourseCommentDissLikeMutate } = useAddCourseCommentDissLikeApi()
 
@@ -75,7 +76,7 @@ function CommentCard({
           <Image src={replyIcon} alt="" onClick={navigateToCommentForm} className="cursor-pointer" />
         </div>
       </CardHeader>
-      <Divider className="mt-3 mb-6" />
+      <Divider className="mb-6" />
       <p className="text-lightBody dark:text-darkBody text-sm lgb:text-[14px] leading-7">
         {title}
         {describe}
