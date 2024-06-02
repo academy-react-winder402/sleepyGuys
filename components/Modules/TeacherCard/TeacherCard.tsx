@@ -1,5 +1,4 @@
 import courseIcon from "@/public/pictures/teachers/course.svg";
-import starIcon from "@/public/pictures/teachers/star.svg";
 import clockIcon from "@/public/pictures/teachers/clock.svg";
 import teacherIcon from "@/public/pictures/teachers/teacher.svg";
 import { teachers } from "@/interfaces/teacher.interface";
@@ -10,11 +9,11 @@ import { validateImageAddress } from "@/utils/validateImageAdderss";
 import fallbackImage from "@/public/pictures/teachers/arian.webp"
 
 export default function TeacherCard({
+  // teacherId,
   fullName,
-  description,
-  courseTime,
+  // linkdinProfileLink,
   courseCounts,
-  star,
+  newsCount,
   pictureAddress
 }: teachers) {
   return (
@@ -26,7 +25,7 @@ export default function TeacherCard({
       <CardBody>
         <div className="flex flex-col sm:flex-row gap-6">
           <div className="relative w-full sm:w-[40%] lgb:[30%] h-auto md:h-[280px] rounded-3xl overflow-hidden">
-            <Image src={validateImageAddress(pictureAddress, fallbackImage)} alt="" className="w-full" />
+            <Image src={validateImageAddress(pictureAddress, fallbackImage)} width={400} height={400} alt="" className="w-full" />
           </div>
 
           <div className="flex flex-col justify-start text-right w-full sm:w-[60%] lgb:[70%]">
@@ -37,7 +36,7 @@ export default function TeacherCard({
               className="text-[14px] font-peyda line-clamp-2 md:text-[16px] text-lightBody dark:text-darkBody"
               dir="rtl"
             >
-              {description}
+              به جرعت میتونم بگم سخت گیرترین شرایط جذب مدرس داریم چون برامون مهمه محتوا خیلی ساده و روان بیان بشه که توی یادگیری به مشکل نخورید.
             </p>
             <div className="hidden sm:grid sm:grid-cols-2 gap-4 my-6 md:w-[80%] lg:w-full lgb:w-[80%]">
               <Chip
@@ -45,7 +44,7 @@ export default function TeacherCard({
                 variant="solid"
                 className="font-peyda rounded-xl text-white dark:text-darkTitle bg-lightBody dark:bg-dark px-4 h-12 max-w-full"
               >
-                {courseTime} ساعت
+                {newsCount} مقاله
               </Chip>
               <Chip
                 startContent={<Image src={courseIcon} alt="" />}
@@ -60,13 +59,6 @@ export default function TeacherCard({
                 className="font-peyda rounded-xl text-white dark:text-darkTitle bg-lightBody dark:bg-dark px-4 h-12 max-w-full"
               >
                 {fullName}
-              </Chip>
-              <Chip
-                startContent={<Image src={starIcon} alt="" />}
-                variant="solid"
-                className="font-peyda rounded-xl text-white dark:text-darkTitle bg-lightBody dark:bg-dark px-4 h-12 max-w-full"
-              >
-                <div className="pt-[5px]">5 / {star}</div>
               </Chip>
             </div>
           </div>

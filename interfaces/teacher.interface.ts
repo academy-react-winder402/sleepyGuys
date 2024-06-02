@@ -1,11 +1,8 @@
 interface teachers {
   teacherId: number;
   fullName: string;
-  description: string;
-  courseTime: string;
-  star: number;
-  pictureAddress: null | string;
-  linkdinProfileLink: string;
+  linkdinProfileLink: any;
+  pictureAddress: any;
   courseCounts: number;
   newsCount: number;
 }
