@@ -12,6 +12,7 @@ import {
   addReplyCourseCommentApi,
   addCourseCommentLikeApi,
   addCourseCommentDissLikeApi,
+  addCourseReserveApi,
 } from "@/services/api/coursesApi";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import toast from "react-hot-toast";
@@ -126,6 +127,15 @@ export const useAddCourseCommentDissLikeApi = () => {
       addCourseCommentDissLikeApi(CourseCommandId),
     onSuccess: () => {
       toast.success("کامنتی که دیسلایک کردی با موفقیت انجام شد");
+    },
+  });
+};
+
+export const useAddCourseReserveApi = () => {
+  return useMutation({
+    mutationFn: (payload: { courseId: string|string[]|undefined }) => addCourseReserveApi(payload),
+    onSuccess: () => {
+      toast.success("دوره موردنظر با موفقیت رزرو شد");
     },
   });
 };

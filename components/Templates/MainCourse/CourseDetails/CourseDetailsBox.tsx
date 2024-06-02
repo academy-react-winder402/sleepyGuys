@@ -6,8 +6,18 @@ import { courseDetailsBoxProps } from "@/interfaces/courseDetails.interface";
 import { validateImageAddress } from "@/utils/validateImageAdderss";
 import convertToPersianDigit from "@/utils/convertToPersianDigit";
 import addCommasToPersianNumber from "@/utils/addCommasToPersianDigit";
+import { useAddCourseReserveApi } from "@/hooks/api/useCoursesApi";
+import { isUserAuthenticated } from "@/utils/isUserAuthenticated";
+import { useRouter } from "next/router";
 
 export default function CourseDetailsBox({ title, miniDescribe, imageAddress, cost }: courseDetailsBoxProps) {
+  const router = useRouter()
+  const { asPath, query } = router
+  const { mutate, isPending } = useAddCourseReserveApi()
+
+  const reserveCourseHandler = () => {
+    mutate({ courseId: query.courseId })
+  }
   return (
     <div className="relative h-[300px] lg:h-[350px] lgb:h-[450px] mb-20 text-DarkBody rounded-3xl">
       <Image
@@ -30,12 +40,24 @@ export default function CourseDetailsBox({ title, miniDescribe, imageAddress, co
               </p>
             </div>
             <div className="flex flex-col-reverse sm:flex-row gap-5 justify-between items-center sm:items-end w-full">
-              <div>
+              {isUserAuthenticated() ? <MainButton
+                className="bg-primary dark:bg-primary-darker text-btnText px-8 py-4 lgb:px-10 lgb:py-6 rounded-3x text-md"
+                content={<p>رزرو دوره</p>}
+                isLoading={isPending}
+                onClick={reserveCourseHandler}
+              /> : <div className="space-y-2">
                 <MainButton
                   className="bg-primary dark:bg-primary-darker text-btnText px-8 py-4 lgb:px-10 lgb:py-6 rounded-3x text-md"
-                  content={<p>خرید آنلاین دوره</p>}
+                  content={<p>ورود به حساب</p>}
+                  onClick={() => router.push({
+                    pathname: "/login",
+                    query: {
+                      callbackUrl: asPath
+                    }
+                  })}
                 />
-              </div>
+                <p className="font-peyda text-secondary">توجه:برای رزرو دوره اول باید وارد حسابت بشی</p>
+              </div>}
               <div className="flex flex-col gap-1 md:gap-2 lg:gap-3 font-peyda text-2xl text-white">
                 {addCommasToPersianNumber(convertToPersianDigit(cost))} تومان
               </div>

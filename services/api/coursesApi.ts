@@ -71,6 +71,13 @@ export const addCourseCommentLikeApi = (CourseCommandId: string) => {
 
 export const addCourseCommentDissLikeApi = (CourseCommandId: string) => {
   return httpService.post(
-    baseUrl + `Course/AddCourseCommentDissLike?CourseCommandId=${CourseCommandId}`
+    baseUrl +
+      `Course/AddCourseCommentDissLike?CourseCommandId=${CourseCommandId}`
   );
+};
+
+export const addCourseReserveApi = (payload: {
+  courseId: string | string[] | undefined;
+}) => {
+  return httpService.post(baseUrl + `CourseReserve/ReserveAdd`, payload);
 };

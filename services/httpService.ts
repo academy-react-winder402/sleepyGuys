@@ -30,6 +30,8 @@ axios.interceptors.response.use(
     return response;
   },
   function (error) {
+    console.log("error axios ==>", error);
+
     switch (error?.response?.status) {
       case 400: {
         toast.error(error?.response?.data.ErrorMessage);
@@ -37,6 +39,10 @@ axios.interceptors.response.use(
       }
       case 401: {
         toast.error("شما برای این عمل، احراز هویت نشده اید");
+        break;
+      }
+      case 403: {
+        toast.error("دسترسی غیرمجاز");
         break;
       }
       default: {
