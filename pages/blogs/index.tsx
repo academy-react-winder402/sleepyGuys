@@ -1,14 +1,16 @@
 import BlogsBox from "@/components/Templates/Blogs/BlogsBox";
 import React from "react";
 import HorizontalFilterBox from "@/components/Modules/HorizontalFilter/HorizontalFilterBox";
-import blogSortItem from "@/constants/blogSortItem";
+import { courseSortTypeItems } from "@/constants/courseSortTypeItems";
+import courseSortingColItems from "@/constants/courseSortingColItems";
 
 function Blogs() {
   return (
     <>
       <HorizontalFilterBox
         placeholder="جستجو اخبار"
-        sortingColArray={blogSortItem}
+        sortTypeArray={courseSortTypeItems}
+        sortingColArray={courseSortingColItems}
       />
       <BlogsBox />
     </>
