@@ -13,7 +13,7 @@ import { horizontalFilter } from "@/interfaces/horizontalFilter.interface";
 
 export default function HorizontalFilterBox({
   placeholder,
-  sortItemsArray,
+  sortingColArray,
 }: horizontalFilter) {
   const { register, handleSubmit } = useForm<searchCourse>();
 
@@ -27,7 +27,8 @@ export default function HorizontalFilterBox({
     if (data.Query.trim()) {
       newQuery = {
         ...query,
-        Query: data.Query
+        Query: data.Query,
+        PageNumber: "1"
       }
     } else {
       delete newQuery.Query
@@ -68,9 +69,9 @@ export default function HorizontalFilterBox({
             <Divider className="w-8 md:w-12 absolute top-[50%] md:-left-[200%] lg:-left-[150%] rotate-90" />
           </li>
           <li>
-            <p className="font-peyda">مرتب سازی :</p>
+            <p className="font-peyda">مرتب سازی براساس :</p>
           </li>
-          {sortItemsArray.map((item, index) => (
+          {sortingColArray.map((item, index) => (
             <li
               key={index}
               className={`flex items-center justify-center flex-col xs:gap-1 ${query.SortType === item.query
@@ -81,7 +82,7 @@ export default function HorizontalFilterBox({
               <Link
                 href={{
                   pathname,
-                  query: { ...query, SortType: item.query }
+                  query: { ...query, SortType: item.query, PageNumber: "1" }
                 }}
               >
                 {item.name}
@@ -92,7 +93,7 @@ export default function HorizontalFilterBox({
       </div>
       <div className="sm:hidden w-[50%] flex gap-2 items-center">
         <Divider className="w-8 md:w-12 rotate-90 -mr-4" />
-        <MainDropdown data={sortItemsArray} />
+        <MainDropdown data={sortingColArray} />
       </div>
     </div>
   );

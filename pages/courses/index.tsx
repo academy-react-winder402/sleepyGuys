@@ -2,7 +2,6 @@ import React from "react";
 import CourseVerticalFilterBox from "@/components/Templates/Courses/CourseVerticalFilter/CourseVerticalFilterBox";
 import CoursesBox from "@/components/Templates/Courses/CoursesBox";
 import HorizontalFilterBox from "@/components/Modules/HorizontalFilter/HorizontalFilterBox";
-import courseSortItem from "@/constants/courseSortItem";
 import SkeletonCourseCard from "@/components/Modules/CourseCard/SkeletonCourseCard";
 import CourseCard from "@/components/Modules/CourseCard/CourseCard";
 import { QueryClient, dehydrate } from "@tanstack/react-query";
@@ -11,6 +10,7 @@ import { useRouter } from "next/router";
 import { useGetCoursesWithPaginationApi } from "@/hooks/api/useCoursesApi";
 import { getCoursesWithPaginationApi } from "@/services/api/coursesApi";
 import { GetServerSideProps } from "next";
+import courseSortingColItems from "@/constants/courseSortingColItems";
 
 export default function Courses() {
   const router = useRouter();
@@ -25,7 +25,7 @@ export default function Courses() {
       <div className="space-y-6">
         <HorizontalFilterBox
           placeholder="جستجو دوره"
-          sortItemsArray={courseSortItem}
+          sortingColArray={courseSortingColItems}
         />
         <div className="flex flex-col md:flex-row md:gap-x-6">
           <CourseVerticalFilterBox />

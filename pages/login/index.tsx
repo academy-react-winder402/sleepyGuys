@@ -1,6 +1,4 @@
 import LoginBox from "@/components/Templates/Login/LoginBox";
-import { GetStaticProps } from "next";
-import { cookies } from "next/headers";
 import React from "react";
 
 function Login() {

@@ -1,3 +1,4 @@
+import { queriesOptions } from "@/configs/queriesOption";
 import DefautLayout from "@/layouts/DefautLayout";
 import EmptyLayout from "@/layouts/EmptyLayout";
 import "@/styles/globals.css";
@@ -13,7 +14,7 @@ export default function App({ Component, pageProps }: AppProps) {
 
   const loginRoutes = ["/login", "/register", "/resetPassword"];
 
-  const queryClient = new QueryClient();
+  const queryClient = new QueryClient(queriesOptions);
 
   const Layout = loginRoutes.includes(router.pathname)
     ? EmptyLayout
