@@ -1,4 +1,7 @@
-import { getTeacherDetailsApi, getTeachersApi } from "@/services/api/teachersApi";
+import {
+  getTeacherDetailsApi,
+  getTeachersApi,
+} from "@/services/api/teachersApi";
 import { useQuery } from "@tanstack/react-query";
 
 export const useGetTeachersApi = () => {
@@ -8,11 +11,12 @@ export const useGetTeachersApi = () => {
   });
 };
 
-export const useGetCourseDetailsApi = (
+export const useGetTeacherDetailsApi = (
   TeacherId: string | string[] | undefined
 ) => {
   return useQuery({
     queryKey: ["teacherDetails"],
     queryFn: () => getTeacherDetailsApi(TeacherId).then((data) => data.data),
+    enabled: !!TeacherId,
   });
 };
