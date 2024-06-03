@@ -90,12 +90,12 @@ export default function CourseVerticalFilterBox() {
   }, [teachersSelected])
   return (
     <div className="w-[100%] md:w-[30%] lg:w-[22%] mb-6">
-      <div className="flex bg-white p-4 rounded-xl flex-col gap-5 dark:bg-dark-lighter">
-        <h2 className="font-peyda text-[18px] lg:text-[20px] text-lightTitle dark:text-darkTitle">
+      <div className="grid grid-cols-2 md:grid-cols-1 bg-white p-4 rounded-xl gap-5 dark:bg-dark-lighter">
+        <h2 className="col-span-2 md:col-span-1 font-peyda text-[18px] lg:text-[20px] text-lightTitle dark:text-darkTitle">
           فیلتر ها
         </h2>
         <Card
-          className="shadow-none p-4 bg-mainBodyBg dark:bg-dark flex flex-row justify-between"
+          className="shadow-none p-3 bg-mainBodyBg dark:bg-dark flex flex-row items-center justify-between gap-1"
           dir="rtl"
         >
           <p>تکمیل شده</p>
@@ -106,7 +106,7 @@ export default function CourseVerticalFilterBox() {
           />
         </Card>
         <Card
-          className="shadow-none p-4 bg-mainBodyBg dark:bg-dark flex flex-row justify-between"
+          className="shadow-none p-3 bg-mainBodyBg dark:bg-dark flex flex-row justify-between gap-1"
           dir="rtl"
         >
           <p>رایگان</p>
@@ -116,7 +116,7 @@ export default function CourseVerticalFilterBox() {
             onValueChange={setIsFree}
           />
         </Card>
-        <Accordion variant="splitted" className="font-vazir w-full px-0">
+        <Accordion variant="splitted" className="font-vazir px-0">
           <AccordionItem
             className="!shadow-none !bg-mainBodyBg dark:!bg-dark text-lightTitle dark:text-darkTitle"
             aria-label="دسته بندی"
