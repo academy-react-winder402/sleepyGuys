@@ -9,21 +9,21 @@ export default function SuggestedTeacherCard({
 }: {
   data: teacherSummaryProps;
 }) {
-  // const { title, img } = data;
+  // const { img } = data;
   return (
     <Link href={"#"} className="cursor-pointer">
       <Card className="bg-white dark:bg-dark-lighter overflow-visible w-fit ms-auto -mt-20 shadow-md dark:shadow-none">
         <CardBody className="flex items-center flex-row gap-2 overflow-visible py-0">
           <Image
             alt=""
-            src={img}
+            src={""}
             className="w-16 h-16 object-cover rounded-xl -translate-y-7"
           />
           <div className="flex items-center gap-2 font-bold">
             <span className="text-lightBody dark:text-darkBody text-sm">
               رفتن به صفحه
             </span>
-            <span className="text-lightTitle dark:text-darkTitle">{title}</span>
+            <span className="text-lightTitle dark:text-darkTitle"></span>
             <Divider className="w-[35px] h-[2px] bg-primary dark:bg-primary-lighter" />
           </div>
         </CardBody>
