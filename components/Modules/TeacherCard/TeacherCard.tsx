@@ -68,7 +68,7 @@ export default function TeacherCard({
         <Divider className="my-4" />
         <div className="flex justify-center items-center mt-2">
           <Link
-            href={`teachers/${fullName}`}
+            href={`teachers/${fullName}?teacherId=${teacherId}`}
             className="md:col-start-3 col-span-1 mx-auto md:ms-auto md:mx-0 flex justify-center w-full items-center gap-x-2 text-lightTitle dark:text-darkTitle font-peyda"
           >
             <Divider className="w-[60px] rounded-full h-1 bg-lightBody dark:bg-darkBody" />
