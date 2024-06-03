@@ -10,11 +10,6 @@ export default function TeachersBox() {
   return (
     <div className="flex items-start w-full justify-center">
       <MainStepper steps={data?.length ?? Array.from({ length: 6 }).length} />
-      {/* <div className="flex justify-center items-center flex-col gap-10">
-        {data?.map((teacher: any, index: any) => (
-          <TeacherCard key={index} {...teacher} />
-        ))}
-      </div> */}
       <TeacherCardBox data={data ?? Array.from({ length: 6 })} Content={isLoading ? SkeletonTeacherCard : TeacherCard} />
     </div>
   );

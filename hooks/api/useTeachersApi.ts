@@ -1,4 +1,5 @@
 import {
+  getTeacherCourseApi,
   getTeacherDetailsApi,
   getTeachersApi,
 } from "@/services/api/teachersApi";
@@ -17,6 +18,16 @@ export const useGetTeacherDetailsApi = (
   return useQuery({
     queryKey: ["teacherDetails"],
     queryFn: () => getTeacherDetailsApi(TeacherId).then((data) => data.data),
+    enabled: !!TeacherId,
+  });
+};
+
+export const useGetTeacherCourseApi = (
+  TeacherId: string | string[] | undefined
+) => {
+  return useQuery({
+    queryKey: ["teacherCourse"],
+    queryFn: () => getTeacherCourseApi(TeacherId).then((data) => data.data),
     enabled: !!TeacherId,
   });
 };

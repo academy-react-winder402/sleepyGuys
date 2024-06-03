@@ -1,11 +1,19 @@
 import BoxHeader from "@/components/Modules/BoxHeader/BoxHeader";
 import CourseCard from "@/components/Modules/CourseCard/CourseCard";
+import { Course } from "@/interfaces/course.interface";
 import { getCourses } from "@/mock/getCourses";
 import { Divider } from "@nextui-org/react";
 import Link from "next/link";
 import React from "react";
 
-export default function TeacherCourses() {
+export default function TeacherCourses({
+  data,
+  Content,
+}: {
+  data: Course[];
+  Content: React.ElementType;
+}) {
+  console.log(data)
   return (
     <div className="-translate-y-[200px] z-10 relative w-[90%] mx-auto">
       <BoxHeader
@@ -14,11 +22,10 @@ export default function TeacherCourses() {
         titleColor="text-white"
       />
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-        {getCourses()
-          .slice(0, 4)
+        {data.slice(0, 4)
           .map((item, index) => (
             <div key={index}>
-              <CourseCard courseId={""} tumbImageAddress={""} describe={""} cost={""} teacherName={""} courseRate={0} courseReserveId={""} currentUserRateNumber={0} currentUserSetRate={false} dissLikeCount={0} likeCount={0} isCourseReseve={false} isUserFavorite={false} lastUpdate={""} levelName={""} statusName={""} typeName={""} userFavoriteId={""} userIsDissLiked={false} userIsLiked={false} userLikeId={""} {...item} />
+              <Content {...item} />
             </div>
           ))}
       </div>
