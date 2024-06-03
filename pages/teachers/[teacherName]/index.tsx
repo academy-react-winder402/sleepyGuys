@@ -29,6 +29,7 @@ export default function TeacherName() {
       <TeacherDetailBox isLoading={isLoading} coursesCount={data?.coursesCount} fullName={data?.fullName} histories={data?.histories} linkdinProfileLink={data?.linkdinProfileLink} newsCount={data?.newsCount} pictureAddress={data?.pictureAddress} skills={data?.skills} teacherId={data?.teacherId}/>
       <TeacherCourses />
       {/* <SuggestedTeacherCard data={getSuggestedTeacher()} /> */}
+      {/*  */}
     </>
   );
 }
