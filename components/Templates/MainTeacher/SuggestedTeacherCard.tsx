@@ -9,7 +9,7 @@ export default function SuggestedTeacherCard({
 }: {
   data: teacherSummaryProps;
 }) {
-  const { title, img } = data;
+  // const { title, img } = data;
   return (
     <Link href={"#"} className="cursor-pointer">
       <Card className="bg-white dark:bg-dark-lighter overflow-visible w-fit ms-auto -mt-20 shadow-md dark:shadow-none">
