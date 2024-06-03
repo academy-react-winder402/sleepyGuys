@@ -9,10 +9,10 @@ export default function SuggestedTeacherCard({
 }: {
   data: teacherSummaryProps;
 }) {
-  const { title, img } = data;
+  // const { title, img } = data;
   return (
     <Link href={"#"} className="cursor-pointer">
-      <Card className="bg-white dark:bg-dark-lighter overflow-visible w-fit ms-auto -mt-20 shadow-md dark:shadow-none">
+      {/* <Card className="bg-white dark:bg-dark-lighter overflow-visible w-fit ms-auto -mt-20 shadow-md dark:shadow-none">
         <CardBody className="flex items-center flex-row gap-2 overflow-visible py-0">
           <Image
             alt=""
@@ -27,7 +27,7 @@ export default function SuggestedTeacherCard({
             <Divider className="w-[35px] h-[2px] bg-primary dark:bg-primary-lighter" />
           </div>
         </CardBody>
-      </Card>
+      </Card> */}
     </Link>
   );
 }

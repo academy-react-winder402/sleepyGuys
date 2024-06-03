@@ -13,7 +13,7 @@ function TeacherDetailBox({ coursesCount , isLoading , fullName, histories, link
   const summaryItemsValues = [5, 15, 5, 4];
   return (
     <>
-    {isLoading ?
+    {!isLoading ?
      <Card className="relative mt-12 overflow-visible rounded-2xl">
      <div className="absolute w-full h-full bg-[rgba(0,0,0,0.4)] backdrop-blur-sm z-10 rounded-2xl"></div>
      <Image

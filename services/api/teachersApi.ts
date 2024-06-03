@@ -13,3 +13,11 @@ export const getTeacherDetailsApi = (
     baseUrl + `Home/GetTeacherDetails?TeacherId=${TeacherId}`
   );
 };
+
+export const getTeacherCourseApi = (
+  TeacherId: string | string[] | undefined
+) => {
+  return httpService.get(
+    baseUrl + `Home/GetCoursesWithPagination?TeacherId=${TeacherId}`
+  );
+};
