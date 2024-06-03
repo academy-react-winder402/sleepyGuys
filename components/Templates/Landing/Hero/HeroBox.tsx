@@ -37,7 +37,7 @@ function Hero() {
             <div className="lg:ml-16 relative">
               <form onSubmit={handleSubmit(submitFormHandler)}>
                 <PrimaryInput
-                  placeholder="ایمیلت رو برامون بنویس..."
+                  placeholder="چیزی که دنبالشی رو اینجا بنویس..."
                   variant="faded"
                   className="font-peyda w-full"
                   register={{

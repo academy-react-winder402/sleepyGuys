@@ -46,7 +46,7 @@ export default function CourseCommentsBox({
       <CardBody>
         {isAuthenticated ? <SubmitCommentForm /> :
           <div className="text-right flex items-center gap-2">
-            <p className="font-peyda text-lg">برای ثبت نظر اول باید وارد حسابت بشی</p>
+            <p className="font-peyda text-lg">برای ثبت نظر باید وارد حسابت بشی</p>
             <MainButton
               content="ورود به حساب"
               className="bg-primary dark:bg-primary-darker text-btnText rounded-lg font-peyda"

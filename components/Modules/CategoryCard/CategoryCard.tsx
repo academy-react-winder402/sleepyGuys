@@ -10,7 +10,7 @@ function CategoryCard({ id, techName, iconAddress }: Category) {
 
   return (
     <div
-      className="p-2 md:p-3 bg-white dark:bg-dark-lighter rounded-3xl flex flex-col gap-3 items-center w-1/4"
+      className="p-2 md:p-3 bg-white dark:bg-dark-lighter rounded-3xl flex flex-col gap-3 items-center w-[45%] md:w-[30%] lg:w-[20%]"
       onClick={() => router.push({
         pathname: "/courses", query: {
           ListTech: id
