@@ -8,7 +8,7 @@ export const useGetTeachersApi = () => {
   });
 };
 
-export const useGetCourseDetailsApi = (
+export const useGetTeacherDetailsApi = (
   TeacherId: string | string[] | undefined
 ) => {
   return useQuery({
