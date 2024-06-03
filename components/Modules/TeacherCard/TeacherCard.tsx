@@ -1,17 +1,19 @@
 import courseIcon from "@/public/pictures/teachers/course.svg";
-import clockIcon from "@/public/pictures/teachers/clock.svg";
+import newspaperIcon from "@/public/icons/theme/newspaper.svg";
 import teacherIcon from "@/public/pictures/teachers/teacher.svg";
+import linkedinIcon from "@/public/icons/theme/linkedin.svg";
 import { teachers } from "@/interfaces/teacher.interface";
 import { Card, CardBody, Chip, Divider } from "@nextui-org/react";
 import Image from "next/image";
 import Link from "next/link";
 import { validateImageAddress } from "@/utils/validateImageAdderss";
 import fallbackImage from "@/public/pictures/teachers/arian.webp"
+import convertToPersianDigit from "@/utils/convertToPersianDigit";
 
 export default function TeacherCard({
-  // teacherId,
+  teacherId,
   fullName,
-  // linkdinProfileLink,
+  linkdinProfileLink,
   courseCounts,
   newsCount,
   pictureAddress
@@ -40,25 +42,25 @@ export default function TeacherCard({
             </p>
             <div className="hidden sm:grid sm:grid-cols-2 gap-4 my-6 md:w-[80%] lg:w-full lgb:w-[80%]">
               <Chip
-                startContent={<Image src={clockIcon} alt="" />}
+                startContent={<Image src={newspaperIcon} alt="" />}
                 variant="solid"
-                className="font-peyda rounded-xl text-white dark:text-darkTitle bg-lightBody dark:bg-dark px-4 h-12 max-w-full"
+                className="font-peyda rounded-xl text-white dark:text-darkTitle bg-lightBody dark:bg-dark px-4 h-12 max-w-none"
               >
-                {newsCount} مقاله
+                {convertToPersianDigit(newsCount)} مقاله
               </Chip>
               <Chip
                 startContent={<Image src={courseIcon} alt="" />}
                 variant="solid"
-                className="font-peyda rounded-xl text-white dark:text-darkTitle bg-lightBody dark:bg-dark px-4 h-12 max-w-full"
+                className="font-peyda rounded-xl text-white dark:text-darkTitle bg-lightBody dark:bg-dark px-4 h-12 max-w-none"
               >
-                {courseCounts} دوره آموزشی
+                {convertToPersianDigit(courseCounts)} دوره آموزشی
               </Chip>
               <Chip
-                startContent={<Image src={teacherIcon} alt="" />}
+                startContent={<Image src={linkedinIcon} width={25} alt="" />}
                 variant="solid"
-                className="font-peyda rounded-xl text-white dark:text-darkTitle bg-lightBody dark:bg-dark px-4 h-12 max-w-full"
+                className="font-peyda rounded-xl col-span-2 text-white dark:text-darkTitle bg-lightBody dark:bg-dark px-4 h-12 max-w-none min-w-full overflow-hidden"
               >
-                {fullName}
+                {linkdinProfileLink && <Link href={linkdinProfileLink}>برو به لینکدین استاد</Link>}
               </Chip>
             </div>
           </div>

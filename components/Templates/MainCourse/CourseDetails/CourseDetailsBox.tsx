@@ -56,7 +56,7 @@ export default function CourseDetailsBox({ title, miniDescribe, imageAddress, co
                     }
                   })}
                 />
-                <p className="font-peyda text-secondary">توجه:برای رزرو دوره اول باید وارد حسابت بشی</p>
+                <p className="font-peyda text-secondary">برای رزرو دوره باید وارد حسابت بشی</p>
               </div>}
               <div className="flex flex-col gap-1 md:gap-2 lg:gap-3 font-peyda text-2xl text-white">
                 {addCommasToPersianNumber(convertToPersianDigit(cost))} تومان

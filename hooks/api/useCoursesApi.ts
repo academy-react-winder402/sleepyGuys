@@ -138,7 +138,8 @@ export const useAddCourseCommentDissLikeApi = () => {
 
 export const useAddCourseReserveApi = () => {
   return useMutation({
-    mutationFn: (payload: { courseId: string|string[]|undefined }) => addCourseReserveApi(payload),
+    mutationFn: (payload: { courseId: string | string[] | undefined }) =>
+      addCourseReserveApi(payload),
     onSuccess: () => {
       toast.success("دوره موردنظر با موفقیت رزرو شد");
     },
