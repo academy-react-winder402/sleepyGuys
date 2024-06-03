@@ -10,7 +10,7 @@ export default function TeachersBox() {
   return (
     <div className="flex items-start w-full justify-center">
       <MainStepper steps={data?.length ?? Array.from({ length: 6 }).length} />
-      <TeacherCardBox data={data ?? Array.from({ length: 6 })} Content={true ? SkeletonTeacherCard : TeacherCard} />
+      <TeacherCardBox data={data ?? Array.from({ length: 6 })} Content={isLoading ? SkeletonTeacherCard : TeacherCard} />
     </div>
   );
 }
