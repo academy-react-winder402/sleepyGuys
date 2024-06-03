@@ -10,7 +10,13 @@ export default function CurvedPagination({ total }: { total: number }) {
 
   const changePageHandler = (newPage: number) => {
     setCurrentPage(newPage);
-    router.push(pathname + `?PageNumber=${newPage}`);
+    router.push({
+      pathname,
+      query: {
+        ...query,
+        PageNumber: newPage
+      }
+    });
   };
 
   useEffect(() => {

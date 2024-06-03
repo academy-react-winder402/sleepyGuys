@@ -3,6 +3,7 @@ import Navbar from "@/components/Modules/Navbar/Navbar";
 import React from "react";
 
 export default function DefautLayout({ children }: any) {
+
   return (
     <div className="relative" style={{ paddingTop: "2rem" }}>
       <Navbar />

@@ -8,7 +8,7 @@ function Blogs() {
     <>
       <HorizontalFilterBox
         placeholder="جستجو اخبار"
-        sortItemsArray={blogSortItem}
+        sortingColArray={blogSortItem}
       />
       <BlogsBox />
     </>

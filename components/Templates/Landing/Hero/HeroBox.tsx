@@ -11,7 +11,6 @@ function Hero() {
   const {
     register,
     handleSubmit,
-    formState: { errors },
   } = useForm<NewsLetterFormType>();
 
   const submitFormHandler: SubmitHandler<NewsLetterFormType> = (data) => {
@@ -62,7 +61,7 @@ function Hero() {
             </h1>
             <p className="text-lightBody dark:text-darkBodytext-[16px]">
               آکادمی آموزشی سپهر مکانی برای پیشرفت تو تا بتونی مهارت های مورد
-              نیزار برای طراحی وب با بهترین روش یاد بگیری{" "}
+              نیاز برای طراحی وب با بهترین روش یاد بگیری
             </p>
           </div>
         </div>

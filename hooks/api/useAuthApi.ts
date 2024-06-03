@@ -38,9 +38,6 @@ export const useVerifyCodeApi = (goToRegisterStep3: () => void) => {
       toast.success("تایید انجام شد");
       goToRegisterStep3();
     },
-    onError: (err) => {
-      console.log("Error", err);
-    },
   });
 };
 
@@ -69,9 +66,7 @@ export const useLoginUserApi = () => {
       toast.success("با موفقیت وارد حساب شدید");
       switch (Boolean(callbackUrl)) {
         case true: {
-          return router.push({
-            pathname: callbackUrl,
-          });
+          return router.push(callbackUrl);
         }
         case false: {
           return router.push("/");

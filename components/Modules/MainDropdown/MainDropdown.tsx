@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useMemo, useState } from "react";
 import {
   Dropdown,
   DropdownTrigger,
@@ -6,13 +6,13 @@ import {
   DropdownItem,
   Button,
 } from "@nextui-org/react";
-import { CoursesSortItem } from "@/interfaces/coursesSortItem.interface";
 import { BlogSortItem } from "@/interfaces/blogSortItem.interface";
+import { CourseSortingColProps } from "@/interfaces/courseSortingCol.interface";
 
-export default function MainDropdown({ data }: { data: CoursesSortItem[] | BlogSortItem[] }) {
-  const [selectedKeys, setSelectedKeys] = React.useState(new Set(["جدیدترین"]));
+export default function MainDropdown({ data }: { data: CourseSortingColProps[] | BlogSortItem[] }) {
+  const [selectedKeys, setSelectedKeys] = useState(new Set(["مرتب سازی براساس"]));
 
-  const selectedValue = React.useMemo(
+  const selectedValue = useMemo(
     () => Array.from(selectedKeys).join(", ").replaceAll("_", " "),
     [selectedKeys]
   );
@@ -26,29 +26,28 @@ export default function MainDropdown({ data }: { data: CoursesSortItem[] | BlogS
       <DropdownTrigger>
         <Button
           variant="flat"
-          className="capitalize w-full text-lightTitle dark:text-darkTitle"
+          className="w-full text-lightTitle dark:text-darkTitle font-peyda"
         >
           {selectedValue}
         </Button>
       </DropdownTrigger>
       <DropdownMenu
-        aria-label="Single selection example"
         variant="flat"
         disallowEmptySelection
         selectionMode="single"
         selectedKeys={selectedKeys}
         onSelectionChange={handleSelectionChange}
       >
-        {[
-          ...data.map((item, index) => (
+        {
+          data.map((item) => (
             <DropdownItem
-              className="text-lightTitle dark:text-darkTitle"
+              className="text-lightTitle dark:text-darkTitle font-peyda"
               key={item.name}
             >
               {item.name}
             </DropdownItem>
-          )),
-        ]}
+          ))
+        }
       </DropdownMenu>
     </Dropdown>
   );

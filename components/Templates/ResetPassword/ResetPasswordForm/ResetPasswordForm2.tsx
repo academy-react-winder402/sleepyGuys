@@ -13,7 +13,6 @@ export default function ResetPasswordForm1() {
   } = useForm<resetPasswordForm2Type>();
   const resetPasswordUser = useFinalStepResetPasswordUserApi();
   const submitFormHandler: SubmitHandler<resetPasswordForm2Type> = (data) => {
-    console.log(data)
     resetPasswordUser.mutate({
       ...data,
       userId: 4,

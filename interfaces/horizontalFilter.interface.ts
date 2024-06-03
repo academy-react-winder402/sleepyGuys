@@ -1,9 +1,9 @@
 import { BlogSortItem } from "./blogSortItem.interface";
-import { CourseSortItem } from "./courseSortItem.interface";
+import { CourseSortingColProps } from "./courseSortingCol.interface";
 
 interface horizontalFilter {
   placeholder: string;
-  sortItemsArray: CourseSortItem[] | BlogSortItem[] | [];
+  sortingColArray: CourseSortingColProps[] | BlogSortItem[] | [];
 }
 
 export type { horizontalFilter };

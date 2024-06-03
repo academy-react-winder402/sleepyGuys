@@ -14,17 +14,10 @@ import userIcon from "@/public/icons/theme/user.svg";
 import { useRouter } from "next/router";
 import UserCard from "../UserCard/UserCard";
 import MainButton from "../Button/MainButton";
-import { isUserAuthenticated } from "@/utils/isUserAuthenticated";
 import { revokeToken } from "@/utils/revokeToken";
 
 export default function AccountPopover() {
   const router = useRouter();
-
-  const isAuthenticated = isUserAuthenticated()
-
-  const goToLoginPage = () => {
-    router.push("/login")
-  }
 
   const logoutUserHandler = () => {
     revokeToken()
@@ -43,7 +36,7 @@ export default function AccountPopover() {
         </div>
       </PopoverTrigger>
       <PopoverContent className="w-[250px] bg-white dark:bg-dark-lighter sm:w-[340px] items-start rounded-tl-none p-6">
-        {isAuthenticated ? (<>
+        <>
           <UserCard
             title="آرمان غنی زاده"
             description="موجودی: ۰تومان"
@@ -81,23 +74,7 @@ export default function AccountPopover() {
               color="danger"
             />
           </div>
-        </>) : (
-          <div className="w-full flex flex-col">
-            <MainButton
-              content={
-                <div className="flex items-center justify-center gap-x-1">
-                  <Image src={logout} alt="" />
-                  <p className="text-lightBody dark:text-darkBody">
-                    ورود به حساب
-                  </p>
-                </div>
-              }
-              variant="light"
-              onClick={goToLoginPage}
-            />
-          </div>
-        )}
-
+        </>
       </PopoverContent>
     </Popover>
   );
