@@ -83,7 +83,7 @@ export default function HorizontalFilterBox({
               <Link
                 href={{
                   pathname,
-                  query: { ...query, SortType: item.query, PageNumber: "1" }
+                  query: { ...query, SortingCol: item.query, PageNumber: "1" }
                 }}
               >
                 {item.name}
