@@ -21,7 +21,7 @@ export default function TeacherCard({
   return (
     <Card
       isBlurred
-      className="border-none w-full lg:w-[70%] flex p-4 bg-white dark:bg-dark-lighter shadow-none"
+      className="border-none w-full lg:w-[80%] lg:-translate-x-20 flex p-4 bg-white dark:bg-dark-lighter shadow-none"
       shadow="sm"
     >
       <CardBody>
