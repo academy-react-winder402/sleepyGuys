@@ -7,7 +7,7 @@ import { teacherSummaryProps } from "@/interfaces/teacherSummary.interface";
 import { validateImageAddress } from "@/utils/validateImageAdderss";
 import fallbackImage from "@/public/pictures/teachers/arian.webp"
 
-function TeacherDetailBox({ coursesCount, fullName, histories, linkdinProfileLink, newsCount, pictureAddress, skills, teacherId }: any) {
+function TeacherDetailBox({ courseCounts, fullName, histories, linkdinProfileLink, newsCount, pictureAddress, skills, teacherId }: teacherSummaryProps) {
 
   const summaryItemsValues = [5, 15, 5, 4];
   return (

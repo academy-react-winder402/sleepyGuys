@@ -24,17 +24,17 @@ export default function App({ Component, pageProps }: AppProps) {
     <NextUIProvider navigate={router.push}>
       <NextThemesProvider attribute="class" defaultTheme="light">
         <QueryClientProvider client={queryClient}>
-          {/* <HydrationBoundary state={pageProps.dehydratedState}> */}
-          <Layout>
-            <Component {...pageProps} />
-            <Toaster
-              position="top-right"
-              toastOptions={{
-                className: "font-peyda",
-              }}
-            />
-          </Layout>
-          {/* </HydrationBoundary> */}
+          <HydrationBoundary state={pageProps.dehydratedState}>
+            <Layout>
+              <Component {...pageProps} />
+              <Toaster
+                position="top-right"
+                toastOptions={{
+                  className: "font-peyda",
+                }}
+              />
+            </Layout>
+          </HydrationBoundary>
         </QueryClientProvider>
       </NextThemesProvider>
     </NextUIProvider>

@@ -13,7 +13,6 @@ export default function TeacherCourses({
   data: Course[];
   Content: React.ElementType;
 }) {
-  console.log(data)
   return (
     <div className="-translate-y-[200px] z-10 relative w-[90%] mx-auto">
       <BoxHeader

@@ -17,7 +17,7 @@ export default function TeacherName() {
   const router = useRouter();
   const { query } = router
 
-  const { data, isLoading } = useGetTeacherDetailsApi(query.teacherId)
+  const { data: teacherDetailData, isLoading: teacherDetailIsLoading } = useGetTeacherDetailsApi(query.teacherId)
 
   const { data: courseData, isLoading: courseIsLoding } = useGetTeacherCourseApi(query.teacherId)
 
@@ -26,20 +26,12 @@ export default function TeacherName() {
       <MainBreadcrumb
         items={[
           { id: 1, route: "/teachers", title: "استاد ها" },
-          { id: 2, route: `/teachers/${data?.fullName}`, title: data?.fullName },
+          { id: 2, route: `/teachers/${teacherDetailData?.fullName}`, title: teacherDetailData?.fullName },
         ]}
       />
-      {isLoading || !query.teacherId ? <SkeletonTeacherDetailBox /> :
-        <TeacherDetailBox
-          coursesCount={data.coursesCount}
-          fullName={data.fullName}
-          histories={data.histories}
-          linkdinProfileLink={data.linkdinProfileLink}
-          newsCount={data.newsCount}
-          pictureAddress={data.pictureAddress}
-          skills={data.skills}
-          teacherId={data.teacherId} />}
-      <TeacherCourses data={courseData?.courseFilterDtos ?? Array.from({ length: 6 })} Content={isLoading ? SkeletonCourseCard : CourseCard} />
+      {teacherDetailIsLoading || !query.teacherId ? <SkeletonTeacherDetailBox /> :
+        <TeacherDetailBox {...teacherDetailData} />}
+      <TeacherCourses data={courseData?.courseFilterDtos ?? Array.from({ length: 6 })} Content={courseIsLoding || !query.teacherId ? SkeletonCourseCard : CourseCard} />
       <SuggestedTeacherCard data={getSuggestedTeacher()} />
     </>
   );
