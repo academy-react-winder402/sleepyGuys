@@ -10,7 +10,7 @@ function TeacherCardBox({
   Content: React.ElementType;
 }) {
   return (
-    <div className="flex justify-center items-center flex-col gap-10">
+    <div className="flex justify-center items-center flex-col gap-10 w-[88%]">
       {data?.map((teacher: any, index: any) => (
         <Content key={index} {...teacher} />
       ))}
