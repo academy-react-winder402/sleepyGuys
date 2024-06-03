@@ -3,7 +3,7 @@ import React from "react";
 import Image from "next/image";
 import teacherSummary from "@/constants/teacherSummary";
 
-function TeacherDetailBox() {
+function SkeletonTeacherDetailBox() {
   const summaryItemsValues = [5, 15, 5, 4];
   return (
     <Card className="relative kir mt-12 overflow-visible rounded-2xl">
@@ -26,7 +26,7 @@ function TeacherDetailBox() {
                 {item.title}
               </p>
               <span className="text-darkBody text-xs">
-              <Skeleton className="h-6 w-20 rounded-md" />
+                <Skeleton className="h-6 w-20 rounded-md" />
               </span>
             </div>
           ))}
@@ -36,4 +36,4 @@ function TeacherDetailBox() {
   );
 }
 
-export default TeacherDetailBox;
+export default SkeletonTeacherDetailBox;

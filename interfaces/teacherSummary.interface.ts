@@ -1,14 +1,12 @@
-import { StaticImageData } from "next/image";
-
 interface teacherSummaryProps {
-  coursesCount: any;
-  fullName: string;
-  histories: any;
-  linkdinProfileLink: string;
-  newsCount: number;
-  pictureAddress: string;
-  skills: any;
+  skills: string[];
+  histories: string[];
   teacherId: number;
+  fullName: string;
+  linkdinProfileLink: string | null;
+  pictureAddress: string | null;
+  courseCounts: number;
+  newsCount: number;
 }
 
 export type { teacherSummaryProps };
