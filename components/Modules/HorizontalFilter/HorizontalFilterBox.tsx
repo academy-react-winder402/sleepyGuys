@@ -8,12 +8,13 @@ import { SubmitHandler, useForm } from "react-hook-form";
 import { searchCourse } from "@/interfaces/searchCourse.interface";
 import MainButton from "@/components/Modules/Button/MainButton";
 import { useRouter } from "next/router";
-import MainDropdown from "@/components/Modules/MainDropdown/MainDropdown";
 import { horizontalFilter } from "@/interfaces/horizontalFilter.interface";
+import MainSelect from "../MainSelect/MainSelect";
 
 export default function HorizontalFilterBox({
   placeholder,
   sortingColArray,
+  sortTypeArray
 }: horizontalFilter) {
   const { register, handleSubmit } = useForm<searchCourse>();
 
@@ -63,7 +64,7 @@ export default function HorizontalFilterBox({
           type="submit"
         />
       </form>
-      <div className="hidden sm:flex items-center w-full">
+      <div className="hidden lg:flex items-center w-full gap-8">
         <ul className="items-center gap-x-6 font-peyda text-[13px] md:text-[15px] flex">
           <li className="w-3 h-5 flex justify-center items-center relative">
             <Divider className="w-8 md:w-12 absolute top-[50%] md:-left-[200%] lg:-left-[150%] rotate-90" />
@@ -90,10 +91,14 @@ export default function HorizontalFilterBox({
             </li>
           ))}
         </ul>
+        <MainSelect data={sortTypeArray} label="نوع مرتب سازی" queryName="SortType" className="w-[160px]" />
       </div>
-      <div className="sm:hidden w-[50%] flex gap-2 items-center">
+      <div className="lg:hidden w-[50%] flex gap-2 items-center">
         <Divider className="w-8 md:w-12 rotate-90 -mr-4" />
-        <MainDropdown data={sortingColArray} />
+        <div className="flex items-center gap-2 flex-wrap">
+          <MainSelect data={sortingColArray} label="مرتب سازی براساس" queryName="SortingCol" className="w-[150px]" />
+          <MainSelect data={sortTypeArray} label="نوع مرتب سازی" queryName="SortType" className="w-[150px]" />
+        </div>
       </div>
     </div>
   );
