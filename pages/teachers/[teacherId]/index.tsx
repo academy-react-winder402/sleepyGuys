@@ -32,7 +32,7 @@ export default function TeacherName() {
       {teacherDetailIsLoading || !query.teacherId ? <SkeletonTeacherDetailBox /> :
         <TeacherDetailBox {...teacherDetailData} />}
       <TeacherCourses data={courseData?.courseFilterDtos ?? Array.from({ length: 6 })} Content={courseIsLoding || !query.teacherId ? SkeletonCourseCard : CourseCard} />
-      <SuggestedTeacherCard data={getSuggestedTeacher()} />
+      <SuggestedTeacherCard />
     </>
   );
 }
