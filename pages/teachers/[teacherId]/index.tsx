@@ -40,7 +40,7 @@ export default function TeacherName() {
           skills={data.skills}
           teacherId={data.teacherId} />}
       <TeacherCourses data={courseData?.courseFilterDtos ?? Array.from({ length: 6 })} Content={isLoading ? SkeletonCourseCard : CourseCard} />
-      <SuggestedTeacherCard data={getSuggestedTeacher()} />
+      <SuggestedTeacherCard />
     </>
   );
 }
