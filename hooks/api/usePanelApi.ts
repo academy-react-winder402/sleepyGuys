@@ -1,4 +1,5 @@
 import { getProfileInfoApi } from "@/services/api/panelApi";
+import { isUserAuthenticated } from "@/utils/isUserAuthenticated";
 import { useQuery } from "@tanstack/react-query";
 
 export const useGetProfileInfoApi = () => {
@@ -6,5 +7,6 @@ export const useGetProfileInfoApi = () => {
     queryKey: ["profileInfo"],
     queryFn: () => getProfileInfoApi().then((data) => data.data),
     retry: 0,
+    enabled: !!isUserAuthenticated(),
   });
 };
