@@ -8,7 +8,7 @@ export default function BlogCard(data: any) {
     <div
       className={`border-l-2 col-span-4 md:col-span-2 lg:col-span-1 border-lightTitle dark:border-darkTitle px-2 gap-y-2 flex flex-col`}
     >
-      <Link href={`/blogs/${data.title}`}>
+      <Link href={`/blogs/${data.id}`}>
       <Image src={data.currentImageAddressTumb} width={400} height={400} alt="" priority={true} />
       </Link>
       <div>
