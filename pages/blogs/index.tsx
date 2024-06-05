@@ -3,8 +3,18 @@ import React from "react";
 import HorizontalFilterBox from "@/components/Modules/HorizontalFilter/HorizontalFilterBox";
 import { courseSortTypeItems } from "@/constants/courseSortTypeItems";
 import courseSortingColItems from "@/constants/courseSortingColItems";
+import { useRouter } from "next/router";
+import { useGetNewsWithPaginationApi } from "@/hooks/api/useNewsApi";
 
 function Blogs() {
+  const router = useRouter();
+  const { query } = router;
+
+  const { data, isLoading } = useGetNewsWithPaginationApi({
+    RowsOfPage: 9,
+    ...query,
+  });
+  // console.log(data , isLoading)
   return (
     <>
       <HorizontalFilterBox
@@ -12,7 +22,11 @@ function Blogs() {
         sortTypeArray={courseSortTypeItems}
         sortingColArray={courseSortingColItems}
       />
-      <BlogsBox />
+      <BlogsBox
+        data={data?.news ?? Array.from({ length: 6 })}
+        isLoading={isLoading}
+        totalCount = {data?.totalCount}
+      />
     </>
   );
 }

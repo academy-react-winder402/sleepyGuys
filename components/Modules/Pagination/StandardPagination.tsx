@@ -2,14 +2,14 @@ import React, { useEffect, useState } from "react";
 import { Pagination } from "@nextui-org/react";
 import { useRouter } from "next/router";
 
-export default function StandardPagination() {
+export default function StandardPagination({totalCount} : {totalCount: number}) {
   const router = useRouter();
 
   const [currentPage, setCurrentPage] = useState(1);
 
   const changePageHandler = (newPage: number) => {
     setCurrentPage(newPage);
-    router.push(router.pathname + `?page=${newPage}`);
+    router.push(router.pathname + `?PageNumber=${newPage}`);
   };
 
   useEffect(() => {
@@ -20,7 +20,7 @@ export default function StandardPagination() {
     <div className="flex justify-center items-center mt-10 col-span-4">
       <Pagination
         className="pagination"
-        total={10}
+        total={totalCount}
         color="secondary"
         size="md"
         dir="rtl"
