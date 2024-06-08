@@ -7,6 +7,7 @@ function BlogName() {
   const router = useRouter();
   const { query } = router
   const { data, isLoading } = useGetCourseDetailsApi(query.blogName)
+  console.log(data)
   return (
     <>
       <MainBlogBox isLoding={isLoading} data={data?.detailsNewsDto} comments={data?.commentDtos} />

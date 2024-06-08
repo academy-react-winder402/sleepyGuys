@@ -5,10 +5,10 @@ import Link from "next/link";
 import { validateImageAddress } from "@/utils/validateImageAdderss";
 import fallbackImage from "@/public/pictures/blog/blogImage.jpg"
 
-export default function TopBlogCard({ title, currentImageAddressTumb, miniDescribe }: Blog) {
+export default function TopBlogCard({ title, id , currentImageAddressTumb, miniDescribe }: Blog) {
   return (
     <div className="border-x-3 border-lightTitle dark:border-darkTitle px-2 relative overflow-hidden col-span-4 h-[400px]">
-      <Link href={`/blogs/${title}`}>
+      <Link href={`/blogs/${id}`}>
         <Image src={validateImageAddress(currentImageAddressTumb, fallbackImage)} width={1000} height={400} alt="" className="absolute w-full -top-[30%] lg:-top-[50%] left-0 z-0" />
       </Link>
       <div className="absolute w-full h-full top-0 left-0 z-0 bg-[rgba(0,0,0,0.7)]"></div>
