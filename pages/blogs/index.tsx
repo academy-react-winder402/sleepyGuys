@@ -14,7 +14,7 @@ function Blogs() {
     RowsOfPage: 9,
     ...query,
   });
-  // console.log(data , isLoading)
+
   return (
     <>
       <HorizontalFilterBox
@@ -23,9 +23,9 @@ function Blogs() {
         sortingColArray={courseSortingColItems}
       />
       <BlogsBox
-        data={data?.news ?? Array.from({ length: 6 })}
+        data={data?.news ?? Array.from({ length: 9 })}
         isLoading={isLoading}
-        totalCount = {data?.totalCount}
+        totalCount={data?.totalCount ?? 1}
       />
     </>
   );

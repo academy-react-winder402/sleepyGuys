@@ -1,7 +1,5 @@
-import { StaticImageData } from "next/image";
-
 interface Blog {
-  addUserFullName: string;
+  addUserFullName: string | undefined;
   addUserProfileImage: string;
   currentDissLikeCount: number;
   currentImageAddressTumb: string;
