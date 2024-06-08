@@ -4,6 +4,8 @@ import img from "@/public/pictures/blog/blogImage.jpg";
 import BlogOtherCard from "./BlogOtherCard/BlogOtherCard";
 import MainBlogDescription from "./MainBlogDescription/MainBlogDescription";
 import SkeletonMainBlogBox from '@/components/Templates/MainBlog/SkeletonMainBlogBox'
+import { validateImageAddress } from "@/utils/validateImageAdderss";
+import fallBack from "@/public/pictures/blog/blogImage.jpg"
 
 export default function MainBlogBox({ data, comments, isLoding }: any) {
   console.log(data, comments);
@@ -26,7 +28,7 @@ export default function MainBlogBox({ data, comments, isLoding }: any) {
                 <div className=" w-[340px] md:w-[600px] h-auto lgb:h-[310px] lg:h-[280px] lg:w-[280px] xlb:w-[400px] lgb:w-[350px] relative">
                   <div className="bg-[#ccc] dark:bg-dark-darker w-full absolute lg:-top-10 lg:-right-10 lgb:-top-20 lgb:-right-12 h-[340px] md:h-[600px] lg:h-[280px] lgb:h-[310px] xlb:h-[380px] rounded-3xl lgb:rounded-[38px] rotate-6 md:rotate-12"></div>
                   <Image
-                    src={data?.currentImageAddress}
+                    src={validateImageAddress(data?.currentImageAddress , fallBack)}
                     width={400}
                     height={400}
                     alt=""
