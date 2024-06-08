@@ -22,7 +22,7 @@ export default function MainBlogDescription({ des }: { des: string }) {
         <ScrollShadow
           size={200}
           className={`${
-            !isExpanded ? "h-[40dvh]" : "h-auto"
+            isExpanded ? "h-[40dvh]" : "h-auto"
           }  leading-7 flex flex-col gap-y-6 overflow-hidden mb-10 text-lightBody dark:text-darkBody transition-height !duration-500 !ease-in-out`}
           visibility="auto"
         >
