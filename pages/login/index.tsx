@@ -1,4 +1,6 @@
 import LoginBox from "@/components/Templates/Login/LoginBox";
+import { getProfileInfoApi } from "@/services/api/panelApi";
+import { GetServerSideProps } from "next";
 import React from "react";
 
 function Login() {
@@ -7,19 +9,23 @@ function Login() {
 
 export default Login;
 
-export const getServerSideProps = ((context: any) => {
-  const { req } = context
+export const getServerSideProps = (async (context) => {
+  const { cookies } = context.req
 
-  const token = req.cookies?.token
-
-  if (token) {
+  try {
+    await getProfileInfoApi(cookies?.token);
     return {
       redirect: {
         destination: "/"
       },
+      props: {}
     }
+
+  } catch (error: any) {
+    console.log(error);
   }
+
   return {
-    props: {}
-  }
-})
+    props: {},
+  };
+}) satisfies GetServerSideProps

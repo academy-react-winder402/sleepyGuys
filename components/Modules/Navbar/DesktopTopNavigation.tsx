@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import navbarLogo from "@/public/icons/logo/navbarLogo.svg";
 import Link from "next/link";
 import ThemeSwitch from "@/components/Modules/Navbar/ThemeSwitch";
@@ -16,11 +16,6 @@ export default function DesktopTopNavigation() {
   const { asPath, pathname } = router;
 
   const { data, isLoading } = useGetProfileInfoApi()
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
 
   return (
     <nav className="hidden mb-10 sm:flex items-center justify-between">
@@ -49,7 +44,7 @@ export default function DesktopTopNavigation() {
       </div>
       <div className="flex items-center gap-x-2 md:gap-x-4">
         <ThemeSwitch />
-        {!mounted || isLoading ? <Spinner /> : !data ? (
+        {isLoading ? <Spinner /> : !data ? (
           <MainButton
             content={<p className="flex items-center gap-2 font-peyda"><span>ورود</span>|<span>عضویت</span></p>}
             startIcon={<Image src={userIcon} alt="" />}

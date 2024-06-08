@@ -1,16 +1,12 @@
 import Image from "next/image";
 import React from "react";
-import img from "@/public/pictures/blog/blogImage.jpg";
 import BlogOtherCard from "./BlogOtherCard/BlogOtherCard";
 import MainBlogDescription from "./MainBlogDescription/MainBlogDescription";
 import SkeletonMainBlogBox from '@/components/Templates/MainBlog/SkeletonMainBlogBox'
 import { validateImageAddress } from "@/utils/validateImageAdderss";
 import fallBack from "@/public/pictures/blog/blogImage.jpg"
-import { getBlogs } from "@/mock/getBlogs";
 
 export default function MainBlogBox({ data, relatedNews , relatedNewsIsLoding , comments, isLoding }: any) {
-  console.log(data, comments);
-  console.log(relatedNews);
   return (
     <>
       {(!isLoding) ? (

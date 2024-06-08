@@ -7,6 +7,6 @@ export const useGetProfileInfoApi = () => {
     queryKey: ["profileInfo"],
     queryFn: () => getProfileInfoApi().then((data) => data.data),
     retry: 0,
-    enabled: !!isUserAuthenticated(),
+    enabled:!!isUserAuthenticated()
   });
 };
