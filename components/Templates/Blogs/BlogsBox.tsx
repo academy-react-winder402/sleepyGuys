@@ -2,10 +2,22 @@ import { Divider } from "@nextui-org/react";
 import React from "react";
 import BlogCard from "./BlogCard";
 import TopBlogCard from "./TopBlogCard";
-import { getBlogs } from "@/mock/getBlogs";
 import StandardPagination from "@/components/Modules/Pagination/StandardPagination";
+import { Blog } from "@/interfaces/blog.interface";
+import SkeletonBlogCard from "@/components/Templates/Blogs/SkeletonBlogCard";
+import SkeletonTopBlogCard from "@/components/Templates/Blogs/SkeletonTopBlogCard";
 
-export default function BlogsBox() {
+interface BlogsBoxProps {
+  data: Blog[];
+  isLoading: boolean;
+  totalCount: number;
+}
+
+export default function BlogsBox({
+  data,
+  isLoading,
+  totalCount
+}: BlogsBoxProps) {
   return (
     <>
       <div className="mt-6 flex flex-col gap-10">
@@ -22,23 +34,28 @@ export default function BlogsBox() {
             <Divider className="w-[35%] md:w-[40%] h-[3px] bg-lightTitle dark:bg-darkTitle" />
           </div>
         </div>
-        <div className="grid grid-cols-4 bg-white dark:bg-dark-lighter gap-3 lg:gap-4 lgb:gap-8 p-10 lg:[&>*:nth-child(odd)]:flex-col-reverse">
-          {getBlogs()
-            .slice(0, 4)
-            .map((blog, index) => (
+        <div className="bg-white dark:bg-dark-lighter p-10">
+          {isLoading ?
+            <div className="grid grid-cols-4 gap-3 lg:gap-4 lgb:gap-8 lg:[&>*:nth-child(odd)]:flex-col-reverse">
+              {Array.from({ length: 4 }, (_, index) => (
+                <SkeletonBlogCard key={index} />
+              ))}
+              <SkeletonTopBlogCard />
+              {Array.from({ length: 4 }, (_, index) => (
+                <SkeletonBlogCard key={index} />
+              ))}
+            </div> :
+            <div className="grid grid-cols-4 gap-3 lg:gap-4 lgb:gap-8 lg:[&>*:nth-child(odd)]:flex-col-reverse">{data.map((blog, index) => (
               <BlogCard {...blog} key={index} />
             ))}
-          {getBlogs()
-            .slice(4, 5)
-            .map((blog, index) => (
-              <TopBlogCard {...blog} key={index} />
-            ))}
-          {getBlogs()
-            .slice(5, 9)
-            .map((blog, index) => (
-              <BlogCard {...blog} key={index} />
-            ))}
-          <StandardPagination />
+              {data.slice(4, 5).map((blog, index) => (
+                <TopBlogCard {...blog} key={index} />
+              ))}
+              {data.slice(5, 9).map((blog, index) => (
+                <BlogCard {...blog} key={index} />
+              ))}
+              <StandardPagination totalCount={totalCount} />
+            </div>}
         </div>
       </div>
     </>
