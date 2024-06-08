@@ -6,7 +6,6 @@ import MainBlogDescription from "./MainBlogDescription/MainBlogDescription";
 import SkeletonMainBlogBox from '@/components/Templates/MainBlog/SkeletonMainBlogBox'
 
 export default function MainBlogBox({ data, comments, isLoding }: any) {
-  console.log(data, comments);
   return (
     <>
       {!isLoding ? (

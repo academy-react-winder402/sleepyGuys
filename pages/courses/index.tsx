@@ -37,7 +37,7 @@ export default function Courses() {
           />
         </div>
         <div className="pt-6">
-          <CurvedPagination total={data?.totalCount ?? 1} />
+          <CurvedPagination total={data?.totalCount ?? 1} rowsOfPage={9} />
         </div>
       </div>
     </>

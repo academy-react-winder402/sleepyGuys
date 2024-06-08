@@ -9,7 +9,7 @@ function BlogName() {
   const { data, isLoading } = useGetCourseDetailsApi(query.blogName)
   return (
     <>
-      <MainBlogBox isLoding={isLoading} data={data?.detailsNewsDto} comments={data?.commentDtos} />
+      <MainBlogBox is={isLoading} data={data?.detailsNewsDto} comments={data?.commentDtos} />
     </>
   );
 }
