@@ -1,7 +1,6 @@
 import Image from "next/image";
 import React from "react";
 import img from "@/public/pictures/blog/blogImage.jpg";
-import { getBlogs } from "@/mock/getBlogs";
 import BlogOtherCard from "./BlogOtherCard/BlogOtherCard";
 import MainBlogDescription from "./MainBlogDescription/MainBlogDescription";
 
@@ -33,9 +32,9 @@ export default function MainBlogBox() {
         </div>
       </div>
       <div className="text-lightTitle dark:text-darkTitle text-[30px] font-peyda mb-10 mt-40">اخبار مشابه</div>
-      <div className="gap-5 grid lgb:grid-cols-4 md:grid-cols-2 grid-cols-1">
+      {/* <div className="gap-5 grid lgb:grid-cols-4 md:grid-cols-2 grid-cols-1">
         {getBlogs().slice(0, 4).map((blog, index) => <BlogOtherCard {...blog} key={index} />)}
-      </div>
+      </div> */}
       {/* <BlogComments data={getComments()} /> */}
     </>
   );
