@@ -6,12 +6,14 @@ import MainBlogDescription from "./MainBlogDescription/MainBlogDescription";
 import SkeletonMainBlogBox from '@/components/Templates/MainBlog/SkeletonMainBlogBox'
 import { validateImageAddress } from "@/utils/validateImageAdderss";
 import fallBack from "@/public/pictures/blog/blogImage.jpg"
+import { getBlogs } from "@/mock/getBlogs";
 
-export default function MainBlogBox({ data, comments, isLoding }: any) {
+export default function MainBlogBox({ data, relatedNews , relatedNewsIsLoding , comments, isLoding }: any) {
   console.log(data, comments);
+  console.log(relatedNews);
   return (
     <>
-      {!isLoding ? (
+      {(!isLoding) ? (
         <>
           <div className="pt-10 lg:mr-20 relative">
             <p className="absolute flex justify-center items-center p-5 rounded-b-xl h-[50px] text-lightTitle dark:text-darkTitle -bottom-[50px] left-20 bg-[#ccc] dark:bg-dark-darker">
@@ -44,13 +46,13 @@ export default function MainBlogBox({ data, comments, isLoding }: any) {
           <div className="text-lightTitle dark:text-darkTitle text-[30px] font-peyda mb-10 mt-40">
             اخبار مشابه
           </div>
-          {/* <div className="gap-5 grid lgb:grid-cols-4 md:grid-cols-2 grid-cols-1">
-            {getBlogs()
-              .slice(0, 4)
-              .map((blog, index) => (
-                <BlogOtherCard {...blog} key={index} />
-              ))}
-          </div> */}
+          { !relatedNewsIsLoding && <div className="gap-5 grid lgb:grid-cols-4 md:grid-cols-2 grid-cols-1">
+            {relatedNews?.map((blog : any) => 
+                {
+                  console.log(blog)
+                  return <BlogOtherCard data={blog} key={blog?.id} />}
+              )}
+          </div>}
           {/* <BlogComments data={getComments()} /> */}
         </>
       ) : (

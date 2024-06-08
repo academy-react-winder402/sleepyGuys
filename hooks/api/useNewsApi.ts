@@ -10,7 +10,7 @@ export const useGetNewsWithPaginationApi = (params: any) => {
   });
 };
 
-export const useGetCourseDetailsApi = (
+export const useGetNewsDetailsApi = (
   NewsId: string | string[] | undefined
 ) => {
   return useQuery({
