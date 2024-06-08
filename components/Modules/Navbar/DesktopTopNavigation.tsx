@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import navbarLogo from "@/public/icons/logo/navbarLogo.svg";
 import Link from "next/link";
 import ThemeSwitch from "@/components/Modules/Navbar/ThemeSwitch";
@@ -16,6 +16,11 @@ export default function DesktopTopNavigation() {
   const { asPath, pathname } = router;
 
   const { data, isLoading } = useGetProfileInfoApi()
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   return (
     <nav className="hidden mb-10 sm:flex items-center justify-between">
@@ -28,36 +33,35 @@ export default function DesktopTopNavigation() {
           style={{ width: "auto" }}
         />
         <ul className="flex items-center sm:gap-x-5 lg:gap-x-6 font-peyda">
-          {navbarRoutesItems.map((route, index) => {
-            const isActive = pathname === route.href;
-            return (
-              <li
-                key={index}
-                className={
-                  isActive
-                    ? "text-primary-darker dark:text-white"
-                    : "text-lightBody dark:text-darkBody"
-                }
-              >
-                <Link href={route.href}>{route.name}</Link>
-              </li>
-            );
-          })}
+          {navbarRoutesItems.map((route, index) => (
+            <li
+              key={index}
+              className={
+                pathname === route.href
+                  ? "text-primary-darker dark:text-white"
+                  : "text-lightBody dark:text-darkBody"
+              }
+            >
+              <Link href={route.href}>{route.name}</Link>
+            </li>
+          ))}
         </ul>
       </div>
       <div className="flex items-center gap-x-2 md:gap-x-4">
         <ThemeSwitch />
-        {isLoading ? <Spinner /> : !data ? <MainButton
-          content={<p className="flex items-center gap-2 font-peyda"><span>ورود</span>|<span>عضویت</span></p>}
-          startIcon={<Image src={userIcon} alt="" />}
-          className="bg-primary dark:bg-primary-darker font-peyda text-btnText rounded-2xl"
-          onClick={() => router.push({
-            pathname: "/login",
-            query: {
-              callbackUrl: asPath
-            }
-          })}
-        /> : <AccountPopover />}
+        {!mounted || isLoading ? <Spinner /> : !data ? (
+          <MainButton
+            content={<p className="flex items-center gap-2 font-peyda"><span>ورود</span>|<span>عضویت</span></p>}
+            startIcon={<Image src={userIcon} alt="" />}
+            className="bg-primary dark:bg-primary-darker font-peyda text-btnText rounded-2xl"
+            onClick={() => router.push({
+              pathname: "/login",
+              query: {
+                callbackUrl: asPath
+              }
+            })}
+          />
+        ) : <AccountPopover />}
       </div>
     </nav>
   );
