@@ -6,8 +6,8 @@ import { useGetNewsCommentApi, useGetNewsDetailsApi, useGetNewsWithPaginationApi
 function BlogName() {
   const router = useRouter();
   const { query } = router
-  const { data : newsDetailData, isLoading : newsDetailIsLoding } = useGetNewsDetailsApi(query.blogName)
-  const { data : relatedNews , isLoading : relatedNewsIsLoding } = useGetNewsWithPaginationApi({
+  const { data: newsDetailData, isLoading: newsDetailIsLoding } = useGetNewsDetailsApi(query.blogName)
+  const { data: relatedNews, isLoading: relatedNewsIsLoding } = useGetNewsWithPaginationApi({
     RowsOfPage: 4,
   });
   const { data : newsDetailComments, isLoading : newsDetailCommentsIsLoding } = useGetNewsCommentApi(query.blogName)

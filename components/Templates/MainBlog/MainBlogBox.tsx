@@ -1,6 +1,5 @@
 import Image from "next/image";
 import React from "react";
-import img from "@/public/pictures/blog/blogImage.jpg";
 import BlogOtherCard from "./BlogOtherCard/BlogOtherCard";
 import MainBlogDescription from "./MainBlogDescription/MainBlogDescription";
 import SkeletonMainBlogBox from '@/components/Templates/MainBlog/SkeletonMainBlogBox'

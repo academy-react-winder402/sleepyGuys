@@ -1,5 +1,10 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 export default function EmptyLayout({ children }: any) {
-  return <div className="container">{children}</div>;
+  const [isMounted, setIsMounted] = useState(false)
+
+  useEffect(() => {
+    setIsMounted(true)
+  }, [])
+  return <div className="container">{isMounted ? children : null}</div>;
 }
