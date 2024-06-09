@@ -61,7 +61,7 @@ export default function BlogsBox() {
               {data?.news.slice(5, 9).map((blog: Blog, index: number) => (
                 <BlogCard {...blog} key={index} />
               ))}
-              <StandardPagination totalCount={data?.totalCount ?? 1} />
+              <StandardPagination totalCount={data?.totalCount ?? 1} rowsOfPage={9} />
             </div>}
         </div>
       </div>

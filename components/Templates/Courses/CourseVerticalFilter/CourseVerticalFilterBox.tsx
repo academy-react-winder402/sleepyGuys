@@ -7,7 +7,7 @@ import {
   CheckboxGroup,
   Skeleton,
 } from "@nextui-org/react";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { useRouter } from "next/router";
 import { useGetAllCourseLevelApi, useGetCourseTypesApi, useGetTechnologiesApi } from "@/hooks/api/useCoursesApi";
 import { courseLevelProps } from "@/interfaces/courseLevel.interface";
@@ -15,219 +15,208 @@ import { courseTypesProps } from "@/interfaces/courseTypes.interface";
 import { technologiesProps } from "@/interfaces/technologies.interface";
 import { useGetTeachersApi } from "@/hooks/api/useTeachersApi";
 import { teachers } from "@/interfaces/teacher.interface";
+import { Controller, SubmitHandler, useForm } from "react-hook-form";
+import { courseVerticalFilterProps } from "@/interfaces/courseVerticalFilter.interface";
+import MainButton from "@/components/Modules/Button/MainButton";
 
 export default function CourseVerticalFilterBox() {
   const router = useRouter();
 
+  const { control, handleSubmit } = useForm<courseVerticalFilterProps>()
+
   const { pathname, query } = useRouter()
 
-  const [isCompleted, setisCompleted] = useState<boolean>(false);
+  const { data: courseLevelData, isLoading: courseLevelIsLoading } = useGetAllCourseLevelApi()
 
-  const [isFree, setIsFree] = useState<boolean>(false);
+  const { data: courseTypesData, isLoading: courseTypesIsLoading } = useGetCourseTypesApi()
 
-  const [technologiesSelected, setTechnologiesSelected] = useState<string[]>([]);
+  const { data: technologiesData, isLoading: technologiesIsLoading } = useGetTechnologiesApi()
 
-  const [courseLevelSelected, setCourseLevelSelected] = useState<string[]>([])
+  const { data: teachersData, isLoading: teachersIsLoading } = useGetTeachersApi()
 
-  const [courseTypesSelected, setCourseTypesSelected] = useState<string[]>([])
-
-  const [teachersSelected, setTeachersSelected] = useState<string[]>([])
-
-  const getAllCourseLevel = useGetAllCourseLevelApi()
-  const { data: courseLevelData, isLoading: courseLevelIsLoading } = getAllCourseLevel
-
-  const getCourseTypes = useGetCourseTypesApi()
-  const { data: courseTypesData, isLoading: courseTypesIsLoading } = getCourseTypes
-
-  const getTechnologies = useGetTechnologiesApi()
-  const { data: technologiesData, isLoading: technologiesIsLoading } = getTechnologies
-
-  const getTeachers = useGetTeachersApi()
-  const { data: teachersData, isLoading: teachersIsLoading } = getTeachers
-
-  useEffect(() => {
+  const submitFormHandler: SubmitHandler<courseVerticalFilterProps> = (data) => {
     const newQuery = {
       ...query,
-      ListTech: technologiesSelected
+      ...data
     }
+
     router.push({
       pathname,
       query: newQuery
     })
-  }, [technologiesSelected]);
+  }
 
-  useEffect(() => {
-    const newQuery = {
-      ...query,
-      courseLevelId: courseLevelSelected
-    }
-    router.push({
-      pathname,
-      query: newQuery
-    })
-  }, [courseLevelSelected])
-
-  useEffect(() => {
-    const newQuery = {
-      ...query,
-      CourseTypeId: courseTypesSelected
-    }
-    router.push({
-      pathname,
-      query: newQuery
-    })
-  }, [courseTypesSelected])
-
-  useEffect(() => {
-    const newQuery = {
-      ...query,
-      TeacherId: teachersSelected
-    }
-    router.push({
-      pathname,
-      query: newQuery
-    })
-  }, [teachersSelected])
   return (
     <div className="w-[100%] md:w-[30%] lg:w-[22%] mb-6">
       <div className="grid grid-cols-2 md:grid-cols-1 bg-white p-4 rounded-xl gap-5 dark:bg-dark-lighter">
         <h2 className="col-span-2 md:col-span-1 font-peyda text-[18px] lg:text-[20px] text-lightTitle dark:text-darkTitle">
           فیلتر ها
         </h2>
-        <Card
-          className="shadow-none p-3 bg-mainBodyBg dark:bg-dark flex flex-row items-center justify-between gap-1"
-          dir="rtl"
-        >
-          <p>تکمیل شده</p>
-          <Switch
-            defaultSelected
-            isSelected={isCompleted}
-            onValueChange={setisCompleted}
-          />
-        </Card>
-        <Card
-          className="shadow-none p-3 bg-mainBodyBg dark:bg-dark flex flex-row justify-between gap-1"
-          dir="rtl"
-        >
-          <p>رایگان</p>
-          <Switch
-            defaultSelected
-            isSelected={isFree}
-            onValueChange={setIsFree}
-          />
-        </Card>
-        <Accordion variant="splitted" className="font-vazir px-0">
-          <AccordionItem
-            className="!shadow-none !bg-mainBodyBg dark:!bg-dark text-lightTitle dark:text-darkTitle"
-            aria-label="دسته بندی"
-            title={<p className="text-sm lgb:text-lg">دسته بندی</p>}
+        <form onSubmit={handleSubmit(submitFormHandler)} className="space-y-5">
+          <MainButton content="جستجو" className="bg-primary dark:bg-primary-darker text-btnText w-full font-peyda" type="submit" />
+          <Card
+            className="shadow-none p-3 bg-mainBodyBg dark:bg-dark flex flex-row items-center justify-between gap-1"
+            dir="rtl"
           >
-            {technologiesIsLoading ? <div className="space-y-3">{Array.from({ length: 4 }, (_, index) => (
-              <Skeleton className="rounded-md h-[20px] w-2/3" key={index} />
-            ))}</div> : <CheckboxGroup
-              value={technologiesSelected}
-              classNames={{
-                wrapper: ["gap-y-4 pb-2"],
-              }}
-              onValueChange={setTechnologiesSelected}
-              color="success"
-            >
-              {technologiesData.filter((item: technologiesProps) => item.parentId === null).map((item: technologiesProps, index: number) => (
-                <Checkbox
-                  key={index}
-                  className="checkBoxContainer"
-                  value={item.id.toString()}
-                >
-                  <p className="flex justify-between text-sm">{item.techName}</p>
-                </Checkbox>
-              ))}
-            </CheckboxGroup>}
-          </AccordionItem>
-        </Accordion>
-        <Accordion variant="splitted" className="font-vazir w-full px-0">
-          <AccordionItem
-            className="!shadow-none !bg-mainBodyBg dark:!bg-dark text-lightTitle dark:text-darkTitle"
-            aria-label="سطح دوره ها"
-            title={<p className="text-sm lgb:text-lg">سطح دوره</p>}
+            <p>تکمیل شده</p>
+            <Controller defaultValue={false} name="isCompleted" control={control} render={({ field: { onChange, value } }) => (
+              <Switch
+                isSelected={value}
+                onChange={(event) => {
+                  onChange(event.target.checked)
+                }}
+              />
+            )} />
+          </Card>
+          <Card
+            className="shadow-none p-3 bg-mainBodyBg dark:bg-dark flex flex-row justify-between gap-1"
+            dir="rtl"
           >
-            {courseLevelIsLoading ? <div className="space-y-3">{Array.from({ length: 3 }, (_, index) => (
-              <Skeleton className="rounded-md h-[20px] w-2/3" key={index} />
-            ))}</div> : <CheckboxGroup
-              value={courseLevelSelected}
-              classNames={{
-                wrapper: ["gap-y-4 pb-2"],
-              }}
-              onValueChange={setCourseLevelSelected}
-              color="success"
+            <p>رایگان</p>
+            <Controller defaultValue={false} name="isFree" control={control} render={({ field: { onChange, value } }) => (
+              <Switch
+                isSelected={value}
+                onChange={(event) => {
+                  onChange(event.target.checked)
+                }}
+              />
+            )} />
+          </Card>
+          <Accordion variant="splitted" className="font-vazir px-0">
+            <AccordionItem
+              key={1}
+              className="!shadow-none !bg-mainBodyBg dark:!bg-dark text-lightTitle dark:text-darkTitle"
+              aria-label="دسته بندی"
+              title={<p className="text-sm lgb:text-lg">دسته بندی</p>}
             >
-              {courseLevelData.map((item: courseLevelProps, index: number) => (
-                <Checkbox
-                  key={index}
-                  className="checkBoxContainer"
-                  value={item.id.toString()}
-                >
-                  <p className="flex justify-between text-sm">{item.levelName}</p>
-                </Checkbox>
-              ))}
-            </CheckboxGroup>}
-          </AccordionItem>
-        </Accordion>
-        <Accordion variant="splitted" className="font-vazir w-full px-0">
-          <AccordionItem
-            className="!shadow-none !bg-mainBodyBg dark:!bg-dark text-lightTitle dark:text-darkTitle"
-            aria-label="نوع دوره"
-            title={<p className="text-sm lgb:text-lg">نوع دوره</p>}
-          >
-            {courseTypesIsLoading ? <div className="space-y-3">{Array.from({ length: 3 }, (_, index) => (
-              <Skeleton className="rounded-md h-[20px] w-2/3" key={index} />
-            ))}</div> : <CheckboxGroup
-              value={courseTypesSelected}
-              classNames={{
-                wrapper: ["gap-y-4 pb-2"],
-              }}
-              onValueChange={setCourseTypesSelected}
-              color="success"
+              {technologiesIsLoading ?
+                <div className="space-y-3">
+                  {Array.from({ length: 4 }, (_, index) => (
+                    <Skeleton className="rounded-md h-[20px] w-2/3" key={index} />
+                  ))}
+                </div> :
+                <Controller defaultValue={[]} name="ListTech" control={control} render={({ field: { onChange, value } }) => (
+                  <CheckboxGroup
+                    value={value}
+                    classNames={{
+                      wrapper: ["gap-y-4 pb-2"],
+                    }}
+                    onChange={(newValue) => onChange(newValue)}
+                    color="success"
+                  >
+                    {technologiesData.filter((item: technologiesProps) => item.parentId === null).map((item: technologiesProps, index: number) => (
+                      <Checkbox
+                        key={index}
+                        className="checkBoxContainer"
+                        value={item.id.toString()}
+                      >
+                        <p className="flex justify-between text-sm">{item.techName}</p>
+                      </Checkbox>
+                    ))}
+                  </CheckboxGroup>
+                )} />}
+            </AccordionItem>
+            <AccordionItem
+              key={2}
+              className="!shadow-none !bg-mainBodyBg dark:!bg-dark text-lightTitle dark:text-darkTitle"
+              aria-label="سطح دوره ها"
+              title={<p className="text-sm lgb:text-lg">سطح دوره</p>}
             >
-              {courseTypesData.map((item: courseTypesProps, index: number) => (
-                <Checkbox
-                  key={index}
-                  className="checkBoxContainer"
-                  value={item.id.toString()}
-                >
-                  <p className="flex justify-between text-sm">{item.typeName}</p>
-                </Checkbox>
-              ))}
-            </CheckboxGroup>}
-          </AccordionItem>
-        </Accordion>
-        <Accordion variant="splitted" className="font-vazir w-full px-0">
-          <AccordionItem
-            className="!shadow-none !bg-mainBodyBg dark:!bg-dark text-lightTitle dark:text-darkTitle"
-            aria-label="اساتید"
-            title={<p className="text-sm lgb:text-lg">اساتید</p>}
-          >
-            {teachersIsLoading ? <div className="space-y-3">{Array.from({ length: 4 }, (_, index) => (
-              <Skeleton className="rounded-md h-[20px] w-2/3" key={index} />
-            ))}</div> : <CheckboxGroup
-              value={teachersSelected}
-              classNames={{
-                wrapper: ["gap-y-4 pb-2"],
-              }}
-              onValueChange={setTeachersSelected}
-              color="success"
+              {courseLevelIsLoading ?
+                <div className="space-y-3">
+                  {Array.from({ length: 3 }, (_, index) => (
+                    <Skeleton className="rounded-md h-[20px] w-2/3" key={index} />
+                  ))}
+                </div> :
+                <Controller defaultValue={[]} name="courseLevelId" control={control} render={({ field: { onChange, value } }) => (
+                  <CheckboxGroup
+                    value={value}
+                    classNames={{
+                      wrapper: ["gap-y-4 pb-2"],
+                    }}
+                    onChange={(newValue) => onChange(newValue)}
+                    color="success"
+                  >
+                    {courseLevelData.map((item: courseLevelProps, index: number) => (
+                      <Checkbox
+                        key={index}
+                        className="checkBoxContainer"
+                        value={item.id.toString()}
+                      >
+                        <p className="flex justify-between text-sm">{item.levelName}</p>
+                      </Checkbox>
+                    ))}
+                  </CheckboxGroup>
+                )} />}
+            </AccordionItem>
+            <AccordionItem
+              key={3}
+              className="!shadow-none !bg-mainBodyBg dark:!bg-dark text-lightTitle dark:text-darkTitle"
+              aria-label="نوع دوره"
+              title={<p className="text-sm lgb:text-lg">نوع دوره</p>}
             >
-              {teachersData.map((item: teachers, index: number) => (
-                <Checkbox
-                  key={index}
-                  className="checkBoxContainer"
-                  value={item.teacherId.toString()}
-                >
-                  <p className="flex justify-between text-sm">{item.fullName}</p>
-                </Checkbox>
-              ))}
-            </CheckboxGroup>}
-          </AccordionItem>
-        </Accordion>
+              {courseTypesIsLoading ?
+                <div className="space-y-3">
+                  {Array.from({ length: 3 }, (_, index) => (
+                    <Skeleton className="rounded-md h-[20px] w-2/3" key={index} />
+                  ))}
+                </div> :
+                <Controller defaultValue={[]} name="CourseTypeId" control={control} render={({ field: { onChange, value } }) => (
+                  <CheckboxGroup
+                    value={value}
+                    classNames={{
+                      wrapper: ["gap-y-4 pb-2"],
+                    }}
+                    onChange={(newValue) => onChange(newValue)}
+                    color="success"
+                  >
+                    {courseTypesData.map((item: courseTypesProps, index: number) => (
+                      <Checkbox
+                        key={index}
+                        className="checkBoxContainer"
+                        value={item.id.toString()}
+                      >
+                        <p className="flex justify-between text-sm">{item.typeName}</p>
+                      </Checkbox>
+                    ))}
+                  </CheckboxGroup>
+                )} />}
+            </AccordionItem>
+            <AccordionItem
+              key={4}
+              className="!shadow-none !bg-mainBodyBg dark:!bg-dark text-lightTitle dark:text-darkTitle"
+              aria-label="اساتید"
+              title={<p className="text-sm lgb:text-lg">اساتید</p>}
+            >
+              {teachersIsLoading ?
+                <div className="space-y-3">
+                  {Array.from({ length: 4 }, (_, index) => (
+                    <Skeleton className="rounded-md h-[20px] w-2/3" key={index} />
+                  ))}
+                </div> :
+                <Controller defaultValue={[]} name="TeacherId" control={control} render={({ field: { onChange, value } }) => (
+                  <CheckboxGroup
+                    value={value}
+                    classNames={{
+                      wrapper: ["gap-y-4 pb-2"],
+                    }}
+                    onChange={(newValue) => onChange(newValue)}
+                    color="success"
+                  >
+                    {teachersData.map((item: teachers, index: number) => (
+                      <Checkbox
+                        key={index}
+                        className="checkBoxContainer"
+                        value={item.teacherId.toString()}
+                      >
+                        <p className="flex justify-between text-sm">{item.fullName}</p>
+                      </Checkbox>
+                    ))}
+                  </CheckboxGroup>
+                )} />}
+            </AccordionItem>
+          </Accordion>
+        </form>
       </div>
     </div>
   );
