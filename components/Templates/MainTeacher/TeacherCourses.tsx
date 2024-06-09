@@ -1,7 +1,5 @@
 import BoxHeader from "@/components/Modules/BoxHeader/BoxHeader";
-import CourseCard from "@/components/Modules/CourseCard/CourseCard";
 import { Course } from "@/interfaces/course.interface";
-import { getCourses } from "@/mock/getCourses";
 import { Divider } from "@nextui-org/react";
 import Link from "next/link";
 import React from "react";
