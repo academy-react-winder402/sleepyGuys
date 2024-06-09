@@ -2,19 +2,12 @@ import BlogsBox from "@/components/Templates/Blogs/BlogsBox";
 import React from "react";
 import HorizontalFilterBox from "@/components/Modules/HorizontalFilter/HorizontalFilterBox";
 import courseSortingColItems from "@/constants/courseSortingColItems";
-import { useRouter } from "next/router";
-import { useGetNewsWithPaginationApi } from "@/hooks/api/useNewsApi";
 import { sortTypeItems } from "@/constants/sortTypeItems";
+import { QueryClient, dehydrate } from "@tanstack/react-query";
+import { getNewsWithPaginationApi } from "@/services/api/newsApi";
+import { GetServerSideProps } from "next";
 
-function Blogs() {
-  const router = useRouter();
-  const { query } = router;
-
-  const { data, isLoading } = useGetNewsWithPaginationApi({
-    RowsOfPage: 9,
-    ...query,
-  });
-
+export default function Blogs() {
   return (
     <>
       <HorizontalFilterBox
@@ -22,13 +15,26 @@ function Blogs() {
         sortTypeArray={sortTypeItems}
         sortingColArray={courseSortingColItems}
       />
-      <BlogsBox
-        data={data?.news ?? Array.from({ length: 9 })}
-        isLoading={isLoading}
-        totalCount={data?.totalCount ?? 1}
-      />
+      <BlogsBox />
     </>
   );
 }
 
-export default Blogs;
+export const getServerSideProps = (async (context) => {
+  const queryClient = new QueryClient();
+  const { query } = context
+
+  await queryClient.prefetchQuery({
+    queryKey: ["newsWithPagination", query],
+    queryFn: async () => {
+      const response = await getNewsWithPaginationApi(query);
+      return response.data;
+    },
+  });
+
+  return {
+    props: {
+      dehydratedState: dehydrate(queryClient),
+    },
+  };
+}) satisfies GetServerSideProps

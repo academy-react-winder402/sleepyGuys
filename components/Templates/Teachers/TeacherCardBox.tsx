@@ -1,5 +1,4 @@
 import React from "react";
-import TeacherCard from "@/components/Modules/TeacherCard/TeacherCard";
 import { teachers } from "@/interfaces/teacher.interface";
 
 function TeacherCardBox({
@@ -11,7 +10,7 @@ function TeacherCardBox({
 }) {
   return (
     <div className="flex justify-center items-center flex-col gap-10 w-[88%]">
-      {data?.map((teacher: any, index: any) => (
+      {data?.map((teacher: teachers, index: number) => (
         <Content key={index} {...teacher} />
       ))}
     </div>

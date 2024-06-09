@@ -3,21 +3,20 @@ import React from "react";
 import BlogCard from "./BlogCard";
 import TopBlogCard from "./TopBlogCard";
 import StandardPagination from "@/components/Modules/Pagination/StandardPagination";
-import { Blog } from "@/interfaces/blog.interface";
 import SkeletonBlogCard from "@/components/Templates/Blogs/SkeletonBlogCard";
 import SkeletonTopBlogCard from "@/components/Templates/Blogs/SkeletonTopBlogCard";
+import { useGetNewsWithPaginationApi } from "@/hooks/api/useNewsApi";
+import { useRouter } from "next/router";
+import { Blog } from "@/interfaces/blog.interface";
 
-interface BlogsBoxProps {
-  data: Blog[];
-  isLoading: boolean;
-  totalCount: number;
-}
+export default function BlogsBox() {
+  const router = useRouter();
+  const { query } = router;
 
-export default function BlogsBox({
-  data,
-  isLoading,
-  totalCount
-}: BlogsBoxProps) {
+  const { data, isLoading } = useGetNewsWithPaginationApi({
+    RowsOfPage: 9,
+    ...query,
+  });
 
   const presentDate = new Date().toLocaleDateString("fa-IR", {
     year: "numeric",
@@ -53,16 +52,16 @@ export default function BlogsBox({
               ))}
             </div> :
             <div className="grid grid-cols-4 gap-3 lg:gap-4 lgb:gap-8 lg:[&>*:nth-child(odd)]:flex-col-reverse">
-              {data.slice(0, 4).map((blog, index) => (
+              {data?.news.slice(0, 4).map((blog: Blog, index: number) => (
                 <BlogCard {...blog} key={index} />
               ))}
-              {data.slice(4, 5).map((blog, index) => (
+              {data?.news.slice(4, 5).map((blog: Blog, index: number) => (
                 <TopBlogCard {...blog} key={index} />
               ))}
-              {data.slice(5, 9).map((blog, index) => (
+              {data?.news.slice(5, 9).map((blog: Blog, index: number) => (
                 <BlogCard {...blog} key={index} />
               ))}
-              <StandardPagination totalCount={totalCount} />
+              <StandardPagination totalCount={data?.totalCount ?? 1} />
             </div>}
         </div>
       </div>

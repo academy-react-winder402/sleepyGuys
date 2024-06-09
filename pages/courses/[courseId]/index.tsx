@@ -16,7 +16,7 @@ import SkeletonCourseDetailsBox from "@/components/Templates/MainCourse/CourseDe
 import SkeletonTeacherDetailsBox from "@/components/Templates/MainCourse/TeacherDetails/SkeletonTeacherDetailsBox";
 import CommentsBox from "@/components/Modules/CommentsBox/CommentsBox";
 
-function CorseInfo({ }) {
+function CorseInfo() {
   const router = useRouter()
   const { query } = router
 
@@ -85,7 +85,6 @@ export const getStaticProps: GetStaticProps = (async (context) => {
   return {
     props: {
       dehydratedState: dehydrate(queryClient),
-      query: params?.courseId
     }
   }
 }) satisfies GetStaticProps
