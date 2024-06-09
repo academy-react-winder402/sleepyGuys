@@ -1,10 +1,10 @@
 import BlogsBox from "@/components/Templates/Blogs/BlogsBox";
 import React from "react";
 import HorizontalFilterBox from "@/components/Modules/HorizontalFilter/HorizontalFilterBox";
-import { courseSortTypeItems } from "@/constants/courseSortTypeItems";
 import courseSortingColItems from "@/constants/courseSortingColItems";
 import { useRouter } from "next/router";
 import { useGetNewsWithPaginationApi } from "@/hooks/api/useNewsApi";
+import { sortTypeItems } from "@/constants/sortTypeItems";
 
 function Blogs() {
   const router = useRouter();
@@ -19,7 +19,7 @@ function Blogs() {
     <>
       <HorizontalFilterBox
         placeholder="جستجو اخبار"
-        sortTypeArray={courseSortTypeItems}
+        sortTypeArray={sortTypeItems}
         sortingColArray={courseSortingColItems}
       />
       <BlogsBox

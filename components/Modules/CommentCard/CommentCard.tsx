@@ -11,12 +11,15 @@ import solidDislikeIcon from "@/public/icons/solid/dislike.svg";
 import { useRouter } from "next/router";
 import { useAddCourseCommentDissLikeApi, useAddCourseCommentLikeApi } from "@/hooks/api/useCoursesApi";
 import convertToPersianDigit from "@/utils/convertToPersianDigit";
+import { newsCommentProps } from "@/interfaces/newsCommnet.interface";
+import { useNewsCommentLikeApi } from "@/hooks/api/useNewsApi";
 
 interface detectReplyToWhichUser {
   detectReplyToWhichUser?: ((userName: string | null) => void) | any
 }
 
-type CommentCard = CommentCardType & detectReplyToWhichUser
+type CourseCommentCard = CommentCardType & detectReplyToWhichUser
+type NewsCommentCard = newsCommentProps & detectReplyToWhichUser
 
 function CommentCard({
   id,
@@ -28,16 +31,26 @@ function CommentCard({
   userId,
   detectReplyToWhichUser,
   likeCount,
-  disslikeCount,
+  dissLikeCount,
   currentUserEmotion,
   courseId,
-}: CommentCard) {
+  inserDate,
+  newsId
+}: NewsCommentCard | CourseCommentCard | any) {
   const router = useRouter()
   const { pathname, query } = router
 
   const { mutate: addCourseCommentLikeMutate } = useAddCourseCommentLikeApi(courseId)
 
-  const { mutate: addCourseCommentDissLikeMutate } = useAddCourseCommentDissLikeApi()
+  const { mutate: addCourseCommentDissLikeMutate } = useAddCourseCommentDissLikeApi(courseId)
+
+  const { mutate: newsCommentLikeMutate } = useNewsCommentLikeApi(newsId)
+
+  const commentDate = new Date(inserDate).toLocaleDateString("fa-IR", {
+    year: "numeric",
+    month: "long",
+    day: "2-digit"
+  })
 
   const navigateToCommentForm = () => {
     window.scrollTo({
@@ -50,11 +63,31 @@ function CommentCard({
   }
 
   const likeCommentHandler = () => {
-    addCourseCommentLikeMutate(id)
+    switch (pathname.includes("courses")) {
+      case true: {
+        return addCourseCommentLikeMutate(id)
+      }
+      case false: {
+        return newsCommentLikeMutate({ CommentId: id, LikeType: true })
+      }
+      default: {
+        break
+      }
+    }
   }
 
   const dislikeCommentHandler = () => {
-    addCourseCommentDissLikeMutate(id)
+    switch (pathname.includes("courses")) {
+      case true: {
+        return addCourseCommentDissLikeMutate(id)
+      }
+      case false: {
+        return newsCommentLikeMutate({ CommentId: id, LikeType: false })
+      }
+      default: {
+        break
+      }
+    }
   }
   return (
     <Card
@@ -64,16 +97,19 @@ function CommentCard({
         } rounded-3xl p-4 shadow-none`}
     >
       <CardHeader className="pb-6 px-0 flex justify-between">
-        <UserCard
-          title={author}
-          description={userId ? "مدرس دوره" : "دانشجو"}
-          image={pictureAddress}
-          size={35}
-        />
+        <div className="flex flex-col space-y-4">
+          <UserCard
+            title={author ?? "بدون نام"}
+            description={userId ? "مدرس دوره" : "دانشجو"}
+            image={pictureAddress}
+            size={35}
+          />
+          <span className="font-peyda text-sm">{commentDate}</span>
+        </div>
         <div className="flex items-start gap-2">
-          <button className="flex flex-col items-center gap-1">{currentUserEmotion === "DISSLIKED" ? <Image src={solidDislikeIcon} alt="" className="cursor-pointer" /> : <Image src={outlineDislikeIcon} alt="" className="cursor-pointer" onClick={dislikeCommentHandler} />}<span className="text-xs font-peyda">{convertToPersianDigit(disslikeCount)}</span></button>
+          <button className="flex flex-col items-center gap-1">{currentUserEmotion === "DISSLIKED" ? <Image src={solidDislikeIcon} alt="" className="cursor-pointer" /> : <Image src={outlineDislikeIcon} alt="" className="cursor-pointer" onClick={dislikeCommentHandler} />}<span className="text-xs font-peyda">{convertToPersianDigit(dissLikeCount)}</span></button>
           <button className="flex flex-col items-center gap-1">{currentUserEmotion === "LIKED" ? <Image src={solidLikeIcon} alt="" className="cursor-pointer" /> : <Image src={outlineLikeIcon} alt="" className="cursor-pointer" onClick={likeCommentHandler} />}<span className="text-xs font-peyda">{convertToPersianDigit(likeCount)}</span></button>
-          <Image src={replyIcon} alt="" onClick={navigateToCommentForm} className="cursor-pointer" />
+          <button className="flex flex-col items-center gap-1"><Image src={replyIcon} alt="" onClick={navigateToCommentForm} className="cursor-pointer" /><span className="text-xs font-peyda">{convertToPersianDigit(0)}</span></button>
         </div>
       </CardHeader>
       <Divider className="mb-6" />

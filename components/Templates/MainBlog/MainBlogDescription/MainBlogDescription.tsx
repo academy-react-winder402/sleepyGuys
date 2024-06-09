@@ -5,7 +5,7 @@ import React, { useState } from "react";
 import chevronDown from "@/public/icons/solid/chevron-down.svg";
 import chevronUp from "@/public/icons/solid/chevron-up.svg";
 
-export default function MainBlogDescription({ des }: { des: string }) {
+export default function MainBlogDescription({ description }: { description: string }) {
   const [isExpanded, setIsExpanded] = useState(false);
 
   return (
@@ -26,7 +26,7 @@ export default function MainBlogDescription({ des }: { des: string }) {
           }  leading-7 flex flex-col gap-y-6 overflow-hidden mb-10 text-lightBody dark:text-darkBody transition-height !duration-500 !ease-in-out`}
           visibility="auto"
         >
-          <p>{des}</p>
+          <p>{description}</p>
         </ScrollShadow>
         <MainButton
           content={<p>{!isExpanded ? "مشاهده بیشتر" : "مشاهده کمتر"}</p>}

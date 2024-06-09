@@ -1,9 +1,9 @@
-interface CommentCard {
+interface newsCommentProps {
   id: string;
   accept: boolean;
   acceptReplysCount: number;
-  author: string;
-  courseId: string;
+  author: string | undefined;
+  newsId: string;
   currentUserEmotion: "LIKED" | "-" | "DISSLIKED";
   currentUserLikeId: string;
   describe: string;
@@ -16,4 +16,4 @@ interface CommentCard {
   userId: number;
 }
 
-export type { CommentCard };
+export type { newsCommentProps };

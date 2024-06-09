@@ -11,7 +11,8 @@ import { useGetCoursesWithPaginationApi } from "@/hooks/api/useCoursesApi";
 import { getCoursesWithPaginationApi } from "@/services/api/coursesApi";
 import { GetServerSideProps } from "next";
 import courseSortingColItems from "@/constants/courseSortingColItems";
-import { courseSortTypeItems } from "@/constants/courseSortTypeItems";
+import { sortTypeItems } from "@/constants/sortTypeItems";
+
 
 export default function Courses() {
   const router = useRouter();
@@ -27,7 +28,7 @@ export default function Courses() {
         <HorizontalFilterBox
           placeholder="جستجو دوره"
           sortingColArray={courseSortingColItems}
-          sortTypeArray={courseSortTypeItems}
+          sortTypeArray={sortTypeItems}
         />
         <div className="flex flex-col md:flex-row md:gap-x-6">
           <CourseVerticalFilterBox />
