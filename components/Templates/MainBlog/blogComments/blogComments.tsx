@@ -1,14 +1,14 @@
 import { Card, CardBody, CardHeader } from "@nextui-org/react";
 import React from "react";
 import SubmitCommentForm from "@/components/Modules/SubmitComment/SubmitCommentForm";
-import CommentCard from "@/components/Modules/CommentCard/CommentCard";
+import NewsCommentCard from "@/components/Templates/Blogs/CommentCard/NewsCommentCard";
+import SkeletonNewsCommentCard from "@/components/Templates/Blogs/CommentCard/SkeletonNewsCommentCard";
 import { CommentCard as CommentCardType } from "@/interfaces/commentCard.interface";
 
 export default function BlogComments({
   data,
-}: {
-  data: CommentCardType[];
-}) {
+  newsDetailCommentsIsLoding
+}: any) {
   return (
     <Card
       className="shadow-2xl mt-20 shadow-shadowColor dark:shadow-none p-6 dark:bg-dark-lighter"
@@ -22,15 +22,8 @@ export default function BlogComments({
       <CardBody>
         <SubmitCommentForm />
         <div className="flex flex-col gap-5 text-right mt-8">
-          {/* <CommentCard
-            name="آرمان غنی زاده"
-            description="طبق روند تدریس شده در این دوره ابتدا Page Router و سپس App Router رو یاد بگیرین ❤️"
-            role="مدرس دوره"
-            image={userIcon}
-            size={35}
-          /> */}
-          {data.map((comment, index) => (
-            <CommentCard {...comment} key={index} />
+          { !newsDetailCommentsIsLoding && data?.map((comment : any) => (
+            <NewsCommentCard {...comment} key={comment.id} />
           ))}
         </div>
       </CardBody>

@@ -7,7 +7,6 @@ import fallbackImage from "@/public/pictures/blog/blogImage.jpg"
 
 function BlogOtherCard(data: any) {
   const router = useRouter();
-  console.log(data , data.data?.addUserProfileImage)
   return (
     <div className="pt-[55px]" onClick={() => router.push(`/blogs/${data.data?.id}`)}>
       <div className="flex py-6 bg-white dark:bg-dark-lighter flex-col gap-4 rounded-3xl ">
