@@ -5,8 +5,8 @@ import TeacherCard from "@/components/Modules/TeacherCard/TeacherCard";
 import SkeletonTeacherCard from "@/components/Modules/TeacherCard/SkeletonTeacherCard"
 
 export default function TeachersBox() {
-  const getTeachers = useGetTeachersApi();
-  const { data, isLoading } = getTeachers;
+  const { data, isLoading } = useGetTeachersApi();
+  
   return (
     <div className="flex items-start w-full justify-center">
       <MainStepper steps={data?.length ?? Array.from({ length: 6 }).length} />

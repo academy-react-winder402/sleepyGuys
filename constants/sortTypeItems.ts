@@ -1,4 +1,4 @@
-export const courseSortTypeItems = [
+export const sortTypeItems = [
   {
     id: 1,
     name: "صعودی",

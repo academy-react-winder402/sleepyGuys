@@ -8,7 +8,6 @@ import { QueryClient, dehydrate } from "@tanstack/react-query";
 import { getTeacherCourseApi, getTeacherDetailsApi } from "@/services/api/teachersApi";
 import { GetStaticPaths, GetStaticProps } from "next";
 import SuggestedTeacherCard from "@/components/Templates/MainTeacher/SuggestedTeacherCard";
-import { getSuggestedTeacher } from "@/mock/getSuggestedTeahcer";
 import SkeletonTeacherDetailBox from "@/components/Templates/MainTeacher/SkeletonTeacherDetailBox";
 import SkeletonCourseCard from "@/components/Modules/CourseCard/SkeletonCourseCard";
 import CourseCard from "@/components/Modules/CourseCard/CourseCard";

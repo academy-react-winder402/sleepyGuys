@@ -1,35 +1,30 @@
 import { Card, CardBody, CardHeader } from "@nextui-org/react";
-import React, { useEffect, useRef, useState } from "react";
-import SubmitCommentForm from "../../../Modules/SubmitComment/SubmitCommentForm";
+import React, { useRef } from "react";
+import SubmitCommentForm from "../SubmitComment/SubmitCommentForm";
 import CommentCard from "@/components/Modules/CommentCard/CommentCard";
 import { CommentCard as CommentCardType } from "@/interfaces/commentCard.interface";
 import SkeletonCommentCard from "@/components/Modules/CommentCard/SkeletonCommentCard";
 import { useRouter } from "next/router";
 import { isUserAuthenticated } from "@/utils/isUserAuthenticated";
 import MainButton from "@/components/Modules/Button/MainButton";
+import { newsCommentProps } from "@/interfaces/newsCommnet.interface";
 
-export default function CourseCommentsBox({
+export default function CommentsBox({
   data,
   isCommentsLoading,
 }: {
-  data: CommentCardType[];
+  data: CommentCardType[] | newsCommentProps[];
   isCommentsLoading: boolean
 }) {
 
   const router = useRouter()
   const { asPath, query } = router
 
-  const [isAuthenticated, setIsAuthenticated] = useState<boolean | null>(null)
-
   const replyCommentName = useRef<string | null>()
 
   const detectReplyToWhichUser = (userName: string | null) => {
     replyCommentName.current = userName
   }
-
-  useEffect(() => {
-    setIsAuthenticated(isUserAuthenticated())
-  }, [])
   return (
     <Card
       className="shadow-2xl shadow-shadowColor dark:shadow-none p-6 dark:bg-dark-lighter"
@@ -44,7 +39,7 @@ export default function CourseCommentsBox({
         </p>}
       </CardHeader>
       <CardBody>
-        {isAuthenticated ? <SubmitCommentForm /> :
+        {isUserAuthenticated() ? <SubmitCommentForm /> :
           <div className="text-right flex items-center gap-2">
             <p className="font-peyda text-lg">برای ثبت نظر باید وارد حسابت بشی</p>
             <MainButton

@@ -126,12 +126,17 @@ export const useAddCourseCommentLikeApi = (courseId: string) => {
   });
 };
 
-export const useAddCourseCommentDissLikeApi = () => {
+export const useAddCourseCommentDissLikeApi = (courseId: string) => {
+  const queryClient = useQueryClient();
+
   return useMutation({
     mutationFn: (CourseCommandId: string) =>
       addCourseCommentDissLikeApi(CourseCommandId),
     onSuccess: () => {
       toast.success("کامنتی که دیسلایک کردی با موفقیت انجام شد");
+      queryClient.invalidateQueries({
+        queryKey: ["coursesComments", courseId],
+      });
     },
   });
 };
