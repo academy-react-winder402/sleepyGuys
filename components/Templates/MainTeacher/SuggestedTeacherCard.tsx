@@ -1,5 +1,4 @@
 import { useGetTeachersApi } from "@/hooks/api/useTeachersApi";
-import { teacherSummaryProps } from "@/interfaces/teacherSummary.interface";
 import { validateImageAddress } from "@/utils/validateImageAdderss";
 import { Card, CardBody, Divider } from "@nextui-org/react";
 import SkeletonSuggestedTeacherCard from "@/components/Templates/MainTeacher/SkeletonSuggestedTeacherCard"
