@@ -12,3 +12,9 @@ export const getNewsDetailsApi = (
     baseUrl + `News/${NewsId}`
   );
 };
+
+export const getNewsCommentApi = (
+  newsId: string | string[] | undefined
+) => {
+  return httpService.get(baseUrl + `News/GetNewsComments?NewsId=${newsId}`);
+};

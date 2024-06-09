@@ -1,4 +1,4 @@
-import { getNewsWithPaginationApi } from "@/services/api/newsApi";
+import { getNewsCommentApi, getNewsWithPaginationApi } from "@/services/api/newsApi";
 import { useQuery } from "@tanstack/react-query";
 import {getNewsDetailsApi} from "@/services/api/newsApi";
 
@@ -15,6 +15,16 @@ export const useGetNewsDetailsApi = (
   return useQuery({
     queryKey: ["newsDetails"],
     queryFn: () => getNewsDetailsApi(NewsId).then((data) => data.data),
+    enabled: !!NewsId,
+  });
+};
+
+export const useGetNewsCommentApi = (
+  NewsId: string | string[] | undefined
+) => {
+  return useQuery({
+    queryKey: ["coursesComments", NewsId],
+    queryFn: () => getNewsCommentApi(NewsId).then((data) => data.data),
     enabled: !!NewsId,
   });
 };
