@@ -45,7 +45,7 @@ export default function BlogsBox({
                 <SkeletonBlogCard key={index} />
               ))}
             </div> :
-            <div className="grid grid-cols-4 gap-3 lg:gap-4 lgb:gap-8 lg:[&>*:nth-child(odd)]:flex-col-reverse">{data.map((blog, index) => (
+            <div className="grid grid-cols-4 gap-3 lg:gap-4 lgb:gap-8 lg:[&>*:nth-child(odd)]:flex-col-reverse">{data.slice(0,4).map((blog, index) => (
               <BlogCard {...blog} key={index} />
             ))}
               {data.slice(4, 5).map((blog, index) => (

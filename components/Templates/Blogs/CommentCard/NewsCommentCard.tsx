@@ -20,7 +20,7 @@ type CommentCard = CommentCardType & detectReplyToWhichUser
 
 function CommentCard({
   id,
-  author,
+  autor,
   describe,
   parentId,
   pictureAddress,
@@ -31,7 +31,8 @@ function CommentCard({
   disslikeCount,
   currentUserEmotion,
   courseId,
-}: CommentCard) {
+}: any) {
+  console.log("author :" , autor , describe)
   const router = useRouter()
   const { pathname, query } = router
 
@@ -45,7 +46,7 @@ function CommentCard({
       behavior: "smooth"
     })
 
-    detectReplyToWhichUser(author)
+    detectReplyToWhichUser(autor)
     router.push({ pathname, query: { ...query, CommentId: id } }, undefined, { shallow: true })
   }
 
@@ -65,7 +66,7 @@ function CommentCard({
     >
       <CardHeader className="pb-6 px-0 flex justify-between">
         <UserCard
-          title={author}
+          title={autor}
           description={userId ? "مدرس دوره" : "دانشجو"}
           image={pictureAddress}
           size={35}
