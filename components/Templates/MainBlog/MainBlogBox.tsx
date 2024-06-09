@@ -5,8 +5,12 @@ import MainBlogDescription from "./MainBlogDescription/MainBlogDescription";
 import SkeletonMainBlogBox from '@/components/Templates/MainBlog/SkeletonMainBlogBox'
 import { validateImageAddress } from "@/utils/validateImageAdderss";
 import fallBack from "@/public/pictures/blog/blogImage.jpg"
+import { getBlogs } from "@/mock/getBlogs";
+import BlogComments from "./blogComments/blogComments";
+import { getComments } from "@/mock/getComments";
 
-export default function MainBlogBox({ data, relatedNews , relatedNewsIsLoding , comments, isLoding }: any) {
+export default function MainBlogBox({ data, relatedNews , newsDetailCommentsIsLoding , newsDetailComments , relatedNewsIsLoding , comments, isLoding }: any) {
+  console.log(comments);
   return (
     <>
       {(!isLoding) ? (
@@ -45,11 +49,10 @@ export default function MainBlogBox({ data, relatedNews , relatedNewsIsLoding , 
           { !relatedNewsIsLoding && <div className="gap-5 grid lgb:grid-cols-4 md:grid-cols-2 grid-cols-1">
             {relatedNews?.map((blog : any) => 
                 {
-                  console.log(blog)
                   return <BlogOtherCard data={blog} key={blog?.id} />}
               )}
           </div>}
-          {/* <BlogComments data={getComments()} /> */}
+          <BlogComments data={newsDetailComments} newsDetailCommentsIsLoding={newsDetailCommentsIsLoding} />
         </>
       ) : (
         <SkeletonMainBlogBox/>
