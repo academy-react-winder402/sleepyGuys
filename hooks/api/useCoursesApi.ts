@@ -13,6 +13,8 @@ import {
   addCourseCommentLikeApi,
   addCourseCommentDissLikeApi,
   addCourseReserveApi,
+  addCourseFavoriteApi,
+  deleteCourseFavoriteApi,
 } from "@/services/api/coursesApi";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import toast from "react-hot-toast";
@@ -147,6 +149,26 @@ export const useAddCourseReserveApi = () => {
       addCourseReserveApi(payload),
     onSuccess: () => {
       toast.success("دوره موردنظر با موفقیت رزرو شد");
+    },
+  });
+};
+
+export const useAddCourseFavoriteApi = () => {
+  return useMutation({
+    mutationFn: (payload: { courseId: string | string[] | undefined }) =>
+      addCourseFavoriteApi(payload),
+    onSuccess: () => {
+      toast.success("این دوره به مورد علاقه های شما اضافه شد");
+    },
+  });
+};
+
+export const useDeleteCourseFavoriteApi = () => {
+  return useMutation({
+    mutationFn: (payload: { CourseFavoriteId: string }) =>
+      deleteCourseFavoriteApi(payload),
+    onSuccess: () => {
+      toast.success("این دوره از مورد علاقه های شما حذف شد");
     },
   });
 };
