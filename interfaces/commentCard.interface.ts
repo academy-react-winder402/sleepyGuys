@@ -7,7 +7,7 @@ interface CommentCard {
   currentUserEmotion: "LIKED" | "-" | "DISSLIKED";
   currentUserLikeId: string;
   describe: string;
-  dissLikeCount: number;
+  disslikeCount: number;
   insertDate: string;
   likeCount: number;
   parentId: string;
@@ -17,3 +17,4 @@ interface CommentCard {
 }
 
 export type { CommentCard };
+

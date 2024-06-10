@@ -3,7 +3,7 @@ interface primaryTextareaProps {
   variant: "bordered" | "faded" | "flat" | "underlined";
   className?: string;
   isInvalid?: boolean;
-  errorMessage?: string;
+  errorMessage?: any;
   register?: any;
 }
 

@@ -1,4 +1,4 @@
-import { commentProps } from "@/interfaces/comment.interface";
+import { commentProps } from "@/interfaces/courseComment.interface";
 import httpService from "@/services/httpService";
 
 const baseUrl = process.env.NEXT_PUBLIC_BASE_API_URL;

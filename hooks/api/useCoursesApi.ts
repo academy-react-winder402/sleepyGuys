@@ -1,4 +1,4 @@
-import { commentProps } from "@/interfaces/comment.interface";
+import { commentProps } from "@/interfaces/courseComment.interface";
 import {
   getCoursesTopApi,
   getCourseDetailsApi,

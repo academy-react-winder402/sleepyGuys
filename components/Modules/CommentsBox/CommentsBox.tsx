@@ -1,9 +1,10 @@
 import { Card, CardBody, CardHeader } from "@nextui-org/react";
 import React, { useRef } from "react";
 import SubmitCommentForm from "../SubmitComment/SubmitCommentForm";
-import CommentCard from "@/components/Modules/CommentCard/CommentCard";
+import CourseCommentCard from "@/components/Templates/Courses/CommentCard/CourseCommentCard";
+import BlogCommentCard from "@/components/Templates/Blogs/CommentCard/BlogsCommentCard";
 import { CommentCard as CommentCardType } from "@/interfaces/commentCard.interface";
-import SkeletonCommentCard from "@/components/Modules/CommentCard/SkeletonCommentCard";
+import SkeletonCommentCard from "@/components/Modules/SkeletonCommentCard/SkeletonCommentCard";
 import { useRouter } from "next/router";
 import { isUserAuthenticated } from "@/utils/isUserAuthenticated";
 import MainButton from "@/components/Modules/Button/MainButton";
@@ -12,13 +13,14 @@ import { newsCommentProps } from "@/interfaces/newsCommnet.interface";
 export default function CommentsBox({
   data,
   isCommentsLoading,
-}: {
-  data: CommentCardType[] | newsCommentProps[];
-  isCommentsLoading: boolean
-}) {
+}: 
+  any
+) {
 
   const router = useRouter()
-  const { asPath, query } = router
+  const { asPath, query , pathname } = router
+
+  const isInCoursePage = pathname.includes("courses")
 
   const replyCommentName = useRef<string | null>()
 
@@ -60,8 +62,14 @@ export default function CommentsBox({
         <div className="flex flex-col gap-5 text-right mt-4">
           {isCommentsLoading ? Array.from({ length: 6 }, (_, index) => (
             <SkeletonCommentCard key={index} />
-          )) : data?.map((comment, index) => (
-            <CommentCard {...comment} key={index} detectReplyToWhichUser={detectReplyToWhichUser} />
+          )) : data?.map((comment : any) => (
+            <>
+            {isInCoursePage ?
+              <CourseCommentCard {...comment} key={comment?.id} detectReplyToWhichUser={detectReplyToWhichUser} />
+              : 
+              <BlogCommentCard {...comment} key={comment?.id} detectReplyToWhichUser={detectReplyToWhichUser} />
+            }
+            </>
           ))}
           {data?.length === 0 && <p className="font-kalamehBlack text-2xl text-secondary">تا الان هیچ نظری برای این دوره ثبت نشده است!</p>}
         </div>
