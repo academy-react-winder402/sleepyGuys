@@ -81,3 +81,22 @@ export const addCourseReserveApi = (payload: {
 }) => {
   return httpService.post(baseUrl + `CourseReserve/ReserveAdd`, payload);
 };
+
+export const addCourseFavoriteApi = (payload: {
+  courseId: string | string[] | undefined;
+}) => {
+  return httpService.post(baseUrl + `Course/AddCourseFavorite`, payload);
+};
+
+export const deleteCourseFavoriteApi = (payload: {
+  CourseFavoriteId: string;
+}) => {
+  return httpService.delete(baseUrl + "Course/DeleteCourseFavorite", {
+    headers: {
+      useMultipartForm: true,
+    },
+    data: {
+      CourseFavoriteId: payload.CourseFavoriteId,
+    },
+  });
+};
