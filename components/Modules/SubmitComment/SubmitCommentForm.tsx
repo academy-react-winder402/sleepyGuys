@@ -5,10 +5,12 @@ import MainButton from "@/components/Modules/Button/MainButton";
 import PrimaryInput from "../Input/PrimaryInput";
 import { useAddCommentApi, useAddReplyCourseCommentApi } from "@/hooks/api/useCoursesApi";
 import { useRouter } from "next/router";
-import { commentProps } from "@/interfaces/comment.interface";
+import { commentProps } from "@/interfaces/courseComment.interface";
+import { blogProps } from "@/interfaces/blogComment.interface";
+import { useAddBlogCommentApi } from "@/hooks/api/useNewsApi";
 
 export default function SubmitCommentForm() {
-  const { register, handleSubmit, formState: { errors }, reset } = useForm<commentProps>();
+  const { register, handleSubmit, formState: { errors }, reset } = useForm();
 
   const addComment = useAddCommentApi(reset)
   const { mutate: addCommentMutate, isPending: addCommentIsPending } = addComment
@@ -16,22 +18,44 @@ export default function SubmitCommentForm() {
   const addReplyCourseComment = useAddReplyCourseCommentApi(reset)
   const { mutate: addReplyMutate, isPending: addReplyIsPending } = addReplyCourseComment
 
+  const addBlogComment = useAddBlogCommentApi(reset)
+  const { mutate: addBlogCommentMutate, isPending: addBlogCommentIsPending } = addComment
+
   const router = useRouter()
   const { pathname, query } = router
 
-  const submitFormHandler: SubmitHandler<commentProps> = (data) => {
-    if (query.CommentId) {
-      addReplyMutate({
-        ...data,
-        CourseId: query.courseId,
-        CommentId: query.CommentId
-      })
-    } else {
-      addCommentMutate({
-        ...data,
-        CourseId: query.courseId,
-      })
+  const isInCoursePage = pathname.includes("courses")
+
+  const submitFormHandler = (data : any) => {
+    if(isInCoursePage){
+      if (query.CommentId) {
+        addReplyMutate({
+          ...data,
+          CourseId: query.courseId,
+          CommentId: query.CommentId
+        })
+      } else {
+        addCommentMutate({
+          ...data,
+          CourseId: query.courseId,
+        })
+      }
+    }else{
+      // if (query.CommentId) {
+      //   addReplyMutate({
+      //     ...data,
+      //     CourseId: query.courseId,
+      //     CommentId: query.BlogId
+      //   })
+      // } else {
+      //   addCommentMutate({
+      //     ...data,
+      //     CourseId: query.courseId,
+      //   })
+      // }
+
     }
+    
   };
 
   const cancelReplyToComment = () => {
@@ -57,7 +81,7 @@ export default function SubmitCommentForm() {
           }),
         }}
         isInvalid={Boolean(errors.Title)}
-        errorMessage={errors.Title?.message}
+        errorMessage={errors.Title?.message }
       />
       <PrimaryTextarea
         placeholder="متن پیام"

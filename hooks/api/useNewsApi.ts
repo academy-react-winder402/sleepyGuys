@@ -2,10 +2,12 @@ import {
   getNewsCommentApi,
   getNewsWithPaginationApi,
   newsCommentLikeApi,
+  sendBlogCommentApi,
 } from "@/services/api/newsApi";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { getNewsDetailsApi } from "@/services/api/newsApi";
 import toast from "react-hot-toast";
+import { blogProps } from "@/interfaces/blogComment.interface";
 
 export const useGetNewsWithPaginationApi = (params: any) => {
   return useQuery({
@@ -46,6 +48,19 @@ export const useNewsCommentLikeApi = (NewsId: string) => {
       queryClient.invalidateQueries({
         queryKey: ["newsComments", NewsId],
       });
+    },
+  });
+};
+
+export const useAddBlogCommentApi = (reset: () => void) => {
+  const queryClient = useQueryClient();
+
+  return useMutation({
+    mutationFn: (payload: blogProps) => sendBlogCommentApi(payload),
+    onSuccess: () => {
+      toast.success("کامنت با موفقیت ثبت شد");
+      reset();
+      queryClient.invalidateQueries({ queryKey: ["blogsComments"] });
     },
   });
 };

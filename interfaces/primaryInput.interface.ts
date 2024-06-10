@@ -1,4 +1,5 @@
 import { ReactNode } from "react";
+import { FieldError } from "react-hook-form";
 
 interface primaryInput {
   placeholder: string;
@@ -10,7 +11,7 @@ interface primaryInput {
   startContent?: ReactNode;
   endContent?: ReactNode;
   isInvalid?: boolean;
-  errorMessage?: string;
+  errorMessage?: any;
 }
 
 export type { primaryInput };
