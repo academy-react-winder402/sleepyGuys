@@ -10,7 +10,8 @@ export default function DefautLayout({ children }: any) {
   }, [])
   return (
     <div className="relative" style={{ paddingTop: "2rem" }}>
-      {isMounted ? <>      <Navbar />
+      {isMounted ? <>
+      <Navbar />
         <div className="container">
           {children}
           <Footer />
