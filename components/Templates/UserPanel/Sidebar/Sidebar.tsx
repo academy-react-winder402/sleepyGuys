@@ -25,7 +25,7 @@ function Sidedar() {
       </div>
       <ul className="text-[16px] text-lightBody dark:text-darkBody font-peyda flex flex-col gap-5">
         <li >
-          <Link className="flex gap-2 items-center" href={"/"}> 
+          <Link className="flex gap-2 items-center" href={"/userpanel"}> 
           <span className="w-10">
             <Image
               src={dashboard}
@@ -40,7 +40,7 @@ function Sidedar() {
           </Link> 
         </li>
         <li>
-        <Link className="flex gap-2 items-center" href={"/"}>
+        <Link className="flex gap-2 items-center" href={"/userpanel/myCourses"}>
           <span className="w-10">
             <Image
               src={courses}
@@ -54,7 +54,7 @@ function Sidedar() {
           </Link>
         </li>
         <li>
-        <Link className="flex gap-2 items-center" href={"/"}>
+        <Link className="flex gap-2 items-center" href={"/userpanel/myTikets"}>
           <span className="w-10">
             <Image
               src={tikets}
@@ -68,7 +68,7 @@ function Sidedar() {
           </Link>
         </li>
         <li>
-        <Link className="flex gap-2 items-center" href={"/"}>
+        <Link className="flex gap-2 items-center" href={"/userpanel/myprofile"}>
           <span className="w-10">
             <Image
               src={profile}

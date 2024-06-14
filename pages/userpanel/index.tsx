@@ -1,4 +1,3 @@
-import Sidedar from '@/components/Templates/UserPanel/Sidebar/Sidedar'
 import React from 'react'
 import UserPanelTopNavigation from './TopBar/TopBar'
 import UserPanelLayout from "@/layouts/UserPanelLayout"
