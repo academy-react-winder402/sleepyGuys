@@ -10,7 +10,7 @@ export default function UserPanelLayout({ children }: any) {
   }, []);
   return (
     <div className="container">
-      <div className="flex gap-10 mt-10">
+      <div className="flex gap-8 mt-10">
         <Sidebar />
         <div className="w-[70%]">
           <UserPanelTopNavigation />
