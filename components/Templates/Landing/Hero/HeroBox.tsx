@@ -5,17 +5,26 @@ import search from "@/public/icons/hero/search.svg";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { NewsLetterFormType } from "@/interfaces/newsLetterForm.interface";
 import PrimaryInput from "@/components/Modules/Input/PrimaryInput";
-import Typewriter from 'typewriter-effect';
+import Typewriter from "typewriter-effect";
+import { useGetLandingApi } from "@/hooks/api/useLandingApi";
+import teacher from "@/public/icons/hero/teacher.svg";
+import news from "@/public/icons/hero/news.svg";
+import course from "@/public/icons/hero/course.svg";
+import student from "@/public/icons/hero/student.svg";
+import CountUp from 'react-countup';
+import { Spinner } from "@nextui-org/react";
 
 function Hero() {
-  const {
-    register,
-    handleSubmit,
-  } = useForm<NewsLetterFormType>();
+  const { register, handleSubmit } = useForm<NewsLetterFormType>();
 
   const submitFormHandler: SubmitHandler<NewsLetterFormType> = (data) => {
     console.log(data);
   };
+
+  const getLandingInfo = useGetLandingApi();
+  const { data, isLoading } = getLandingInfo;
+  console.log(data);
+
   return (
     <>
       <div className="flex items-center justify-between">
@@ -24,7 +33,7 @@ function Hero() {
             <h1 className="text-primary dark:text-primary-lighter text-3xl lgl:text-4xl lg:text-[41px] xl:text-[43px] mb-1 font-bold font-peyda">
               <Typewriter
                 options={{
-                  strings: ['دنبال چی می گردی؟'],
+                  strings: ["دنبال چی می گردی؟"],
                   autoStart: true,
                   loop: true,
                 }}
@@ -71,6 +80,32 @@ function Hero() {
             className="xl:-translate-x-10 lg:-translate-x-5 -translate-x-3"
             src={heroImage}
           />
+        </div>
+      </div>
+      <div className="flex gap-28 justify-center mt-40">
+        <div className="flex items-center flex-col gap-5 text-primary dark:text-primary-lighter">
+          <Image alt="" className="w-20" src={teacher} />
+          <p className="font-peyda text-xl">
+          {!isLoading ? <CountUp end={data.teacherCount} duration={2} /> : <Spinner /> }
+          </p>
+        </div>
+        <div className="flex items-center flex-col gap-5 text-primary dark:text-primary-lighter">
+          <Image alt="" className="w-20" src={student} />
+          <p className="font-peyda text-xl">
+          {!isLoading ? <CountUp end={data.studentCount} duration={2} /> : <Spinner /> }
+          </p>
+        </div>
+        <div className="flex items-center flex-col gap-5 text-primary dark:text-primary-lighter">
+          <Image alt="" className="w-20" src={news} />
+          <p className="font-peyda text-xl">
+          {!isLoading ? <CountUp end={data.newsCount} duration={2} /> : <Spinner/>}
+          </p>
+        </div>
+        <div className="flex items-center flex-col gap-5 text-primary dark:text-primary-lighter">
+          <Image alt="" className="w-20" src={course} />
+          <p className="font-peyda text-xl">
+          {!isLoading ? <CountUp end={data.courseCount} duration={2} /> : <Spinner/>}
+          </p>
         </div>
       </div>
     </>
