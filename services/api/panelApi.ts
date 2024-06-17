@@ -9,3 +9,8 @@ export const getProfileInfoApi = (token?: string | undefined) => {
     },
   });
 };
+
+export const getMyCourseListApi = (params : any) => {
+  return httpService.get(baseUrl + `SharePanel/GetMyCourses`, { params });
+};
+
