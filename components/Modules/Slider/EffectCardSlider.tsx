@@ -33,6 +33,8 @@ export default function EffectCardSlider({
     };
   }, []);
 
+  console.log(data)
+
   return (
     <Swiper
       dir="ltr"
@@ -42,7 +44,7 @@ export default function EffectCardSlider({
       modules={[EffectCards]}
       className="w-[80%] sm:w-[92%] md:w-[85%] xl:w-[75%] h-[450px] sm:h-[235px] md:h-[280px] lg:h-[320px] dark:bg-opacity-10"
     >
-      {data.map((item, index) => (
+      {data?.map((item, index) => (
         <SwiperSlide key={index} className="bg-white dark:bg-dark">
           <Content {...item} />
         </SwiperSlide>

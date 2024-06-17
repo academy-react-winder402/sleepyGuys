@@ -2,6 +2,10 @@ import { blogProps } from "@/interfaces/blogComment.interface";
 import httpService from "@/services/httpService";
 const baseUrl = process.env.NEXT_PUBLIC_BASE_API_URL;
 
+export const getLatestNewsApi = (Count: number) => {
+  return httpService.get(baseUrl + `News?PageNumber=1&RowsOfPage=${Count}`);
+};
+
 export const getNewsWithPaginationApi = (params: any) => {
   return httpService.get(baseUrl + `News`, { params });
 };
