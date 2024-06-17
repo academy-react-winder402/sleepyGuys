@@ -1,5 +1,4 @@
 import React from "react";
-import { getNews } from "@/mock/getNews";
 import NewsCard from "./NewsCard";
 import EffectCardSlider from "@/components/Modules/Slider/EffectCardSlider";
 import BoxHeader from "@/components/Modules/BoxHeader/BoxHeader";
