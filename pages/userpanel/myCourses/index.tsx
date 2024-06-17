@@ -32,7 +32,7 @@ function Index() {
         { data?.totalCount === 0 ? null : <CurvedPagination total={data?.totalCount ?? 1} rowsOfPage={9} />}
       </div>
       {
-        data?.totalCount === 0 && <div>دوره ایی وجود ندارد</div>
+        data?.totalCount === 0 && <div className="font-kalamehBlack text-primary-darker text-3xl">دوره ایی وجود ندارد</div>
       }
     </>
   );

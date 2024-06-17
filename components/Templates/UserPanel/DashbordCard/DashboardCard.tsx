@@ -1,18 +1,17 @@
 import Image from "next/image";
 import React from "react";
-import navbarLogo from "@/public/icons/logo/navbarLogo.svg";
 
-export default function dashboardCard() {
+export default function dashboardCard({img} : any) {
   return (
     <div className="flex gap-8 items-center h-24 bg-white dark:bg-dark-lighter rounded-3xl">
       <div className="h-full w-24 bg-primary-darker
-       rounded-xl -translate-y-6 -translate-x-4">
+       rounded-xl -translate-y-6 -translate-x-4 flex items-center justify-center">
         <Image
-          src={navbarLogo}
+          src={img}
           priority={true}
           alt=""
           className="h-full"
-          style={{ width: "auto" }}
+          style={{ width: "60%" }}
         />
       </div>
       <div className="flex flex-col gap-5">
