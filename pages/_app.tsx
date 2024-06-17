@@ -15,7 +15,7 @@ export default function App({ Component, pageProps }: AppProps) {
 
   const loginRoutes = ["/login", "/register", "/resetPassword"];
 
-  const panelRoutes = ["/userpanel" , "/userpanel/myCourses" , "/userpanel/myTikets" , "/userpanel/myprofile"]
+  const panelRoutes = ["/userpanel" , "/userpanel/myCourses" , "/userpanel/myTikets" , "/userpanel/profile"]
 
   const queryClient = new QueryClient(queriesOptions);
 

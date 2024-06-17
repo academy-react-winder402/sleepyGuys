@@ -38,7 +38,7 @@ export default function AccountPopover() {
       <PopoverContent className="w-[250px] bg-white dark:bg-dark-lighter sm:w-[340px] items-start rounded-tl-none p-6">
         <>
           <UserCard
-            title="آرمان غنی زاده"
+            title="محمد آقایی"
             description="موجودی: ۰تومان"
             image={""}
             size={50}

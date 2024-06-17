@@ -5,7 +5,7 @@ interface primaryInput {
   placeholder: string;
   variant: "bordered" | "faded" | "flat" | "underlined";
   className?: string;
-  type?: "text" | "password" | "number";
+  type?: "text" | "password" | "number"| "image" | "file";
   register?: any;
   hasBorder?: boolean;
   startContent?: ReactNode;

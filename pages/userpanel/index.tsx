@@ -1,5 +1,5 @@
 import React from 'react'
-import UserPanelTopNavigation from './TopBar/TopBar'
+import UserPanelTopNavigation from '../../components/Templates/UserPanel/TopBar/TopBar'
 import UserPanelLayout from "@/layouts/UserPanelLayout"
 import DashboardCard from "@/components/Templates/UserPanel/DashbordCard/DashboardCard"
 import ticket from "@/public/pictures/userPanel/ticket-detailed-fill.svg"
@@ -9,7 +9,7 @@ import cash from "@/public/pictures/userPanel/cashapp.svg"
 
 function index() {
   return (
-    <div className="grid grid-cols-2 gap-10">
+    <div className="grid grid-cols-2 gap-10 pt-5">
       <DashboardCard img={ticket}/>
       <DashboardCard img={coursesCount}/>
       <DashboardCard img={wallet}/>

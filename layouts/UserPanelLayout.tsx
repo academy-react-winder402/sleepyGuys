@@ -1,5 +1,5 @@
 import Sidebar from "@/components/Templates/UserPanel/Sidebar/Sidebar";
-import UserPanelTopNavigation from "@/pages/userpanel/TopBar/TopBar";
+import UserPanelTopNavigation from "@/components/Templates/UserPanel/TopBar/TopBar";
 import React, { useEffect, useState } from "react";
 
 export default function UserPanelLayout({ children }: any) {
