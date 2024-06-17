@@ -24,7 +24,7 @@ export default function UserPanelTopNavigation() {
   }, [])
 
   return (
-    <nav className="hidden mb-10 sm:flex items-center justify-between bg-white dark:bg-dark-lighter rounded-3xl p-5">
+    <nav className="hidden sm:flex mb-8 items-center justify-between bg-white dark:bg-dark-lighter rounded-3xl p-5">
         {isMounted ?
      <>
       <div className="flex items-center gap-x-10 font-kalamehBlack text-lightTitle dark:text-darkTitle text-[25px]">

@@ -3,9 +3,9 @@ import React from "react";
 
 export default function dashboardCard({img} : any) {
   return (
-    <div className="flex gap-8 items-center h-24 bg-white dark:bg-dark-lighter rounded-3xl">
-      <div className="h-full w-24 bg-primary-darker
-       rounded-xl -translate-y-6 -translate-x-4 flex items-center justify-center">
+    <div className="flex gap-8 items-center h-20 bg-white dark:bg-dark-lighter rounded-3xl">
+      <div className="h-20 w-20 bg-primary
+       rounded-xl -translate-y-5 -translate-x-4 flex items-center justify-center">
         <Image
           src={img}
           priority={true}

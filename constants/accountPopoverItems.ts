@@ -5,10 +5,10 @@ import profile from "@/public/icons/theme/profile.svg";
 import { AccountPopoverItem } from "@/interfaces/accountPopover.interface";
 
 const accountPopoverItems: AccountPopoverItem[] = [
-  { label: "داشبورد", route: "my-account", icon: dashboard },
-  { label: "دوره ها", route: "courses", icon: courses },
-  { label: "تیکت ها", route: "tickets", icon: tickets },
-  { label: "پروفایل کاربری", route: "profile", icon: profile },
+  { label: "داشبورد", route: "userpanel", icon: dashboard },
+  { label: "دوره ها", route: "userpanel/myCourses", icon: courses },
+  { label: "تیکت ها", route: "userpanel/myTikets", icon: tickets },
+  { label: "پروفایل کاربری", route: "userpanel/myprofile", icon: profile },
 ];
 
 export default accountPopoverItems;

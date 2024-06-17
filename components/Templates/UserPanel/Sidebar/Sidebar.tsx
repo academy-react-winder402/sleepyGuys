@@ -7,10 +7,18 @@ import profile from "@/public/pictures/userPanel/p4.svg";
 import exite from "@/public/pictures/userPanel/p5.svg";
 import navbarLogo from "@/public/icons/logo/navbarLogo.svg";
 import Link from "next/link";
+import MainButton from "@/components/Modules/Button/MainButton";
+import { revokeToken } from "@/utils/revokeToken";
+import { useRouter } from "next/router";
 
 function Sidedar() {
+  const router = useRouter();
+  const logoutUserHandler = () => {
+    revokeToken()
+    router.reload()
+  }
   return (
-    <div className="bg-white dark:bg-dark-lighter w-[30%] h-[90vh] p-10 rounded-3xl flex flex-col gap-10">
+    <div className="bg-white dark:bg-dark-lighter w-[28%] h-[90vh] p-10 rounded-3xl flex flex-col gap-10 sticky top-10 right-0">
       <div className="flex items-center gap-x-10 p-5">
         <Image
           src={navbarLogo}
@@ -68,7 +76,7 @@ function Sidedar() {
           </Link>
         </li>
         <li>
-        <Link className="flex gap-2 items-center" href={"/userpanel/myprofile"}>
+        <Link className="flex gap-2 items-center" href={"/userpanel/profile"}>
           <span className="w-10">
             <Image
               src={profile}
@@ -93,7 +101,16 @@ function Sidedar() {
               style={{ width: "auto" }}
             />
           </span>
-          خروج
+          <MainButton
+              content={
+                <div className="text-[17px]">
+                خروج از حساب
+                </div>
+              }
+              onClick={logoutUserHandler}
+              variant="light"
+              color="danger"
+            />
           </Link>
         </li>
       </ul>

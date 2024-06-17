@@ -14,3 +14,7 @@ export const getMyCourseListApi = (params : any) => {
   return httpService.get(baseUrl + `SharePanel/GetMyCourses`, { params });
 };
 
+export const postProfileApi = (params : any) => {
+  return httpService.post(baseUrl + `SharePanel/AddProfileImage`, { params });
+};
+
