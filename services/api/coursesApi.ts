@@ -16,6 +16,7 @@ export const getCourseDetailsApi = (
 };
 
 export const getCoursesWithPaginationApi = (params: any) => {
+  console.log("arman")
   return httpService.get(baseUrl + `Home/GetCoursesWithPagination`, { params });
 };
 
@@ -34,6 +35,7 @@ export const getTechnologiesApi = () => {
 export const getCoursesCommentApi = (
   CourseId: string | string[] | undefined
 ) => {
+  console.log("michael")
   return httpService.get(baseUrl + `Course/GetCourseCommnets/${CourseId}`);
 };
 
@@ -73,6 +75,19 @@ export const addCourseCommentDissLikeApi = (CourseCommandId: string) => {
   return httpService.post(
     baseUrl +
       `Course/AddCourseCommentDissLike?CourseCommandId=${CourseCommandId}`
+  );
+};
+
+export const addCourseLikeApi = (CourseId: string) => {
+  return httpService.post(
+    baseUrl + `Course/AddCourseLike?CourseId=${CourseId}`
+  );
+};
+
+export const addCourseDissLikeApi = (CourseId: string) => {
+  return httpService.post(
+    baseUrl +
+      `Course/AddCourseDissLike?CourseId=${CourseId}`
   );
 };
 

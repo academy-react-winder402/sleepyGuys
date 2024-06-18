@@ -13,6 +13,8 @@ import {
   addCourseCommentLikeApi,
   addCourseCommentDissLikeApi,
   addCourseReserveApi,
+  addCourseLikeApi,
+  addCourseDissLikeApi,
 } from "@/services/api/coursesApi";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import toast from "react-hot-toast";
@@ -136,6 +138,38 @@ export const useAddCourseCommentDissLikeApi = (courseId: string) => {
       toast.success("کامنتی که دیسلایک کردی با موفقیت انجام شد");
       queryClient.invalidateQueries({
         queryKey: ["coursesComments", courseId],
+      });
+    },
+  });
+};
+
+export const useAddCourseLikeApi = (courseId: string , setIsLiked:any) => {
+  const queryClient = useQueryClient();
+
+  return useMutation({
+    mutationFn: (CourseId: string) =>
+      addCourseLikeApi(CourseId),
+    onSuccess: () => {
+      toast.success("دوره که لایک کردی با موفقیت انجام شد");
+      setIsLiked(true)
+      queryClient.invalidateQueries({
+        queryKey: ["CoursesLike"],
+      });
+    },
+  });
+};
+
+export const useAddCourseDissLikeApi = (courseId: string , setIsLiked: any) => {
+  const queryClient = useQueryClient();
+
+  return useMutation({
+    mutationFn: (CourseId: string) =>
+      addCourseDissLikeApi(CourseId),
+    onSuccess: () => {
+      toast.success("دوره که دیسلایک کردی با موفقیت انجام شد");
+      setIsLiked(false)
+      queryClient.invalidateQueries({
+        queryKey: ["CoursesLike"],
       });
     },
   });
