@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@internationalized/date": "^3.5.4",
     "@nextui-org/react": "^2.3.6",
     "@tanstack/react-query": "^5.35.5",
     "@types/js-cookie": "^3.0.6",

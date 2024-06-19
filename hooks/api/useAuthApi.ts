@@ -62,18 +62,22 @@ export const useLoginUserApi = () => {
   return useMutation({
     mutationFn: (payload: loginFormType) => loginUserApi(payload),
     onSuccess: (res) => {
-      Cookies.set("token", res.data.token);
-      toast.success("با موفقیت وارد حساب شدید");
-      switch (Boolean(callbackUrl)) {
-        case true: {
-          return router.push(callbackUrl);
+      if (res.data.success) {
+        Cookies.set("token", res.data.token);
+        toast.success("با موفقیت وارد حساب شدید");
+        switch (Boolean(callbackUrl)) {
+          case true: {
+            return router.push(callbackUrl);
+          }
+          case false: {
+            return router.push("/");
+          }
+          default: {
+            break;
+          }
         }
-        case false: {
-          return router.push("/");
-        }
-        default: {
-          break;
-        }
+      } else {
+        toast.error(res.data.message);
       }
     },
   });

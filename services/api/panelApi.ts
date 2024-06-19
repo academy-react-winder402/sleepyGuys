@@ -10,11 +10,40 @@ export const getProfileInfoApi = (token?: string | undefined) => {
   });
 };
 
-export const getMyCourseListApi = (params : any) => {
+export const getMyCourseListApi = (params: any) => {
   return httpService.get(baseUrl + `SharePanel/GetMyCourses`, { params });
 };
 
-export const postProfileApi = (params : any) => {
-  return httpService.post(baseUrl + `SharePanel/AddProfileImage`, { params });
+export const addProfileImageApi = (payload: { formFile: File }) => {
+  return httpService.post(baseUrl + `SharePanel/AddProfileImage`, payload, {
+    headers: {
+      useMultipartForm: true,
+    },
+  });
 };
 
+export const deleteProfileImageApi = (DeleteEntityId: string) => {
+  return httpService.delete(baseUrl + `SharePanel/DeleteEntityId`, {
+    data: {
+      DeleteEntityId,
+    },
+    headers: {
+      useMultipartForm: true,
+    },
+  });
+};
+
+export const changePasswordApi = (payload: {
+  oldPassword: string;
+  newPassword: string;
+}) => {
+  return httpService.post(baseUrl + `SharePanel/ChangePassword`, payload);
+};
+
+export const updateProfileInfoApi = (payload: any) => {
+  return httpService.put(baseUrl + `SharePanel/UpdateProfileInfo`, payload, {
+    headers: {
+      useMultipartForm: true,
+    },
+  });
+};
