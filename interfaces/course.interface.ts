@@ -12,7 +12,7 @@ interface Course {
   dissLikeCount?: number;
   likeCount?: number;
   isCourseReseve?: boolean;
-  isUserFavorite?: boolean;
+  userFavorite?: boolean;
   lastUpdate: string;
   levelName?: string;
   statusName?: string;
@@ -35,4 +35,4 @@ interface FavoriteCourse {
   favoriteId: string;
   teacherId: number;
 }
-export type { Course,FavoriteCourse };
+export type { Course, FavoriteCourse };

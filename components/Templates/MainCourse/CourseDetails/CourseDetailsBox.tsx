@@ -1,6 +1,6 @@
 import MainButton from "@/components/Modules/Button/MainButton";
 import Image from "next/image";
-import React from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import fallbackImage from "@/public/pictures/courses/redux.webp";
 import { courseDetailsBoxProps } from "@/interfaces/courseDetails.interface";
 import { validateImageAddress } from "@/utils/validateImageAdderss";
@@ -12,6 +12,7 @@ import { useRouter } from "next/router";
 import outlinedHeartIcon from "@/public/icons/outlined/heart.svg"
 import solidHeartIcon from "@/public/icons/solid/heart.svg"
 import MainTooltip from "@/components/Modules/MainTooltip/MainTooltip";
+import { Spinner } from "@nextui-org/react";
 
 export default function CourseDetailsBox({ title, miniDescribe, imageAddress, cost, isUserFavorite, userFavoriteId }: courseDetailsBoxProps) {
   const router = useRouter()
@@ -79,7 +80,7 @@ export default function CourseDetailsBox({ title, miniDescribe, imageAddress, co
               </div>
             </div>
             <div>
-              {isUserFavorite ? <MainTooltip content="این دوره مورد علاقه شماست"><Image alt="" src={solidHeartIcon} onClick={deleteCourseFavoriteHandler} /></MainTooltip> : <MainTooltip content="افزودن به مورد علاقه"><Image alt="" src={outlinedHeartIcon} onClick={addCourseFavoriteHandler} className="cursor-pointer" /></MainTooltip>}
+              {isUserFavorite ? addCourseFavoriteIsPending ? <Spinner size="sm" /> : <MainTooltip content="این دوره مورد علاقه شماست"><Image alt="" src={solidHeartIcon} onClick={deleteCourseFavoriteHandler} className="cursor-pointer" /></MainTooltip> : deleteCourseFavoriteIsPending ? <Spinner size="sm" /> : <MainTooltip content="افزودن به مورد علاقه"><Image alt="" src={outlinedHeartIcon} onClick={addCourseFavoriteHandler} className="cursor-pointer" /></MainTooltip>}
             </div>
           </div>
           <div className="-translate-x-10 w-3/7 hidden lg:block h-[300px]">

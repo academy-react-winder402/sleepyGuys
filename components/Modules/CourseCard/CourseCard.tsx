@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from "react";
+import React from "react";
 import Image from "next/image";
 import { Course } from "@/interfaces/course.interface";
 import clock from "@/public/icons/courses/clock.svg";
@@ -11,44 +11,36 @@ import { validateImageAddress } from "@/utils/validateImageAdderss";
 import fallbackImage from "@/public/pictures/courses/next.webp";
 import heart from "@/public/pictures/courses/heart.svg";
 import fillHeart from "@/public/pictures/courses/fillHeart.svg";
-import { useAddCourseDissLikeApi, useAddCourseLikeApi } from "@/hooks/api/useCoursesApi";
+import { useAddCourseFavoriteApi, useDeleteCourseFavoriteApi } from "@/hooks/api/useCoursesApi";
 import MainTooltip from "../MainTooltip/MainTooltip";
 
 function CourseCard({
   title,
   tumbImageAddress,
-  userIsLiked,
   describe,
   teacherName,
   cost,
   lastUpdate,
   courseId,
+  userFavoriteId,
+  userFavorite
 }: Course) {
-  const initialLikeState = useMemo(() => userIsLiked, [userIsLiked]);
-  const [isLike, setIsLiked] = useState(initialLikeState);
-
-  useEffect(() => {
-    setIsLiked(userIsLiked);
-  }, [userIsLiked]);
-
   const router = useRouter();
 
-  const { mutate: addCourseLikeMutate, isPending: addCourseLikePending } =
-    useAddCourseLikeApi(setIsLiked);
 
-  const { mutate: addCourseDissLikeMutate, isPending: addCourseDissLikePending } =
-    useAddCourseDissLikeApi(setIsLiked);
+  const { mutate: addCourseFavoriteMutate, isPending: addCourseFavoriteIsPending } = useAddCourseFavoriteApi()
+
+  const { mutate: deleteCourseFavoriteMutate, isPending: deleteCourseFavoriteIsPending } = useDeleteCourseFavoriteApi()
 
   const likeCommentHandler = (event: any) => {
     event.stopPropagation()
-    addCourseLikeMutate(courseId);
+    addCourseFavoriteMutate({ courseId });
   };
 
   const dislikeCommentHandler = (event: any) => {
     event.stopPropagation()
-    addCourseDissLikeMutate(courseId);
+    deleteCourseFavoriteMutate({ CourseFavoriteId: userFavoriteId });
   };
-
 
   return (
     <div
@@ -59,28 +51,24 @@ function CourseCard({
         <div className="w-full flex flex-col gap-5">
           <div className="rounded-3xl w-[85%] mx-auto -mt-20 h-[160px] relative">
             <div className="p-3 absolute top-0 left-0">
-              {!isLike ? (
-                <>
-                  {addCourseLikePending ? <Spinner /> : <MainTooltip content="افزودن به علاقه مندی"><Image
-                    src={heart}
-                    alt=""
-                    width={40}
-                    height={40}
-                    onClick={(event) => likeCommentHandler(event)}
-                    className="h-full w-full"
-                  /></MainTooltip>}
-                </>
+              {!userFavorite ? (
+                addCourseFavoriteIsPending ? <Spinner size="sm" /> : <MainTooltip content="افزودن به علاقه مندی"><Image
+                  src={heart}
+                  alt=""
+                  width={40}
+                  height={40}
+                  onClick={(event) => likeCommentHandler(event)}
+                  className="h-full w-full"
+                /></MainTooltip>
               ) : (
-                <>
-                  {addCourseDissLikePending ? <Spinner /> : <MainTooltip content="حذف از علاقه مندی"><Image
-                    src={fillHeart}
-                    alt=""
-                    width={40}
-                    height={40}
-                    onClick={(event) => dislikeCommentHandler(event)}
-                    className="h-full w-full"
-                  /></MainTooltip>}
-                </>
+                deleteCourseFavoriteIsPending ? <Spinner size="sm" /> : <MainTooltip content="حذف از علاقه مندی"><Image
+                  src={fillHeart}
+                  alt=""
+                  width={40}
+                  height={40}
+                  onClick={(event) => dislikeCommentHandler(event)}
+                  className="h-full w-full"
+                /></MainTooltip>
               )}
             </div>
             <Image
