@@ -86,25 +86,25 @@ function Hero() {
         <div className="flex items-center flex-col gap-5 text-primary dark:text-primary-lighter">
           <Image alt="" className="w-20" src={teacher} />
           <p className="font-peyda text-xl">
-          {!isLoading ? <CountUp end={data.teacherCount} duration={2} /> : <Spinner /> }
+          {!isLoading ? <CountUp end={data.teacherCount} duration={4} /> : <Spinner /> }
           </p>
         </div>
         <div className="flex items-center flex-col gap-5 text-primary dark:text-primary-lighter">
           <Image alt="" className="w-20" src={student} />
           <p className="font-peyda text-xl">
-          {!isLoading ? <CountUp end={data.studentCount} duration={2} /> : <Spinner /> }
+          {!isLoading ? <CountUp end={data.studentCount} duration={4} /> : <Spinner /> }
           </p>
         </div>
         <div className="flex items-center flex-col gap-5 text-primary dark:text-primary-lighter">
           <Image alt="" className="w-20" src={news} />
           <p className="font-peyda text-xl">
-          {!isLoading ? <CountUp end={data.newsCount} duration={2} /> : <Spinner/>}
+          {!isLoading ? <CountUp end={data.newsCount} duration={4} /> : <Spinner/>}
           </p>
         </div>
         <div className="flex items-center flex-col gap-5 text-primary dark:text-primary-lighter">
           <Image alt="" className="w-20" src={course} />
           <p className="font-peyda text-xl">
-          {!isLoading ? <CountUp end={data.courseCount} duration={2} /> : <Spinner/>}
+          {!isLoading ? <CountUp end={data.courseCount} duration={4} /> : <Spinner/>}
           </p>
         </div>
       </div>

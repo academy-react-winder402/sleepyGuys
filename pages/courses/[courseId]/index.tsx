@@ -7,7 +7,7 @@ import { getCourseTitles } from "@/mock/getCourseTitles";
 import CourseSummaryBox from "@/components/Templates/MainCourse/CourseSummary/CourseSummaryBox";
 import TeacherDetailBox from "@/components/Templates/MainCourse/TeacherDetails/TeacherDetailsBox";
 import { QueryClient, dehydrate } from "@tanstack/react-query";
-import { getCourseDetailsApi } from "@/services/api/coursesApi";
+import { getCourseDetailsApi, getCoursesWithPaginationApi } from "@/services/api/coursesApi";
 import { getCoursesCommentApi } from "@/services/api/coursesApi";
 import { GetStaticPaths, GetStaticProps } from "next";
 import { useRouter } from "next/router";
@@ -78,6 +78,14 @@ export const getStaticProps: GetStaticProps = (async (context) => {
     queryKey: ["courseComments"],
     queryFn: async () => {
       const response = await getCoursesCommentApi(params?.courseId);
+      return response.data;
+    }
+  });
+
+  await queryClient.prefetchQuery({
+    queryKey: ["CoursesLike"],
+    queryFn: async () => {
+      const response = await getCoursesWithPaginationApi(params);
       return response.data;
     }
   });
