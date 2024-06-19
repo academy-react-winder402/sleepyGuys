@@ -13,13 +13,10 @@ import {
   addCourseCommentLikeApi,
   addCourseCommentDissLikeApi,
   addCourseReserveApi,
-<<<<<<< HEAD
   addCourseFavoriteApi,
   deleteCourseFavoriteApi,
-=======
   addCourseLikeApi,
   addCourseDissLikeApi,
->>>>>>> like
 } from "@/services/api/coursesApi";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import toast from "react-hot-toast";
