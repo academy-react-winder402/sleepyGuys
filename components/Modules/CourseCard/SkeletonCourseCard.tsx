@@ -41,7 +41,7 @@ export default function SkeletonCourseCard() {
                             >
                                 <Skeleton className='h-[15px] w-[100px] rounded-md' />
                             </Chip>
-                            <Skeleton className='h-[25px] w-[120px] rounded-md' />
+                            <Skeleton className='h-[25px] w-[100px] rounded-md' />
                         </div>
                     </div>
                 </div>

@@ -1,4 +1,10 @@
-import { getMyCourseListApi, getProfileInfoApi, postProfileApi } from "@/services/api/panelApi";
+import {
+  getMyCourseListApi,
+  getMyFavoriteCoursesApi,
+  getMyFavoriteNewsApi,
+  getProfileInfoApi,
+  postProfileApi,
+} from "@/services/api/panelApi";
 import { isUserAuthenticated } from "@/utils/isUserAuthenticated";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import toast from "react-hot-toast";
@@ -8,15 +14,14 @@ export const useGetProfileInfoApi = () => {
     queryKey: ["profileInfo"],
     queryFn: () => getProfileInfoApi().then((data) => data.data),
     retry: 0,
-    enabled:!!isUserAuthenticated()
+    enabled: !!isUserAuthenticated(),
   });
 };
 
 export const useGetMyCoursesWithPaginationApi = (params: any) => {
   return useQuery({
     queryKey: ["myCoursesWithPagination", params],
-    queryFn: () =>
-      getMyCourseListApi(params).then((data) => data.data),
+    queryFn: () => getMyCourseListApi(params).then((data) => data.data),
   });
 };
 
@@ -30,5 +35,19 @@ export const useAddProfileApi = (reset: () => void) => {
       reset();
       queryClient.invalidateQueries({ queryKey: ["userProfile"] });
     },
+  });
+};
+
+export const useGetMyFavoriteCoursesApi = () => {
+  return useQuery({
+    queryKey: ["MyFavoriteCourses"],
+    queryFn: () => getMyFavoriteCoursesApi().then((data) => data.data),
+  });
+};
+
+export const useGetMyFavoriteNewsApi = () => {
+  return useQuery({
+    queryKey: ["MyFavoriteNews"],
+    queryFn: () => getMyFavoriteNewsApi().then((data) => data.data),
   });
 };

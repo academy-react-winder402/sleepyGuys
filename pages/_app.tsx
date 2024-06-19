@@ -15,7 +15,7 @@ export default function App({ Component, pageProps }: AppProps) {
 
   const loginRoutes = ["/login", "/register", "/resetPassword"];
 
-  const panelRoutes = ["/userpanel" , "/userpanel/myCourses" , "/userpanel/myTikets" , "/userpanel/profile"]
+  const panelRoutes = ["/userpanel", "/userpanel/myCourses", "/userpanel/myTikets", "/userpanel/profile", "/userpanel/favorites"]
 
   const queryClient = new QueryClient(queriesOptions);
 
@@ -23,7 +23,7 @@ export default function App({ Component, pageProps }: AppProps) {
     ? EmptyLayout
     : DefautLayout;
 
-  if (panelRoutes.includes(router.pathname)){
+  if (panelRoutes.includes(router.pathname)) {
     Layout = UserPanelLayout
   }
 

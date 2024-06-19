@@ -10,11 +10,18 @@ export const getProfileInfoApi = (token?: string | undefined) => {
   });
 };
 
-export const getMyCourseListApi = (params : any) => {
+export const getMyCourseListApi = (params: any) => {
   return httpService.get(baseUrl + `SharePanel/GetMyCourses`, { params });
 };
 
-export const postProfileApi = (params : any) => {
+export const postProfileApi = (params: any) => {
   return httpService.post(baseUrl + `SharePanel/AddProfileImage`, { params });
 };
 
+export const getMyFavoriteCoursesApi = () => {
+  return httpService.get(baseUrl + `SharePanel/GetMyFavoriteCourses`);
+};
+
+export const getMyFavoriteNewsApi = () => {
+  return httpService.get(baseUrl + `SharePanel/GetMyFavoriteNews`);
+};
