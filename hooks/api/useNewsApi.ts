@@ -1,4 +1,5 @@
 import {
+  getLatestNewsApi,
   getNewsCommentApi,
   getNewsWithPaginationApi,
   newsCommentLikeApi,
@@ -8,6 +9,13 @@ import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { getNewsDetailsApi } from "@/services/api/newsApi";
 import toast from "react-hot-toast";
 import { blogProps } from "@/interfaces/blogComment.interface";
+
+export const useGetLatestNewsApi = (Count: number) => {
+  return useQuery({
+    queryKey: ["latestNews"],
+    queryFn: () => getLatestNewsApi(Count).then((data) => data.data),
+  });
+};
 
 export const useGetNewsWithPaginationApi = (params: any) => {
   return useQuery({
