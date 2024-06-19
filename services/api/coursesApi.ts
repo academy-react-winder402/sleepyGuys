@@ -16,7 +16,6 @@ export const getCourseDetailsApi = (
 };
 
 export const getCoursesWithPaginationApi = (params: any) => {
-  console.log("arman")
   return httpService.get(baseUrl + `Home/GetCoursesWithPagination`, { params });
 };
 
@@ -35,7 +34,6 @@ export const getTechnologiesApi = () => {
 export const getCoursesCommentApi = (
   CourseId: string | string[] | undefined
 ) => {
-  console.log("michael")
   return httpService.get(baseUrl + `Course/GetCourseCommnets/${CourseId}`);
 };
 

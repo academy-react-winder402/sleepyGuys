@@ -2,7 +2,7 @@ import React, { useEffect, useMemo, useState } from "react";
 import Image from "next/image";
 import { Course } from "@/interfaces/course.interface";
 import clock from "@/public/icons/courses/clock.svg";
-import { Chip, Divider } from "@nextui-org/react";
+import { Chip, Divider, Spinner } from "@nextui-org/react";
 import { useRouter } from "next/router";
 import convertToPersianDigit from "@/utils/convertToPersianDigit";
 import addCommasToPersianNumber from "@/utils/addCommasToPersianDigit";
@@ -25,6 +25,7 @@ function CourseCard({
 }: Course) {
   const initialLikeState = useMemo(() => userIsLiked, [userIsLiked]);
   const [isLike, setIsLiked] = useState(initialLikeState);
+  const [isLikeLoding, setIsLikedLoding] = useState(false);
 
   useEffect(() => {
     setIsLiked(userIsLiked);
@@ -32,18 +33,20 @@ function CourseCard({
   const router = useRouter();
 
   const { mutate: addCourseLikeMutate } =
-    useAddCourseLikeApi(courseId , setIsLiked);
+    useAddCourseLikeApi(courseId , setIsLiked , setIsLikedLoding);
 
   const { mutate: addCourseDissLikeMutate } =
-    useAddCourseDissLikeApi(courseId , setIsLiked);
+    useAddCourseDissLikeApi(courseId , setIsLiked , setIsLikedLoding);
   
   const likeCommentHandler = () => {
     console.log(courseId)
+    setIsLikedLoding(true)
     return addCourseLikeMutate(courseId);
   };
 
   const dislikeCommentHandler = () => {
     console.log(courseId)
+    setIsLikedLoding(true)
     return addCourseDissLikeMutate(courseId);
   };
 
@@ -56,23 +59,29 @@ function CourseCard({
           <div className="rounded-3xl w-[85%] mx-auto -mt-20 h-[160px] relative">
             <div className="p-3 absolute top-0 left-0">
               {!isLike ? (
-                <Image
+                <>
+                {!isLikeLoding &&<Image
                   src={heart}
                   alt=""
                   width={40}
                   height={40}
                   onClick={() => likeCommentHandler()}
                   className="h-full w-full"
-                />
+                />}
+                { isLikeLoding && <Spinner/>}
+                </>
               ) : (
-                <Image
+                <>
+                {!isLikeLoding &&<Image
                   src={fillHeart}
                   alt=""
                   width={40}
                   height={40}
                   onClick={() => dislikeCommentHandler()}
                   className="h-full w-full"
-                />
+                />}
+                { isLikeLoding && <Spinner/>}
+                </>
               )}
             </div>
             <Image

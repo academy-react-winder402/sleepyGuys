@@ -22,7 +22,7 @@ function CorseInfo() {
 
   const { data: courseDetailsData, isLoading: courseDetailsIsLoading } = useGetCourseDetailsApi(query.courseId)
 
-  const { data: commentsData, isLoading: isCommentsLoading } = useGetCoursesCommentApi(query.courseId)
+  const { data: commentsData, isLoading: isCommentsLoading , refetch } = useGetCoursesCommentApi(query.courseId)
 
   // shoud be fixed
   // const { data: replyCommentsData, isLoading: replyCommentsIsLoading } = useGetCourseReplyCommentsApi({ CourseId: query.courseId, CommentId: "jndjfknds" })
@@ -34,7 +34,7 @@ function CorseInfo() {
           <CourseSummaryBox {...courseDetailsData} isLoading={courseDetailsIsLoading || !query.courseId} />
           <CourseDescriptionBox description={courseDetailsData?.describe ?? ""} isLoading={courseDetailsIsLoading || !query.courseId} />
           <CourseHeadlinesBox data={getCourseTitles()} />
-          <CommentsBox data={commentsData} isCommentsLoading={isCommentsLoading || !query.courseId} />
+          <CommentsBox data={commentsData} refetch={refetch} isCommentsLoading={isCommentsLoading || !query.courseId} />
         </div>
         <div className="hidden lg:flex flex-col gap-y-8 w-1/3">
           {courseDetailsIsLoading || !query.courseId ? <SkeletonTeacherDetailsBox /> : <TeacherDetailBox teacherName={courseDetailsData?.teacherName} teacherId={courseDetailsData?.teacherId} />}

@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import UserCard from "@/components/Modules/UserCard/UserCard";
-import { Card, CardHeader, Divider } from "@nextui-org/react";
+import { Card, CardHeader, Divider, Spinner } from "@nextui-org/react";
 import { CommentCard as CommentCardType } from "@/interfaces/commentCard.interface";
 import Image from "next/image";
 import replyIcon from "@/public/icons/theme/reply.svg";
@@ -19,7 +19,11 @@ interface detectReplyToWhichUser {
   detectReplyToWhichUser?: ((userName: string | null) => void) | any;
 }
 
-type CourseCommentCard = CommentCardType & detectReplyToWhichUser;
+interface refatchFunc {
+  refatchFunc?: () => void;
+}
+
+type CourseCommentCard = CommentCardType & detectReplyToWhichUser & any;
 
 function CommentCard({
   id,
@@ -37,16 +41,43 @@ function CommentCard({
   currentUserEmotion,
   currentUserLikeId,
   pictureAddress,
-  detectReplyToWhichUser
+  detectReplyToWhichUser,
+  refetch,
 }: CourseCommentCard) {
+  const [isLikeLoding, setIsLikedLoding] = useState<boolean>(false);
+  const [isLike, setIsLike] = useState<string>(currentUserEmotion);
+  const [DisslikeCount, setDisslikeCount] = useState<number>(disslikeCount);
+  const [LikeCount, setLikeCount] = useState<number>(likeCount);
+
+  const plusLike = () => {
+    setLikeCount(LikeCount + 1)
+  }
+
+  const minusLike = () => {
+    setLikeCount(LikeCount - 1)
+  }
+
+  const plusDissLike = () => {
+    setDisslikeCount(DisslikeCount + 1)
+  }
+
+  const minusDissLike = () => {
+    setDisslikeCount(DisslikeCount - 1)
+  }
+
   const router = useRouter();
   const { pathname, query } = router;
 
-  const { mutate: addCourseCommentLikeMutate } =
-    useAddCourseCommentLikeApi(courseId);
+  const { mutate: addCourseCommentLikeMutate } = useAddCourseCommentLikeApi(
+    courseId,
+    setIsLikedLoding,
+    setIsLike,
+    plusLike,
+    minusDissLike
+  );
 
   const { mutate: addCourseCommentDissLikeMutate } =
-    useAddCourseCommentDissLikeApi(courseId);
+    useAddCourseCommentDissLikeApi(courseId, setIsLikedLoding, setIsLike , minusLike , plusDissLike);
 
   const commentDate = new Date(insertDate).toLocaleDateString("fa-IR", {
     year: "numeric",
@@ -67,10 +98,12 @@ function CommentCard({
   };
 
   const likeCommentHandler = () => {
+    setIsLikedLoding(true);
     return addCourseCommentLikeMutate(id);
   };
 
   const dislikeCommentHandler = () => {
+    setIsLikedLoding(true);
     return addCourseCommentDissLikeMutate(id);
   };
   return (
@@ -93,33 +126,67 @@ function CommentCard({
         </div>
         <div className="flex items-start gap-2">
           <button className="flex flex-col items-center gap-1">
-            {currentUserEmotion === "DISSLIKED" ? (
-              <Image src={solidDislikeIcon} alt="" className="cursor-pointer" />
+            {isLike === "DISSLIKED" ? (
+              
+              <>
+                {!isLikeLoding && (
+                  <Image
+                    src={solidDislikeIcon}
+                    alt=""
+                    className="cursor-pointer"
+                  />
+                )}
+                {isLikeLoding && <Spinner />}
+              </>
             ) : (
-              <Image
-                src={outlineDislikeIcon}
-                alt=""
-                className="cursor-pointer"
-                onClick={dislikeCommentHandler}
-              />
+              <>
+              {!isLikeLoding && (
+                <>
+                <Image
+                  src={outlineDislikeIcon}
+                  alt=""
+                  className="cursor-pointer"
+                  onClick={dislikeCommentHandler}
+                />
+                </>
+                
+              )}
+              {isLikeLoding && <Spinner />}
+            </>
+              
             )}
             <span className="text-xs font-peyda">
-              {convertToPersianDigit(disslikeCount)}
+              {convertToPersianDigit(DisslikeCount)}
             </span>
           </button>
           <button className="flex flex-col items-center gap-1">
-            {currentUserEmotion === "LIKED" ? (
-              <Image src={solidLikeIcon} alt="" className="cursor-pointer" />
+            {isLike === "LIKED" ? (
+              <>
+              {!isLikeLoding && (
+                <Image
+                  src={solidLikeIcon}
+                  alt=""
+                  className="cursor-pointer"
+                />
+              )}
+              {isLikeLoding && <Spinner />}
+            </>
             ) : (
-              <Image
-                src={outlineLikeIcon}
-                alt=""
-                className="cursor-pointer"
-                onClick={likeCommentHandler}
-              />
+              <>
+                {!isLikeLoding && (
+                  <Image
+                    src={outlineLikeIcon}
+                    alt=""
+                    className="cursor-pointer"
+                    onClick={likeCommentHandler}
+                  />
+                )}
+                {isLikeLoding && <Spinner />}
+              </>
+              
             )}
             <span className="text-xs font-peyda">
-              {convertToPersianDigit(likeCount)}
+              {convertToPersianDigit(LikeCount)}
             </span>
           </button>
           <button className="flex flex-col items-center gap-1">

@@ -13,6 +13,7 @@ import { newsCommentProps } from "@/interfaces/newsCommnet.interface";
 export default function CommentsBox({
   data,
   isCommentsLoading,
+  refetch
 }: 
   any
 ) {
@@ -65,7 +66,7 @@ export default function CommentsBox({
           )) : data?.map((comment : any) => (
             <>
             {isInCoursePage ?
-              <CourseCommentCard {...comment} key={comment?.id} detectReplyToWhichUser={detectReplyToWhichUser} />
+              <CourseCommentCard refetch={refetch} {...comment} key={comment?.id} detectReplyToWhichUser={detectReplyToWhichUser} />
               : 
               <BlogCommentCard {...comment} key={comment?.id} detectReplyToWhichUser={detectReplyToWhichUser} />
             }

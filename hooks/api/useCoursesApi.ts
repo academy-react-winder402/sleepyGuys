@@ -115,7 +115,7 @@ export const useAddReplyCourseCommentApi = (reset: () => void) => {
   });
 };
 
-export const useAddCourseCommentLikeApi = (courseId: string) => {
+export const useAddCourseCommentLikeApi = (courseId: string , setIsLikedLoding:any , setIsLike:any , plusLike:any , minusDissLike:any) => {
   const queryClient = useQueryClient();
 
   return useMutation({
@@ -123,6 +123,10 @@ export const useAddCourseCommentLikeApi = (courseId: string) => {
       addCourseCommentLikeApi(CourseCommandId),
     onSuccess: () => {
       toast.success("کامنتی که لایک کردی با موفقیت انجام شد");
+      setIsLikedLoding(false)
+      setIsLike("LIKED")
+      plusLike()
+      minusDissLike()
       queryClient.invalidateQueries({
         queryKey: ["coursesComments", courseId],
       });
@@ -130,7 +134,7 @@ export const useAddCourseCommentLikeApi = (courseId: string) => {
   });
 };
 
-export const useAddCourseCommentDissLikeApi = (courseId: string) => {
+export const useAddCourseCommentDissLikeApi = (courseId: string , setIsLikedLoding:any , setIsLike:any , plusDissLike:any , minusLike:any) => {
   const queryClient = useQueryClient();
 
   return useMutation({
@@ -138,6 +142,10 @@ export const useAddCourseCommentDissLikeApi = (courseId: string) => {
       addCourseCommentDissLikeApi(CourseCommandId),
     onSuccess: () => {
       toast.success("کامنتی که دیسلایک کردی با موفقیت انجام شد");
+      setIsLikedLoding(false)
+      setIsLike("DISSLIKED")
+      plusDissLike()
+      minusLike()
       queryClient.invalidateQueries({
         queryKey: ["coursesComments", courseId],
       });
@@ -145,7 +153,7 @@ export const useAddCourseCommentDissLikeApi = (courseId: string) => {
   });
 };
 
-export const useAddCourseLikeApi = (courseId: string , setIsLiked:any) => {
+export const useAddCourseLikeApi = (courseId: string , setIsLiked:any , setIsLikedLoding:any) => {
   const queryClient = useQueryClient();
 
   return useMutation({
@@ -154,6 +162,7 @@ export const useAddCourseLikeApi = (courseId: string , setIsLiked:any) => {
     onSuccess: () => {
       toast.success("دوره که لایک کردی با موفقیت انجام شد");
       setIsLiked(true)
+      setIsLikedLoding(false)
       queryClient.invalidateQueries({
         queryKey: ["CoursesLike"],
       });
@@ -161,7 +170,7 @@ export const useAddCourseLikeApi = (courseId: string , setIsLiked:any) => {
   });
 };
 
-export const useAddCourseDissLikeApi = (courseId: string , setIsLiked: any) => {
+export const useAddCourseDissLikeApi = (courseId: string , setIsLiked: any , setIsLikedLoding:any) => {
   const queryClient = useQueryClient();
 
   return useMutation({
@@ -170,6 +179,7 @@ export const useAddCourseDissLikeApi = (courseId: string , setIsLiked: any) => {
     onSuccess: () => {
       toast.success("دوره که دیسلایک کردی با موفقیت انجام شد");
       setIsLiked(false)
+      setIsLikedLoding(false)
       queryClient.invalidateQueries({
         queryKey: ["CoursesLike"],
       });
