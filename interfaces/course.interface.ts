@@ -12,12 +12,12 @@ interface Course {
   dissLikeCount?: number;
   likeCount?: number;
   isCourseReseve?: boolean;
-  userFavorite: boolean;
+  userFavorite?: boolean;
   lastUpdate: string;
   levelName?: string;
   statusName?: string;
   typeName?: string;
-  userFavoriteId: string;
+  userFavoriteId?: string;
   userIsDissLiked?: boolean;
   userIsLiked?: boolean;
   userLikeId?: string;

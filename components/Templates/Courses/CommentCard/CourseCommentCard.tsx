@@ -118,7 +118,7 @@ function CommentCard({
           <button className="flex flex-col items-center gap-1">
             {currentUserEmotion === "LIKED" ? ((
               <Image
-                src={solidLikeIcon}
+              src={solidLikeIcon}
                 alt=""
                 className="cursor-pointer"
               />
