@@ -7,7 +7,7 @@ import cash from "@/public/pictures/userPanel/cashapp.svg"
 import { GetServerSideProps } from 'next'
 import { getProfileInfoApi } from '@/services/api/panelApi'
 
-function index() {
+function UserPanelDashboard() {
   return (
     <div className="grid grid-cols-2 gap-10 pt-5">
       <DashboardCard img={ticket} />
@@ -18,7 +18,6 @@ function index() {
   )
 }
 
-export default index
 
 export const getServerSideProps = (async (context) => {
   const { cookies } = context.req
@@ -38,3 +37,5 @@ export const getServerSideProps = (async (context) => {
     };
   }
 }) satisfies GetServerSideProps
+
+export default UserPanelDashboard

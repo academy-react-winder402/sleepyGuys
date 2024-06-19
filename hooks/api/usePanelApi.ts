@@ -5,6 +5,8 @@ import {
   getMyCourseListApi,
   getProfileInfoApi,
   updateProfileInfoApi,
+  getMyFavoriteCoursesApi,
+  getMyFavoriteNewsApi,
 } from "@/services/api/panelApi";
 import { isUserAuthenticated } from "@/utils/isUserAuthenticated";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
@@ -75,5 +77,19 @@ export const useUpdateProfileInfoApi = () => {
         queryKey: ["profileInfo"],
       });
     },
+  });
+};
+
+export const useGetMyFavoriteCoursesApi = () => {
+  return useQuery({
+    queryKey: ["MyFavoriteCourses"],
+    queryFn: () => getMyFavoriteCoursesApi().then((data) => data.data),
+  });
+};
+
+export const useGetMyFavoriteNewsApi = () => {
+  return useQuery({
+    queryKey: ["MyFavoriteNews"],
+    queryFn: () => getMyFavoriteNewsApi().then((data) => data.data),
   });
 };

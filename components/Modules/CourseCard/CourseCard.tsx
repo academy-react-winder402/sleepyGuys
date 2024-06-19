@@ -12,6 +12,7 @@ import fallbackImage from "@/public/pictures/courses/next.webp";
 import heart from "@/public/pictures/courses/heart.svg";
 import fillHeart from "@/public/pictures/courses/fillHeart.svg";
 import { useAddCourseDissLikeApi, useAddCourseLikeApi } from "@/hooks/api/useCoursesApi";
+import MainTooltip from "../MainTooltip/MainTooltip";
 
 function CourseCard({
   title,
@@ -25,34 +26,34 @@ function CourseCard({
 }: Course) {
   const initialLikeState = useMemo(() => userIsLiked, [userIsLiked]);
   const [isLike, setIsLiked] = useState(initialLikeState);
-  const [isLikeLoding, setIsLikedLoding] = useState(false);
 
   useEffect(() => {
     setIsLiked(userIsLiked);
   }, [userIsLiked]);
+
   const router = useRouter();
 
-  const { mutate: addCourseLikeMutate } =
-    useAddCourseLikeApi(courseId , setIsLiked , setIsLikedLoding);
+  const { mutate: addCourseLikeMutate, isPending: addCourseLikePending } =
+    useAddCourseLikeApi(setIsLiked);
 
-  const { mutate: addCourseDissLikeMutate } =
-    useAddCourseDissLikeApi(courseId , setIsLiked , setIsLikedLoding);
-  
-  const likeCommentHandler = () => {
-    console.log(courseId)
-    setIsLikedLoding(true)
-    return addCourseLikeMutate(courseId);
+  const { mutate: addCourseDissLikeMutate, isPending: addCourseDissLikePending } =
+    useAddCourseDissLikeApi(setIsLiked);
+
+  const likeCommentHandler = (event: any) => {
+    event.stopPropagation()
+    addCourseLikeMutate(courseId);
   };
 
-  const dislikeCommentHandler = () => {
-    console.log(courseId)
-    setIsLikedLoding(true)
-    return addCourseDissLikeMutate(courseId);
+  const dislikeCommentHandler = (event: any) => {
+    event.stopPropagation()
+    addCourseDissLikeMutate(courseId);
   };
+
 
   return (
     <div
       className="pt-[55px] h-[435px] cursor-pointer"
+      onClick={() => router.push(`/courses/${courseId}`)}
     >
       <div className="flex py-6 bg-white dark:bg-dark-lighter rounded-3xl h-full">
         <div className="w-full flex flex-col gap-5">
@@ -60,27 +61,25 @@ function CourseCard({
             <div className="p-3 absolute top-0 left-0">
               {!isLike ? (
                 <>
-                {!isLikeLoding &&<Image
-                  src={heart}
-                  alt=""
-                  width={40}
-                  height={40}
-                  onClick={() => likeCommentHandler()}
-                  className="h-full w-full"
-                />}
-                { isLikeLoding && <Spinner/>}
+                  {addCourseLikePending ? <Spinner /> : <MainTooltip content="افزودن به علاقه مندی"><Image
+                    src={heart}
+                    alt=""
+                    width={40}
+                    height={40}
+                    onClick={(event) => likeCommentHandler(event)}
+                    className="h-full w-full"
+                  /></MainTooltip>}
                 </>
               ) : (
                 <>
-                {!isLikeLoding &&<Image
-                  src={fillHeart}
-                  alt=""
-                  width={40}
-                  height={40}
-                  onClick={() => dislikeCommentHandler()}
-                  className="h-full w-full"
-                />}
-                { isLikeLoding && <Spinner/>}
+                  {addCourseDissLikePending ? <Spinner /> : <MainTooltip content="حذف از علاقه مندی"><Image
+                    src={fillHeart}
+                    alt=""
+                    width={40}
+                    height={40}
+                    onClick={(event) => dislikeCommentHandler(event)}
+                    className="h-full w-full"
+                  /></MainTooltip>}
                 </>
               )}
             </div>
@@ -93,9 +92,8 @@ function CourseCard({
             />
           </div>
           <div className="w-[85%] mx-auto flex flex-col gap-4">
-            <h2 
-            onClick={() => router.push(`/courses/${courseId}`)}
-            className="text-[20px] font-peyda font-bold text-lightTitle dark:text-darkTitle">
+            <h2
+              className="text-[20px] font-peyda font-bold text-lightTitle dark:text-darkTitle">
               {title}
             </h2>
             <p className="text-[15px] font-vazir font-bold text-lightBody dark:text-darkBody line-clamp-2">
@@ -123,9 +121,9 @@ function CourseCard({
               >
                 {calculateTimeAgo(lastUpdate)}
               </Chip>
-              <p className="text-md text-primary dark:text-primary-lighter font-peyda">
+              {cost && <p className="text-md text-primary dark:text-primary-lighter font-peyda">
                 {addCommasToPersianNumber(convertToPersianDigit(cost))} تومان
-              </p>
+              </p>}
             </div>
           </div>
         </div>
@@ -133,4 +131,5 @@ function CourseCard({
     </div>
   );
 }
+
 export default CourseCard;

@@ -47,3 +47,11 @@ export const updateProfileInfoApi = (payload: any) => {
     },
   });
 };
+
+export const getMyFavoriteCoursesApi = () => {
+  return httpService.get(baseUrl + `SharePanel/GetMyFavoriteCourses`);
+};
+
+export const getMyFavoriteNewsApi = () => {
+  return httpService.get(baseUrl + `SharePanel/GetMyFavoriteNews`);
+};

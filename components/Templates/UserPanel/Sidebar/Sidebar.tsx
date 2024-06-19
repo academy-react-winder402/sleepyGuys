@@ -5,6 +5,7 @@ import courses from "@/public/pictures/userPanel/p2.svg";
 import tikets from "@/public/pictures/userPanel/p3.svg";
 import profile from "@/public/pictures/userPanel/p4.svg";
 import exite from "@/public/pictures/userPanel/p5.svg";
+import heartIcon from "@/public/icons/solid/heart.svg"
 import navbarLogo from "@/public/icons/logo/navbarLogo.svg";
 import Link from "next/link";
 import MainButton from "@/components/Modules/Button/MainButton";
@@ -13,6 +14,7 @@ import { useRouter } from "next/router";
 
 function Sidedar() {
   const router = useRouter();
+
   const logoutUserHandler = () => {
     revokeToken()
     router.reload()
@@ -33,78 +35,92 @@ function Sidedar() {
       </div>
       <ul className="text-[16px] text-lightBody dark:text-darkBody font-peyda flex flex-col gap-5">
         <li >
-          <Link className="flex gap-2 items-center" href={"/userpanel"}> 
-          <span className="w-10">
-            <Image
-              src={dashboard}
-              priority={true}
-              alt=""
-              className="scale-80"
-              style={{ width: "auto" }}
-            />
-            
-          </span>
-          پیشخوان
-          </Link> 
-        </li>
-        <li>
-        <Link className="flex gap-2 items-center" href={"/userpanel/myCourses"}>
-          <span className="w-10">
-            <Image
-              src={courses}
-              priority={true}
-              alt=""
-              className="scale-80"
-              style={{ width: "auto" }}
-            />
-          </span>
-          دوره های من
-          </Link>
-        </li>
-        <li>
-        <Link className="flex gap-2 items-center" href={"/userpanel/myTikets"}>
-          <span className="w-10">
-            <Image
-              src={tikets}
-              priority={true}
-              alt=""
-              className="scale-80"
-              style={{ width: "auto" }}
-            />
-          </span>
-          تیکت ها
-          </Link>
-        </li>
-        <li>
-        <Link className="flex gap-2 items-center" href={"/userpanel/profile"}>
-          <span className="w-10">
-            <Image
-              src={profile}
-              priority={true}
-              alt=""
-              className="scale-80"
-              style={{ width: "auto" }}
-            />
-          </span>
+          <Link className="flex gap-2 items-center" href={"/userpanel"}>
+            <span className="w-10 flex justify-center">
+              <Image
+                src={dashboard}
+                priority={true}
+                alt=""
+                className="scale-80"
+                style={{ width: "auto" }}
+              />
 
-          پروفایل
+            </span>
+            پیشخوان
           </Link>
         </li>
         <li>
-        <Link className="flex gap-2 items-center" href={"/"}>
-          <span className="w-10">
-            <Image
-              src={exite}
-              priority={true}
-              alt=""
-              className="scale-80"
-              style={{ width: "auto" }}
-            />
-          </span>
-          <MainButton
+          <Link className="flex gap-2 items-center" href={"/userpanel/myCourses"}>
+            <span className="w-10 flex justify-center">
+              <Image
+                src={courses}
+                priority={true}
+                alt=""
+                className="scale-80"
+                style={{ width: "auto" }}
+              />
+            </span>
+            دوره های من
+          </Link>
+        </li>
+        <li>
+          <Link className="flex gap-2 items-center" href={"/userpanel/favorites"}>
+            <span className="w-10 flex justify-center">
+              <Image
+                src={heartIcon}
+                priority={true}
+                alt=""
+                className="scale-75"
+                style={{ width: "auto" }}
+              />
+            </span>
+            علاقه مندی های من
+          </Link>
+        </li>
+        <li>
+          <Link className="flex gap-2 items-center" href={"/userpanel/myTikets"}>
+            <span className="w-10 flex justify-center">
+              <Image
+                src={tikets}
+                priority={true}
+                alt=""
+                className="scale-80"
+                style={{ width: "auto" }}
+              />
+            </span>
+            تیکت ها
+          </Link>
+        </li>
+        <li>
+          <Link className="flex gap-2 items-center" href={"/userpanel/profile"}>
+            <span className="w-10 flex justify-center">
+              <Image
+                src={profile}
+                priority={true}
+                alt=""
+                className="scale-80"
+                style={{ width: "auto" }}
+              />
+            </span>
+
+            پروفایل
+          </Link>
+        </li>
+        <li>
+          <Link className="flex gap-2 items-center" href={"/"}>
+            <span className="w-10 flex justify-center">
+              <Image
+                src={exite}
+                priority={true}
+                alt=""
+                className="scale-80"
+                style={{ width: "auto" }}
+              />
+            </span>
+            <MainButton
               content={
                 <div className="text-[17px]">
-                خروج از حساب
+                  خروج از حساب
                 </div>
               }
               onClick={logoutUserHandler}
