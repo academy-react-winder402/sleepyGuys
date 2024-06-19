@@ -1,81 +1,74 @@
-import Image from "next/image";
-import React, { useState, ChangeEvent, FormEvent } from "react";
-import img from "@/public/pictures/userPanel/userProfile.png";
-import { SubmitHandler, useForm } from "react-hook-form";
+import React, { useEffect, useState } from "react";
+import fallbackImage from "@/public/pictures/userPanel/userProfile.png";
+import { Controller, SubmitHandler, useForm } from "react-hook-form";
 import MainButton from "@/components/Modules/Button/MainButton";
-import PrimaryInput from "@/components/Modules/Input/PrimaryInput";
-import { useAddProfileApi } from "@/hooks/api/usePanelApi";
+import { useAddProfileImageApi, useDeleteProfileImageApi } from "@/hooks/api/usePanelApi";
+import Image from "next/image";
+import { Skeleton } from "@nextui-org/react";
 
-export default function ProfileBox() {
-  const [selectedImage, setSelectedImage] = useState<File | null>(null);
-  const [preview, setPreview] = useState<string>(img.src);
-  const [imageDimensions, setImageDimensions] = useState({ width: 192, height: 192 });
-  const { register, formState: { errors }, reset } = useForm();
+export default function ProfileBox({ userImage, isLoading }: { userImage: any, isLoading: boolean }) {
+  const [preview, setPreview] = useState<string>(fallbackImage.src)
 
-  const handleFileChange = (e: ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0] || null;
-    setSelectedImage(file);
-    if (file) {
-      const objectUrl = URL.createObjectURL(file);
-      setPreview(objectUrl);
+  const { control, handleSubmit } = useForm();
 
-      
-      const image = new window.Image(); 
-      image.onload = () => {
-        setImageDimensions({ width: image.width, height: image.height });
-      };
-      image.src = objectUrl;
-    } else {
-      setPreview(img.src); 
-      setImageDimensions({ width: 192, height: 192 }); 
+  const { mutate: addProfileImageMutate, isPending: addProfileImagePending } = useAddProfileImageApi()
+
+  const { mutate: deleteProfileImageMutate, isPending: deleteProfileImagePending } = useDeleteProfileImageApi()
+
+  const changeImageHandler = (event: any, onChange: any) => {
+    const file = event.target.files[0]
+    onChange(file);
+
+    const objectUrl = URL.createObjectURL(file);
+    setPreview(objectUrl);
+  }
+
+  const submitFormHandler: SubmitHandler<any> = (data) => {
+    addProfileImageMutate(data)
+  }
+
+  useEffect(() => {
+    if (userImage) {
+      setPreview(userImage.puctureAddress)
     }
-  };
-
-  const addProfile = useAddProfileApi(reset)
-  const { mutate: addProfileMutate, isPending: addProfileMutateIsPending } = addProfile
-
-  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    addProfileMutate({
-        selectedImage,
-      })
-    console.log("Form submitted with data:", {
-      selectedImage,
-    });
-  };
-
-
+  }, [userImage])
   return (
     <>
-      <Image
+      {isLoading ? <Skeleton className="rounded-full w-[150px] h-[150px]" /> : <Image
         src={preview}
-        priority={true}
-        alt="Profile Picture"
-        className="h-48 w-48 rounded-full"
-        width={imageDimensions.width}
-        height={imageDimensions.height}
-      />
+        alt=""
+        className="h-[150px] w-[150px] rounded-full object-cover"
+        width={1000}
+        height={1000}
+      />}
       <form
-        onSubmit={handleSubmit}
+        onSubmit={handleSubmit(submitFormHandler)}
         className="flex flex-col gap-5 mt-10"
       >
-        <label htmlFor="fileInput" className="cursor-pointer text-white py-2 px-4 bg-primary flex justify-center items-center rounded-xl">
+        <label htmlFor="fileInput" className="cursor-pointer font-vazir text-white py-3 px-4 bg-primary dark:bg-primary-darker flex justify-center items-center rounded-xl text-xl">
           آپلود عکس
         </label>
-        <input
-          id="fileInput"
-          type="file"
-          name="image"
-          accept="image/*"
-          onChange={handleFileChange}
-          className="hidden"
-        />
-
+        <Controller name="formFile" rules={{ required: true }} control={control} render={({ field: { onChange } }) => (
+          <input
+            id="fileInput"
+            type="file"
+            name="image"
+            accept="image/*"
+            onChange={(event) => changeImageHandler(event, onChange)}
+            className="hidden"
+          />
+        )} />
         <MainButton
           content={<p>ثبت</p>}
           type="submit"
           className="bg-primary dark:bg-primary-darker text-btnText w-full py-[1.5rem] text-xl"
-          isLoading={false}
+          isLoading={addProfileImagePending}
+        />
+        <MainButton
+          content={<p>حذف عکس</p>}
+          className="bg-secondary text-btnText w-full py-[1.5rem] text-xl"
+          isLoading={deleteProfileImagePending}
+          onClick={() => deleteProfileImageMutate(userImage.id)}
         />
       </form>
     </>
