@@ -202,7 +202,7 @@ export const useDeleteCourseFavoriteApi = () => {
   const queryClient = useQueryClient();
 
   return useMutation({
-    mutationFn: (payload: { CourseFavoriteId: string }) =>
+    mutationFn: (payload: { CourseFavoriteId: string|undefined }) =>
       deleteCourseFavoriteApi(payload),
     onSuccess: () => {
       toast.success("این دوره از مورد علاقه های شما حذف شد");

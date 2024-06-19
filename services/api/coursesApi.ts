@@ -84,8 +84,7 @@ export const addCourseLikeApi = (CourseId: string) => {
 
 export const addCourseDissLikeApi = (CourseId: string) => {
   return httpService.post(
-    baseUrl +
-      `Course/AddCourseDissLike?CourseId=${CourseId}`
+    baseUrl + `Course/AddCourseDissLike?CourseId=${CourseId}`
   );
 };
 
@@ -102,7 +101,7 @@ export const addCourseFavoriteApi = (payload: {
 };
 
 export const deleteCourseFavoriteApi = (payload: {
-  CourseFavoriteId: string;
+  CourseFavoriteId: string | undefined;
 }) => {
   return httpService.delete(baseUrl + "Course/DeleteCourseFavorite", {
     headers: {
